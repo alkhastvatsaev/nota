@@ -19,6 +19,13 @@ describe("isCrmTenantAuthUser", () => {
     ).toBe(true);
     expect(isCrmTenantAuthUser({ isAnonymous: false } as never, { bmTenants: [] })).toBe(false);
   });
+
+  it("accepte un anonyme avec bmTenants (mode frictionless)", () => {
+    expect(isCrmTenantAuthUser({ isAnonymous: true } as never, { bmTenants: ["co-1:admin"] })).toBe(
+      true
+    );
+    expect(isCrmTenantAuthUser({ isAnonymous: true } as never, { bmTenants: [] })).toBe(false);
+  });
 });
 
 describe("recoverMainAuthFromClientPortalLeak", () => {

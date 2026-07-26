@@ -3,9 +3,11 @@ import { logger } from "@/core/logger";
 
 /** Utilisateur CRM tenant (custom claims synchronisés via /api/company/sync-claims). */
 export function isCrmTenantAuthUser(user: User, tokenClaims: Record<string, unknown>): boolean {
-  if (user.isAnonymous) return false;
   const tenants = tokenClaims.bmTenants;
-  return Array.isArray(tenants) && tenants.length > 0;
+  const hasTenants = Array.isArray(tenants) && tenants.length > 0;
+  // Anonyme sans claims = invité / leak recovery — pas un tenant CRM.
+  if (user.isAnonymous && !hasTenants) return false;
+  return hasTenants;
 }
 
 /**

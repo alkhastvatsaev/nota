@@ -124,10 +124,12 @@ export function isAnonymousFirebaseUser(decoded: admin.auth.DecodedIdToken): boo
 export function rejectAnonymousInProduction(
   decoded: admin.auth.DecodedIdToken
 ): NextResponse | null {
-  if (isProductionNodeEnv() && isAnonymousFirebaseUser(decoded)) {
-    return NextResponse.json({ ok: false, error: "Non autorisé." }, { status: 403 });
-  }
-  return null;
+  if (!isProductionNodeEnv() || !isAnonymousFirebaseUser(decoded)) return null;
+  // Mode découverte : comptes anonymes staff autorisés (join-default + claims).
+  if (process.env.NEXT_PUBLIC_FRICTIONLESS_AUTH?.trim() === "true") return null;
+  const tenants = (decoded as { bmTenants?: unknown }).bmTenants;
+  if (Array.isArray(tenants) && tenants.length > 0) return null;
+  return NextResponse.json({ ok: false, error: "Non autorisé." }, { status: 403 });
 }
 
 /** UID synthétique — routes Gmail en `npm run dev` sans login manuel. */

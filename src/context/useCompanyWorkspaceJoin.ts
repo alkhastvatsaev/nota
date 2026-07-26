@@ -3,7 +3,14 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { auth } from "@/core/config/firebase";
 import { requestDefaultCompanyMembership } from "@/features/auth";
+import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
 import { readClientPortalDefaultCompanyIdFromEnv } from "@/features/company/clientPortalCompanyId";
+
+function canJoinDefaultCompany(user: { isAnonymous: boolean } | null | undefined): boolean {
+  if (!user) return false;
+  if (!user.isAnonymous) return true;
+  return isFrictionlessAuthEnabled();
+}
 
 export function useCompanyWorkspaceJoin({
   authLoading,
@@ -32,7 +39,7 @@ export function useCompanyWorkspaceJoin({
 
   const retryDefaultCompanyJoin = useCallback(async () => {
     const user = auth?.currentUser;
-    if (!user || user.isAnonymous) return;
+    if (!canJoinDefaultCompany(user)) return;
     setMembershipJoinPending(true);
     setMembershipJoinError(null);
     try {
@@ -50,7 +57,7 @@ export function useCompanyWorkspaceJoin({
   useEffect(() => {
     if (!auth || authLoading || !membershipsReady || !shouldJoinDefault) return;
     const user = auth.currentUser;
-    if (!user || user.isAnonymous) return;
+    if (!canJoinDefaultCompany(user)) return;
 
     let cancelled = false;
     setMembershipJoinPending(true);

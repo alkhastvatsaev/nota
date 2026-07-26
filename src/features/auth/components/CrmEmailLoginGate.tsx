@@ -11,6 +11,8 @@ import {
   crmEmailLoginTestId,
   type CrmEmailLoginVariant,
 } from "@/features/auth/crmEmailLoginVariant";
+import { ensureSilentStaffAuth } from "@/features/auth/ensureSilentStaffAuth";
+import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
 
 type GatePhase = "checking" | "login" | "ready";
 
@@ -18,7 +20,7 @@ function resolveGatePhase(user: User | null): GatePhase {
   if (!isConfigured || !auth) {
     return process.env.NODE_ENV === "production" ? "login" : "ready";
   }
-  if (user && !user.isAnonymous) return "ready";
+  if (user && (!user.isAnonymous || isFrictionlessAuthEnabled())) return "ready";
   return "login";
 }
 
@@ -45,6 +47,9 @@ export default function CrmEmailLoginGate({ variant, children }: Props) {
         await auth.authStateReady();
       } catch {
         /* ignore */
+      }
+      if (isFrictionlessAuthEnabled() && !auth.currentUser) {
+        await ensureSilentStaffAuth(auth);
       }
       if (!cancelled) setPhase(resolveGatePhase(auth.currentUser));
     })();

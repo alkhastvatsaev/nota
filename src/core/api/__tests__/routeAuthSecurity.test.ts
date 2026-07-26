@@ -60,6 +60,7 @@ describe("isProductionNodeEnv", () => {
 describe("rejectAnonymousInProduction", () => {
   it("blocks anonymous in production", () => {
     process.env = { ...process.env, NODE_ENV: "production" };
+    delete process.env.NEXT_PUBLIC_FRICTIONLESS_AUTH;
     const res = rejectAnonymousInProduction({
       firebase: { sign_in_provider: "anonymous" },
     } as unknown as import("firebase-admin").auth.DecodedIdToken);
@@ -71,6 +72,26 @@ describe("rejectAnonymousInProduction", () => {
     expect(
       rejectAnonymousInProduction({
         firebase: { sign_in_provider: "password" },
+      } as unknown as import("firebase-admin").auth.DecodedIdToken)
+    ).toBeNull();
+  });
+
+  it("autorise anonyme en production si frictionless", () => {
+    process.env = { ...process.env, NODE_ENV: "production", NEXT_PUBLIC_FRICTIONLESS_AUTH: "true" };
+    expect(
+      rejectAnonymousInProduction({
+        firebase: { sign_in_provider: "anonymous" },
+      } as unknown as import("firebase-admin").auth.DecodedIdToken)
+    ).toBeNull();
+  });
+
+  it("autorise anonyme avec claims tenant même hors frictionless", () => {
+    process.env = { ...process.env, NODE_ENV: "production" };
+    delete process.env.NEXT_PUBLIC_FRICTIONLESS_AUTH;
+    expect(
+      rejectAnonymousInProduction({
+        firebase: { sign_in_provider: "anonymous" },
+        bmTenants: ["co-1:admin"],
       } as unknown as import("firebase-admin").auth.DecodedIdToken)
     ).toBeNull();
   });

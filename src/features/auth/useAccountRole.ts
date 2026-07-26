@@ -56,13 +56,13 @@ async function hasCompanyMembership(uid: string): Promise<boolean> {
 }
 
 async function resolveCrmTenantAccount(user: User): Promise<boolean> {
-  if (user.isAnonymous) return false;
   try {
     const token = await user.getIdTokenResult();
     if (isCrmTenantAuthUser(user, token.claims as Record<string, unknown>)) return true;
   } catch {
     /* ignore */
   }
+  // Mode frictionless : anonyme peut déjà avoir une membership Firestore avant refresh claims.
   return hasCompanyMembership(user.uid);
 }
 
