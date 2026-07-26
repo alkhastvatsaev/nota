@@ -30,11 +30,11 @@ describe("usePortalChatProfileBootstrap", () => {
     expect(mockRequestPortalChatProfileEnsure).toHaveBeenCalledWith(user, "co-1");
   });
 
-  it("surfaces permission errors from API bootstrap", async () => {
+  it("keeps chat ready if ensure-profile API fails (no blocking banner)", async () => {
     mockRequestPortalChatProfileEnsure.mockRejectedValue({ code: "permission-denied" });
     const { result } = renderHook(() => usePortalChatProfileBootstrap(true, "co-1", user, true));
 
-    await waitFor(() => expect(result.current.errorKey).toBe("chat.profile_permission_denied"));
-    expect(result.current.ready).toBe(false);
+    await waitFor(() => expect(result.current.ready).toBe(true));
+    expect(result.current.errorKey).toBeNull();
   });
 });
