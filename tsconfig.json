@@ -35,6 +35,8 @@
   "exclude": [
     "node_modules",
     "functions",
+    "marketing",
+    "marketing/**",
     ".next",
     ".next-e2e-gate",
     "out",
