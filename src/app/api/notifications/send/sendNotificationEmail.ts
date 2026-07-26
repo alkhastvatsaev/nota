@@ -37,7 +37,7 @@ export async function sendEmailNotification(input: {
   const htmlBody = buildEmailHtml(bodyKey, variables);
 
   await transporter.sendMail({
-    from: `"MAP BELGIQUE" <${gmailUser}>`,
+    from: `"NOTA" <${gmailUser}>`,
     to: recipientEmail,
     subject,
     html: htmlBody,

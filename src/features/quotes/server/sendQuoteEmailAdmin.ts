@@ -35,7 +35,7 @@ export function buildQuoteEmailBody(params: {
     "Pour accepter ce devis, répondez à cet e-mail ou contactez-nous.",
     "",
     "Cordialement,",
-    "MAP BELGIQUE"
+    "NOTA"
   );
   return lines.join("\n");
 }
@@ -110,7 +110,7 @@ export async function sendQuoteEmailAdmin(params: {
   const oauthReady = await isGmailOAuthConfigured();
   const replyToDomain =
     process.env.REPLY_TO_DOMAIN?.trim() ?? gmailUser?.split("@")[1] ?? "mapbelgique.com";
-  const fromName = process.env.EMAIL_FROM_NAME?.trim() || "MAP BELGIQUE";
+  const fromName = process.env.EMAIL_FROM_NAME?.trim() || "NOTA";
   const messageId = `<${crypto.randomUUID()}@${replyToDomain}>`;
   const replyTo = `devis+${quoteId}@${replyToDomain}`;
 

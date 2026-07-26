@@ -20,7 +20,7 @@
 
 Le code est prêt : `src/core/config/firebase-app-check.ts` (CRM + portail client). Il manque la config Firebase + la variable Vercel.
 
-**Projet** : `belgique-72708`  
+**Projet** : `belgique-72708` (nom affiché Firebase : **NOTA** — l’ID projet ne peut pas être renommé)  
 **App Web** : `1:889606998232:web:0e91036e1d7192e82dafad`  
 **Prod** : `https://heynota.app`
 

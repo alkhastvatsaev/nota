@@ -54,7 +54,7 @@ export function buildInterventionInvoicePdfBuffer(iv: InterventionInvoiceInput):
   doc.setFont("helvetica", "bold");
   doc.setFontSize(20);
   doc.setTextColor(...colors.primary);
-  doc.text("MAP BELGIQUE", 20, 22);
+  doc.text("NOTA", 20, 22);
 
   doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
@@ -150,7 +150,7 @@ export function buildInterventionInvoicePdfBuffer(iv: InterventionInvoiceInput):
   doc.setFont("helvetica", "italic");
   doc.setFontSize(8);
   doc.setTextColor(...colors.secondary);
-  doc.text("Document généré automatiquement — MAP BELGIQUE", 105, 285, { align: "center" });
+  doc.text("Document généré automatiquement — NOTA", 105, 285, { align: "center" });
 
   const arrayBuf = doc.output("arraybuffer");
   return Buffer.from(arrayBuf);

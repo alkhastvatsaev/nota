@@ -62,7 +62,7 @@ export async function sendViaGmailApi(params: GmailApiSendParams): Promise<void>
     );
   }
 
-  const fromName = process.env.EMAIL_FROM_NAME?.trim() || "MAP BELGIQUE";
+  const fromName = process.env.EMAIL_FROM_NAME?.trim() || "NOTA";
   const oauth2 = new OAuth2Client(clientId, clientSecret, redirectUri);
   oauth2.setCredentials({ refresh_token: refreshToken });
 

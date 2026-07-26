@@ -122,14 +122,14 @@ export function buildEmailHtml(bodyKey: string, vars: Record<string, string>): s
   return `
     <div style="font-family: 'Outfit', 'Inter', sans-serif; max-width: 600px; margin: 0 auto; background-color: #f8fafc; padding: 24px; border-radius: 12px;">
       <div style="text-align: center; margin-bottom: 24px;">
-        <h1 style="color: #0f172a; font-size: 20px; margin: 0;">MAP BELGIQUE</h1>
+        <h1 style="color: #0f172a; font-size: 20px; margin: 0;">NOTA</h1>
         <p style="color: #94a3b8; font-size: 12px; margin: 4px 0 0;">Expertise & Sécurité Mobile</p>
       </div>
       <div style="background: white; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0;">
         ${body}
       </div>
       <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #e2e8f0; text-align: center;">
-        <p style="color: #64748b; font-size: 13px; margin: 0;">L'équipe MAP BELGIQUE</p>
+        <p style="color: #64748b; font-size: 13px; margin: 0;">L'équipe NOTA</p>
         <p style="color: #94a3b8; font-size: 11px; margin: 4px 0 0;">Serrurerie · Alarme · Contrôle d'accès | Bruxelles</p>
       </div>
     </div>

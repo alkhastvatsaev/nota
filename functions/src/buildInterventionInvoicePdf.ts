@@ -30,11 +30,12 @@ export function buildInterventionInvoicePdfBuffer(iv: InterventionInvoiceInput):
   const activeLines = (iv.billingLines ?? []).filter(
     (l) => l.description.trim() && l.quantity > 0 && l.unitPriceCents > 0
   );
-  const htCents = activeLines.length > 0
-    ? activeLines.reduce((sum, l) => sum + Math.round(l.quantity * l.unitPriceCents), 0)
-    : typeof iv.invoiceAmountCents === "number" && iv.invoiceAmountCents > 0
-      ? Math.round(iv.invoiceAmountCents)
-      : 22000;
+  const htCents =
+    activeLines.length > 0
+      ? activeLines.reduce((sum, l) => sum + Math.round(l.quantity * l.unitPriceCents), 0)
+      : typeof iv.invoiceAmountCents === "number" && iv.invoiceAmountCents > 0
+        ? Math.round(iv.invoiceAmountCents)
+        : 22000;
   const tvaCents = Math.round(htCents * 0.06);
   const ttcCents = htCents + tvaCents;
 
@@ -55,7 +56,7 @@ export function buildInterventionInvoicePdfBuffer(iv: InterventionInvoiceInput):
   doc.setFont("helvetica", "bold");
   doc.setFontSize(20);
   doc.setTextColor(...colors.primary);
-  doc.text("MAP BELGIQUE", 20, 22);
+  doc.text("NOTA", 20, 22);
 
   doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
@@ -101,14 +102,22 @@ export function buildInterventionInvoicePdfBuffer(iv: InterventionInvoiceInput):
 
   y += 7 + probLines.length * 5 + 8;
 
-  const tableBody: string[][] = activeLines.length > 0
-    ? activeLines.map((l) => [
-        l.description.trim() + (l.reference ? ` [${l.reference}]` : ""),
-        String(l.quantity),
-        formatEur(l.unitPriceCents),
-        formatEur(Math.round(l.quantity * l.unitPriceCents)),
-      ])
-    : [["Prestation terrain — intervention réalisée et validée (photos + signature)", "1", formatEur(htCents), formatEur(htCents)]];
+  const tableBody: string[][] =
+    activeLines.length > 0
+      ? activeLines.map((l) => [
+          l.description.trim() + (l.reference ? ` [${l.reference}]` : ""),
+          String(l.quantity),
+          formatEur(l.unitPriceCents),
+          formatEur(Math.round(l.quantity * l.unitPriceCents)),
+        ])
+      : [
+          [
+            "Prestation terrain — intervention réalisée et validée (photos + signature)",
+            "1",
+            formatEur(htCents),
+            formatEur(htCents),
+          ],
+        ];
 
   autoTable(doc, {
     startY: y,
@@ -143,7 +152,7 @@ export function buildInterventionInvoicePdfBuffer(iv: InterventionInvoiceInput):
   doc.setFont("helvetica", "italic");
   doc.setFontSize(8);
   doc.setTextColor(...colors.secondary);
-  doc.text("Document généré automatiquement — MAP BELGIQUE", 105, 285, { align: "center" });
+  doc.text("Document généré automatiquement — NOTA", 105, 285, { align: "center" });
 
   const arrayBuf = doc.output("arraybuffer");
   return Buffer.from(arrayBuf);

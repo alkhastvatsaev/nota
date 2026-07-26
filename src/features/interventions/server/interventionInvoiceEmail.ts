@@ -30,7 +30,7 @@ export function buildInterventionInvoiceEmailBody(params: {
   if (params.paymentLinkUrl?.trim()) {
     lines.push(`Payer en ligne (carte bancaire) : ${params.paymentLinkUrl.trim()}`, "");
   }
-  lines.push("Cordialement,", "MAP BELGIQUE");
+  lines.push("Cordialement,", "NOTA");
   return lines.join("\n");
 }
 

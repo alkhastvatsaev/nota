@@ -39,7 +39,7 @@ export async function sendGmailThreadReply(
   const { senderEmail } = await resolveGmailOAuthConfig();
   if (!senderEmail) throw new Error("GMAIL_USER / compte OAuth manquant.");
 
-  const fromName = process.env.EMAIL_FROM_NAME?.trim() || "MAP BELGIQUE";
+  const fromName = process.env.EMAIL_FROM_NAME?.trim() || "NOTA";
   const messageId = `<${crypto.randomUUID()}@${senderEmail.split("@")[1] ?? "mapbelgique.com"}>`;
   const html = `<p>${bodyText.replace(/\n/g, "<br>")}</p>`;
   const lines = [

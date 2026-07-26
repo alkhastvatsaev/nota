@@ -53,7 +53,7 @@ describe("buildInterventionInvoiceEmailBody", () => {
     expect(body).toContain("Bonjour Marie");
     expect(body).toContain("Suivi en ligne : https://app.test/suivi/abc");
     expect(body).toContain("Payer en ligne (carte bancaire) : https://pay.test/inv");
-    expect(body).toContain("MAP BELGIQUE");
+    expect(body).toContain("NOTA");
   });
 
   it("fonctionne sans liens optionnels", () => {

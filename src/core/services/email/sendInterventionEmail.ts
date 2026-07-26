@@ -84,7 +84,7 @@ export async function sendInterventionEmail(
 
   const replyToDomain =
     process.env.REPLY_TO_DOMAIN?.trim() ?? gmailUser?.split("@")[1] ?? "mapbelgique.com";
-  const fromName = process.env.EMAIL_FROM_NAME?.trim() || "MAP BELGIQUE";
+  const fromName = process.env.EMAIL_FROM_NAME?.trim() || "NOTA";
   const messageId = `<${crypto.randomUUID()}@${replyToDomain}>`;
   const replyTo = `support+${interventionId}@${replyToDomain}`;
 

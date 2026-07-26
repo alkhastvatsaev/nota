@@ -24,17 +24,17 @@ export async function POST(req: Request) {
     });
 
     const mailOptions = {
-      from: `"MAP BELGIQUE" <${process.env.GMAIL_USER}>`,
+      from: `"NOTA" <${process.env.GMAIL_USER}>`,
       to: "testbelgiqueserrure@gmail.com", // Adresse de réception
-      subject: `MAP BELGIQUE - Devis d'intervention pour ${clientName}`,
+      subject: `NOTA - Devis d'intervention pour ${clientName}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; background-color: #f8fafc; padding: 20px; border-radius: 8px;">
-          <h2 style="color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">MAP BELGIQUE - Expertise & Sécurité Mobile</h2>
+          <h2 style="color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">NOTA - Expertise & Sécurité Mobile</h2>
           <p style="color: #334155; font-size: 16px;">Bonjour <strong>${clientName}</strong>,</p>
           <p style="color: #334155; font-size: 16px;">${message}</p>
           <p style="color: #334155; font-size: 16px;">Vous trouverez votre devis complet en pièce jointe au format PDF.</p>
           <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-            <p style="color: #64748b; font-size: 14px; margin: 0;">L'équipe MAP BELGIQUE</p>
+            <p style="color: #64748b; font-size: 14px; margin: 0;">L'équipe NOTA</p>
             <p style="color: #94a3b8; font-size: 12px; margin-top: 5px;">Serrurerie - Alarme - Contrôle d'accès | Bruxelles</p>
           </div>
         </div>

@@ -1,4 +1,4 @@
-# Déploiement Vercel + secrets GitHub (MAP BELGIQUE)
+# Déploiement Vercel + secrets GitHub (NOTA)
 
 Guide pas à pas — une fois configuré, le déploiement se fait en **1 clic** dans GitHub Actions.
 

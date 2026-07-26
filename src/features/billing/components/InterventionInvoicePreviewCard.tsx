@@ -66,9 +66,7 @@ export default function InterventionInvoicePreviewCard({
       {hasLines ? (
         <div className="rounded-2xl border border-slate-100 bg-white p-5 shadow-sm">
           <div className="mb-4 border-b border-slate-100 pb-4 text-center">
-            <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
-              MAP BELGIQUE
-            </p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">NOTA</p>
             <p className="mt-1 text-[17px] font-black text-slate-900">
               {String(t("technician_hub.finish.invoice.preview_heading"))}
             </p>

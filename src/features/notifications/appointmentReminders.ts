@@ -119,7 +119,7 @@ export function buildReminderMessage(candidate: ReminderCandidate): {
       ``,
       `Merci de vous assurer que l'accès est possible.`,
       ``,
-      `L'équipe MAP BELGIQUE`,
+      `L'équipe NOTA`,
     ].join("\n"),
   };
 }
