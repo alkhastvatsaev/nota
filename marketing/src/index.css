@@ -88,46 +88,44 @@
     font-family: var(--font-display);
   }
 
-  /* Contour bleu + scintillement gauche → droite sur le titre hero */
-  .nota-title-stroke {
-    color: var(--color-ink);
-    background-image: linear-gradient(
-      105deg,
-      var(--color-ink) 0%,
-      var(--color-ink) 40%,
-      #93c5fd 49%,
-      #eff6ff 50%,
-      #93c5fd 51%,
-      var(--color-ink) 60%,
-      var(--color-ink) 100%
-    );
-    background-size: 240% 100%;
-    background-position: 100% 0;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 9px var(--color-accent);
-    paint-order: stroke fill;
-    animation: nota-title-shimmer 2.8s ease-in-out infinite;
+  /* NOTA — contour fin + brillance premium sur l’extérieur uniquement */
+  .nota-mark {
+    padding: 0.1em 0.12em 0.16em 0.08em;
+    line-height: 1;
   }
 
-  @keyframes nota-title-shimmer {
-    0%,
-    12% {
-      background-position: 100% 0;
-    }
-    55%,
-    100% {
-      background-position: -120% 0;
-    }
+  .nota-mark-svg {
+    overflow: visible;
+  }
+
+  .nota-contour-base {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 2.4;
+    stroke-linejoin: round;
+    opacity: 0.78;
+  }
+
+  .nota-contour-shine {
+    fill: none;
+    stroke: #bfdbfe;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 38 540;
+    animation: nota-contour-run 3.6s linear infinite;
+    filter: drop-shadow(0 0 1.25px rgba(191, 219, 254, 0.9));
+  }
+
+  .nota-fill {
+    fill: var(--color-ink);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .nota-title-stroke {
+    .nota-contour-shine {
       animation: none;
-      background-image: none;
-      color: var(--color-ink);
-      -webkit-text-fill-color: var(--color-ink);
+      stroke: transparent;
+      filter: none;
     }
   }
 
@@ -150,5 +148,11 @@
   .skip-link-cta:focus {
     left: auto;
     right: 1rem;
+  }
+}
+
+@keyframes nota-contour-run {
+  to {
+    stroke-dashoffset: -578;
   }
 }
