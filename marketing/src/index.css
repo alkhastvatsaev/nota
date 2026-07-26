@@ -88,7 +88,7 @@
     font-family: var(--font-display);
   }
 
-  /* NOTA — contour fin + brillance premium sur l’extérieur uniquement */
+  /* NOTA — contour fin + lampe qui balaie gauche → droite (extérieur only) */
   .nota-mark {
     padding: 0.1em 0.12em 0.16em 0.08em;
     line-height: 1;
@@ -101,20 +101,21 @@
   .nota-contour-base {
     fill: none;
     stroke: var(--color-accent);
-    stroke-width: 2.4;
+    stroke-width: 2.2;
     stroke-linejoin: round;
-    opacity: 0.78;
+    opacity: 0.55;
   }
 
-  .nota-contour-shine {
+  .nota-contour-lit {
     fill: none;
-    stroke: #bfdbfe;
-    stroke-width: 2.8;
-    stroke-linecap: round;
+    stroke: #e0f2fe;
+    stroke-width: 2.6;
     stroke-linejoin: round;
-    stroke-dasharray: 38 540;
-    animation: nota-contour-run 3.6s linear infinite;
-    filter: drop-shadow(0 0 1.25px rgba(191, 219, 254, 0.9));
+    filter: drop-shadow(0 0 1.5px rgba(125, 211, 252, 0.75));
+  }
+
+  .nota-lamp-beam {
+    animation: nota-lamp-sweep 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
 
   .nota-fill {
@@ -122,10 +123,17 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .nota-contour-shine {
+    .nota-lamp-beam {
       animation: none;
-      stroke: transparent;
+    }
+
+    .nota-contour-lit {
       filter: none;
+      stroke: transparent;
+    }
+
+    .nota-contour-base {
+      opacity: 0.78;
     }
   }
 
@@ -151,8 +159,13 @@
   }
 }
 
-@keyframes nota-contour-run {
-  to {
-    stroke-dashoffset: -578;
+@keyframes nota-lamp-sweep {
+  0%,
+  12% {
+    transform: translateX(0);
+  }
+  62%,
+  100% {
+    transform: translateX(900px);
   }
 }
