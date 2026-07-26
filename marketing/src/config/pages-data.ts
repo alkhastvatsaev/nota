@@ -9,7 +9,7 @@ export const HOME_SEO: PageSeo = {
   path: "/",
   title: "Nota — Suivi client simple, sans inscription",
   description:
-    "Nota rassemble vos clients, notes et rappels. Voyez où en est chaque affaire. Sans compte, accès immédiat.",
+    "Nota rassemble pour vous clients, notes et rappels. Voyez où en est chaque affaire. Sans compte, accès immédiat.",
   priority: 1,
 };
 

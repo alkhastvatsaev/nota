@@ -8,7 +8,7 @@ export function MidCta() {
       aria-label="Accéder à Nota"
     >
       <p className="font-display text-xl tracking-tight text-ink sm:text-2xl">
-        Essayez Nota — sans créer de compte.
+        C’est à vous — sans créer de compte.
       </p>
       <p className="mt-2 text-sm text-mute">Sans inscription · Accès immédiat</p>
       <div className="mt-6 hidden justify-center md:flex">

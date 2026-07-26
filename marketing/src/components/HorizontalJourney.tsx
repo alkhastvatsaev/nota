@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 
-/** Clair pour tout le monde — ni jargon, ni phrases vides. */
+/** Clair + Carnegie : parlons de *vous*, sans jargon. */
 const chapters = [
-  { title: "Noter", line: "Ce que le client a dit, gardé." },
-  { title: "Suivre", line: "Voir où en est chaque affaire." },
-  { title: "Rappeler", line: "Qui relancer, et quand." },
+  { title: "Noter", line: "Ce qu’ils vous disent, gardé." },
+  { title: "Suivre", line: "Vous voyez où en est chaque affaire." },
+  { title: "Rappeler", line: "Vous savez qui relancer, et quand." },
 ];
 
 export function HorizontalJourney() {

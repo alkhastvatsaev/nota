@@ -7,11 +7,11 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "C’est quoi Nota ?",
     answer:
-      "Un outil pour suivre vos clients : notes, étapes de chaque affaire, et rappels — au même endroit.",
+      "L’outil qui rassemble pour vous : notes clients, étapes de chaque affaire, et rappels — au même endroit.",
   },
   {
     question: "Faut-il s’inscrire ?",
-    answer: "Non. Cliquez sur Ouvrir Nota et commencez tout de suite.",
+    answer: "Non. Ouvrez Nota : c’est à vous, tout de suite.",
   },
   {
     question: "Nota remplace Excel ?",
