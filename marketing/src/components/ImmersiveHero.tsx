@@ -1,7 +1,6 @@
 import { lazy, Suspense, useRef } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { OpenNotaLink } from "./OpenNotaLink";
-import { NotaMark } from "./NotaMark";
 
 const ParticleField = lazy(() =>
   import("./ui/ParticleField").then((m) => ({ default: m.ParticleField }))
@@ -50,10 +49,13 @@ export function ImmersiveHero() {
       >
         <motion.h1
           style={{ y: yTitle }}
-          className="font-display overflow-visible text-[clamp(3.25rem,13vw,9rem)] leading-none tracking-tight text-ink"
+          initial={reduce ? false : { opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...spring, delay: 0.08 }}
+          className="font-display text-[clamp(3.25rem,13vw,9rem)] leading-[0.95] tracking-tight text-ink"
         >
-          <NotaMark />
-          <span className="sr-only">NOTA — Vos clients, notes et rappels au même endroit</span>
+          NOTA
+          <span className="sr-only"> — Vos clients, notes et rappels au même endroit</span>
         </motion.h1>
 
         <motion.p

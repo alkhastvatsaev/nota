@@ -108,42 +108,4 @@
     left: auto;
     right: 1rem;
   }
-
-  /* Zone marque — padding pour ne pas rogner le stroke du A */
-  .nota-mark {
-    padding: 0.08em 0.1em 0.14em 0.06em;
-    line-height: 1;
-  }
-
-  .nota-mark-svg {
-    overflow: visible;
-  }
-
-  /* Contour : tiret lumineux qui court le long du tracé des lettres */
-  .nota-contour {
-    fill: none;
-    stroke: #3b82f6;
-    stroke-width: 5.5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 36 280;
-    animation: nota-contour-run 2.6s linear infinite;
-  }
-
-  .nota-fill {
-    fill: var(--color-ink);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .nota-contour {
-      animation: none;
-      stroke: transparent;
-    }
-  }
-}
-
-@keyframes nota-contour-run {
-  to {
-    stroke-dashoffset: -316;
-  }
 }
