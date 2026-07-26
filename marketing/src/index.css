@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Open Sans", Arial, Helvetica, "Segoe UI", sans-serif;
+  --font-sans: "Open Sans", Arial, Helvetica, "Segoe UI", sans-serif;
+
+  --color-ink: #0b1f3a;
+  --color-void: #ffffff;
+  --color-mute: #2f4a6b;
+  --color-line: #c5d7ef;
+  --color-accent: #1d4ed8;
+  --color-accent-deep: #1e3a8a;
+  --color-on-accent: #ffffff;
+  --color-mist: #f0f6ff;
+  --color-sky-soft: #e8f1fc;
+}
+
+@layer base {
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.6;
+    background: var(--color-void);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body,
+  body * {
+    font-weight: 700 !important;
+  }
+
+  input,
+  textarea,
+  button {
+    font-family: inherit;
+  }
+
+  /* Visible keyboard focus — required for a11y */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--color-accent) 28%, transparent);
+    color: var(--color-ink);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100%;
+    z-index: 100;
+    border-radius: 999px;
+    background: var(--color-ink);
+    color: var(--color-void);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  .skip-link-cta:focus {
+    left: auto;
+    right: 1rem;
+  }
+
+  /* Shimmer marque NOTA — très discret (inspiré Text Shimmer 21st.dev) */
+  .nota-shimmer-letter {
+    background-image: linear-gradient(
+      105deg,
+      var(--color-ink) 0%,
+      var(--color-ink) 38%,
+      color-mix(in oklab, var(--color-accent) 55%, var(--color-ink)) 50%,
+      var(--color-ink) 62%,
+      var(--color-ink) 100%
+    );
+    background-size: 220% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: nota-shimmer 9s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nota-shimmer-letter {
+      background: none;
+      color: var(--color-ink);
+      -webkit-text-fill-color: var(--color-ink);
+      animation: none;
+    }
+  }
+}
+
+@keyframes nota-shimmer {
+  0%,
+  100% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+}
