@@ -1484,7 +1484,7 @@
     "admin_space_subtitle": "Войдите, чтобы получить доступ к панели управления",
     "demo_account_label": "Демо-аккаунт",
     "demo_account_hint": "Нажмите, чтобы заполнить демо-учётные данные",
-    "oauth_unauthorized_domain_hint": "Firebase Console → Authentication → Настройки → Авторизованные домены: добавьте crmslot.vercel.app.",
+    "oauth_unauthorized_domain_hint": "Firebase Console → Authentication → Настройки → Авторизованные домены: добавьте getnota.vercel.app.",
     "oauth_popup_blocked_hint": "Safari блокирует окно Apple — разрешите всплывающие окна для этого сайта и повторите попытку."
   },
   "requester": {

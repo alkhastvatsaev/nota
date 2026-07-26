@@ -1484,7 +1484,7 @@
     "admin_space_subtitle": "Meld je aan voor toegang tot het dashboard",
     "demo_account_label": "Demo-account",
     "demo_account_hint": "Tik om demo-gegevens in te vullen",
-    "oauth_unauthorized_domain_hint": "Firebase Console → Authentication → Instellingen → Geautoriseerde domeinen: voeg crmslot.vercel.app toe.",
+    "oauth_unauthorized_domain_hint": "Firebase Console → Authentication → Instellingen → Geautoriseerde domeinen: voeg getnota.vercel.app toe.",
     "oauth_popup_blocked_hint": "Safari blokkeert het Apple-venster — sta pop-ups toe voor deze site en probeer opnieuw."
   },
   "requester": {

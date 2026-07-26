@@ -1484,7 +1484,7 @@
     "admin_space_subtitle": "Connectez-vous pour accéder au tableau de bord",
     "demo_account_label": "Compte démo",
     "demo_account_hint": "Cliquez pour pré-remplir les identifiants démo",
-    "oauth_unauthorized_domain_hint": "Firebase Console → Authentication → Paramètres → Domaines autorisés : ajoutez crmslot.vercel.app.",
+    "oauth_unauthorized_domain_hint": "Firebase Console → Authentication → Paramètres → Domaines autorisés : ajoutez getnota.vercel.app.",
     "oauth_popup_blocked_hint": "Safari bloque la fenêtre Apple — autorisez les pop-ups pour ce site puis réessayez."
   },
   "requester": {

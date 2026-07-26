@@ -10,7 +10,7 @@ export default defineConfig({
   reporter: "list",
   outputDir: "test-results/diag-playwright",
   use: {
-    baseURL: process.env.PLAYWRIGHT_PROD_URL ?? "https://crmslot.vercel.app",
+    baseURL: process.env.PLAYWRIGHT_PROD_URL ?? "https://getnota.vercel.app",
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
     video: "retain-on-failure",

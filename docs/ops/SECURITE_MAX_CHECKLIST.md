@@ -22,7 +22,7 @@ Le code est prêt : `src/core/config/firebase-app-check.ts` (CRM + portail clien
 
 **Projet** : `belgique-72708`  
 **App Web** : `1:889606998232:web:0e91036e1d7192e82dafad`  
-**Prod** : `https://crmslot.vercel.app`
+**Prod** : `https://getnota.vercel.app`
 
 ### Phase 1 — Créer reCAPTCHA v3 (Google)
 
@@ -31,7 +31,7 @@ Le code est prêt : `src/core/config/firebase-app-check.ts` (CRM + portail clien
 3. **Type** : **reCAPTCHA v3**
 4. **Domaines** :
    ```
-   crmslot.vercel.app
+   getnota.vercel.app
    localhost
    127.0.0.1
    ```
@@ -64,7 +64,7 @@ NEXT_PUBLIC_FIREBASE_APP_CHECK_SITE_KEY=6Lxxxxxxxx...
 
 ### Phase 4 — Vérifier (AVANT enforcement)
 
-1. Ouvrir `https://crmslot.vercel.app`, se connecter
+1. Ouvrir `https://getnota.vercel.app`, se connecter
 2. [App Check → Metrics](https://console.firebase.google.com/project/belgique-72708/appcheck) : voir des requêtes **verified**
 3. Si 0 % : vérifier domaines reCAPTCHA, variable Vercel, DevTools → `[appCheck] init failed`
 

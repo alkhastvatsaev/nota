@@ -63,12 +63,12 @@ describe("material order push helpers", () => {
   });
 
   it("opens feature hub from push click url", () => {
-    const url = resolvePushNotificationOpenUrl("https://crmslot.vercel.app", {
+    const url = resolvePushNotificationOpenUrl("https://getnota.vercel.app", {
       type: MATERIAL_ORDER_PUSH_TYPE,
       supplierOrderId: "sup-abc",
       companyId: "co-1",
     });
-    expect(url).toBe("https://crmslot.vercel.app/?bmMaterialOrder=sup-abc");
+    expect(url).toBe("https://getnota.vercel.app/?bmMaterialOrder=sup-abc");
   });
 });
 

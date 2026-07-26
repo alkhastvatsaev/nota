@@ -47,17 +47,17 @@ Les 3 anciens produits archivés ne cassent rien tant que le nouveau `price_…`
 Fichier hébergé : `public/.well-known/apple-developer-merchantid-domain-association` (fichier Stripe standard).
 
 Après déploiement, enregistrer le domaine prod dans Stripe (clé **live**) — Dashboard :
-[Settings → Payment methods → Apple Pay](https://dashboard.stripe.com/settings/payment_methods/apple_pay) → **Add domain** → `crmslot.vercel.app` → **Verify**.
+[Settings → Payment methods → Apple Pay](https://dashboard.stripe.com/settings/payment_methods/apple_pay) → **Add domain** → `getnota.vercel.app` → **Verify**.
 
 Ou en CLI :
 
 ```bash
 curl https://api.stripe.com/v1/payment_method_domains \
   -u "$STRIPE_SECRET_KEY:" \
-  -d domain_name=crmslot.vercel.app
+  -d domain_name=getnota.vercel.app
 ```
 
-Tester en **Safari** sur Mac avec une carte dans Wallet. Vérifier : `curl -I https://crmslot.vercel.app/.well-known/apple-developer-merchantid-domain-association`
+Tester en **Safari** sur Mac avec une carte dans Wallet. Vérifier : `curl -I https://getnota.vercel.app/.well-known/apple-developer-merchantid-domain-association`
 
 ## Tests
 
