@@ -88,82 +88,6 @@
     font-family: var(--font-display);
   }
 
-  /* NOTA — contour fin + lampe L→R sur l’extérieur (Safari-safe) */
-  .nota-mark {
-    position: relative;
-    display: inline-block;
-    line-height: 1;
-    padding: 0.06em 0.08em 0.1em;
-  }
-
-  .nota-mark-stroke,
-  .nota-mark-fill {
-    display: block;
-    white-space: nowrap;
-  }
-
-  .nota-mark-stroke--lit,
-  .nota-mark-fill {
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  .nota-mark-stroke {
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    paint-order: stroke fill;
-  }
-
-  .nota-mark-stroke--base {
-    -webkit-text-stroke: 1.75px var(--color-accent);
-  }
-
-  .nota-mark-stroke--lit {
-    -webkit-text-stroke: 2.25px #7dd3fc;
-    filter: drop-shadow(0 0 2px rgba(56, 189, 248, 0.55));
-    -webkit-mask-image: linear-gradient(
-      90deg,
-      transparent 0%,
-      transparent 38%,
-      #000 47%,
-      #000 53%,
-      transparent 62%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      90deg,
-      transparent 0%,
-      transparent 38%,
-      #000 47%,
-      #000 53%,
-      transparent 62%,
-      transparent 100%
-    );
-    -webkit-mask-size: 280% 100%;
-    mask-size: 280% 100%;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: 100% 0;
-    mask-position: 100% 0;
-    animation: nota-lamp-sweep 4.6s cubic-bezier(0.45, 0, 0.2, 1) infinite;
-  }
-
-  .nota-mark-fill {
-    color: var(--color-ink);
-    -webkit-text-fill-color: var(--color-ink);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .nota-mark-stroke--lit {
-      animation: none;
-      -webkit-mask-image: none;
-      mask-image: none;
-      filter: none;
-      visibility: hidden;
-    }
-  }
-
   .skip-link {
     position: absolute;
     left: 1rem;
@@ -183,18 +107,5 @@
   .skip-link-cta:focus {
     left: auto;
     right: 1rem;
-  }
-}
-
-@keyframes nota-lamp-sweep {
-  0%,
-  14% {
-    -webkit-mask-position: 100% 0;
-    mask-position: 100% 0;
-  }
-  58%,
-  100% {
-    -webkit-mask-position: 0% 0;
-    mask-position: 0% 0;
   }
 }
