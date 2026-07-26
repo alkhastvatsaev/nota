@@ -1,12 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import type { User } from "firebase/auth";
 import { auth } from "@/core/config/firebase";
 import { requestDefaultCompanyMembership } from "@/features/auth";
 import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
 import { readClientPortalDefaultCompanyIdFromEnv } from "@/features/company/clientPortalCompanyId";
 
-function canJoinDefaultCompany(user: { isAnonymous: boolean } | null | undefined): boolean {
+function canJoinDefaultCompany(user: User | null | undefined): user is User {
   if (!user) return false;
   if (!user.isAnonymous) return true;
   return isFrictionlessAuthEnabled();
