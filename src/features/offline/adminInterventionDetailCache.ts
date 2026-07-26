@@ -1,6 +1,6 @@
 import type { Intervention } from "@/features/interventions";
 
-const STORAGE_PREFIX = "crmslot_admin_iv_detail_";
+const STORAGE_PREFIX = "nota_admin_iv_detail_";
 const MAX_ENTRIES = 40;
 
 export function adminInterventionDetailCacheKey(interventionId: string): string {

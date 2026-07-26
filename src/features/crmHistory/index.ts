@@ -22,7 +22,7 @@ export {
 export { logCrmCompanyAction } from "@/features/crmHistory/logCrmCompanyAction";
 export { logCrmAfterDocumentBilling } from "@/features/crmHistory/logCrmAfterDocumentBilling";
 export {
-  CRMSLOT_CRM_ORDERS_CHANGED_EVENT,
+  NOTA_CRM_ORDERS_CHANGED_EVENT,
   dispatchCrmOrdersChanged,
 } from "@/features/crmHistory/crmOrdersChangedEvent";
 export type { CrmOrdersChangedDetail } from "@/features/crmHistory/crmOrdersChangedEvent";

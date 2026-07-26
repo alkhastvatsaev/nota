@@ -65,7 +65,7 @@ export function buildFcmNativePushPayload(
 ): Omit<Message, "token"> {
   const { origin, openUrl, data } = resolveOriginAndUrl(params);
   const channelId = resolveAndroidPushChannelId(params.data);
-  const tag = data.type?.trim() || "crmslot";
+  const tag = data.type?.trim() || "nota";
 
   return {
     notification: { title: params.title, body: params.body },

@@ -1,6 +1,6 @@
-# Chantiers complexes — CRMSLOT (PWA)
+# Chantiers complexes — NOTA (PWA)
 
-Document de référence sur les **plus gros travaux** à prévoir pour faire passer CRMSLOT d’un prototype riche à une **PWA métier fiable en production**.
+Document de référence sur les **plus gros travaux** à prévoir pour faire passer NOTA d’un prototype riche à une **PWA métier fiable en production**.
 
 Dernière mise à jour : mai 2026.
 

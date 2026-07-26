@@ -2,7 +2,7 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-CRMSLOT. Plan mode gros diff. @fichier:ligne. Tests → AGENTS.md si besoin.
+NOTA. Plan mode gros diff. @fichier:ligne. Tests → AGENTS.md si besoin.
 
 ## gstack
 

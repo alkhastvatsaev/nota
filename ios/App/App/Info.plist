@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-        <string>CRMSLOT</string>
+        <string>NOTA</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -46,21 +46,21 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>CRMSLOT utilise votre position pour afficher les interventions et techniciens à proximité.</string>
+	<string>NOTA utilise votre position pour afficher les interventions et techniciens à proximité.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>CRMSLOT suit la position des techniciens en intervention pour les missions actives.</string>
+	<string>NOTA suit la position des techniciens en intervention pour les missions actives.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>CRMSLOT utilise la caméra pour scanner les codes QR, photographier les pannes et joindre des preuves aux interventions.</string>
+	<string>NOTA utilise la caméra pour scanner les codes QR, photographier les pannes et joindre des preuves aux interventions.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>CRMSLOT accède à votre galerie pour joindre des photos aux interventions.</string>
+	<string>NOTA accède à votre galerie pour joindre des photos aux interventions.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>CRMSLOT enregistre les documents générés (devis, factures) dans votre galerie.</string>
+	<string>NOTA enregistre les documents générés (devis, factures) dans votre galerie.</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>CRMSLOT utilise le micro pour les notes vocales du chatbot.</string>
+	<string>NOTA utilise le micro pour les notes vocales du chatbot.</string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>CRMSLOT utilise Face ID pour sécuriser l'accès à votre espace.</string>
+	<string>NOTA utilise Face ID pour sécuriser l'accès à votre espace.</string>
 	<key>NSContactsUsageDescription</key>
-	<string>CRMSLOT accède aux contacts pour faciliter la création de clients.</string>
+	<string>NOTA accède aux contacts pour faciliter la création de clients.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

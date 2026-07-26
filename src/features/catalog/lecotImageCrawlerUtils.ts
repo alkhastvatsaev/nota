@@ -15,7 +15,7 @@ export function clearLecotPageImageCache(): void {
 
 export const HTML_FETCH_HEADERS = {
   Accept: "text/html,application/xhtml+xml",
-  "User-Agent": "Mozilla/5.0 (compatible; CrmslotImageCrawler/1.0) AppleWebKit/537.36",
+  "User-Agent": "Mozilla/5.0 (compatible; NotaImageCrawler/1.0) AppleWebKit/537.36",
 };
 
 export async function mapPool<T, R>(

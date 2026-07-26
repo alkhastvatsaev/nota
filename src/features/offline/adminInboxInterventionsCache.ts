@@ -1,6 +1,6 @@
 import type { Intervention } from "@/features/interventions";
 
-const STORAGE_PREFIX = "crmslot_admin_inbox_";
+const STORAGE_PREFIX = "nota_admin_inbox_";
 
 /** Clé stable — même format que `companyScopeKey` back-office. */
 export function adminInboxCacheKey(companyScopeKey: string): string {

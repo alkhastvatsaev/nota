@@ -1,4 +1,4 @@
-# Workflow Cursor — repo CRMSLOT
+# Workflow Cursor — repo NOTA
 
 Guide pour sessions **rapides**, **peu gourmandes** et **focalisées**. Complète `docs/agents/PARALLEL_WORK.md` (qui touche quoi) et `AGENTS.md` (tests essentiels).
 
@@ -77,9 +77,9 @@ Ne pas toucher : i18n, page.tsx, autres hubs
 ## Worktree (Cursor + Claude Code en vrai parallèle)
 
 ```bash
-git worktree add ../CRMSLOT-claude claude/work
-# Cursor  → CRMSLOT/
-# Claude  → CRMSLOT-claude/
+git worktree add ../NOTA-claude claude/work
+# Cursor  → NOTA/
+# Claude  → NOTA-claude/
 ```
 
 Chaque clone a son index Cursor séparé → moins de conflits et moins de RAM partagée.

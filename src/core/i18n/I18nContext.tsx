@@ -72,7 +72,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsClient(true);
-    const storedLang = localStorage.getItem("crmslot_lang") as Language;
+    const storedLang = localStorage.getItem("nota_lang") as Language;
     if (storedLang && ["fr", "en", "nl", "ru"].includes(storedLang)) {
       setLanguageState(storedLang);
     }
@@ -81,7 +81,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     if (typeof window !== "undefined") {
-      localStorage.setItem("crmslot_lang", lang);
+      localStorage.setItem("nota_lang", lang);
     }
   };
 

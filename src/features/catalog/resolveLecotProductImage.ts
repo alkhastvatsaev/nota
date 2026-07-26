@@ -21,8 +21,7 @@ export type { LecotImageLookupInput } from "@/features/catalog/lecotProductImage
 
 const HTML_FETCH_HEADERS = {
   Accept: "text/html,application/xhtml+xml",
-  "User-Agent":
-    "Mozilla/5.0 (compatible; CrmslotStock/1.0; +https://crmslot.app) AppleWebKit/537.36",
+  "User-Agent": "Mozilla/5.0 (compatible; NotaStock/1.0; +https://nota.app) AppleWebKit/537.36",
 };
 
 function cacheKey(input: LecotImageLookupInput): string {

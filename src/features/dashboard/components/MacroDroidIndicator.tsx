@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useIsMobile } from "@/features/dashboard/hooks/useIsMobile";
 import { useFeatureFlag } from "@/core/useFeatureFlags";
 
-const SESSION_LAST_PROCESSED = "crmslot_macrodroid_last_processed_at";
+const SESSION_LAST_PROCESSED = "nota_macrodroid_last_processed_at";
 
 export default function MacroDroidIndicator() {
   const isMobile = useIsMobile();

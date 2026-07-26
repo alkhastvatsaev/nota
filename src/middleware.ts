@@ -32,7 +32,7 @@ const SECURITY_HEADERS: Array<[string, string]> = [
 ];
 
 /**
- * CSP minimal pour CRMSLOT — Firebase, Mapbox, Stripe, Sentry, Google Fonts.
+ * CSP minimal pour NOTA — Firebase, Mapbox, Stripe, Sentry, Google Fonts.
  * Étendre les `*-src` au cas par cas via PR + observation des rapports CSP.
  */
 function buildCsp(): string {

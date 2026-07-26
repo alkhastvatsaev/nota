@@ -27,7 +27,7 @@ test.describe("Dashboard Rail System Layout", () => {
     await skipIfStaffLoginGate(page);
     await ensureDesktopShell(page);
 
-    await expect(page).toHaveTitle(/testbelgiquepwa|crmslot/i);
+    await expect(page).toHaveTitle(/testbelgiquepwa|nota/i);
     await expect(page.getByTestId("dashboard-page-home")).toBeVisible();
     await expect(page.locator("#map-container")).toBeVisible({ timeout: 60_000 });
     await expect(page.getByTestId("dashboard-galaxy-dock")).toBeVisible();

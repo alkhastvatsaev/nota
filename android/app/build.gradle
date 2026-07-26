@@ -14,8 +14,8 @@ android {
         admin {
             dimension "satellite"
             applicationId "com.crmslot.admin"
-            resValue "string", "app_name", "CRMSLOT Admin"
-            resValue "string", "title_activity_main", "CRMSLOT Admin"
+            resValue "string", "app_name", "NOTA Admin"
+            resValue "string", "title_activity_main", "NOTA Admin"
         }
     }
     defaultConfig {

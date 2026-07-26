@@ -34,7 +34,7 @@ export function buildMaterialAgentSystemPrompt(params: {
     ? `4. order_lecot_parts : clientName = "${params.interventionOrder.clientName}", interventionId = "${params.interventionOrder.interventionId}" + SKU et unitPriceEur EXACTS issus de search_lecot_products, quantity=1.`
     : `4. order_lecot_parts : clientName = "${params.companyName}" + SKU et unitPriceEur EXACTS issus de search_lecot_products, quantity=1.`;
 
-  return `Tu es l'Agent Matériel CRMSLOT — spécialiste EXCLUSIF du stock et des commandes matériel.
+  return `Tu es l'Agent Matériel NOTA — spécialiste EXCLUSIF du stock et des commandes matériel.
 
 PÉRIMÈTRE STRICT : stock, inventaire, alertes de seuil, commandes matériel, catalogue Lecot, réapprovisionnement.
 

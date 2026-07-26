@@ -4,8 +4,7 @@ import { FEATURE_HUB_SLOT_INDEX } from "@/features/featureHub/featureHubConstant
 import { BM_MATERIAL_ORDER_PARAM } from "@/features/notifications/notificationConstants";
 import type { MaterialOrderNotificationIntent } from "@/features/notifications/materialOrderNotificationUrls";
 
-export const MATERIAL_ORDER_NOTIFICATION_INTENT_EVENT =
-  "crmslot:material-order-notification-intent";
+export const MATERIAL_ORDER_NOTIFICATION_INTENT_EVENT = "nota:material-order-notification-intent";
 
 export function dispatchMaterialOrderNotificationIntent(
   intent: MaterialOrderNotificationIntent

@@ -73,7 +73,7 @@ describe("CompanyWorkspaceContext", () => {
   });
 
   it("ne souscrit pas Firestore avant l'auth (authLoading)", () => {
-    window.localStorage.removeItem("crmslot_active_company_id");
+    window.localStorage.removeItem("nota_active_company_id");
     const { onAuthStateChanged } = jest.requireMock("firebase/auth") as {
       onAuthStateChanged: jest.Mock;
     };
@@ -91,7 +91,7 @@ describe("CompanyWorkspaceContext", () => {
   });
 
   it("purge un activeCompanyId localStorage périmé quand il n'y a plus de société", async () => {
-    window.localStorage.setItem("crmslot_active_company_id", "company-abc");
+    window.localStorage.setItem("nota_active_company_id", "company-abc");
     mockState.firestoreData["users/mock-user-123/company_memberships"] = [];
 
     render(
@@ -108,12 +108,12 @@ describe("CompanyWorkspaceContext", () => {
       expect(screen.getByTestId("workspace-ready").textContent).toBe("true");
       expect(screen.getByTestId("company-id").textContent).toBe("empty");
       expect(screen.getByTestId("is-tenant").textContent).toBe("false");
-      expect(window.localStorage.getItem("crmslot_active_company_id")).toBeNull();
+      expect(window.localStorage.getItem("nota_active_company_id")).toBeNull();
     });
   });
 
   it("bascule vers une société valide si l'ancienne membership ABC a été supprimée", async () => {
-    window.localStorage.setItem("crmslot_active_company_id", "company-abc");
+    window.localStorage.setItem("nota_active_company_id", "company-abc");
     mockState.firestoreData["users/mock-user-123/company_memberships"] = [
       { id: "company-abc", role: "admin", companyName: "ABC" },
       { id: "company-antwerp", role: "admin", companyName: "ABC" },

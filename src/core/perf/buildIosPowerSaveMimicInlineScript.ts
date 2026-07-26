@@ -2,7 +2,7 @@
 export function buildIosPowerSaveMimicInlineScript(): string {
   return `(function(){
   try {
-    var k="crmslot:lpm";
+    var k="nota:lpm";
     var p=new URLSearchParams(location.search);
     var q=p.get("lpm");
     var fps=null;
@@ -10,8 +10,8 @@ export function buildIosPowerSaveMimicInlineScript(): string {
     else if(q&&/^\\d{1,2}$/.test(q)){var n=parseInt(q,10);if(n>=10&&n<=60){localStorage.setItem(k,String(n));fps=n;}}
   else{var s=localStorage.getItem(k);if(s==="1")fps=30;else if(s&&/^\\d{1,2}$/.test(s)){var m=parseInt(s,10);if(m>=10&&m<=60)fps=m;}}
     if(!fps)return;
-    if(window.__crmslotLpmMimic)return;
-    window.__crmslotLpmMimic=true;
+    if(window.__notaLpmMimic)return;
+    window.__notaLpmMimic=true;
     document.documentElement.dataset.lpmMimic=String(fps);
     var minMs=1000/fps;
     var nativeRaf=window.requestAnimationFrame.bind(window);

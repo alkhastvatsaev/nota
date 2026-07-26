@@ -5,7 +5,7 @@ const serverUrl = process.env.CAPACITOR_SERVER_URL?.trim() || "https://crmslot.v
 
 const config: CapacitorConfig = {
   appId: "com.crmslot.app",
-  appName: "CRMSLOT",
+  appName: "NOTA",
   webDir: "capacitor-shell",
   server: {
     // Doit pointer vers un domaine qui sert l'app en 200 (pas de 307 vers un autre hôte — casse la PWA).

@@ -74,7 +74,7 @@ export function renderClientEmailLayout(input: ClientEmailLayoutInput): string {
                style="max-width:560px;width:100%;background:${CARD_BG};border:1px solid ${CARD_BORDER};border-radius:16px;overflow:hidden">
           <tr>
             <td style="padding:24px 28px 8px">
-              <div style="font-size:13px;letter-spacing:2px;color:${ACCENT};font-weight:600">CRMSLOT</div>
+              <div style="font-size:13px;letter-spacing:2px;color:${ACCENT};font-weight:600">NOTA</div>
               <h1 style="margin:8px 0 0;font-size:22px;line-height:1.3;color:${BRAND_TEXT};font-weight:600">
                 ${escapeHtml(input.heading)}
               </h1>
@@ -98,7 +98,7 @@ export function renderClientEmailLayout(input: ClientEmailLayoutInput): string {
           </tr>
         </table>
         <p style="margin:16px 0 0;font-size:11px;color:${MUTED}">
-          CRMSLOT · gestion d'interventions terrain
+          NOTA · gestion d'interventions terrain
         </p>
       </td>
     </tr>

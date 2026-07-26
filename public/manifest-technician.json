@@ -1,14 +1,14 @@
 {
-  "name": "CRMSLOT Terrain",
+  "name": "NOTA Terrain",
   "short_name": "Terrain",
-  "description": "Missions et clôture technicien CRMSLOT",
+  "description": "Missions et clôture technicien NOTA",
   "start_url": "/m/technician",
   "scope": "/m/technician",
   "display": "standalone",
   "orientation": "portrait-primary",
   "lang": "fr",
   "dir": "ltr",
-  "id": "crmslot-pwa-technician",
+  "id": "nota-pwa-technician",
   "background_color": "#09090B",
   "theme_color": "#09090B",
   "icons": [

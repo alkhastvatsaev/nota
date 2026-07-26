@@ -6,11 +6,7 @@ import {
   isTechnicianAcceptAssignmentBlocked,
   TECHNICIAN_ACCEPT_BLOCK_QUERY_STATUSES,
 } from "@/features/interventions/technicianClosureBlock";
-import {
-  featureFlagsFromEnv,
-  mergeFeatureFlags,
-  type CrmslotFeatureFlags,
-} from "@/core/featureFlags";
+import { featureFlagsFromEnv, mergeFeatureFlags, type NotaFeatureFlags } from "@/core/featureFlags";
 
 export type TechnicianClosureBlockResult =
   | { blocked: false }
@@ -33,7 +29,7 @@ export async function isTechnicianClosureBlockEnabledForCompany(
     if (!snap.exists) return base;
     const merged = mergeFeatureFlags(
       featureFlagsFromEnv(),
-      snap.data() as Partial<CrmslotFeatureFlags>
+      snap.data() as Partial<NotaFeatureFlags>
     );
     return merged.technicianClosureBlock;
   } catch {

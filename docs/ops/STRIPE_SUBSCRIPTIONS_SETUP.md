@@ -1,6 +1,6 @@
 # Abonnements SaaS — mise en place Stripe
 
-Guide pas-à-pas pour vendre les abonnements CRMSLOT (49 € / 89 € / 149 €) avant la prospection clients.
+Guide pas-à-pas pour vendre les abonnements NOTA (49 € / 89 € / 149 €) avant la prospection clients.
 
 ## Vue d'ensemble
 
@@ -34,11 +34,11 @@ Guide pas-à-pas pour vendre les abonnements CRMSLOT (49 € / 89 € / 149 €)
 
 Dans **Produits → + Ajouter un produit** :
 
-| Produit        | Prix mensuel        | Metadata sur le **Price** |
-| -------------- | ------------------- | ------------------------- |
-| CRMSLOT Solo   | **49,00 €** / mois  | `planId` = `solo`         |
-| CRMSLOT Équipe | **89,00 €** / mois  | `planId` = `team`         |
-| CRMSLOT Pro    | **149,00 €** / mois | `planId` = `pro`          |
+| Produit     | Prix mensuel        | Metadata sur le **Price** |
+| ----------- | ------------------- | ------------------------- |
+| NOTA Solo   | **49,00 €** / mois  | `planId` = `solo`         |
+| NOTA Équipe | **89,00 €** / mois  | `planId` = `team`         |
+| NOTA Pro    | **149,00 €** / mois | `planId` = `pro`          |
 
 Pour chaque price : copier l'ID `price_…` dans les variables d'environnement.
 

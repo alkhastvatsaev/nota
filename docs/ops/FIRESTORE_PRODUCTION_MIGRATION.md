@@ -31,7 +31,7 @@ Lecture `interventions` uniquement si :
 
 ## Étapes de migration
 
-### 1. Préparer un projet Firebase `crmslot-staging`
+### 1. Préparer un projet Firebase `nota-staging`
 
 ```bash
 firebase use staging

@@ -1,14 +1,14 @@
 {
-  "name": "CRMSLOT Demande",
+  "name": "NOTA Demande",
   "short_name": "Demande",
-  "description": "Formulaire et suivi client CRMSLOT",
+  "description": "Formulaire et suivi client NOTA",
   "start_url": "/m/demande",
   "scope": "/m/demande",
   "display": "standalone",
   "orientation": "portrait-primary",
   "lang": "fr",
   "dir": "ltr",
-  "id": "crmslot-pwa-demande",
+  "id": "nota-pwa-demande",
   "background_color": "#09090B",
   "theme_color": "#09090B",
   "icons": [

@@ -5,9 +5,9 @@ import {
 } from "@/features/subscriptions/subscriptionPlans";
 import type { SubscriptionPlanId } from "@/features/subscriptions/subscriptionTypes";
 
-const STORAGE_KEY = "crmslot_pending_plan";
-const CHECKOUT_COMPLETE_KEY = "crmslot_checkout_complete";
-const AUTO_CHECKOUT_KEY = "crmslot_auto_checkout_attempted";
+const STORAGE_KEY = "nota_pending_plan";
+const CHECKOUT_COMPLETE_KEY = "nota_checkout_complete";
+const AUTO_CHECKOUT_KEY = "nota_auto_checkout_attempted";
 
 /** Marque qu’un checkout Stripe doit démarrer après auth (inscription SaaS). */
 export function markPendingSubscriptionCheckout(): void {

@@ -15,7 +15,7 @@ function renderConfirmation(opts: { ok: boolean; message: string }): string {
 <html lang="fr"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Désabonnement — CRMSLOT</title>
+<title>Désabonnement — NOTA</title>
 <style>
   body { margin:0; background:${bg}; color:${text}; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px }
   .card { background:${card}; border:1px solid ${border}; border-radius:16px; padding:32px; max-width:480px; width:100%; text-align:center }
@@ -25,7 +25,7 @@ function renderConfirmation(opts: { ok: boolean; message: string }): string {
 </style>
 </head><body>
   <div class="card">
-    <div class="brand">CRMSLOT</div>
+    <div class="brand">NOTA</div>
     <h1>${opts.ok ? "Désabonnement confirmé" : "Lien invalide"}</h1>
     <p>${opts.message}</p>
   </div>
@@ -79,7 +79,7 @@ export async function GET(
     renderConfirmation({
       ok: true,
       message:
-        "Vous ne recevrez plus de notifications email de la part de votre prestataire CRMSLOT. Les communications transactionnelles obligatoires (factures, signatures légales) peuvent rester actives.",
+        "Vous ne recevrez plus de notifications email de la part de votre prestataire NOTA. Les communications transactionnelles obligatoires (factures, signatures légales) peuvent rester actives.",
     }),
     { status: 200, headers: { "Content-Type": "text/html; charset=utf-8" } }
   );

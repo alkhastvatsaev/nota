@@ -5,7 +5,7 @@ import { BM_BACKOFFICE_REQUEST_PARAM } from "@/features/notifications/notificati
 import type { BackofficeRequestNotificationIntent } from "@/features/notifications/backofficeRequestNotificationUrls";
 
 export const BACKOFFICE_REQUEST_NOTIFICATION_INTENT_EVENT =
-  "crmslot:backoffice-request-notification-intent";
+  "nota:backoffice-request-notification-intent";
 
 export function dispatchBackofficeRequestNotificationIntent(
   intent: BackofficeRequestNotificationIntent

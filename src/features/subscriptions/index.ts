@@ -1,5 +1,5 @@
 /**
- * Abonnements SaaS CRMSLOT — plans, accès, UI tarifs.
+ * Abonnements SaaS NOTA — plans, accès, UI tarifs.
  */
 export {
   isSubscriptionActive,

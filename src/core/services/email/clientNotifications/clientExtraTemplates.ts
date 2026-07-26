@@ -97,7 +97,7 @@ export function buildClientAppointmentReminderEmail(opts: {
   return {
     template: `client.appointment.reminder.${opts.reminderType}`,
     subject: `Rappel rendez-vous — ${title}`,
-    preheader: `Votre rendez-vous CRMSLOT ${horizon}.`,
+    preheader: `Votre rendez-vous NOTA ${horizon}.`,
     heading: `Votre rendez-vous est ${horizon}`,
     intro: `${hello(opts.iv)} Petit rappel pour votre rendez-vous concernant « ${title} ».`,
     bodyHtml: `

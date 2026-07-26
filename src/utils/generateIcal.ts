@@ -12,11 +12,11 @@ function icsEscape(s: string): string {
   return s.replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\n/g, "\\n");
 }
 
-export function generateIcal(interventions: Intervention[], calName = "CRMSLOT"): void {
+export function generateIcal(interventions: Intervention[], calName = "NOTA"): void {
   const lines: string[] = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//CRMSLOT//FR",
+    "PRODID:-//NOTA//FR",
     `X-WR-CALNAME:${calName}`,
     "CALSCALE:GREGORIAN",
     "METHOD:PUBLISH",
@@ -53,7 +53,7 @@ export function generateIcal(interventions: Intervention[], calName = "CRMSLOT")
 
     lines.push(
       "BEGIN:VEVENT",
-      `UID:crmslot-${iv.id}@crmslot`,
+      `UID:nota-${iv.id}@nota`,
       `DTSTAMP:${icsDate(new Date().toISOString())}`,
       `DTSTART:${start}`,
       `DTEND:${end}`,

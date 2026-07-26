@@ -1,4 +1,4 @@
-const STORAGE_KEY = "crmslot:lpm";
+const STORAGE_KEY = "nota:lpm";
 
 /** FPS cible quand `?lpm=1` (proche du bridage WebKit en mode économie d’énergie). */
 export const IOS_POWER_SAVE_MIMIC_DEFAULT_FPS = 30;
@@ -19,7 +19,7 @@ export function parseIosPowerSaveMimicFps(search: string, stored: string | null)
   return null;
 }
 
-/** Mimic mode économie d’énergie iOS — `?lpm=1` ou `?lpm=30` · localStorage `crmslot:lpm`. */
+/** Mimic mode économie d’énergie iOS — `?lpm=1` ou `?lpm=30` · localStorage `nota:lpm`. */
 export function resolveIosPowerSaveMimicFps(
   search: string = typeof window !== "undefined" ? window.location.search : "",
   storage: Pick<Storage, "getItem" | "setItem"> | null = typeof window !== "undefined"

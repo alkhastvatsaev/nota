@@ -1,14 +1,14 @@
 {
-  "name": "CRMSLOT Admin",
+  "name": "NOTA Admin",
   "short_name": "Admin",
-  "description": "Dispatcher et pilotage CRMSLOT",
+  "description": "Dispatcher et pilotage NOTA",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "lang": "fr",
   "dir": "ltr",
-  "id": "crmslot-pwa-admin",
+  "id": "nota-pwa-admin",
   "background_color": "#09090B",
   "theme_color": "#09090B",
   "icons": [

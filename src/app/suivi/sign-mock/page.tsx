@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { PortalSignMockClient } from "@/features/esign";
 
 export const metadata: Metadata = {
-  title: "Signature — CRMSLOT",
+  title: "Signature — NOTA",
 };
 
 export default function PortalSignMockPage() {

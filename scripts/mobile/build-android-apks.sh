@@ -37,14 +37,14 @@ build_variant() {
   echo "✓ ${OUT_DIR}/${outfile} ($(du -h "${OUT_DIR}/${outfile}" | awk '{print $1}'))"
 }
 
-build_variant technician "${BASE_URL}/m/technician" "crmslot-terrain.apk"
-build_variant admin "${BASE_URL}/" "crmslot-admin.apk"
+build_variant technician "${BASE_URL}/m/technician" "nota-terrain.apk"
+build_variant admin "${BASE_URL}/" "nota-admin.apk"
 
 echo ""
 echo "════════════════════════════════════════"
 echo "APK prêts pour Telegram :"
-echo "  ${OUT_DIR}/crmslot-terrain.apk  (app Technicien)"
-echo "  ${OUT_DIR}/crmslot-admin.apk    (app Admin)"
+echo "  ${OUT_DIR}/nota-terrain.apk  (app Technicien)"
+echo "  ${OUT_DIR}/nota-admin.apk    (app Admin)"
 echo ""
 echo "Envoi Telegram : pièce jointe → choisir les 2 fichiers .apk"
 echo "Sur Android : autoriser « sources inconnues », installer chaque APK."

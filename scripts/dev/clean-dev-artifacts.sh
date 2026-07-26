@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
-echo "Nettoyage CRMSLOT…"
+echo "Nettoyage NOTA…"
 rm -rf \
   .next .next-e2e-gate \
   coverage test-results playwright-report .playwright-mcp \

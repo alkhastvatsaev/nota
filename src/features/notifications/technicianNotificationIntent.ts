@@ -23,7 +23,7 @@ export { parseTechnicianNotificationSearchParams };
 export type { TechnicianNotificationIntent };
 
 /** Événement DOM : clic notif Capacitor (useSearchParams ne suit pas replaceState). */
-export const TECHNICIAN_NOTIFICATION_INTENT_EVENT = "crmslot:technician-notification-intent";
+export const TECHNICIAN_NOTIFICATION_INTENT_EVENT = "nota:technician-notification-intent";
 
 export function parseTechnicianNotificationData(
   data: Record<string, string | undefined>

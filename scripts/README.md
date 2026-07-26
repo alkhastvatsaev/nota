@@ -1,4 +1,4 @@
-# Scripts CRMSLOT
+# Scripts NOTA
 
 Scripts utilitaires hors runtime Next.js. Invoqués via `npm run …` dans `package.json`.
 

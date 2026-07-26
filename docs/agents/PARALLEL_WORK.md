@@ -94,13 +94,13 @@ Avant merge : `npm run test:ci` (ou `npm run test:chatbot` si zone chatbot).
 ## Worktree (vrai parallèle, deux dossiers)
 
 ```bash
-cd /chemin/vers/CRMSLOT
-git worktree add ../CRMSLOT-claude claude/work
-# Cursor  → CRMSLOT (branche A)
-# Claude  → CRMSLOT-claude (branche B)
+cd /chemin/vers/NOTA
+git worktree add ../NOTA-claude claude/work
+# Cursor  → NOTA (branche A)
+# Claude  → NOTA-claude (branche B)
 ```
 
-Suppression après usage : `git worktree remove ../CRMSLOT-claude`
+Suppression après usage : `git worktree remove ../NOTA-claude`
 
 ## Fin de session
 
@@ -108,7 +108,7 @@ Suppression après usage : `git worktree remove ../CRMSLOT-claude`
 2. Commit sur **ta** branche uniquement.
 3. Mettre à jour le tableau « Propriétaire session » ci-dessus (ou le vider).
 
-## Repo CRMSLOT
+## Repo NOTA
 
 - Pas de fichiers `* 2.ts` / `* 2.tsx` (doublons macOS → supprimer).
 - Tests colocalisés `__tests__/` — voir `AGENTS.md`.

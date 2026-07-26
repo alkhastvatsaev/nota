@@ -1,4 +1,4 @@
-# Plan stratégique CRMSLOT — exécution pas à pas
+# Plan stratégique NOTA — exécution pas à pas
 
 > **Objectif** : passer de prototype riche à PWA métier **production-ready** (multi-société, terrain fiable, déploiement Vercel).
 >

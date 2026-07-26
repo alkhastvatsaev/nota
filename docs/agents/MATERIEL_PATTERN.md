@@ -1,4 +1,4 @@
-# Convention features matériel (CRMSLOT)
+# Convention features matériel (NOTA)
 
 Cinq features touchent au matériel (catalogue, stock, commandes, équipements client). Plusieurs sont massivement importées (catalog 199, materials 122, suppliers 52) — frontières à respecter pour ne pas casser le graphe.
 

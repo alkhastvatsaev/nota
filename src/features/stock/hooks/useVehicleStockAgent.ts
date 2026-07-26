@@ -6,7 +6,7 @@ import { useHubAgent } from "@/features/hubAgents/useHubAgent";
 import { useCompanyWorkspaceOptional } from "@/context/CompanyWorkspaceContext";
 import { useTranslation } from "@/core/i18n/I18nContext";
 
-const STORAGE_KEY = "crmslot-vehicle-stock-agent-v1";
+const STORAGE_KEY = "nota-vehicle-stock-agent-v1";
 
 const VEHICLE_STOCK_RE =
   /stock|article|quantit|pièce|piece|utilisé|utilise|recharg|ajout|reste|j'ai\s+(?:pris|mis|posé|pose)|cylindre|serrure|perceuse|tournevis|visseur|meuleuse/i;

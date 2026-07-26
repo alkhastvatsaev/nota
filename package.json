@@ -1,5 +1,5 @@
 {
-  "name": "crmslot",
+  "name": "nota",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -40,6 +40,7 @@
     "test:agent-check": "node scripts/ci/agent-test-check.mjs",
     "test:agent-check:main": "node scripts/ci/agent-test-check.mjs --base=origin/main",
     "agent:score": "node scripts/ci/agent-score.mjs",
+    "prospect:serruriers": "node scripts/prospecting/find-serruriers.mjs",
     "coverage:ratchet": "node scripts/ci/check-coverage-ratchet.mjs",
     "coverage:ratchet:update": "node scripts/ci/check-coverage-ratchet.mjs --update",
     "coverage:uncovered": "node scripts/ci/check-coverage-ratchet.mjs --list-uncovered",
@@ -122,7 +123,7 @@
     "@capacitor/android": "^8.4.0",
     "@capacitor/app": "^8.1.0",
     "@capacitor/camera": "^8.2.0",
-    "@capacitor/cli": "^7.6.6",
+    "@capacitor/cli": "^8.4.2",
     "@capacitor/core": "^8.4.0",
     "@capacitor/filesystem": "^8.1.2",
     "@capacitor/geolocation": "^8.2.0",

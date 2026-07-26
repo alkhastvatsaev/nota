@@ -4,7 +4,7 @@ import AppBootLoadingScreen from "@/core/ui/AppBootLoadingScreen";
 import { ClientMobileApp } from "@/features/company";
 
 export const metadata: Metadata = {
-  title: "CRMSLOT Demande",
+  title: "NOTA Demande",
   description: "Formulaire et suivi client",
 };
 

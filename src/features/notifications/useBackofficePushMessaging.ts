@@ -45,7 +45,7 @@ export function useBackofficePushMessaging(
     unsubForegroundRef.current?.();
     const messaging = getMessaging(app);
     unsubForegroundRef.current = onMessage(messaging, (payload) => {
-      const title = payload.notification?.title ?? "CRMSLOT";
+      const title = payload.notification?.title ?? "NOTA";
       const body = payload.notification?.body ?? "";
       const data = (payload.data ?? {}) as Record<string, string | undefined>;
       const chatIntent = parseBackofficeChatNotificationData(data);

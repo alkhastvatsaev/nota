@@ -26,7 +26,7 @@ function foldIcsLine(line: string): string {
   return out;
 }
 
-export function buildInterventionIcs(iv: Intervention, uidSuffix = "crmslot"): string {
+export function buildInterventionIcs(iv: Intervention, uidSuffix = "nota"): string {
   const range = getInterventionScheduledRange(iv);
   if (!range) return "";
 

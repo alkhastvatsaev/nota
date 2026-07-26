@@ -1,7 +1,7 @@
 /**
  * Feature flags — env (`NEXT_PUBLIC_FF_*`) + overrides Firestore `companies/{id}/featureFlags`.
  */
-export type CrmslotFeatureFlags = {
+export type NotaFeatureFlags = {
   unifiedFieldCockpit: boolean;
   crmContacts: boolean;
   lecotProductSearch: boolean;
@@ -49,7 +49,7 @@ export type CrmslotFeatureFlags = {
   missionKit: boolean;
 };
 
-export const DEFAULT_FEATURE_FLAGS: CrmslotFeatureFlags = {
+export const DEFAULT_FEATURE_FLAGS: NotaFeatureFlags = {
   unifiedFieldCockpit: true,
   crmContacts: false,
   lecotProductSearch: true,
@@ -86,7 +86,7 @@ function readEnvBool(key: string, fallback: boolean): boolean {
 }
 
 /** Flags from build-time env (Vercel / .env.local). */
-export function featureFlagsFromEnv(): CrmslotFeatureFlags {
+export function featureFlagsFromEnv(): NotaFeatureFlags {
   return {
     unifiedFieldCockpit: readEnvBool(
       "NEXT_PUBLIC_FF_UNIFIED_FIELD_COCKPIT",
@@ -165,9 +165,9 @@ export function featureFlagsFromEnv(): CrmslotFeatureFlags {
 }
 
 export function mergeFeatureFlags(
-  base: CrmslotFeatureFlags,
-  partial?: Partial<CrmslotFeatureFlags> | null
-): CrmslotFeatureFlags {
+  base: NotaFeatureFlags,
+  partial?: Partial<NotaFeatureFlags> | null
+): NotaFeatureFlags {
   if (!partial) return base;
   return { ...base, ...partial };
 }

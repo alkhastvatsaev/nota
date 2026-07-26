@@ -9,11 +9,11 @@ import {
 
 describe("gmailMessageBody", () => {
   it("decodes base64url payloads", () => {
-    const encoded = Buffer.from("Bonjour CRMSLOT", "utf8")
+    const encoded = Buffer.from("Bonjour NOTA", "utf8")
       .toString("base64")
       .replace(/\+/g, "-")
       .replace(/\//g, "_");
-    expect(decodeGmailBase64Url(encoded)).toBe("Bonjour CRMSLOT");
+    expect(decodeGmailBase64Url(encoded)).toBe("Bonjour NOTA");
   });
 
   it("reads headers and nested parts", () => {

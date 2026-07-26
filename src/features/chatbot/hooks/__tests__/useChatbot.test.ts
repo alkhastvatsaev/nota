@@ -12,7 +12,7 @@ const mockEnsureRightPanelOpen = jest.fn();
 const mockOpenSupplierOrdersPanel = jest.fn();
 const mockRefreshRegistry = jest.fn();
 
-const STORAGE_KEY = "crmslot-chatbot-v2:uid-test:co-test";
+const STORAGE_KEY = "nota-chatbot-v2:uid-test:co-test";
 const snapshot = buildChatbotTestSnapshot();
 
 const mockWorkspace = {

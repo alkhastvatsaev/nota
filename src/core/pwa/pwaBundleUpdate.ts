@@ -1,4 +1,4 @@
-export const PWA_GIT_SHA_STORAGE_KEY = "crmslot:pwa-git-sha";
+export const PWA_GIT_SHA_STORAGE_KEY = "nota:pwa-git-sha";
 
 export function readDeployedGitSha(): string | null {
   if (typeof document === "undefined") return null;

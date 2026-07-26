@@ -37,7 +37,7 @@ export default function CrmEmailLoginPanelHeader({ variant }: Props) {
     <div className="flex flex-col items-center gap-3">
       <Image
         src="/icon-192.png"
-        alt="CRMSLOT"
+        alt="NOTA"
         width={56}
         height={56}
         className="h-14 w-14 rounded-2xl shadow-sm"

@@ -1,13 +1,13 @@
 "use client";
 
 import { useFeatureFlagsFromContext } from "@/core/FeatureFlagsProvider";
-import type { CrmslotFeatureFlags } from "@/core/featureFlags";
+import type { NotaFeatureFlags } from "@/core/featureFlags";
 
-export function useFeatureFlags(): CrmslotFeatureFlags {
+export function useFeatureFlags(): NotaFeatureFlags {
   return useFeatureFlagsFromContext();
 }
 
-export function useFeatureFlag<K extends keyof CrmslotFeatureFlags>(key: K): boolean {
+export function useFeatureFlag<K extends keyof NotaFeatureFlags>(key: K): boolean {
   const flags = useFeatureFlags();
   return flags[key];
 }

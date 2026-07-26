@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { PricingLanding } from "@/features/subscriptions";
-import CrmslotLockMark from "@/features/subscriptions/components/CrmslotLockMark";
+import NotaLockMark from "@/features/subscriptions/components/NotaLockMark";
 
 export default function PricingPage() {
   return (
     <main className="min-h-dvh overflow-y-auto bg-[radial-gradient(circle_at_top,#f8fafc_0,#fff_42%,#f8fafc_100%)] font-[family-name:var(--font-outfit)] text-slate-950">
       <header>
         <div className="mx-auto flex max-w-5xl justify-center px-4 py-4 sm:px-6">
-          <Link href="/" aria-label="CRMSLOT" className="inline-flex shrink-0">
-            <CrmslotLockMark className="h-12 w-10" />
+          <Link href="/" aria-label="NOTA" className="inline-flex shrink-0">
+            <NotaLockMark className="h-12 w-10" />
           </Link>
         </div>
       </header>

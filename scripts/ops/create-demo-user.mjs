@@ -4,7 +4,7 @@
  *
  * Usage:
  *   node scripts/create-demo-user.mjs
- *   node scripts/create-demo-user.mjs --email=demo@crmslot.app --password=Demo1234!
+ *   node scripts/create-demo-user.mjs --email=demo@nota.app --password=Demo1234!
  *
  * Variables (.env.local) :
  *   FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY
@@ -45,7 +45,7 @@ const args = Object.fromEntries(
     })
 );
 
-const email = args.email || "demo@crmslot.app";
+const email = args.email || "demo@nota.app";
 const password = args.password || "Demo1234!";
 const displayName = args.name || "Démo Technicien";
 

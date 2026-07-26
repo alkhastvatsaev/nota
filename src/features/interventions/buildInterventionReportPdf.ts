@@ -155,11 +155,7 @@ export function buildInterventionReportPdf(intervention: Intervention): Uint8Arr
   const pageHeight = 297;
   doc.setFontSize(8);
   doc.setTextColor(150);
-  doc.text(
-    `Généré le ${formatDate(new Date().toISOString())}  •  CRMSLOT`,
-    margin,
-    pageHeight - 10
-  );
+  doc.text(`Généré le ${formatDate(new Date().toISOString())}  •  NOTA`, margin, pageHeight - 10);
 
   return new Uint8Array(doc.output("arraybuffer"));
 }

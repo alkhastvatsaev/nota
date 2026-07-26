@@ -8,12 +8,12 @@ type Props = {
   title?: string;
 };
 
-/** Verrou gradient CRMSLOT — SVG inline pour rendu net (sans rasterisation Next/Image). */
-export default function CrmslotLockMark({ className, title = "CRMSLOT" }: Props) {
+/** Verrou gradient NOTA — SVG inline pour rendu net (sans rasterisation Next/Image). */
+export default function NotaLockMark({ className, title = "NOTA" }: Props) {
   const uid = useId().replace(/:/g, "");
-  const lockGrad = `crmslot-lock-grad-${uid}`;
-  const lockStroke = `crmslot-lock-stroke-${uid}`;
-  const lockShadow = `crmslot-lock-shadow-${uid}`;
+  const lockGrad = `nota-lock-grad-${uid}`;
+  const lockStroke = `nota-lock-stroke-${uid}`;
+  const lockShadow = `nota-lock-shadow-${uid}`;
 
   return (
     <svg

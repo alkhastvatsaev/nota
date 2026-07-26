@@ -89,9 +89,9 @@ export default function ClientInterventionsPanel({ companyId, clientId }: Props)
                     data-testid={`client-intervention-sav-${iv.id}`}
                     onClick={() => {
                       if (typeof sessionStorage !== "undefined") {
-                        sessionStorage.setItem("crmslot_prefill_sav", iv.id);
+                        sessionStorage.setItem("nota_prefill_sav", iv.id);
                         sessionStorage.setItem(
-                          "crmslot_prefill_client",
+                          "nota_prefill_client",
                           JSON.stringify({
                             clientName:
                               [iv.clientFirstName, iv.clientLastName].filter(Boolean).join(" ") ||

@@ -5,7 +5,7 @@ describe("PWA_MANIFEST_DEFINITIONS", () => {
     const ids = PWA_MANIFEST_DEFINITIONS.map((definition) => definition.id);
     expect(new Set(ids).size).toBe(ids.length);
     for (const id of ids) {
-      expect(id.startsWith("crmslot-pwa-")).toBe(true);
+      expect(id.startsWith("nota-pwa-")).toBe(true);
       expect(id.includes("/")).toBe(false);
     }
   });
@@ -27,7 +27,7 @@ describe("PWA_MANIFEST_DEFINITIONS", () => {
     );
     expect(demande).toBeDefined();
     const json = JSON.parse(buildPwaManifestJson(demande!));
-    expect(json.id).toBe("crmslot-pwa-demande");
+    expect(json.id).toBe("nota-pwa-demande");
     expect(json.icons.some((icon: { src: string }) => icon.src.includes("/pwa/icon-demande"))).toBe(
       true
     );

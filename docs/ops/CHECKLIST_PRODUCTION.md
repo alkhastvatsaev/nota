@@ -1,4 +1,4 @@
-# Checklist production CRMSLOT
+# Checklist production NOTA
 
 Cocher avant d’ouvrir l’app aux vrais clients / techniciens. Détail : [PLAN_STRATEGIQUE.md](./PLAN_STRATEGIQUE.md).
 

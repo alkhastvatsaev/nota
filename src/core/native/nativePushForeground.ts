@@ -21,7 +21,7 @@ export async function registerNativePushForegroundHandler(): Promise<() => void>
     const handle = await PushNotifications.addListener(
       "pushNotificationReceived",
       (event: PushReceivedEvent) => {
-        const title = event.title?.trim() || "CRMSLOT";
+        const title = event.title?.trim() || "NOTA";
         const body = event.body?.trim() || "";
         toast.message(title, { description: body || undefined });
       }

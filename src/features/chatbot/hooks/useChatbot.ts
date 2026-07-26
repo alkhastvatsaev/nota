@@ -70,7 +70,7 @@ export function useChatbot() {
   });
 
   const storageKey = useMemo(
-    () => `crmslot-chatbot-v2:${uid}:${companyId ?? "none"}`,
+    () => `nota-chatbot-v2:${uid}:${companyId ?? "none"}`,
     [uid, companyId]
   );
 

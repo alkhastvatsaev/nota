@@ -1,6 +1,6 @@
 # dashboard
 
-Shell admin CRMSLOT : carrousel 9 pages (`src/app/page.tsx`), layout desktop/mobile, pager et providers.
+Shell admin NOTA : carrousel 9 pages (`src/app/page.tsx`), layout desktop/mobile, pager et providers.
 
 ## Points d'entrée
 

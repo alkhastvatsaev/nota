@@ -1,4 +1,4 @@
-# Catalogue Lecot (PWA CRMSLOT)
+# Catalogue Lecot (PWA NOTA)
 
 ## Démonstration client (CRM)
 

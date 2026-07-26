@@ -19,7 +19,7 @@ describe("TechnicianLoginPanel — polish (login UI propre + branding)", () => {
 
   it("affiche logo + titres", () => {
     render(<TechnicianLoginPanel />);
-    expect(screen.getByAltText(/CRMSLOT/)).toBeInTheDocument();
+    expect(screen.getByAltText(/NOTA/)).toBeInTheDocument();
   });
 
   it("toggle show/hide password", () => {

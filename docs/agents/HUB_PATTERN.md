@@ -1,4 +1,4 @@
-# Convention features `*Hub*` (CRMSLOT)
+# Convention features `*Hub*` (NOTA)
 
 Pourquoi le repo a-t-il à la fois `billing/` **et** `billingHub/`, `commissions/` **et** `commissionsHub/` ? Cette page répond. Lire avant de toucher un dossier dont le nom contient `Hub`.
 

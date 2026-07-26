@@ -17,7 +17,7 @@ const checks = [
     path: "/manifest.json",
     expectStatus: 200,
     noRedirect: true,
-    expectBodyIncludes: '"short_name": "CRMSLOT"',
+    expectBodyIncludes: '"short_name": "NOTA"',
   },
   {
     name: "pwa-service-worker",

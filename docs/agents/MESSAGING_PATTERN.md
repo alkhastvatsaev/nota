@@ -1,4 +1,4 @@
-# Convention features messaging (CRMSLOT)
+# Convention features messaging (NOTA)
 
 Cinq features traitent de la communication entrante/sortante. Frontières floues à clarifier pour qu'un agent ne disperse pas une modification dans la mauvaise feature.
 

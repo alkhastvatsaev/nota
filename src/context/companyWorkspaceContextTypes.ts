@@ -1,6 +1,6 @@
 import type { CompanyMembershipRow, CompanyRole } from "@/features/company";
 
-export const ACTIVE_COMPANY_STORAGE_KEY = "crmslot_active_company_id";
+export const ACTIVE_COMPANY_STORAGE_KEY = "nota_active_company_id";
 
 export type CompanyWorkspaceApi = {
   firebaseUid: string | null;

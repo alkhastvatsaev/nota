@@ -17,7 +17,7 @@ export type LecotSupplierOrderResult =
  * Envoie une commande Lecot :
  *  1. API Lecot si LECOT_API_URL configuré
  *  2. Playwright (scraping lecot.be) avec checkout invité
- *  3. Brouillon CRMSLOT (fallback)
+ *  3. Brouillon NOTA (fallback)
  */
 export async function submitLecotSupplierOrder(params: {
   lines: SupplierOrderLine[];
@@ -71,12 +71,12 @@ export async function submitLecotSupplierOrder(params: {
     }
   }
 
-  // ── 3. Brouillon CRMSLOT ────────────────────────────────────────────────────
+  // ── 3. Brouillon NOTA ────────────────────────────────────────────────────
   return {
     ok: true,
     source: "manual",
     message:
-      "Commande enregistrée dans CRMSLOT en brouillon. Finalisez sur lecot.be ou configurez LECOT_CONTACT_EMAIL + LECOT_CONTACT_PHONE pour activer le passage automatique.",
+      "Commande enregistrée dans NOTA en brouillon. Finalisez sur lecot.be ou configurez LECOT_CONTACT_EMAIL + LECOT_CONTACT_PHONE pour activer le passage automatique.",
     lines,
   };
 }

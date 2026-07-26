@@ -48,7 +48,7 @@ export async function appendChatbotTrainingLog(
         userMessage,
         assistantMessage,
         hadToolRounds: params.turn.hadToolRounds,
-        source: "crmslot_openai_chatbot",
+        source: "nota_openai_chatbot",
       });
   } catch (err) {
     logger.error("[chatbot/training] appendChatbotTrainingLog:", {

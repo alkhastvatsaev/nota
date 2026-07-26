@@ -31,7 +31,7 @@ type CompanyStockIntentApi = {
 
 const CompanyStockIntentContext = createContext<CompanyStockIntentApi | null>(null);
 
-export const CRMSLOT_FOCUS_STOCK_HUB_EVENT = "crmslot-focus-stock-hub";
+export const NOTA_FOCUS_STOCK_HUB_EVENT = "nota-focus-stock-hub";
 
 export function CompanyStockIntentProvider({ children }: { children: ReactNode }) {
   const [filter, setFilterState] = useState<CompanyStockFilter>("all");
@@ -60,8 +60,8 @@ export function CompanyStockIntentProvider({ children }: { children: ReactNode }
       if (!detail) return;
       applyFocus(detail);
     };
-    window.addEventListener(CRMSLOT_FOCUS_STOCK_HUB_EVENT, onFocus);
-    return () => window.removeEventListener(CRMSLOT_FOCUS_STOCK_HUB_EVENT, onFocus);
+    window.addEventListener(NOTA_FOCUS_STOCK_HUB_EVENT, onFocus);
+    return () => window.removeEventListener(NOTA_FOCUS_STOCK_HUB_EVENT, onFocus);
   }, [applyFocus]);
 
   const value = useMemo(

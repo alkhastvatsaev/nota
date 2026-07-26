@@ -13,7 +13,7 @@ echo "→ assembleDebug…"
 
 OUT_DIR="${ROOT}/dist/mobile"
 APK_SRC="${ROOT}/android/app/build/outputs/apk/debug/app-debug.apk"
-APK_DST="${OUT_DIR}/crmslot-technicien-debug.apk"
+APK_DST="${OUT_DIR}/nota-technicien-debug.apk"
 
 mkdir -p "$OUT_DIR"
 cp "$APK_SRC" "$APK_DST"

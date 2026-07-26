@@ -22,7 +22,7 @@ import {
 export { parseClientNotificationSearchParams };
 export type { ClientNotificationIntent };
 
-export const CLIENT_NOTIFICATION_INTENT_EVENT = "crmslot:client-notification-intent";
+export const CLIENT_NOTIFICATION_INTENT_EVENT = "nota:client-notification-intent";
 
 export function parseClientNotificationData(
   data: Record<string, string | undefined>

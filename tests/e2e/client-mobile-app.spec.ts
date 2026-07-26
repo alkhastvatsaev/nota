@@ -9,7 +9,7 @@ test.describe("Portail client /m/demande (infra)", () => {
   test("charge la shell client sur viewport mobile", async ({ page }) => {
     await page.goto(CLIENT_APP_ROUTE);
 
-    await expect(page).toHaveTitle(/demande|crmslot/i);
+    await expect(page).toHaveTitle(/demande|nota/i);
     await ensureClientShell(page);
   });
 

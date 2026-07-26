@@ -19,7 +19,7 @@ describe("adminInboxInterventionsCache", () => {
       status: "new",
     } as unknown as Intervention;
     const key = adminInboxCacheKey("co-1");
-    expect(key).toBe("crmslot_admin_inbox_co-1");
+    expect(key).toBe("nota_admin_inbox_co-1");
     writeAdminInboxInterventionsCache("co-1", [iv]);
     const rows = readAdminInboxInterventionsCache("co-1");
     expect(rows).toHaveLength(1);

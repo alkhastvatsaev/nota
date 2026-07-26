@@ -23,7 +23,7 @@ export function shouldSuggestAndroidAppInstall(opts: {
 }
 
 export function androidInstallPromoDismissStorageKey(surface: AndroidInstallPromoSurface): string {
-  return `crmslot:android-install-promo:dismissed:${surface}`;
+  return `nota:android-install-promo:dismissed:${surface}`;
 }
 
 export function readAndroidInstallPromoDismissedUntil(

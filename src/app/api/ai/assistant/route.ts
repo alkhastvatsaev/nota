@@ -111,7 +111,7 @@ export async function POST(req: NextRequest) {
     return `[${iv.status}] ${d} | ${client} | ${addr} | ${prob} | tech:${tech}`;
   };
 
-  const systemPrompt = `Tu es l'assistant IA de CRMSLOT — un logiciel de gestion d'interventions terrain (plomberie, électricité, etc.).
+  const systemPrompt = `Tu es l'assistant IA de NOTA — un logiciel de gestion d'interventions terrain (plomberie, électricité, etc.).
 Tu as accès en temps réel aux données de l'entreprise. Réponds toujours en français, de façon concise et utile.
 Date du jour : ${today}
 

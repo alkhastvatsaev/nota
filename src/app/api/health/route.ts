@@ -6,7 +6,7 @@ import "@/core/config/firebase-admin";
 export async function GET() {
   return NextResponse.json({
     ok: true,
-    service: "crmslot",
+    service: "nota",
     firebaseAdmin: isFirebaseAdminReady(),
     timestamp: new Date().toISOString(),
   });

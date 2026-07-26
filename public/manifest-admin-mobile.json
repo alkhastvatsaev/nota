@@ -1,14 +1,14 @@
 {
-  "name": "CRMSLOT Inbox",
+  "name": "NOTA Inbox",
   "short_name": "Inbox",
-  "description": "Inbox et missions du jour CRMSLOT",
+  "description": "Inbox et missions du jour NOTA",
   "start_url": "/m/admin",
   "scope": "/m/admin",
   "display": "standalone",
   "orientation": "portrait-primary",
   "lang": "fr",
   "dir": "ltr",
-  "id": "crmslot-pwa-inbox",
+  "id": "nota-pwa-inbox",
   "background_color": "#09090B",
   "theme_color": "#09090B",
   "icons": [

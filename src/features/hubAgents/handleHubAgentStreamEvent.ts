@@ -8,7 +8,7 @@ import { useDashboardPagerOptional } from "@/features/dashboard";
 import { useBackofficeInboxIntentOptional } from "@/context/BackofficeInboxIntentContext";
 import { useBillingHubIntentOptional } from "@/context/BillingHubIntentContext";
 import {
-  CRMSLOT_FOCUS_STOCK_HUB_EVENT,
+  NOTA_FOCUS_STOCK_HUB_EVENT,
   useCompanyStockIntentOptional,
 } from "@/context/CompanyStockIntentContext";
 import { navigateBackOfficeHub } from "@/features/backoffice/backofficeHubNavigation";
@@ -63,7 +63,7 @@ export function useHubAgentStreamHandler(options?: HubAgentStreamHandlerOptions)
           searchQuery: ev.searchQuery ?? null,
         };
         if (typeof window !== "undefined") {
-          window.dispatchEvent(new CustomEvent(CRMSLOT_FOCUS_STOCK_HUB_EVENT, { detail }));
+          window.dispatchEvent(new CustomEvent(NOTA_FOCUS_STOCK_HUB_EVENT, { detail }));
         }
         stockIntent?.applyFocus(detail);
         return;

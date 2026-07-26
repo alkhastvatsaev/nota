@@ -4,8 +4,7 @@ import { BACKOFFICE_HUB_SLOT_INDEX } from "@/features/backoffice/backofficeHubCo
 import { BM_BACKOFFICE_CHAT_PARAM } from "@/features/notifications/notificationConstants";
 import type { BackofficeChatNotificationIntent } from "@/features/notifications/backofficeChatNotificationUrls";
 
-export const BACKOFFICE_CHAT_NOTIFICATION_INTENT_EVENT =
-  "crmslot:backoffice-chat-notification-intent";
+export const BACKOFFICE_CHAT_NOTIFICATION_INTENT_EVENT = "nota:backoffice-chat-notification-intent";
 
 export function dispatchBackofficeChatNotificationIntent(
   intent: BackofficeChatNotificationIntent

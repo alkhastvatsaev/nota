@@ -17,7 +17,7 @@ function buildPortalAccessEmail(params: {
 }): { subject: string; bodyText: string } {
   const hello = params.firstName?.trim() ? `Bonjour ${params.firstName.trim()},` : "Bonjour,";
   return {
-    subject: "Votre suivi d'intervention CRMSLOT",
+    subject: "Votre suivi d'intervention NOTA",
     bodyText: [
       hello,
       "",
@@ -27,10 +27,10 @@ function buildPortalAccessEmail(params: {
       `Numéro de dossier : ${formatPortalAccessCode(params.code)}`,
       `Lien direct : ${params.portalUrl}`,
       "",
-      "Vous pouvez aussi saisir votre e-mail et ce numéro dans l'onglet « Suivi dossier » de CRMSLOT.",
+      "Vous pouvez aussi saisir votre e-mail et ce numéro dans l'onglet « Suivi dossier » de NOTA.",
       "Vous recevrez un e-mail à chaque étape importante.",
       "",
-      "— CRMSLOT",
+      "— NOTA",
     ].join("\n"),
   };
 }

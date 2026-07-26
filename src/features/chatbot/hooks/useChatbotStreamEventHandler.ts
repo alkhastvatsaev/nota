@@ -2,7 +2,7 @@
 
 import { useCallback } from "react";
 import { FEATURE_HUB_SLOT_INDEX } from "@/features/featureHub/featureHubConstants";
-import { CRMSLOT_FOCUS_STOCK_HUB_EVENT } from "@/context/CompanyStockIntentContext";
+import { NOTA_FOCUS_STOCK_HUB_EVENT } from "@/context/CompanyStockIntentContext";
 import type {
   ChatbotStreamCtx,
   ChatbotStreamEvent,
@@ -58,7 +58,7 @@ export function useChatbotStreamEventHandler(deps: ChatbotStreamEventHandlerDeps
         setPageIndex?.(FEATURE_HUB_SLOT_INDEX);
         if (typeof window !== "undefined") {
           window.dispatchEvent(
-            new CustomEvent(CRMSLOT_FOCUS_STOCK_HUB_EVENT, {
+            new CustomEvent(NOTA_FOCUS_STOCK_HUB_EVENT, {
               detail: {
                 stockItemId: ev.stockItemId ?? null,
                 filter: ev.filter,

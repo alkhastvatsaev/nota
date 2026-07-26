@@ -1,4 +1,4 @@
-# Philosophie des pages hub (CRMSLOT)
+# Philosophie des pages hub (NOTA)
 
 Guide pour créer ou refondre une page du carrousel admin (`src/app/page.tsx`).
 

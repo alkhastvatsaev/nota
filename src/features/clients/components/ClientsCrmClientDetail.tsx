@@ -181,7 +181,7 @@ export default function ClientsCrmClientDetail({
           onClick={() => {
             if (typeof sessionStorage !== "undefined") {
               sessionStorage.setItem(
-                "crmslot_prefill_client",
+                "nota_prefill_client",
                 JSON.stringify({
                   clientId: selected.id,
                   clientName: buildClientDisplayName(selected),

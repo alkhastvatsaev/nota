@@ -64,6 +64,6 @@ describe("registerNativePushForegroundHandler", () => {
     await registerNativePushForegroundHandler();
     receivedHandler?.({ body: "Alerte stock" });
 
-    expect(toast.message).toHaveBeenCalledWith("CRMSLOT", { description: "Alerte stock" });
+    expect(toast.message).toHaveBeenCalledWith("NOTA", { description: "Alerte stock" });
   });
 });

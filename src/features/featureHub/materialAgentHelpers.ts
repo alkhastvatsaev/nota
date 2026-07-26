@@ -1,6 +1,6 @@
 import type { CompanyStockAgentContext } from "@/features/featureHub/companyStockAgentTypes";
 
-export const MATERIAL_AGENT_STORAGE_KEY = "crmslot-material-agent-v1";
+export const MATERIAL_AGENT_STORAGE_KEY = "nota-material-agent-v1";
 
 export const MATERIAL_AGENT_OFF_TOPIC_TEXT =
   "Je suis l'Agent Matériel — je traite uniquement le stock et les commandes matériel. Pour toute autre question, utilisez l'Assistant IA.";

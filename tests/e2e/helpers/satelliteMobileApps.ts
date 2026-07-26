@@ -52,7 +52,7 @@ export async function ensureTechnicianShell(page: Page): Promise<void> {
 
 /** Infra CI : shell monté ou portail connexion technicien. */
 export async function expectTechnicianAppOrLoginGate(page: Page): Promise<void> {
-  await expect(page).toHaveTitle(/crmslot/i);
+  await expect(page).toHaveTitle(/nota/i);
   const state = await waitForTechnicianReady(page);
   expect(state === "app" || state === "login").toBe(true);
 }

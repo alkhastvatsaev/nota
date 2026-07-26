@@ -80,7 +80,7 @@
     "step0_hint": "Vul het centrale formulier in om uw aanvraag te beschrijven.",
     "step1_hint": "Uw aanvraag is geregistreerd in ons systeem.",
     "step2_hint": "We plannen de interventie en zoeken een technicus.",
-    "step3_hint": "Een CRMSLOT-technicus is aan uw dossier toegewezen.",
+    "step3_hint": "Een NOTA-technicus is aan uw dossier toegewezen.",
     "step4_hint": "De technicus is onderweg naar uw adres.",
     "step5_hint": "De interventie is ter plaatse bezig.",
     "step6_hint": "De interventie is afgerond. Factuur en betaling hieronder.",
@@ -429,7 +429,7 @@
       "account": "Account",
       "connect_oauth": "Gmail autoriseren (Google)",
       "connect_with_google": "Inloggen met Google",
-      "setup_hint_short": "Koppel uw Gmail-postvak om berichten in CRMSLOT te lezen en te verzenden.",
+      "setup_hint_short": "Koppel uw Gmail-postvak om berichten in NOTA te lezen en te verzenden.",
       "needs_refresh_token_short": "Log opnieuw in met Google om een geldig token te krijgen.",
       "left_empty_disconnected": "Mappen na inloggen",
       "disconnect": "Gmail afmelden",
@@ -1483,7 +1483,9 @@
     "admin_space_title": "Beheerdersruimte",
     "admin_space_subtitle": "Meld je aan voor toegang tot het dashboard",
     "demo_account_label": "Demo-account",
-    "demo_account_hint": "Tik om demo-gegevens in te vullen"
+    "demo_account_hint": "Tik om demo-gegevens in te vullen",
+    "oauth_unauthorized_domain_hint": "Firebase Console → Authentication → Instellingen → Geautoriseerde domeinen: voeg crmslot.vercel.app toe.",
+    "oauth_popup_blocked_hint": "Safari blokkeert het Apple-venster — sta pop-ups toe voor deze site en probeer opnieuw."
   },
   "requester": {
     "profile": {
@@ -2678,12 +2680,12 @@
     "panel_context": "Context",
     "panel_chat": "Assistent",
     "panel_suggestions": "Suggesties",
-    "title": "CRMSLOT Copilot",
+    "title": "NOTA Copilot",
     "subtitle_company": "Actief bedrijf: {name}",
     "loading_context": "Dossiers laden…",
     "no_company": "Selecteer een bedrijf (switcher) om de assistent te activeren.",
     "context_live": "Live context",
-    "welcome": "Goedendag — ik zie uw CRMSLOT-dossiers, klanten en facturatie. Stel een vraag of kies een suggestie rechts.",
+    "welcome": "Goedendag — ik zie uw NOTA-dossiers, klanten en facturatie. Stel een vraag of kies een suggestie rechts.",
     "input_label": "Bericht aan de assistent",
     "input_placeholder": "bv. Welke urgente dossiers zijn open? Wie heeft niet betaald?",
     "send_aria": "Versturen",
@@ -2792,7 +2794,7 @@
     "prefs_title": "Meldingsvoorkeuren",
     "prefs_saved": "Voorkeuren opgeslagen",
     "staff_onboarding_ios_title": "Meldingen inschakelen",
-    "staff_onboarding_ios_desc": "Voeg CRMSLOT toe aan je startscherm (Delen → Zet op beginscherm) en open de app opnieuw voor meldingen.",
+    "staff_onboarding_ios_desc": "Voeg NOTA toe aan je startscherm (Delen → Zet op beginscherm) en open de app opnieuw voor meldingen.",
     "staff_onboarding_enabled": "Meldingen ingeschakeld — u ontvangt nieuwe aanvragen en berichten.",
     "staff_push_enable_hint": "Schakel meldingen in om aanvragen en berichten op dit apparaat te ontvangen.",
     "staff_push_enable_action": "Inschakelen",
@@ -2910,7 +2912,7 @@
         "tagline": "Peppol · Gmail · AI"
       },
       "standard": {
-        "name": "CRMSLOT",
+        "name": "NOTA",
         "tagline": "Veld-CRM · klantenportaal · Peppol · AI",
         "features": {
           "crm": "Interventies & CRM-dossiers",
@@ -2922,7 +2924,7 @@
       }
     },
     "banner": {
-      "soft_title": "Activeer uw CRMSLOT-abonnement",
+      "soft_title": "Activeer uw NOTA-abonnement",
       "soft_hint": "14 dagen proef · Beheer facturatie wanneer u wilt.",
       "enforce_title": "Abonnement vereist",
       "enforce_hint": "Kies een plan om verder te gaan.",
@@ -2952,11 +2954,11 @@
         "incomplete": "Onvolledig",
         "unpaid": "Onbetaald"
       },
-      "title": "CRMSLOT-abonnement",
+      "title": "NOTA-abonnement",
       "view_pricing": "Tarief bekijken"
     },
     "paywall": {
-      "title": "Toegang tot CRMSLOT",
+      "title": "Toegang tot NOTA",
       "subtitle": "Eén abonnement voor je hele team",
       "cta": "Doorgaan naar betaling"
     }

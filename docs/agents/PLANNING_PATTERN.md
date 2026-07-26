@@ -1,4 +1,4 @@
-# Convention features planning (CRMSLOT)
+# Convention features planning (NOTA)
 
 Quatre features touchent à l'assignation et au planning. La frontière n'est pas évidente (dispatch ≠ scheduling ≠ planningHub ≠ calendar) — voici qui fait quoi.
 

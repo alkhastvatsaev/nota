@@ -6,14 +6,14 @@ import {
   DEFAULT_FEATURE_FLAGS,
   featureFlagsFromEnv,
   mergeFeatureFlags,
-  type CrmslotFeatureFlags,
+  type NotaFeatureFlags,
 } from "@/core/featureFlags";
 import { firestore, isConfigured } from "@/core/config/firebase";
 import { useCompanyWorkspaceOptional } from "@/context/CompanyWorkspaceContext";
 import { parseCompanySaasSubscription } from "@/features/subscriptions/subscriptionAccess";
 import type { CompanySaasSubscription } from "@/features/subscriptions/subscriptionTypes";
 
-const FeatureFlagsContext = createContext<CrmslotFeatureFlags | null>(null);
+const FeatureFlagsContext = createContext<NotaFeatureFlags | null>(null);
 
 type CompanySaasSubscriptionState = {
   subscription: CompanySaasSubscription | null;
@@ -29,7 +29,7 @@ const CompanySaasSubscriptionContext = createContext<CompanySaasSubscriptionStat
 export function FeatureFlagsProvider({ children }: { children: ReactNode }) {
   const workspace = useCompanyWorkspaceOptional();
   const companyId = workspace?.activeCompanyId?.trim() ?? "";
-  const [remote, setRemote] = useState<Partial<CrmslotFeatureFlags> | null>(null);
+  const [remote, setRemote] = useState<Partial<NotaFeatureFlags> | null>(null);
   const [saasSubscriptionState, setSaasSubscriptionState] = useState<CompanySaasSubscriptionState>({
     subscription: null,
     loading: false,
@@ -52,7 +52,7 @@ export function FeatureFlagsProvider({ children }: { children: ReactNode }) {
         if (!raw || typeof raw !== "object") {
           setRemote(null);
         } else {
-          setRemote(raw as Partial<CrmslotFeatureFlags>);
+          setRemote(raw as Partial<NotaFeatureFlags>);
         }
         setSaasSubscriptionState({
           subscription: parseCompanySaasSubscription(data?.saasSubscription),
@@ -81,7 +81,7 @@ export function useCompanySaasSubscriptionFromContext(): CompanySaasSubscription
   return useContext(CompanySaasSubscriptionContext);
 }
 
-export function useFeatureFlagsFromContext(): CrmslotFeatureFlags {
+export function useFeatureFlagsFromContext(): NotaFeatureFlags {
   const ctx = useContext(FeatureFlagsContext);
   return ctx ?? mergeFeatureFlags(featureFlagsFromEnv(), null);
 }

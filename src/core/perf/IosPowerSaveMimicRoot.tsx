@@ -16,7 +16,7 @@ export default function IosPowerSaveMimicRoot() {
   useEffect(() => {
     const target = resolveIosPowerSaveMimicFps();
     if (target == null) return;
-    if (!window.__crmslotLpmMimic) installIosPowerSaveMimic(target);
+    if (!window.__notaLpmMimic) installIosPowerSaveMimic(target);
     setFps(target);
   }, []);
 
@@ -26,6 +26,6 @@ export default function IosPowerSaveMimicRoot() {
 
 declare global {
   interface Window {
-    __crmslotLpmMimic?: boolean;
+    __notaLpmMimic?: boolean;
   }
 }

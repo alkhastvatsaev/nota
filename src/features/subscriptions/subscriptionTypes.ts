@@ -1,4 +1,4 @@
-/** Plan SaaS CRMSLOT — facturation plateforme (≠ facturation interventions). */
+/** Plan SaaS NOTA — facturation plateforme (≠ facturation interventions). */
 export type SubscriptionPlanId = "solo" | "team" | "pro";
 
 export type SubscriptionStatus =

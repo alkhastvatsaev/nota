@@ -10,9 +10,9 @@ export function useSmartFormDraftPrefill(
 ) {
   useEffect(() => {
     if (typeof sessionStorage === "undefined") return;
-    const raw = sessionStorage.getItem("crmslot_prefill_client");
+    const raw = sessionStorage.getItem("nota_prefill_client");
     if (!raw) return;
-    sessionStorage.removeItem("crmslot_prefill_client");
+    sessionStorage.removeItem("nota_prefill_client");
     try {
       const prefill = JSON.parse(raw) as {
         clientName?: string;
@@ -34,9 +34,9 @@ export function useSmartFormDraftPrefill(
     } catch {
       /* ignore */
     }
-    const savRaw = sessionStorage.getItem("crmslot_prefill_sav");
+    const savRaw = sessionStorage.getItem("nota_prefill_sav");
     if (savRaw) {
-      sessionStorage.removeItem("crmslot_prefill_sav");
+      sessionStorage.removeItem("nota_prefill_sav");
       setParentInterventionId(savRaw.trim());
     }
   }, [setFirstName, setLastName, setParentInterventionId, setPhone]);

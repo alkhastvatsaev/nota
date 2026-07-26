@@ -1,4 +1,4 @@
-# Matrice d'automatisation — CRMSLOT
+# Matrice d'automatisation — NOTA
 
 Référence rapide : quelle commande lancer selon la zone modifiée.
 

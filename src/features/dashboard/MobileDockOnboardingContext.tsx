@@ -10,10 +10,10 @@ import {
   type ReactNode,
 } from "react";
 
-const STORAGE_HEADER_DONE = "crmslot_mobile_dock_hint_header_done";
-const STORAGE_FOOTER_DONE = "crmslot_mobile_dock_hint_footer_done";
-const STORAGE_SWIPE_RIGHT_DONE = "crmslot_mobile_dock_hint_swipe_right_done";
-const STORAGE_SWIPE_LEFT_DONE = "crmslot_mobile_dock_hint_swipe_left_done";
+const STORAGE_HEADER_DONE = "nota_mobile_dock_hint_header_done";
+const STORAGE_FOOTER_DONE = "nota_mobile_dock_hint_footer_done";
+const STORAGE_SWIPE_RIGHT_DONE = "nota_mobile_dock_hint_swipe_right_done";
+const STORAGE_SWIPE_LEFT_DONE = "nota_mobile_dock_hint_swipe_left_done";
 
 type MobileDockOnboardingContextValue = {
   headerHintActive: boolean;

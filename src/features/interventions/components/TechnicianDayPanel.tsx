@@ -257,7 +257,7 @@ export default function TechnicianDayPanel() {
             variant="secondary"
             fullWidth
             className="text-[12px]"
-            onClick={() => generateIcal(todayInterventions, "Ma journée CRMSLOT")}
+            onClick={() => generateIcal(todayInterventions, "Ma journée NOTA")}
           >
             <CalendarDays className="h-4 w-4" />
             Exporter en iCal (.ics)

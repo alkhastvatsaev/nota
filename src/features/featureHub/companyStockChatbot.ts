@@ -1,4 +1,4 @@
-import { CRMSLOT_FOCUS_STOCK_HUB_EVENT } from "@/context/CompanyStockIntentContext";
+import { NOTA_FOCUS_STOCK_HUB_EVENT } from "@/context/CompanyStockIntentContext";
 import { BILLING_HUB_SLOT_INDEX } from "@/features/billingHub/billingHubConstants";
 import { FEATURE_HUB_SLOT_INDEX } from "@/features/featureHub/featureHubConstants";
 import type { DashboardPagerApi } from "@/features/dashboard";
@@ -103,7 +103,7 @@ export function navigateMaterialAgentWithQuickPrompt(
 
   if (options?.stockItemId) {
     window.dispatchEvent(
-      new CustomEvent(CRMSLOT_FOCUS_STOCK_HUB_EVENT, {
+      new CustomEvent(NOTA_FOCUS_STOCK_HUB_EVENT, {
         detail: { stockItemId: options.stockItemId },
       })
     );

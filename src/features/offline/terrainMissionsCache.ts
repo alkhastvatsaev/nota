@@ -1,6 +1,6 @@
 import type { Intervention } from "@/features/interventions";
 
-const STORAGE_PREFIX = "crmslot_terrain_missions_";
+const STORAGE_PREFIX = "nota_terrain_missions_";
 
 export type TerrainMissionCacheRow = Pick<
   Intervention,

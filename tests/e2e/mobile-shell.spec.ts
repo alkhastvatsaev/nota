@@ -39,7 +39,7 @@ const PWA_MANIFESTS: { path: string; start_url: string; id: string; short_name: 
 test.describe("Mobile shell (infra)", () => {
   test("?forceMobile=1 — shell mobile ou écran de connexion", async ({ page }) => {
     await page.goto(MOBILE_FORCE_URL);
-    await expect(page).toHaveTitle(/crmslot/i);
+    await expect(page).toHaveTitle(/nota/i);
 
     const sawMobile = await page
       .getByTestId("mobile-shell")
@@ -76,7 +76,7 @@ test.describe("Mobile shell (infra)", () => {
       const res = await request.get(manifest.path);
       expect(res.ok()).toBeTruthy();
       const json = (await res.json()) as PwaManifest;
-      expect(json.name).toMatch(/crmslot/i);
+      expect(json.name).toMatch(/nota/i);
       expect(json.display).toBe("standalone");
       expect(json.start_url).toBe(manifest.start_url);
       expect(json.id).toBe(manifest.id);

@@ -4,7 +4,7 @@ import AppBootLoadingScreen from "@/core/ui/AppBootLoadingScreen";
 import TechnicianMobileApp from "@/features/interventions/components/TechnicianMobileApp";
 
 export const metadata: Metadata = {
-  title: "CRMSLOT Terrain",
+  title: "NOTA Terrain",
   description: "Missions et clôture technicien",
 };
 

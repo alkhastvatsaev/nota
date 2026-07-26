@@ -1,6 +1,6 @@
 import type { ChatbotConversation } from "@/features/chatbot/chatbot-types";
 
-export const CHATBOT_CONVERSATION_STORAGE_PREFIX = "crmslot-chatbot-v2";
+export const CHATBOT_CONVERSATION_STORAGE_PREFIX = "nota-chatbot-v2";
 
 export function loadChatbotConversations(key: string): ChatbotConversation[] {
   if (typeof window === "undefined") return [];

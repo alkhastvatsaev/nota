@@ -10,7 +10,7 @@ export type StaffJoinPayload = {
   email?: string | null;
 };
 
-const STAFF_JOIN_STORAGE_KEY = "crmslot_staff_join_payload";
+const STAFF_JOIN_STORAGE_KEY = "nota_staff_join_payload";
 
 export function parseDisplayName(displayName: string | null | undefined): {
   firstName: string;

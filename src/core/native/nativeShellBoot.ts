@@ -33,7 +33,7 @@ export async function bootNativeShell(): Promise<void> {
 
   await Network.addListener("networkStatusChange", (status) => {
     window.dispatchEvent(
-      new CustomEvent("crmslot:network", {
+      new CustomEvent("nota:network", {
         detail: { connected: status.connected, type: status.connectionType },
       })
     );

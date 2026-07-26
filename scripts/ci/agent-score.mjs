@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Score agent-readiness CRMSLOT (Cursor / Claude).
+ * Score agent-readiness NOTA (Cursor / Claude).
  *
  * Usage:
  *   npm run agent:score
@@ -190,7 +190,7 @@ const m = collectMetrics();
 if (jsonOut) {
   console.log(JSON.stringify(m, null, 2));
 } else {
-  console.log("CRMSLOT agent-readiness score\n");
+  console.log("NOTA agent-readiness score\n");
   console.log(`  Score global : ${m.score}%  (cible 90%, plancher 70%)`);
   console.log("");
   console.log("  Sous-scores :");

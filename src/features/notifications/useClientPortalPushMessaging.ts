@@ -74,7 +74,7 @@ export function useClientPortalPushMessaging(
     unsubForegroundRef.current?.();
     const messaging = getMessaging(app);
     unsubForegroundRef.current = onMessage(messaging, (payload) => {
-      const title = payload.notification?.title ?? "CRMSLOT";
+      const title = payload.notification?.title ?? "NOTA";
       const body = payload.notification?.body ?? "";
       toast.message(title, { description: body });
       const pushType = typeof payload.data?.type === "string" ? payload.data.type : "";

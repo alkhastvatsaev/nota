@@ -26,7 +26,7 @@ Historique CRM unifié — slot Quality Management (`CRM_HISTORY_SLOT_INDEX`).
 
 ## Pièges
 
-- Event `CRMSLOT_CRM_ORDERS_CHANGED_EVENT` pour refresh commandes
+- Event `NOTA_CRM_ORDERS_CHANGED_EVENT` pour refresh commandes
 - Filtres dans `crmActivityFilters.ts`
 
 ## Tests

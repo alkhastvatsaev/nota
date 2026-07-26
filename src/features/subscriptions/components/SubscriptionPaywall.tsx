@@ -9,9 +9,9 @@ import {
   startSubscriptionCheckout,
   subscriptionCheckoutEnabled,
 } from "@/features/subscriptions";
-import CrmslotLockMark from "@/features/subscriptions/components/CrmslotLockMark";
+import NotaLockMark from "@/features/subscriptions/components/NotaLockMark";
 
-/** Écran plein page — activer l’accès CRMSLOT (1 CTA → Stripe). */
+/** Écran plein page — activer l’accès NOTA (1 CTA → Stripe). */
 export default function SubscriptionPaywall() {
   const { t } = useTranslation();
   const plan = SUBSCRIPTION_PLANS[0];
@@ -41,7 +41,7 @@ export default function SubscriptionPaywall() {
     >
       <div className="w-full max-w-md rounded-[2rem] border border-slate-200/80 bg-white/95 p-6 shadow-[0_30px_90px_-60px_rgba(2,6,23,0.55)] backdrop-blur sm:p-8">
         <div className="mb-5 flex justify-center">
-          <CrmslotLockMark className="h-12 w-10" />
+          <NotaLockMark className="h-12 w-10" />
         </div>
 
         <div className="text-center">

@@ -4,9 +4,9 @@ import { isSaasSignupFlow } from "@/features/subscriptions/provisionSaasCompanyC
 
 describe("provisionSaasCompanyClient", () => {
   it("detects saas signup when pending plan in sessionStorage", () => {
-    sessionStorage.setItem("crmslot_pending_plan", "team");
+    sessionStorage.setItem("nota_pending_plan", "team");
     expect(isSaasSignupFlow()).toBe(true);
-    sessionStorage.removeItem("crmslot_pending_plan");
+    sessionStorage.removeItem("nota_pending_plan");
     expect(isSaasSignupFlow()).toBe(false);
   });
 });

@@ -1,6 +1,6 @@
 import type { ClientRecord } from "./types";
 
-const STORAGE_PREFIX = "crmslot_crm_clients_";
+const STORAGE_PREFIX = "nota_crm_clients_";
 
 export function readClientsOfflineCache(companyId: string): ClientRecord[] {
   if (typeof window === "undefined") return [];

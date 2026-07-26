@@ -1,4 +1,4 @@
-# Tests CRMSLOT
+# Tests NOTA
 
 `docs/agents/CURSOR_WORKFLOW.md` · `docs/agents/PARALLEL_WORK.md` · steppers → `docs/agents/AGENTS_EXTENDED.md`
 

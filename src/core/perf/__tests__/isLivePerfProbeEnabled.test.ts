@@ -11,11 +11,11 @@ describe("isLivePerfProbeEnabled", () => {
   it("active avec ?perf=1", () => {
     window.history.replaceState({}, "", "/?perf=1");
     expect(isLivePerfProbeEnabled()).toBe(true);
-    expect(window.localStorage.getItem("crmslot:perf")).toBe("1");
+    expect(window.localStorage.getItem("nota:perf")).toBe("1");
   });
 
   it("reste actif via localStorage", () => {
-    window.localStorage.setItem("crmslot:perf", "1");
+    window.localStorage.setItem("nota:perf", "1");
     expect(isLivePerfProbeEnabled()).toBe(true);
   });
 });

@@ -27,7 +27,7 @@ Le code est prêt : `src/core/config/firebase-app-check.ts` (CRM + portail clien
 ### Phase 1 — Créer reCAPTCHA v3 (Google)
 
 1. [Google reCAPTCHA Admin → Create](https://www.google.com/recaptcha/admin/create)
-2. **Label** : `CRMSLOT prod`
+2. **Label** : `NOTA prod`
 3. **Type** : **reCAPTCHA v3**
 4. **Domaines** :
    ```
@@ -105,7 +105,13 @@ Domaines reCAPTCHA déjà inclus dans le CSP (commit sécurité `ab72af1`).
 
 ## 3. Backups & restauration
 
-### GitHub Actions (backup Firestore quotidien)
+> ⚠️ **Constat 19/07/2026** : le workflow GitHub était en échec depuis le 13/07 (billing GitHub bloqué → tous les workflows stoppés, dernier backup : 12/07). Préférer le **backup natif Firestore** ci-dessous : il tourne côté GCP, indépendant de GitHub.
+
+### Backup quotidien natif Firestore (recommandé)
+
+API `backupSchedules` (ou `gcloud firestore backups schedules create --database='(default)' --recurrence=daily --retention=7d`). Script prêt à l'emploi qui active PITR **et** le backup quotidien via le service account du repo (`FIREBASE_CLIENT_EMAIL`/`FIREBASE_PRIVATE_KEY`) — demander à l'agent de le régénérer si besoin. Vérification : [Firestore → Backups](https://console.firebase.google.com/project/belgique-72708/firestore/databases/-default-/backups).
+
+### GitHub Actions (backup Firestore quotidien — legacy)
 
 Workflow : `.github/workflows/firestore-backup.yml`
 

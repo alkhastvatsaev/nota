@@ -20,7 +20,7 @@ type PushPayload = {
 
 function showPushNotification(payload: PushPayload): void {
   const data = (payload.data ?? {}) as Record<string, string | undefined>;
-  const title = data.title ?? payload.notification?.title ?? "CRMSLOT";
+  const title = data.title ?? payload.notification?.title ?? "NOTA";
   const body = data.body ?? payload.notification?.body ?? "";
   const origin = self.location.origin;
   const openUrl = resolvePushNotificationOpenUrl(origin, data);

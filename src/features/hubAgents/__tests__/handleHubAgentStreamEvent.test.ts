@@ -20,7 +20,7 @@ jest.mock("@/features/dashboard/dashboardPagerContext", () => ({
 }));
 
 jest.mock("@/context/CompanyStockIntentContext", () => ({
-  CRMSLOT_FOCUS_STOCK_HUB_EVENT: "crmslot:focus-stock-hub",
+  NOTA_FOCUS_STOCK_HUB_EVENT: "nota:focus-stock-hub",
   useCompanyStockIntentOptional: () => ({ applyFocus: mockApplyFocus }),
 }));
 

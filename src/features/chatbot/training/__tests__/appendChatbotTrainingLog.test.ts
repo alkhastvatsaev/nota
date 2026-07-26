@@ -130,7 +130,7 @@ describe("appendChatbotTrainingLog", () => {
     expect(payload.userMessage).toBe("Question ?");
     expect(payload.assistantMessage).toBe("Réponse.");
     expect(payload.hadToolRounds).toBe(true);
-    expect(payload.source).toBe("crmslot_openai_chatbot");
+    expect(payload.source).toBe("nota_openai_chatbot");
     expect(payload.createdAt).toBe("MOCK_SERVER_TS");
   });
 

@@ -40,7 +40,7 @@ export async function executeDemoLecotOrder(params: {
   } = params;
 
   const demoReference = buildLecotPreviewReference(orderRef.id);
-  const demoNote = `Simulation démo CRMSLOT — ${demoReference}. Compte Lecot pro non connecté ; aucun envoi réel.`;
+  const demoNote = `Simulation démo NOTA — ${demoReference}. Compte Lecot pro non connecté ; aucun envoi réel.`;
   await orderRef.update({
     status: "sent",
     isDemo: true,

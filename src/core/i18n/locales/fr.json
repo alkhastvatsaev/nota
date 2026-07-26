@@ -80,7 +80,7 @@
     "step0_hint": "Complétez le formulaire central pour décrire votre besoin.",
     "step1_hint": "Votre demande est bien enregistrée dans notre système.",
     "step2_hint": "Nous planifions l'intervention et recherchons un technicien.",
-    "step3_hint": "Un technicien CRMSLOT est assigné à votre dossier.",
+    "step3_hint": "Un technicien NOTA est assigné à votre dossier.",
     "step4_hint": "Le technicien est en route vers votre adresse.",
     "step5_hint": "L'intervention est en cours sur place.",
     "step6_hint": "Intervention terminée — facture, paiement et avis.",
@@ -429,7 +429,7 @@
       "account": "Compte",
       "connect_oauth": "Autoriser Gmail (Google)",
       "connect_with_google": "Se connecter avec Google",
-      "setup_hint_short": "Connectez la boîte Gmail pour lire et envoyer vos messages depuis CRMSLOT.",
+      "setup_hint_short": "Connectez la boîte Gmail pour lire et envoyer vos messages depuis NOTA.",
       "needs_refresh_token_short": "Autorisez à nouveau l’accès Google pour récupérer un jeton valide.",
       "left_empty_disconnected": "Dossiers disponibles après connexion",
       "disconnect": "Déconnexion Gmail",
@@ -2680,12 +2680,12 @@
     "panel_context": "Contexte",
     "panel_chat": "Assistant",
     "panel_suggestions": "Suggestions",
-    "title": "CRMSLOT Copilot",
+    "title": "NOTA Copilot",
     "subtitle_company": "Société active : {name}",
     "loading_context": "Chargement des dossiers…",
     "no_company": "Sélectionnez une société (switcher) pour activer l’assistant.",
     "context_live": "Contexte live",
-    "welcome": "Bonjour — je connais les dossiers, clients et factures de votre espace CRMSLOT. Posez une question ou choisissez une suggestion à droite.",
+    "welcome": "Bonjour — je connais les dossiers, clients et factures de votre espace NOTA. Posez une question ou choisissez une suggestion à droite.",
     "input_label": "Message pour l’assistant",
     "input_placeholder": "Ex. Quelles urgences sont ouvertes ? Qui n’a pas payé ?",
     "send_aria": "Envoyer",
@@ -2794,7 +2794,7 @@
     "prefs_title": "Préférences de notifications",
     "prefs_saved": "Préférences enregistrées",
     "staff_onboarding_ios_title": "Activer les notifications",
-    "staff_onboarding_ios_desc": "Ajoutez CRMSLOT à l'écran d'accueil (Partager → Sur l'écran d'accueil), puis rouvrez l'app pour recevoir les alertes.",
+    "staff_onboarding_ios_desc": "Ajoutez NOTA à l'écran d'accueil (Partager → Sur l'écran d'accueil), puis rouvrez l'app pour recevoir les alertes.",
     "staff_onboarding_enabled": "Notifications activées — vous recevrez les nouvelles demandes et messages.",
     "staff_push_enable_hint": "Activez les notifications pour recevoir les demandes et messages sur cet appareil.",
     "staff_push_enable_action": "Activer",
@@ -2912,7 +2912,7 @@
         "tagline": "Peppol · Gmail · IA"
       },
       "standard": {
-        "name": "CRMSLOT",
+        "name": "NOTA",
         "tagline": "CRM terrain · portail client · Peppol · IA",
         "features": {
           "crm": "Interventions & dossiers CRM",
@@ -2924,7 +2924,7 @@
       }
     },
     "banner": {
-      "soft_title": "Activez votre abonnement CRMSLOT",
+      "soft_title": "Activez votre abonnement NOTA",
       "soft_hint": "Essai 14 jours · Gérez votre abonnement à tout moment.",
       "enforce_title": "Abonnement requis pour continuer",
       "enforce_hint": "Choisissez un plan pour accéder à la plateforme.",
@@ -2954,11 +2954,11 @@
         "incomplete": "Incomplet",
         "unpaid": "Impayé"
       },
-      "title": "Abonnement CRMSLOT",
+      "title": "Abonnement NOTA",
       "view_pricing": "Voir les tarifs"
     },
     "paywall": {
-      "title": "Accéder à CRMSLOT",
+      "title": "Accéder à NOTA",
       "subtitle": "Un abonnement pour toute l'équipe",
       "cta": "Continuer vers le paiement"
     }
