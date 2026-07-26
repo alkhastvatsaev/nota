@@ -4,6 +4,7 @@ import { onAuthStateChanged, type User } from "firebase/auth";
 import { collection, doc, getDoc, getDocs, limit, query, where } from "firebase/firestore";
 import { auth, clientPortalFirestore, firestore, isConfigured } from "@/core/config/firebase";
 import { CLIENT_PORTAL_PROFILE_COLLECTION } from "@/features/auth/clientPortalConstants";
+import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
 import { isCrmTenantAuthUser } from "@/features/auth/recoverMainAuthFromClientPortalLeak";
 
 export type AccountRole = "admin" | "technician" | "client" | "unknown";
@@ -114,20 +115,23 @@ export function useAccountRole(): AccountRoleState {
         );
         if (cancelled) return;
         const isTech = techSnap !== null && !techSnap.empty;
-        const satelliteTechnician = isTech && !isCrmTenant;
-        const satelliteClient = isClient && !isTech && !isCrmTenant;
-        const role: AccountRole = isCrmTenant
-          ? "admin"
-          : isTech
-            ? "technician"
-            : isClient
-              ? "client"
-              : "admin";
+        // Mode démo : ne pas rediriger vers /m/technician (doc tech créé au join-default).
+        const frictionless = isFrictionlessAuthEnabled();
+        const satelliteTechnician = !frictionless && isTech && !isCrmTenant;
+        const satelliteClient = !frictionless && isClient && !isTech && !isCrmTenant;
+        const role: AccountRole =
+          frictionless || isCrmTenant
+            ? "admin"
+            : isTech
+              ? "technician"
+              : isClient
+                ? "client"
+                : "admin";
         setState({
           role,
           isTechnicianAccount: satelliteTechnician,
           isClientPortalAccount: satelliteClient,
-          isCrmTenantAccount: isCrmTenant,
+          isCrmTenantAccount: frictionless || isCrmTenant,
           isLoading: false,
         });
       } catch {

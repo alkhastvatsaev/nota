@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useCompanyWorkspaceOptional } from "@/context/CompanyWorkspaceContext";
+import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
 import {
   isSubscriptionActive,
   subscriptionCheckoutEnabled,
@@ -21,6 +22,7 @@ export default function SubscriptionAccessGate({ children }: Props) {
   const { subscription, loading } = useCompanySubscription();
 
   const showPaywall =
+    !isFrictionlessAuthEnabled() &&
     subscriptionEnforcementEnabled() &&
     subscriptionCheckoutEnabled() &&
     Boolean(workspace?.firebaseUid) &&

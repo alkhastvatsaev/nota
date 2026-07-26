@@ -1,4 +1,5 @@
 import type { CompanyMembershipRow, CompanyRole } from "@/features/company/types";
+import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
 import { readClientPortalDefaultCompanyIdFromEnv } from "@/features/company/clientPortalCompanyId";
 
 export type MembershipDocSnapshot = {
@@ -57,7 +58,8 @@ export function appendEnvDefaultMembershipFallback(
   return [
     {
       companyId: envId,
-      role: "collaborateur",
+      // Mode démo : admin pour ne pas masquer les panneaux staff pendant le boot.
+      role: isFrictionlessAuthEnabled() ? "admin" : "collaborateur",
       companyName: TEST_COMPANY_DISPLAY_NAME,
     },
   ];

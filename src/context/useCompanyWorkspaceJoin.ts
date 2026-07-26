@@ -16,24 +16,26 @@ function canJoinDefaultCompany(user: User | null | undefined): user is User {
 export function useCompanyWorkspaceJoin({
   authLoading,
   membershipsReady,
-  membershipsLength,
-  membershipCompanyIds,
+  hasRealMemberships,
+  realMembershipCompanyIds,
   firebaseUid,
 }: {
   authLoading: boolean;
   membershipsReady: boolean;
-  membershipsLength: number;
-  membershipCompanyIds: string[];
+  /** Memberships Firestore réelles — jamais le fallback env UI. */
+  hasRealMemberships: boolean;
+  realMembershipCompanyIds: string[];
   firebaseUid: string | null;
 }) {
   const envDefaultCompanyId = useMemo(() => readClientPortalDefaultCompanyIdFromEnv(), []);
+  // Important : le fallback env (liste UI) ne doit PAS empêcher le join-default.
+  const missingAnyMembership = membershipsReady && !hasRealMemberships;
   const missingEnvMembership = Boolean(
     envDefaultCompanyId &&
     membershipsReady &&
-    membershipsLength > 0 &&
-    !membershipCompanyIds.includes(envDefaultCompanyId)
+    hasRealMemberships &&
+    !realMembershipCompanyIds.includes(envDefaultCompanyId)
   );
-  const missingAnyMembership = membershipsReady && membershipsLength === 0;
   const shouldJoinDefault = missingAnyMembership || missingEnvMembership;
   const [membershipJoinPending, setMembershipJoinPending] = useState(false);
   const [membershipJoinError, setMembershipJoinError] = useState<string | null>(null);
@@ -98,10 +100,10 @@ export function useCompanyWorkspaceJoin({
   }, [authLoading, membershipsReady, shouldJoinDefault, firebaseUid]);
 
   useEffect(() => {
-    if (membershipsLength > 0 && membershipJoinPending) {
+    if (hasRealMemberships && membershipJoinPending) {
       setMembershipJoinPending(false);
     }
-  }, [membershipsLength, membershipJoinPending]);
+  }, [hasRealMemberships, membershipJoinPending]);
 
   return { membershipJoinPending, membershipJoinError, retryDefaultCompanyJoin };
 }

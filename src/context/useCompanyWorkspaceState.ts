@@ -21,17 +21,17 @@ export function useCompanyWorkspaceState(initialActiveCompanyId?: string): Compa
     hasRealMemberships,
   } = useCompanyWorkspaceMemberships(firebaseUid, initialActiveCompanyId);
 
-  const membershipCompanyIds = useMemo(
-    () => memberships.map((m) => m.companyId.trim()).filter(Boolean),
-    [memberships]
+  const realMembershipCompanyIds = useMemo(
+    () => (hasRealMemberships ? memberships.map((m) => m.companyId.trim()).filter(Boolean) : []),
+    [hasRealMemberships, memberships]
   );
 
   const { membershipJoinPending, membershipJoinError, retryDefaultCompanyJoin } =
     useCompanyWorkspaceJoin({
       authLoading,
       membershipsReady,
-      membershipsLength: memberships.length,
-      membershipCompanyIds,
+      hasRealMemberships,
+      realMembershipCompanyIds,
       firebaseUid,
     });
 
