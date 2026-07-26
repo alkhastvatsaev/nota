@@ -1,6 +1,6 @@
 import { test, expect, devices } from "@playwright/test";
 
-const PROD = process.env.PLAYWRIGHT_PROD_URL ?? "https://getnota.vercel.app";
+const PROD = process.env.PLAYWRIGHT_PROD_URL ?? "https://heynota.app";
 
 type Diag = {
   url: string;

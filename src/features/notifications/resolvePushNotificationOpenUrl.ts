@@ -10,7 +10,7 @@ import {
   BM_TECH_REMINDER_PARAM,
 } from "@/features/notifications/notificationConstants";
 
-export function resolvePushNotificationOrigin(fallback = "https://getnota.vercel.app"): string {
+export function resolvePushNotificationOrigin(fallback = "https://heynota.app"): string {
   return process.env.PUBLIC_APP_URL?.trim() || process.env.NEXT_PUBLIC_APP_URL?.trim() || fallback;
 }
 

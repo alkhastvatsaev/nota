@@ -5,7 +5,7 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 GRADLE="${ROOT}/scripts/mobile/gradlew-with-jbr.sh"
 OUT_DIR="${ROOT}/dist/mobile"
-BASE_URL="${CAPACITOR_BASE_URL:-https://getnota.vercel.app}"
+BASE_URL="${CAPACITOR_BASE_URL:-https://heynota.app}"
 mkdir -p "$OUT_DIR"
 
 capitalize() {

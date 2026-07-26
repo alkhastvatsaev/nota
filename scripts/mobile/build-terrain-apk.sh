@@ -5,7 +5,7 @@ ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 
 echo "→ cap sync android (terrain)…"
-CAPACITOR_SERVER_URL="${CAPACITOR_SERVER_URL:-https://getnota.vercel.app/m/technician}" \
+CAPACITOR_SERVER_URL="${CAPACITOR_SERVER_URL:-https://heynota.app/m/technician}" \
   npx cap sync android
 
 echo "→ assembleDebug…"

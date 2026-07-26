@@ -16,7 +16,7 @@ describe("buildFcmWebDataOnlyPayload", () => {
       title: "Test",
       body: "Corps",
       data: { type: "portal_chat", audience: "staff" },
-      origin: "https://getnota.vercel.app",
+      origin: "https://heynota.app",
     });
     expect(payload.notification).toBeUndefined();
     expect(payload.webpush?.notification).toBeUndefined();
@@ -32,7 +32,7 @@ describe("buildFcmNativePushPayload", () => {
       title: "Mission",
       body: "Nouvelle",
       data: { type: "payment_received" },
-      origin: "https://getnota.vercel.app",
+      origin: "https://heynota.app",
     });
     expect(payload.notification?.title).toBe("Mission");
     expect(payload.android?.notification?.channelId).toBe(ANDROID_PUSH_CHANNEL_DEFAULT);
@@ -45,13 +45,13 @@ describe("buildFcmPayloadForPlatform", () => {
       title: "Chat",
       body: "Hi",
       data: { type: "portal_chat" },
-      origin: "https://getnota.vercel.app",
+      origin: "https://heynota.app",
     });
     const android = buildFcmPayloadForPlatform("android", {
       title: "Chat",
       body: "Hi",
       data: { type: "portal_chat" },
-      origin: "https://getnota.vercel.app",
+      origin: "https://heynota.app",
     });
     expect(web.notification).toBeUndefined();
     expect(android.notification?.title).toBe("Chat");
@@ -71,7 +71,7 @@ describe("normalizeFcmTokenPlatform", () => {
 describe("resolvePushNotificationOpenUrl", () => {
   it("construit les deep-links client et staff", () => {
     expect(
-      resolvePushNotificationOpenUrl("https://getnota.vercel.app", {
+      resolvePushNotificationOpenUrl("https://heynota.app", {
         type: "portal_chat",
         audience: "client",
         interventionId: "iv1",

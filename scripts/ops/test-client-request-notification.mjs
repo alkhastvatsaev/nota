@@ -22,7 +22,7 @@ loadDotEnv(path.join(ROOT, ".env.local"));
 
 const apiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY?.trim();
 const companyId = process.env.NEXT_PUBLIC_CLIENT_PORTAL_DEFAULT_COMPANY_ID?.trim();
-const appUrl = (process.env.PUBLIC_APP_URL || process.env.NEXT_PUBLIC_APP_URL || "https://getnota.vercel.app").replace(/\/$/, "");
+const appUrl = (process.env.PUBLIC_APP_URL || process.env.NEXT_PUBLIC_APP_URL || "https://heynota.app").replace(/\/$/, "");
 const projectId = process.env.FIREBASE_PROJECT_ID || process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID;
 const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
 const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");

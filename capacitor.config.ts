@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from "@capacitor/cli";
 import { KeyboardResize, KeyboardStyle } from "@capacitor/keyboard";
 
-const serverUrl = process.env.CAPACITOR_SERVER_URL?.trim() || "https://getnota.vercel.app";
+const serverUrl = process.env.CAPACITOR_SERVER_URL?.trim() || "https://heynota.app";
 
 const config: CapacitorConfig = {
   appId: "com.crmslot.app",

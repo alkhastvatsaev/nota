@@ -32,10 +32,10 @@ const SYNC_KEYS = [
 
 /** Dérivées si absentes du .env.local */
 const DERIVED = {
-  TWILIO_WEBHOOK_PUBLIC_URL: "https://getnota.vercel.app",
-  PUBLIC_APP_URL: "https://getnota.vercel.app",
-  NEXT_PUBLIC_BASE_URL: "https://getnota.vercel.app",
-  GOOGLE_REDIRECT_URI: "https://getnota.vercel.app/api/integrations/gmail/callback",
+  TWILIO_WEBHOOK_PUBLIC_URL: "https://heynota.app",
+  PUBLIC_APP_URL: "https://heynota.app",
+  NEXT_PUBLIC_BASE_URL: "https://heynota.app",
+  GOOGLE_REDIRECT_URI: "https://heynota.app/api/integrations/gmail/callback",
 };
 
 function parseEnvFile(filePath) {

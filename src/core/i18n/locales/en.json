@@ -1484,7 +1484,7 @@
     "admin_space_subtitle": "Sign in to access the dashboard",
     "demo_account_label": "Demo account",
     "demo_account_hint": "Tap to fill demo credentials",
-    "oauth_unauthorized_domain_hint": "Firebase Console → Authentication → Settings → Authorized domains: add getnota.vercel.app.",
+    "oauth_unauthorized_domain_hint": "Firebase Console → Authentication → Settings → Authorized domains: add heynota.app.",
     "oauth_popup_blocked_hint": "Safari blocked the Apple window — allow pop-ups for this site and try again."
   },
   "requester": {
