@@ -9,7 +9,6 @@ import android.webkit.WebView;
 import com.getcapacitor.Bridge;
 import com.getcapacitor.BridgeActivity;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
 
 public class MainActivity extends BridgeActivity {
 
@@ -52,19 +51,14 @@ public class MainActivity extends BridgeActivity {
         }
     }
 
-    /** Fallback si google-services.json absent (parité iOS AppDelegate.swift). */
+    /**
+     * Init Firebase via ressources générées par google-services.json (plugin Google Services).
+     * Pas de clé API en dur dans le code source.
+     */
     private void ensureFirebaseInitialized() {
         if (!FirebaseApp.getApps(this).isEmpty()) {
             return;
         }
-        FirebaseOptions options =
-                new FirebaseOptions.Builder()
-                        .setApplicationId("1:315831742964:android:30965f4bcc9b616e3609a1")
-                        .setApiKey("AIzaSyAcxB1TLNtnt-EiUP-hsO5tTP3Zal8mdy8")
-                        .setProjectId("heynota-app")
-                        .setGcmSenderId("315831742964")
-                        .setStorageBucket("heynota-app.firebasestorage.app")
-                        .build();
-        FirebaseApp.initializeApp(this, options);
+        FirebaseApp.initializeApp(this);
     }
 }

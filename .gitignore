@@ -119,3 +119,8 @@ public/workbox-*.js
 public/workbox-*.js.map
 public/worker-*.js
 public/swe-worker-*.js
+.gstack/
+
+# Firebase iOS config (clé API client) — générer via: firebase apps:sdkconfig IOS <appId>
+ios/App/App/GoogleService-Info.plist
+android/app/google-services.json

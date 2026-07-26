@@ -8,20 +8,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // TODO: remplacer par GoogleService-Info.plist + FirebaseApp.configure() une fois l'app iOS enregistrée dans la console Firebase.
+        // Config native via GoogleService-Info.plist uniquement (pas de clé API en dur).
+        // La WebView Capacitor utilise NEXT_PUBLIC_FIREBASE_* côté JS si le plist est absent.
         if FirebaseApp.app() == nil {
-            let bundlePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist")
-            if let bundlePath = bundlePath, let opts = FirebaseOptions(contentsOfFile: bundlePath) {
-                FirebaseApp.configure(options: opts)
-            } else {
-                let opts = FirebaseOptions(
-                    googleAppID: "1:889606998232:ios:0000000000000000000000",
-                    gcmSenderID: "315831742964"
-                )
-                opts.apiKey = "AIzaSyC4F4dB57EPiumv-LzPA_bIGyiDBEW01NM"
-                opts.projectID = "heynota-app"
-                opts.storageBucket = "heynota-app.firebasestorage.app"
-                opts.bundleID = Bundle.main.bundleIdentifier ?? "com.crmslot.app"
+            if let bundlePath = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist"),
+               let opts = FirebaseOptions(contentsOfFile: bundlePath) {
                 FirebaseApp.configure(options: opts)
             }
         }
