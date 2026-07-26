@@ -18,7 +18,7 @@ jest.mock("@/core/native/nativeAppleSignIn", () => ({
     override readonly name = "NativeAppleSignInCancelled";
   },
   firebaseAppleOAuthRedirectUri: jest.fn(
-    () => "https://belgique-72708.firebaseapp.com/__/auth/handler"
+    () => "https://heynota-app.firebaseapp.com/__/auth/handler"
   ),
 }));
 

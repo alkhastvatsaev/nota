@@ -59,11 +59,11 @@ public class MainActivity extends BridgeActivity {
         }
         FirebaseOptions options =
                 new FirebaseOptions.Builder()
-                        .setApplicationId("1:889606998232:android:851ccd32867fa1562dafad")
-                        .setApiKey("AIzaSyB3gZyNTOmsDC6Iy1CoIjpL7sg6x1f8HXU")
-                        .setProjectId("belgique-72708")
-                        .setGcmSenderId("889606998232")
-                        .setStorageBucket("belgique-72708.firebasestorage.app")
+                        .setApplicationId("1:315831742964:android:30965f4bcc9b616e3609a1")
+                        .setApiKey("AIzaSyAcxB1TLNtnt-EiUP-hsO5tTP3Zal8mdy8")
+                        .setProjectId("heynota-app")
+                        .setGcmSenderId("315831742964")
+                        .setStorageBucket("heynota-app.firebasestorage.app")
                         .build();
         FirebaseApp.initializeApp(this, options);
     }

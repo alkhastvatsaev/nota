@@ -16,11 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else {
                 let opts = FirebaseOptions(
                     googleAppID: "1:889606998232:ios:0000000000000000000000",
-                    gcmSenderID: "889606998232"
+                    gcmSenderID: "315831742964"
                 )
-                opts.apiKey = "AIzaSyAjuKU7qjM3ZaoFysgwj7eVdWZFXSxQFMk"
-                opts.projectID = "belgique-72708"
-                opts.storageBucket = "belgique-72708.firebasestorage.app"
+                opts.apiKey = "AIzaSyC4F4dB57EPiumv-LzPA_bIGyiDBEW01NM"
+                opts.projectID = "heynota-app"
+                opts.storageBucket = "heynota-app.firebasestorage.app"
                 opts.bundleID = Bundle.main.bundleIdentifier ?? "com.crmslot.app"
                 FirebaseApp.configure(options: opts)
             }

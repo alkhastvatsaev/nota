@@ -20,8 +20,8 @@
 
 Le code est prêt : `src/core/config/firebase-app-check.ts` (CRM + portail client). Il manque la config Firebase + la variable Vercel.
 
-**Projet** : `belgique-72708` (nom affiché Firebase : **NOTA** — l’ID projet ne peut pas être renommé)  
-**App Web** : `1:889606998232:web:0e91036e1d7192e82dafad`  
+**Projet** : `heynota-app` (nom affiché Firebase : **NOTA** — l’ID projet ne peut pas être renommé)  
+**App Web** : `1:315831742964:web:fc7ee14ed58a30723609a1`  
 **Prod** : `https://heynota.app`
 
 ### Phase 1 — Créer reCAPTCHA v3 (Google)
@@ -40,7 +40,7 @@ Le code est prêt : `src/core/config/firebase-app-check.ts` (CRM + portail clien
 
 ### Phase 2 — Lier App Check (Firebase Console)
 
-1. [Firebase → App Check](https://console.firebase.google.com/project/belgique-72708/appcheck)
+1. [Firebase → App Check](https://console.firebase.google.com/project/heynota-app/appcheck)
 2. **Apps** → app Web → **Register**
 3. Provider : **reCAPTCHA v3**
 4. Coller la **clé secrète** reCAPTCHA (pas la clé site)
@@ -65,12 +65,12 @@ NEXT_PUBLIC_FIREBASE_APP_CHECK_SITE_KEY=6Lxxxxxxxx...
 ### Phase 4 — Vérifier (AVANT enforcement)
 
 1. Ouvrir `https://heynota.app`, se connecter
-2. [App Check → Metrics](https://console.firebase.google.com/project/belgique-72708/appcheck) : voir des requêtes **verified**
+2. [App Check → Metrics](https://console.firebase.google.com/project/heynota-app/appcheck) : voir des requêtes **verified**
 3. Si 0 % : vérifier domaines reCAPTCHA, variable Vercel, DevTools → `[appCheck] init failed`
 
 ### Phase 5 — Enforcement (une brique à la fois)
 
-[App Check → APIs](https://console.firebase.google.com/project/belgique-72708/appcheck/products) :
+[App Check → APIs](https://console.firebase.google.com/project/heynota-app/appcheck/products) :
 
 | Ordre | Service                    | Action                   |
 | ----- | -------------------------- | ------------------------ |
@@ -109,7 +109,7 @@ Domaines reCAPTCHA déjà inclus dans le CSP (commit sécurité `ab72af1`).
 
 ### Backup quotidien natif Firestore (recommandé)
 
-API `backupSchedules` (ou `gcloud firestore backups schedules create --database='(default)' --recurrence=daily --retention=7d`). Script prêt à l'emploi qui active PITR **et** le backup quotidien via le service account du repo (`FIREBASE_CLIENT_EMAIL`/`FIREBASE_PRIVATE_KEY`) — demander à l'agent de le régénérer si besoin. Vérification : [Firestore → Backups](https://console.firebase.google.com/project/belgique-72708/firestore/databases/-default-/backups).
+API `backupSchedules` (ou `gcloud firestore backups schedules create --database='(default)' --recurrence=daily --retention=7d`). Script prêt à l'emploi qui active PITR **et** le backup quotidien via le service account du repo (`FIREBASE_CLIENT_EMAIL`/`FIREBASE_PRIVATE_KEY`) — demander à l'agent de le régénérer si besoin. Vérification : [Firestore → Backups](https://console.firebase.google.com/project/heynota-app/firestore/databases/-default-/backups).
 
 ### GitHub Actions (backup Firestore quotidien — legacy)
 
@@ -119,7 +119,7 @@ Workflow : `.github/workflows/firestore-backup.yml`
 
 | Secret                           | Exemple                        |
 | -------------------------------- | ------------------------------ |
-| `GCP_PROJECT_ID`                 | `belgique-72708`               |
+| `GCP_PROJECT_ID`                 | `heynota-app`                  |
 | `GCP_BACKUP_BUCKET`              | `gs://…-firestore-backups`     |
 | `GCP_WORKLOAD_IDENTITY_PROVIDER` | OIDC WIF                       |
 | `GCP_SERVICE_ACCOUNT`            | `sa@….iam.gserviceaccount.com` |
@@ -128,7 +128,7 @@ Workflow : `.github/workflows/firestore-backup.yml`
 
 ### PITR Firestore (restauration point-in-time)
 
-1. [Firebase Console → Firestore → Disaster Recovery](https://console.firebase.google.com/project/belgique-72708/firestore/databases/-default-/disaster-recovery)
+1. [Firebase Console → Firestore → Disaster Recovery](https://console.firebase.google.com/project/heynota-app/firestore/databases/-default-/disaster-recovery)
 2. Activer **Point-in-time recovery** (7 jours)
 
 ### Storage
@@ -145,7 +145,7 @@ Après modification de `firestore.rules` ou `storage.rules` :
 # Compte perso (recommandé pour Storage)
 unset GOOGLE_APPLICATION_CREDENTIALS
 npx --yes firebase-tools login
-npx --yes firebase-tools deploy --only firestore:rules,storage --project belgique-72708
+npx --yes firebase-tools deploy --only firestore:rules,storage --project heynota-app
 ```
 
 Ou script local (Firestore via service account ; Storage peut exiger login perso) :

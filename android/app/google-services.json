@@ -1,14 +1,13 @@
 {
   "project_info": {
-    "project_number": "889606998232",
-    "firebase_url": "https://belgique-72708-default-rtdb.europe-west1.firebasedatabase.app",
-    "project_id": "belgique-72708",
-    "storage_bucket": "belgique-72708.firebasestorage.app"
+    "project_number": "315831742964",
+    "project_id": "heynota-app",
+    "storage_bucket": "heynota-app.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:889606998232:android:851ccd32867fa1562dafad",
+        "mobilesdk_app_id": "1:315831742964:android:30965f4bcc9b616e3609a1",
         "android_client_info": {
           "package_name": "com.crmslot.app"
         }
@@ -16,45 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyB3gZyNTOmsDC6Iy1CoIjpL7sg6x1f8HXU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:889606998232:android:851ccd32867fa1562dafad",
-        "android_client_info": {
-          "package_name": "com.crmslot.technician"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB3gZyNTOmsDC6Iy1CoIjpL7sg6x1f8HXU"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:889606998232:android:851ccd32867fa1562dafad",
-        "android_client_info": {
-          "package_name": "com.crmslot.admin"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyB3gZyNTOmsDC6Iy1CoIjpL7sg6x1f8HXU"
+          "current_key": "AIzaSyAcxB1TLNtnt-EiUP-hsO5tTP3Zal8mdy8"
         }
       ],
       "services": {

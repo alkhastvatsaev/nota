@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "belgique-72708"
+    "default": "heynota-app",
+    "nota": "heynota-app",
+    "legacy": "belgique-72708"
   }
 }
