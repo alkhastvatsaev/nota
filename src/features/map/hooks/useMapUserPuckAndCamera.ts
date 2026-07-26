@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import { resolveMapCameraDuration } from "@/features/map/mapboxPowerProfile";
 import { isValidMissionCoordinates } from "@/features/map/mapMissionTransforms";
@@ -18,6 +18,16 @@ type Args = {
   mapHubDataActive: boolean;
 };
 
+async function geolocationAlreadyGranted(): Promise<boolean> {
+  try {
+    if (typeof navigator === "undefined" || !navigator.permissions?.query) return false;
+    const status = await navigator.permissions.query({ name: "geolocation" });
+    return status.state === "granted";
+  } catch {
+    return false;
+  }
+}
+
 export function useMapUserPuckAndCamera({
   mapRef,
   mapReady,
@@ -29,8 +39,26 @@ export function useMapUserPuckAndCamera({
   mapHubDataActive,
 }: Args) {
   const userMarkerRef = useRef<mapboxgl.Marker | null>(null);
+  /** Pas de prompt GPS au boot — seulement si déjà accordé, ou après geste (recentrer). */
+  const [locationOptIn, setLocationOptIn] = useState(false);
 
-  const userLocation = useNativeUserLocation(mapReady && mapRenderActive && mapWebGLActive, {
+  useEffect(() => {
+    if (!mapReady) return;
+    let cancelled = false;
+    void geolocationAlreadyGranted().then((granted) => {
+      if (!cancelled && granted) setLocationOptIn(true);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [mapReady]);
+
+  const requestUserLocation = useCallback(() => {
+    setLocationOptIn(true);
+  }, []);
+
+  const locationActive = locationOptIn && mapReady && mapRenderActive && mapWebGLActive;
+  const userLocation = useNativeUserLocation(locationActive, {
     lowAccuracy: isMobile === true,
   });
 
@@ -117,4 +145,6 @@ export function useMapUserPuckAndCamera({
     const id = window.setTimeout(resize, 520);
     return () => clearTimeout(id);
   }, [dashboardPageIndex, mapReady, mapRef]);
+
+  return { userLocation, requestUserLocation };
 }

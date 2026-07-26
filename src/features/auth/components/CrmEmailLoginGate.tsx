@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { onAuthStateChanged, type User } from "firebase/auth";
 import AppBootLoadingScreen from "@/core/ui/AppBootLoadingScreen";
 import { auth, isConfigured } from "@/core/config/firebase";
@@ -16,11 +16,19 @@ import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
 
 type GatePhase = "checking" | "login" | "ready";
 
-function resolveGatePhase(user: User | null): GatePhase {
+/** Exposé pour tests — ne jamais passer par « login » en frictionless tant que le silent auth tourne. */
+export function resolveCrmEmailGatePhase(
+  user: User | null,
+  opts: { silentFailed?: boolean } = {}
+): GatePhase {
   if (!isConfigured || !auth) {
     return process.env.NODE_ENV === "production" ? "login" : "ready";
   }
   if (user && (!user.isAnonymous || isFrictionlessAuthEnabled())) return "ready";
+  if (isFrictionlessAuthEnabled()) {
+    // Évite le flash du panneau login pendant signInAnonymously.
+    return opts.silentFailed ? "login" : "checking";
+  }
   return "login";
 }
 
@@ -32,6 +40,7 @@ type Props = {
 /** Auth CRM e-mail / mot de passe — technicien ou admin. */
 export default function CrmEmailLoginGate({ variant, children }: Props) {
   const [phase, setPhase] = useState<GatePhase>("checking");
+  const silentFailedRef = useRef(false);
 
   useEffect(() => {
     if (!auth) {
@@ -49,13 +58,21 @@ export default function CrmEmailLoginGate({ variant, children }: Props) {
         /* ignore */
       }
       if (isFrictionlessAuthEnabled() && !auth.currentUser) {
-        await ensureSilentStaffAuth(auth);
+        const user = await ensureSilentStaffAuth(auth);
+        if (!user) silentFailedRef.current = true;
       }
-      if (!cancelled) setPhase(resolveGatePhase(auth.currentUser));
+      if (!cancelled) {
+        setPhase(
+          resolveCrmEmailGatePhase(auth.currentUser, {
+            silentFailed: silentFailedRef.current,
+          })
+        );
+      }
     })();
 
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (!cancelled) setPhase(resolveGatePhase(user));
+      if (cancelled) return;
+      setPhase(resolveCrmEmailGatePhase(user, { silentFailed: silentFailedRef.current }));
     });
 
     return () => {

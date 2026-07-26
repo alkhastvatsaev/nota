@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapHubMobileTripleLayout from "@/features/map/components/MapHubMobileTripleLayout";
@@ -65,7 +65,7 @@ export default function MapboxView() {
     setSelectedMission,
   });
 
-  useMapUserPuckAndCamera({
+  const { userLocation, requestUserLocation } = useMapUserPuckAndCamera({
     mapRef,
     mapReady,
     mapWebGLActive,
@@ -75,6 +75,39 @@ export default function MapboxView() {
     dashboardPageIndex,
     mapHubDataActive,
   });
+
+  const pendingFlyToUserRef = useRef(false);
+
+  useEffect(() => {
+    if (!pendingFlyToUserRef.current || !userLocation) return;
+    pendingFlyToUserRef.current = false;
+    mapRef.current?.flyTo({
+      center: [userLocation.longitude, userLocation.latitude],
+      zoom: 14,
+      pitch: 0,
+      bearing: 0,
+      duration: resolveMapCameraDuration(isMobile === true, "recenter"),
+      essential: true,
+    });
+  }, [isMobile, mapRef, userLocation]);
+
+  const handleRecenter = useCallback(() => {
+    requestUserLocation();
+    const map = mapRef.current;
+    if (!map) return;
+    if (userLocation) {
+      map.flyTo({
+        center: [userLocation.longitude, userLocation.latitude],
+        zoom: 14,
+        pitch: 0,
+        bearing: 0,
+        duration: resolveMapCameraDuration(isMobile === true, "recenter"),
+        essential: true,
+      });
+      return;
+    }
+    pendingFlyToUserRef.current = true;
+  }, [isMobile, mapRef, requestUserLocation, userLocation]);
 
   const handleMissionClick = useCallback(
     (mission: Mission) => {
@@ -86,17 +119,6 @@ export default function MapboxView() {
     },
     [flyToMission, hubMissionClick, mobileHubLayout, requestMobileHubRail]
   );
-
-  const handleRecenter = useCallback(() => {
-    mapRef.current?.flyTo({
-      center: [4.3522, 50.8466],
-      zoom: 12.5,
-      pitch: 0,
-      bearing: 0,
-      duration: resolveMapCameraDuration(isMobile === true, "recenter"),
-      essential: true,
-    });
-  }, [isMobile, mapRef]);
 
   const handleMobileMapResize = useCallback(
     (rail: MobileHubRail) => {
