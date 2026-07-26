@@ -90,7 +90,9 @@
 
   /* Contour bleu autour de chaque glyphe du titre hero */
   .nota-title-stroke {
-    -webkit-text-stroke: 0.04em var(--color-accent);
+    color: var(--color-ink);
+    -webkit-text-fill-color: var(--color-ink);
+    -webkit-text-stroke: 3px var(--color-accent);
     paint-order: stroke fill;
   }
 
