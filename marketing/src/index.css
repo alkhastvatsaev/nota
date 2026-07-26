@@ -109,43 +109,9 @@
     right: 1rem;
   }
 
-  /* NOTA premium — shimmer lent, contrasté, sans flou */
-  .nota-premium-letter {
-    background-image: linear-gradient(
-      105deg,
-      #071526 0%,
-      #0b1f3a 28%,
-      #1e3a8a 42%,
-      #60a5fa 50%,
-      #1e3a8a 58%,
-      #0b1f3a 72%,
-      #071526 100%
-    );
-    background-size: 280% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    animation: nota-premium-shimmer 7.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .nota-premium-letter {
-      background: none;
-      color: var(--color-ink);
-      -webkit-text-fill-color: var(--color-ink);
-      animation: none;
-    }
-  }
-}
-
-@keyframes nota-premium-shimmer {
-  0%,
-  18% {
-    background-position: 100% 50%;
-  }
-  48%,
-  100% {
-    background-position: 0% 50%;
+  /* Zone marque — évite le rognage du A (bas / droite) */
+  .nota-mark {
+    padding: 0.06em 0.08em 0.12em 0.04em;
+    line-height: 1;
   }
 }

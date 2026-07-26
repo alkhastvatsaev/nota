@@ -50,7 +50,7 @@ export function ImmersiveHero() {
       >
         <motion.h1
           style={{ y: yTitle }}
-          className="font-display text-[clamp(3.25rem,13vw,9rem)] leading-[0.95] tracking-tight text-ink"
+          className="font-display overflow-visible text-[clamp(3.25rem,13vw,9rem)] leading-none tracking-tight text-ink"
         >
           <NotaMark />
           <span className="sr-only">NOTA — Vos clients, notes et rappels au même endroit</span>
