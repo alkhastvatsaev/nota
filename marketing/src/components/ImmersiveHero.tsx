@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useRef } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { OpenNotaLink } from "./OpenNotaLink";
 
@@ -10,23 +10,21 @@ const spring = { type: "spring" as const, stiffness: 80, damping: 18, mass: 0.85
 
 export function ImmersiveHero() {
   const reduce = useReducedMotion();
-  const isDesktop = useMediaQuery("(min-width: 768px)");
   const sectionRef = useRef<HTMLElement>(null);
-  // Fade au scroll uniquement desktop — mobile : titre toujours lisible.
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
     layoutEffect: false,
   });
   const smooth = useSpring(scrollYProgress, { stiffness: 100, damping: 30 });
-  const yTitle = useTransform(smooth, [0, 0.55], reduce || !isDesktop ? [0, 0] : [0, -28]);
-  const opacityHero = useTransform(smooth, [0, 0.75], reduce || !isDesktop ? [1, 1] : [1, 0.15]);
+  const yTitle = useTransform(smooth, [0, 0.55], reduce ? [0, 0] : [0, -28]);
+  const opacityHero = useTransform(smooth, [0, 0.75], reduce ? [1, 1] : [1, 0.15]);
 
   return (
     <section
       id="top"
       ref={sectionRef}
-      className="relative flex min-h-[calc(100svh-4.5rem)] flex-col overflow-hidden bg-void md:min-h-[100svh]"
+      className="relative flex min-h-[100svh] flex-col overflow-hidden bg-void"
     >
       <div
         className="pointer-events-none absolute inset-0"
@@ -39,7 +37,7 @@ export function ImmersiveHero() {
 
       {!reduce && (
         <Suspense fallback={null}>
-          <div className="pointer-events-none absolute inset-0 hidden md:block">
+          <div className="pointer-events-none absolute inset-0">
             <ParticleField />
           </div>
         </Suspense>
@@ -73,20 +71,20 @@ export function ImmersiveHero() {
           initial={reduce ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...spring, delay: 0.32 }}
-          className="mt-9 hidden md:block"
+          className="mt-9"
         >
           <OpenNotaLink
             variant="primary"
             className="rounded-full bg-ink px-8 py-4 text-sm text-void transition hover:bg-accent"
           />
         </motion.div>
-        <p className="mt-3 hidden text-xs text-mute md:block">Sans compte · Accès immédiat</p>
+        <p className="mt-3 text-xs text-mute">Sans compte · Accès immédiat</p>
       </motion.div>
 
       {!reduce && (
         <motion.div
           aria-hidden
-          className="absolute bottom-24 left-1/2 z-10 hidden h-8 w-px -translate-x-1/2 bg-accent/50 md:bottom-8 md:block"
+          className="absolute bottom-24 left-1/2 z-10 h-8 w-px -translate-x-1/2 bg-accent/50 md:bottom-8"
           animate={{ scaleY: [0.4, 1, 0.4], opacity: [0.3, 0.9, 0.3] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
           style={{ originY: 0 }}
@@ -94,20 +92,4 @@ export function ImmersiveHero() {
       )}
     </section>
   );
-}
-
-function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(() =>
-    typeof window !== "undefined" ? window.matchMedia(query).matches : false
-  );
-
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    const onChange = () => setMatches(media.matches);
-    onChange();
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
-  }, [query]);
-
-  return matches;
 }

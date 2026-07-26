@@ -8,7 +8,7 @@ export function MidCta() {
       aria-label="Accéder à Nota"
     >
       <p className="font-display text-xl tracking-tight text-ink sm:text-2xl">C’est à vous.</p>
-      <div className="mt-6 hidden justify-center md:flex">
+      <div className="mt-6 flex justify-center">
         <OpenNotaLink
           variant="primary"
           className="rounded-full bg-accent px-8 py-4 text-sm text-on-accent transition hover:bg-accent-deep"

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 
 /** Clair + Carnegie : parlons de *vous*, sans jargon. */
@@ -6,13 +6,12 @@ const chapters = [
   { title: "Noter", line: "Ce qu’ils vous disent, gardé." },
   { title: "Suivre", line: "Vous voyez où en est chaque affaire." },
   { title: "Rappeler", line: "Vous savez qui relancer, et quand." },
-];
+] as const;
 
 export function HorizontalJourney() {
   const reduce = useReducedMotion();
-  const isDesktop = useMediaQuery("(min-width: 768px)");
 
-  if (reduce || !isDesktop) {
+  if (reduce) {
     return (
       <section
         id="voyage"
@@ -21,14 +20,7 @@ export function HorizontalJourney() {
       >
         <div className="mx-auto flex max-w-md flex-col gap-10">
           {chapters.map((chapter, i) => (
-            <motion.div
-              key={chapter.title}
-              initial={reduce ? false : { opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ delay: i * 0.06 }}
-              className="text-center"
-            >
+            <div key={chapter.title} className="text-center">
               <p className="text-xs tracking-[0.28em] text-accent uppercase">
                 {String(i + 1).padStart(2, "0")}
               </p>
@@ -36,17 +28,18 @@ export function HorizontalJourney() {
                 {chapter.title}
               </h2>
               <p className="mt-2 text-base text-mute">{chapter.line}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
     );
   }
 
-  return <DesktopJourney />;
+  return <ScrollJourney />;
 }
 
-function DesktopJourney() {
+/** Même parcours sticky horizontal sur mobile et desktop. */
+function ScrollJourney() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -68,7 +61,7 @@ function DesktopJourney() {
             {chapters.map((chapter, i) => (
               <div
                 key={chapter.title}
-                className="flex h-svh w-screen flex-col items-center justify-center px-10 text-center"
+                className="flex h-svh w-screen flex-col items-center justify-center px-6 text-center sm:px-10"
               >
                 <motion.span
                   className="font-display text-sm tracking-[0.35em] text-accent uppercase"
@@ -79,7 +72,7 @@ function DesktopJourney() {
                   {String(i + 1).padStart(2, "0")}
                 </motion.span>
                 <motion.h2
-                  className="mt-3 font-display text-[clamp(3rem,11vw,7rem)] leading-[0.9] tracking-tight text-ink"
+                  className="mt-3 font-display text-[clamp(2.5rem,11vw,7rem)] leading-[0.9] tracking-tight text-ink"
                   initial={{ opacity: 0, y: 36 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.45 }}
@@ -88,7 +81,7 @@ function DesktopJourney() {
                   {chapter.title}
                 </motion.h2>
                 <motion.p
-                  className="mt-5 max-w-sm text-lg text-mute"
+                  className="mt-5 max-w-sm text-base text-mute sm:text-lg"
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.45 }}
@@ -103,20 +96,4 @@ function DesktopJourney() {
       </div>
     </section>
   );
-}
-
-function useMediaQuery(query: string) {
-  const [matches, setMatches] = useState(() =>
-    typeof window !== "undefined" ? window.matchMedia(query).matches : false
-  );
-
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    const onChange = () => setMatches(media.matches);
-    onChange();
-    media.addEventListener("change", onChange);
-    return () => media.removeEventListener("change", onChange);
-  }, [query]);
-
-  return matches;
 }
