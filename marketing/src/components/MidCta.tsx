@@ -8,9 +8,9 @@ export function MidCta() {
       aria-label="Accéder à Nota"
     >
       <p className="font-display text-xl tracking-tight text-ink sm:text-2xl">
-        Essayez. C’est à vous.
+        Ouvrez Nota et commencez.
       </p>
-      <p className="mt-2 text-sm text-mute">Sans compte · Tout de suite</p>
+      <p className="mt-2 text-sm text-mute">Sans compte · Accès immédiat</p>
       <div className="mt-6 hidden justify-center md:flex">
         <OpenNotaLink
           variant="primary"

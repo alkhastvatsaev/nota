@@ -7,25 +7,25 @@ export type PageSeo = {
 
 export const HOME_SEO: PageSeo = {
   path: "/",
-  title: "Nota — Ce qui compte pour vous, en clair",
+  title: "Nota — CRM pour clients, notes et relances",
   description:
-    "Vos relations, votre temps, la suite au bon moment. Ouvrez Nota — sans compte, tout de suite.",
+    "Nota est un CRM simple : suivez vos clients, votre pipeline et vos relances. Sans compte, accès immédiat.",
   priority: 1,
 };
 
 export const CRM_SANS_INSCRIPTION_SEO: PageSeo = {
   path: "/crm-sans-inscription",
-  title: "CRM sans inscription — À vous, tout de suite",
+  title: "CRM sans inscription — Ouvrir Nota immédiatement",
   description:
-    "Vous voulez suivre vos clients sans formulaire ? Ouvrez Nota en un clic. C’est à vous.",
+    "Un CRM sans compte ni formulaire : clients, pipeline et relances. Ouvrez Nota en un clic.",
   priority: 0.9,
 };
 
 export const ALTERNATIVE_EXCEL_SEO: PageSeo = {
   path: "/alternative-excel-commercial",
-  title: "Alternative Excel commercial — Nota, simple pour vous",
+  title: "Alternative Excel commercial — Nota, le suivi client simple",
   description:
-    "Vous méritez mieux qu’un tableur perdu. Nota met vos affaires sous les yeux — sans inscription.",
+    "Remplacez le tableur : pipeline commercial, notes client et relances dans Nota. Sans inscription.",
   priority: 0.9,
 };
 

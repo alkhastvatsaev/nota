@@ -63,7 +63,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: `${SITE_URL}/`,
-      description: "Ce qui compte pour vous, en clair.",
+      description: "CRM pour suivre clients, notes et relances.",
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/apple-touch-icon.png`,
@@ -105,7 +105,8 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       applicationSubCategory: "Customer Relationship Management",
       operatingSystem: "Web",
       url: APP_URL,
-      description: "Ce qui compte pour vous : relations, notes, suite au bon moment. Sans compte.",
+      description:
+        "CRM simple : clients, notes, pipeline et relances. Sans compte, accès immédiat.",
       inLanguage: "fr-FR",
       offers: {
         "@type": "Offer",
@@ -113,7 +114,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
         priceCurrency: "EUR",
         availability: "https://schema.org/InStock",
         url: APP_URL,
-        description: "À vous — tout de suite, sans inscription",
+        description: "Accès direct à Nota, sans inscription",
       },
     },
     {

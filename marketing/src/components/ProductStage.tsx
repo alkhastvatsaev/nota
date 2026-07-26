@@ -32,7 +32,7 @@ export function ProductStage() {
         id="produit-heading"
         className="mb-8 text-center font-display text-[clamp(1.5rem,4vw,2.25rem)] tracking-tight text-ink sm:mb-10"
       >
-        Vos affaires. Sous les yeux.
+        Votre pipeline commercial.
       </h2>
 
       <div

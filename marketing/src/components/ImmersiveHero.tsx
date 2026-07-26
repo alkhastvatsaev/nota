@@ -57,7 +57,7 @@ export function ImmersiveHero() {
           className="font-display text-[clamp(3.25rem,13vw,9rem)] leading-[0.95] tracking-tight text-ink"
         >
           NOTA
-          <span className="sr-only"> — Ce qui compte pour vous, en clair</span>
+          <span className="sr-only"> — CRM pour suivre clients, notes et relances</span>
         </motion.h1>
 
         <motion.p
@@ -66,7 +66,7 @@ export function ImmersiveHero() {
           transition={{ ...spring, delay: 0.2 }}
           className="mt-5 max-w-md text-lg text-mute sm:text-xl"
         >
-          Ce qui compte pour vous, en clair.
+          CRM pour suivre clients, notes et relances.
         </motion.p>
 
         <motion.div
@@ -80,7 +80,7 @@ export function ImmersiveHero() {
             className="rounded-full bg-ink px-8 py-4 text-sm text-void transition hover:bg-accent"
           />
         </motion.div>
-        <p className="mt-3 hidden text-xs text-mute md:block">À vous · Tout de suite</p>
+        <p className="mt-3 hidden text-xs text-mute md:block">Sans compte · Accès immédiat</p>
       </motion.div>
 
       {!reduce && (

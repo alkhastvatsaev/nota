@@ -4,41 +4,35 @@ export function CrmSansInscriptionPage() {
   return (
     <SeoPageLayout
       eyebrow="CRM sans inscription"
-      title="C’est à vous — sans formulaire"
-      lead="Vous voulez suivre vos clients, pas remplir un compte. Ouvrez Nota."
+      title="Un CRM sans compte, sans formulaire"
+      lead="Ouvrez Nota et suivez clients, pipeline et relances. Pas d’email. Pas de tunnel d’inscription."
     >
       <section>
-        <h2 className="font-display text-xl tracking-tight text-ink">Ce que vous gagnez</h2>
-        <p className="mt-3">
-          Votre temps. Votre clarté. La suite au bon moment — sans tunnel d’inscription.
-        </p>
-      </section>
-
-      <section>
         <h2 className="font-display text-xl tracking-tight text-ink">
-          Ce que Nota garde pour vous
+          Pourquoi un CRM sans inscription ?
         </h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5">
-          <li>Ce qu’on vous confie</li>
-          <li>Ce qui mérite votre attention</li>
-          <li>La prochaine étape, visible</li>
-          <li>Zéro inscription sur ce site</li>
-        </ul>
+        <p className="mt-3">
+          La plupart des CRM commencent par un compte et un plan. Vous voulez juste enregistrer un
+          client et la prochaine relance.
+        </p>
       </section>
 
       <section>
-        <h2 className="font-display text-xl tracking-tight text-ink">Simple, pour vous</h2>
-        <p className="mt-3">
-          Nota se met à votre place : qui, quoi, prochaine étape. Rien de plus.
-        </p>
+        <h2 className="font-display text-xl tracking-tight text-ink">Ce que Nota fait</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5">
+          <li>Fiches clients et historique</li>
+          <li>Pipeline : prospect → échange → offre → signé</li>
+          <li>Notes et prochaines actions</li>
+          <li>Accès immédiat, sans inscription sur ce site</li>
+        </ul>
       </section>
 
       <section>
         <h2 className="font-display text-xl tracking-tight text-ink">En 3 gestes</h2>
         <ol className="mt-3 list-decimal space-y-2 pl-5">
           <li>Ouvrir Nota</li>
-          <li>Noter ce qui compte</li>
-          <li>Revenir au bon moment</li>
+          <li>Ajouter un client ou un deal</li>
+          <li>Noter la prochaine relance</li>
         </ol>
       </section>
     </SeoPageLayout>

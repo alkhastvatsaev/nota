@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 
-/** 3 beats max — au-delà, l’attention décroche. */
-/** Carnegie : parlons de *leurs* intérêts, pas de nos features. */
+/** 3 beats concrets — ce que Nota fait. */
 const chapters = [
-  { title: "Retenir", line: "Ce qu’on vous confie reste là." },
-  { title: "Choisir", line: "Votre temps, pour l’essentiel." },
-  { title: "Revenir", line: "Ils se sentent suivis." },
+  { title: "Clients", line: "Fiches, historique et statut au même endroit." },
+  { title: "Pipeline", line: "Prospect → échange → offre → signé." },
+  { title: "Relances", line: "La prochaine action, visible sans chercher." },
 ];
 
 export function HorizontalJourney() {
