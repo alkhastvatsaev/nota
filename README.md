@@ -1,6 +1,6 @@
-# MAP BELGIQUE - Dashboard Intelligent de Gestion d'Interventions
+# NOTA — Dashboard intelligent de gestion d'interventions
 
-Ce projet est une application Next.js premium dédiée à la gestion d'interventions techniques (serrurerie, etc.) à Bruxelles. Elle propose une interface fluide sous forme de carrousel permettant de basculer entre la vue cartographique, le hub société et le hub technicien.
+**NOTA** est une application Next.js dédiée à la gestion d'interventions techniques (serrurerie, etc.). Interface en carrousel : carte, hub société et hub technicien.
 
 ## Fonctionnalités clés
 
