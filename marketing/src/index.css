@@ -109,40 +109,39 @@
     right: 1rem;
   }
 
-  /* Contour 1px net autour de NOTA — pulse discret, zéro flou */
-  .nota-edge-letter {
-    color: var(--color-ink);
-    -webkit-text-fill-color: var(--color-ink);
-    text-shadow:
-      1px 0 0 color-mix(in oklab, var(--color-accent) 42%, transparent),
-      -1px 0 0 color-mix(in oklab, var(--color-accent) 42%, transparent),
-      0 1px 0 color-mix(in oklab, var(--color-accent) 42%, transparent),
-      0 -1px 0 color-mix(in oklab, var(--color-accent) 42%, transparent);
-    animation: nota-edge-pulse 5.5s ease-in-out infinite;
+  /* Remplissage animé des lettres NOTA — visible, net */
+  .nota-live-letter {
+    background-image: linear-gradient(
+      100deg,
+      var(--color-ink) 0%,
+      var(--color-ink) 35%,
+      var(--color-accent) 50%,
+      var(--color-ink) 65%,
+      var(--color-ink) 100%
+    );
+    background-size: 240% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: nota-live-shimmer 3.8s linear infinite;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .nota-edge-letter {
-      text-shadow: none;
+    .nota-live-letter {
+      background: none;
+      color: var(--color-ink);
+      -webkit-text-fill-color: var(--color-ink);
       animation: none;
     }
   }
 }
 
-@keyframes nota-edge-pulse {
-  0%,
-  100% {
-    text-shadow:
-      1px 0 0 color-mix(in oklab, var(--color-accent) 28%, transparent),
-      -1px 0 0 color-mix(in oklab, var(--color-accent) 28%, transparent),
-      0 1px 0 color-mix(in oklab, var(--color-accent) 28%, transparent),
-      0 -1px 0 color-mix(in oklab, var(--color-accent) 28%, transparent);
+@keyframes nota-live-shimmer {
+  0% {
+    background-position: 120% 50%;
   }
-  50% {
-    text-shadow:
-      1px 0 0 color-mix(in oklab, var(--color-accent) 58%, transparent),
-      -1px 0 0 color-mix(in oklab, var(--color-accent) 58%, transparent),
-      0 1px 0 color-mix(in oklab, var(--color-accent) 58%, transparent),
-      0 -1px 0 color-mix(in oklab, var(--color-accent) 58%, transparent);
+  100% {
+    background-position: -120% 50%;
   }
 }
