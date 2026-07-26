@@ -57,16 +57,16 @@ export function ImmersiveHero() {
           className="font-display text-[clamp(3.25rem,13vw,9rem)] leading-[0.95] tracking-tight text-ink"
         >
           NOTA
-          <span className="sr-only"> — CRM pour suivre clients, notes et relances</span>
+          <span className="sr-only"> — Vos clients, notes et rappels au même endroit</span>
         </motion.h1>
 
         <motion.p
           initial={reduce ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...spring, delay: 0.2 }}
-          className="mt-5 max-w-md text-lg text-mute sm:text-xl"
+          className="mt-5 max-w-lg text-lg text-mute sm:text-xl"
         >
-          CRM pour suivre clients, notes et relances.
+          Vos clients, notes et rappels — au même endroit.
         </motion.p>
 
         <motion.div

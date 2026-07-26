@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 
-/** 3 beats concrets — ce que Nota fait. */
+/** Clair pour tout le monde — ni jargon, ni phrases vides. */
 const chapters = [
-  { title: "Clients", line: "Fiches, historique et statut au même endroit." },
-  { title: "Pipeline", line: "Prospect → échange → offre → signé." },
-  { title: "Relances", line: "La prochaine action, visible sans chercher." },
+  { title: "Noter", line: "Ce que le client a dit, gardé." },
+  { title: "Suivre", line: "Voir où en est chaque affaire." },
+  { title: "Rappeler", line: "Qui relancer, et quand." },
 ];
 
 export function HorizontalJourney() {

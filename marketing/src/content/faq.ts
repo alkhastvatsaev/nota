@@ -7,7 +7,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "C’est quoi Nota ?",
     answer:
-      "Un CRM pour suivre vos clients : fiches, notes, pipeline (prospect → signé) et relances.",
+      "Un outil pour suivre vos clients : notes, étapes de chaque affaire, et rappels — au même endroit.",
   },
   {
     question: "Faut-il s’inscrire ?",
@@ -16,6 +16,6 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     question: "Nota remplace Excel ?",
     answer:
-      "Oui pour le suivi commercial : pipeline clair, notes et prochaines actions — sans tableur.",
+      "Oui pour le suivi client : plus de tableur éparpillé, vous voyez où en est chaque affaire.",
   },
 ];

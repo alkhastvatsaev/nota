@@ -63,7 +63,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: `${SITE_URL}/`,
-      description: "CRM pour suivre clients, notes et relances.",
+      description: "Suivi client simple : notes, affaires, rappels.",
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/apple-touch-icon.png`,
@@ -106,7 +106,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       operatingSystem: "Web",
       url: APP_URL,
       description:
-        "CRM simple : clients, notes, pipeline et relances. Sans compte, accès immédiat.",
+        "Nota rassemble clients, notes et rappels. Voyez où en est chaque affaire. Sans compte.",
       inLanguage: "fr-FR",
       offers: {
         "@type": "Offer",

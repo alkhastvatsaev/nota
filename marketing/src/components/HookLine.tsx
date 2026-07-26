@@ -17,7 +17,7 @@ export function HookLine() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="font-display text-[clamp(1.75rem,6vw,3.5rem)] leading-[1.15] tracking-tight text-mute"
         >
-          Plus de notes perdues.
+          Excel, WhatsApp, post-its…
         </motion.p>
         <motion.p
           initial={reduce ? false : { opacity: 0, y: 18 }}
@@ -26,7 +26,7 @@ export function HookLine() {
           transition={{ delay: 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="mt-2 font-display text-[clamp(1.75rem,6vw,3.5rem)] leading-[1.15] tracking-tight text-ink"
         >
-          Un CRM qui centralise tout.
+          Nota rassemble tout ça.
         </motion.p>
       </div>
     </section>
