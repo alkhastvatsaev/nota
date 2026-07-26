@@ -4,9 +4,11 @@ import { motion, useReducedMotion } from "framer-motion";
 
 const LETTERS = ["N", "O", "T", "A"] as const;
 
+const easePremium = [0.22, 1, 0.36, 1] as const;
+
 /**
- * Animation marque NOTA — visible, propre, sans bloom flou.
- * Entrée lettre par lettre + shimmer sur le remplissage + léger souffle.
+ * Marque NOTA premium — entrée raffinée + shimmer lent type métal / lumière.
+ * Pas de bounce, pas de bloom flou.
  */
 export function NotaMark({ className = "" }: { className?: string }) {
   const reduce = useReducedMotion();
@@ -16,43 +18,50 @@ export function NotaMark({ className = "" }: { className?: string }) {
   }
 
   return (
-    <span className={`relative inline-block ${className}`} aria-label="NOTA">
-      <span className="relative inline-flex" aria-hidden>
+    <motion.span
+      className={`relative inline-block ${className}`}
+      aria-label="NOTA"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
+      <motion.span
+        className="relative inline-flex"
+        aria-hidden
+        initial={{ clipPath: "inset(0 100% 0 0)" }}
+        animate={{ clipPath: "inset(0 0% 0 0)" }}
+        transition={{ duration: 1.15, delay: 0.12, ease: easePremium }}
+      >
         {LETTERS.map((letter, i) => (
           <motion.span
             key={letter}
-            className="nota-live-letter relative inline-block"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{
-              opacity: 1,
-              y: [0, -4, 0],
-            }}
+            className="nota-premium-letter relative inline-block"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
-              opacity: { duration: 0.5, delay: 0.1 + i * 0.09, ease: [0.22, 1, 0.36, 1] },
-              y: {
-                duration: 2.8,
-                delay: 0.85 + i * 0.15,
-                repeat: Infinity,
-                ease: "easeInOut",
-              },
+              duration: 0.7,
+              delay: 0.18 + i * 0.07,
+              ease: easePremium,
             }}
           >
             {letter}
           </motion.span>
         ))}
-      </span>
+      </motion.span>
 
-      {/* Scan line sous le mot — trait net 1px */}
+      {/* Specular — fine bande de lumière qui traverse (luxe, lent) */}
       <motion.span
         aria-hidden
-        className="pointer-events-none absolute -bottom-1 left-0 h-px w-full overflow-hidden"
-      >
-        <motion.span
-          className="absolute inset-y-0 left-0 w-1/3 bg-accent"
-          animate={{ x: ["-120%", "320%"] }}
-          transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut", repeatDelay: 1.6 }}
-        />
-      </motion.span>
-    </span>
+        className="pointer-events-none absolute inset-y-[12%] -left-1/4 w-1/4 skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/50 to-transparent mix-blend-soft-light"
+        animate={{ left: ["-35%", "110%"] }}
+        transition={{
+          duration: 2.8,
+          delay: 1.4,
+          repeat: Infinity,
+          repeatDelay: 4.5,
+          ease: [0.45, 0, 0.25, 1],
+        }}
+      />
+    </motion.span>
   );
 }
