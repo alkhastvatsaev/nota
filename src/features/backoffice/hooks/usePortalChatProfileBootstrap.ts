@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import type { User } from "firebase/auth";
 import { logger } from "@/core/logger";
-import { isFirestorePermissionDenied } from "@/core/firestore/firestoreClientErrors";
 import { requestPortalChatProfileEnsure } from "@/features/backoffice/requestPortalChatProfileEnsure";
 
 export type PortalChatProfileBootstrapState = {
@@ -57,10 +56,10 @@ export function usePortalChatProfileBootstrap(
         });
         if (cancelled) return;
         setState({
-          ready: false,
-          errorKey: isFirestorePermissionDenied(err)
-            ? "chat.profile_permission_denied"
-            : "chat.profile_sync_failed",
+          // Profil portail optionnel : on laisse le chat tenter Firestore quand même
+          // (évite bannière rouge « droits manquants » alors que l’envoi API fonctionne).
+          ready: true,
+          errorKey: null,
         });
       });
 

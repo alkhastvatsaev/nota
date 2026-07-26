@@ -4,6 +4,7 @@ import { useCallback, useState } from "react";
 import { CreditCard, Loader2 } from "lucide-react";
 import { auth } from "@/core/config/firebase";
 import { useTranslation } from "@/core/i18n/I18nContext";
+import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
 import {
   getSubscriptionPlan,
   isSubscriptionActive,
@@ -24,6 +25,7 @@ export default function AccountSubscriptionRow({ companyId }: Props) {
   const { subscription, loading } = useCompanySubscription();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const demoHideBilling = isFrictionlessAuthEnabled();
 
   const active = isSubscriptionActive(subscription);
   const displayPlanId: SubscriptionPlanId | null = subscription?.planId ?? null;
@@ -74,7 +76,8 @@ export default function AccountSubscriptionRow({ companyId }: Props) {
     }
   }, [companyId, t]);
 
-  if (loading || !companyId?.trim()) return null;
+  // Mode exposition : masquer le CTA paiement (réactiver en coupant FRICTIONLESS_AUTH).
+  if (demoHideBilling || loading || !companyId?.trim()) return null;
 
   const plan = displayPlanId ? getSubscriptionPlan(displayPlanId) : null;
   const statusKey = subscription?.status ?? "none";

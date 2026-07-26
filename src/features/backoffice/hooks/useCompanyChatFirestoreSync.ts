@@ -101,11 +101,12 @@ export function useCompanyChatFirestoreSync(
           logger.error("[CompanyChatPanel] Firestore chat", {
             error: err instanceof Error ? err.message : String(err),
           });
-          const description = isFirestorePermissionDenied(err)
-            ? t("chat.profile_permission_denied")
-            : err instanceof Error
-              ? err.message
-              : t("chat.toast_send_failed");
+          // Race join/claims : permission-denied souvent transitoire — pas de toast alarmiste.
+          if (isFirestorePermissionDenied(err)) {
+            void chatAuth.currentUser?.getIdToken(true).catch(() => undefined);
+            return;
+          }
+          const description = err instanceof Error ? err.message : t("chat.toast_send_failed");
           toast.error("Chat", { description: String(description) });
         }
       );

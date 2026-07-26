@@ -1,3 +1,4 @@
+import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
 import {
   ACTIVE_SUBSCRIPTION_STATUSES,
   type CompanySaasSubscription,
@@ -42,10 +43,12 @@ export function isSubscriptionActive(sub: CompanySaasSubscription | null | undef
 }
 
 export function subscriptionEnforcementEnabled(): boolean {
+  if (isFrictionlessAuthEnabled()) return false;
   return process.env.NEXT_PUBLIC_SUBSCRIPTION_ENFORCE?.trim() === "true";
 }
 
 export function subscriptionCheckoutEnabled(): boolean {
+  if (isFrictionlessAuthEnabled()) return false;
   if (process.env.NEXT_PUBLIC_SUBSCRIPTION_CHECKOUT_DISABLED?.trim() === "true") return false;
   return true;
 }

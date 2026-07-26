@@ -5,7 +5,6 @@ import { HUB_SURFACE, HubSegmentedControl } from "@/core/ui/hub";
 import { cn } from "@/lib/utils";
 import { useTranslation } from "@/core/i18n/I18nContext";
 import type { Mission } from "@/features/map";
-import CompanyChatPanel from "@/features/backoffice/components/CompanyChatPanel";
 import ScheduleDragBoard from "@/features/scheduling/components/ScheduleDragBoard";
 import { useBackOfficeInboxState } from "@/features/backoffice/hooks/useBackOfficeInboxState";
 import type { BackOfficeInboxTab } from "@/features/backoffice/backOfficeInboxTypes";
@@ -29,28 +28,9 @@ export default function BackOfficeInboxPanel({
   const s = useBackOfficeInboxState(dayMissions, { inboxDataActive });
 
   if (!s.isTenant) {
-    if (!s.workspaceReady) {
-      return (
-        <div
-          data-testid="backoffice-inbox-panel"
-          className={cn(
-            "relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-[inherit]",
-            HUB_SURFACE.muted
-          )}
-        >
-          <div
-            data-testid="backoffice-inbox-loading"
-            className="flex flex-1 flex-col gap-3 px-4 py-6"
-            aria-busy="true"
-          >
-            <div className="h-10 animate-pulse rounded-xl bg-slate-200/80" />
-            <div className="h-24 animate-pulse rounded-[24px] bg-white/70 border border-slate-200/50" />
-            <div className="h-24 animate-pulse rounded-[24px] bg-white/70 border border-slate-200/50" />
-          </div>
-        </div>
-      );
-    }
-
+    // Ne jamais ouvrir le chat Firestore avant membership réelle :
+    // sinon permission-denied → toast « droits manquants » alors que le join finit après.
+    const joining = !s.workspaceReady || Boolean(s.workspace?.membershipJoinPending);
     return (
       <div
         data-testid="backoffice-inbox-panel"
@@ -59,11 +39,23 @@ export default function BackOfficeInboxPanel({
           HUB_SURFACE.muted
         )}
       >
-        <CompanyChatPanel
-          className="min-h-0 flex-1"
-          acceptPortalMessages
-          chatCompanyId={s.portalChatCompanyId}
-        />
+        <div
+          data-testid={joining ? "backoffice-inbox-loading" : "backoffice-inbox-join-wait"}
+          className="flex flex-1 flex-col gap-3 px-4 py-6"
+          aria-busy={joining}
+        >
+          <div className="h-10 animate-pulse rounded-xl bg-slate-200/80" />
+          <div className="h-24 animate-pulse rounded-[24px] bg-white/70 border border-slate-200/50" />
+          <div className="h-24 animate-pulse rounded-[24px] bg-white/70 border border-slate-200/50" />
+          {s.workspace?.membershipJoinError ? (
+            <p
+              data-testid="backoffice-inbox-join-error"
+              className="text-center text-xs font-medium text-red-700"
+            >
+              {s.workspace.membershipJoinError}
+            </p>
+          ) : null}
+        </div>
       </div>
     );
   }
