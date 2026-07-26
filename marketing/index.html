@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>%SITE_TITLE%</title>
+    <meta name="description" content="%SITE_DESCRIPTION%" />
+    <meta name="author" content="Nota" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="theme-color" content="#1D4ED8" />
+    <meta name="color-scheme" content="light" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <link rel="canonical" href="%SITE_URL%/" />
+    <link rel="alternate" hreflang="fr" href="%SITE_URL%/" />
+    <link rel="alternate" hreflang="x-default" href="%SITE_URL%/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Nota" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:title" content="%SITE_TITLE%" />
+    <meta property="og:description" content="%SITE_DESCRIPTION%" />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Nota — Ce qui compte pour vous, en clair" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="%SITE_TITLE%" />
+    <meta name="twitter:description" content="%SITE_DESCRIPTION%" />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
+    <meta name="twitter:image:alt" content="Nota — Ce qui compte pour vous, en clair" />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <script type="application/ld+json" id="nota-jsonld">
+      {
+        "@context": "https://schema.org",
+        "@graph": []
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root">
+      <main>
+        <h1>Nota — Ce qui compte pour vous, en clair</h1>
+        <p>
+          Vos relations, votre temps, la suite au bon moment. Ouvrez Nota —
+          sans compte, tout de suite.
+        </p>
+        <ul>
+          <li><a href="/crm-sans-inscription">CRM sans inscription</a></li>
+          <li>
+            <a href="/alternative-excel-commercial">Alternative Excel commercial</a>
+          </li>
+        </ul>
+        <p><a href="%APP_URL%">Ouvrir Nota</a></p>
+      </main>
+    </div>
+
+    <noscript>
+      <p><a href="%APP_URL%">Ouvrir Nota</a></p>
+    </noscript>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
