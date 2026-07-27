@@ -55,7 +55,10 @@ export function ImmersiveHero() {
           className="font-display text-[clamp(3.25rem,13vw,9rem)] leading-[0.95] tracking-tight text-ink"
         >
           NOTA
-          <span className="sr-only"> — Vos clients, notes et rappels au même endroit</span>
+          <span className="sr-only">
+            {" "}
+            — CRM interventions terrain pour entreprises à équipes mobiles
+          </span>
         </motion.h1>
 
         <motion.p
@@ -64,7 +67,7 @@ export function ImmersiveHero() {
           transition={{ ...spring, delay: 0.2 }}
           className="mt-5 max-w-lg text-lg text-mute sm:text-xl"
         >
-          Vos clients, notes et rappels — au même endroit.
+          Carte, techniciens, dossiers — pour vos missions sur site.
         </motion.p>
 
         <motion.div

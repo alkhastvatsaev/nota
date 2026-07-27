@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FAQ_ITEMS } from "../content/faq";
-import { APP_URL } from "../config/site";
+import { SeoFooterNav } from "./SeoFooterNav";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -10,26 +10,10 @@ export function Footer() {
       <div className="mx-auto max-w-3xl">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
           <p className="font-display tracking-[0.22em] text-ink">NOTA</p>
-          <nav
-            aria-label="Pied de page"
+          <SeoFooterNav
             className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-mute"
-          >
-            <a href="#voyage" className="transition hover:text-ink">
-              Parcours
-            </a>
-            <a href="#produit" className="transition hover:text-ink">
-              Produit
-            </a>
-            <Link to="/crm-sans-inscription" className="transition hover:text-ink">
-              CRM sans inscription
-            </Link>
-            <Link to="/alternative-excel-commercial" className="transition hover:text-ink">
-              Alternative Excel
-            </Link>
-            <a href={APP_URL} rel="noopener noreferrer" className="transition hover:text-ink">
-              Ouvrir Nota
-            </a>
-          </nav>
+            linkClassName="transition hover:text-ink"
+          />
         </div>
 
         <details id="faq" className="group mt-8 border-t border-line pt-6">
@@ -53,7 +37,11 @@ export function Footer() {
 
         <p id="confidentialite" className="mt-8 text-[11px] leading-relaxed text-mute">
           <span id="mentions">
-            Pas d’email collecté sur ce site. Accès direct à l’app. © {year} Nota.
+            Pas d’email collecté sur ce site.{" "}
+            <Link to="/a-propos" className="underline-offset-2 hover:underline">
+              À propos
+            </Link>
+            . Accès direct à l’app. © {year} Nota.
           </span>
         </p>
       </div>

@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { FAQ_ITEMS } from "../content/faq";
+import { GUIDE_BY_PATH } from "../content/guides";
+import { LANDING_BY_PATH } from "../content/landing-pages";
 import {
   absoluteUrl,
   ALL_PAGES,
@@ -63,7 +65,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
       url: `${SITE_URL}/`,
-      description: "Suivi client simple : notes, affaires, rappels.",
+      description: "CRM interventions : carte, techniciens mobile, facturation.",
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/apple-touch-icon.png`,
@@ -106,7 +108,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       operatingSystem: "Web",
       url: APP_URL,
       description:
-        "Nota rassemble clients, notes et rappels. Voyez où en est chaque affaire. Sans compte.",
+        "Nota : carte des interventions, hub technicien, dossiers et facturation pour les entreprises à missions sur site. Accès direct sans inscription sur heynota.app.",
       inLanguage: "fr-FR",
       offers: {
         "@type": "Offer",
@@ -146,11 +148,16 @@ function buildJsonLd(page: PageSeo, known: boolean) {
     },
   ];
 
-  if (isHome) {
+  const cleanPath = page.path === "/" ? "/" : page.path;
+  const landingFaq = LANDING_BY_PATH.get(cleanPath)?.faq ?? GUIDE_BY_PATH.get(cleanPath)?.faq ?? [];
+  const faqEntities =
+    isHome && FAQ_ITEMS.length > 0 ? FAQ_ITEMS : landingFaq.length > 0 ? landingFaq : null;
+
+  if (faqEntities) {
     graph.push({
       "@type": "FAQPage",
-      "@id": `${SITE_URL}/#faq`,
-      mainEntity: FAQ_ITEMS.map((item) => ({
+      "@id": `${url}#faq`,
+      mainEntity: faqEntities.map((item) => ({
         "@type": "Question",
         name: item.question,
         acceptedAnswer: { "@type": "Answer", text: item.answer },

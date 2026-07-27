@@ -9,7 +9,8 @@ import { ProductStage } from "../components/ProductStage";
 import { MidCta } from "../components/MidCta";
 import { Footer } from "../components/Footer";
 import { StickyCta } from "../components/StickyCta";
-import { APP_URL } from "../config/site";
+import { HomeSeoIntro } from "../components/HomeSeoIntro";
+import { OpenNotaLink } from "../components/OpenNotaLink";
 
 export function HomePage() {
   return (
@@ -18,9 +19,12 @@ export function HomePage() {
         <a href="#main" className="skip-link">
           Aller au contenu
         </a>
-        <a href={APP_URL} className="skip-link skip-link-cta" rel="noopener noreferrer">
-          Ouvrir Nota
-        </a>
+        <OpenNotaLink
+          variant="nav"
+          utmContent="skip_link"
+          className="skip-link skip-link-cta"
+          showIcon={false}
+        />
         <HypnoticField />
         <ProgressRail />
         {/* Header hors du hero : sticky réel (overflow du hero cassait le sticky). */}
@@ -30,6 +34,7 @@ export function HomePage() {
           <HookLine />
           <HorizontalJourney />
           <ProductStage />
+          <HomeSeoIntro />
           <MidCta />
         </main>
         <Footer />

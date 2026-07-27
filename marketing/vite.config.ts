@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { FAQ_ITEMS } from "./src/content/faq";
 import { ALL_PAGES, HOME_SEO } from "./src/config/pages-data";
@@ -32,7 +32,7 @@ function buildStaticJsonLd(siteUrl: string, appUrl: string) {
         "@id": `${siteUrl}/#organization`,
         name: "Nota",
         url: `${siteUrl}/`,
-        description: "CRM simple sans inscription.",
+        description: "CRM interventions terrain : carte, techniciens, facturation.",
         logo: {
           "@type": "ImageObject",
           url: `${siteUrl}/apple-touch-icon.png`,
@@ -75,7 +75,8 @@ function buildStaticJsonLd(siteUrl: string, appUrl: string) {
         applicationSubCategory: "Customer Relationship Management",
         operatingSystem: "Web",
         url: appUrl,
-        description: "CRM simple sans inscription : pipeline, notes et relances. Accès immédiat.",
+        description:
+          "Carte des interventions, hub technicien mobile, dossiers et facturation. Accès direct.",
         inLanguage: "fr-FR",
         offers: {
           "@type": "Offer",
@@ -141,8 +142,10 @@ function seoFilesPlugin(mode: string) {
     closeBundle() {
       const src = resolve("public/404.html");
       if (!existsSync(src)) return;
+      const outDir = resolve("dist");
+      mkdirSync(outDir, { recursive: true });
       const raw = readFileSync(src, "utf8").replaceAll("%SITE_URL%", siteUrl);
-      writeFileSync(resolve("dist/404.html"), raw);
+      writeFileSync(resolve(outDir, "404.html"), raw);
     },
     transformIndexHtml: {
       order: "pre",

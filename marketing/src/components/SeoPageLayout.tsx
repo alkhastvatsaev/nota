@@ -1,9 +1,9 @@
 import type { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { OpenNotaLink } from "./OpenNotaLink";
+import { SeoFooterNav } from "./SeoFooterNav";
 import { SiteHeader } from "./SiteHeader";
 import { StickyCta } from "./StickyCta";
-import { APP_URL } from "../config/site";
 
 type SeoPageLayoutProps = {
   eyebrow: string;
@@ -13,6 +13,8 @@ type SeoPageLayoutProps = {
 };
 
 export function SeoPageLayout({ eyebrow, title, lead, children }: SeoPageLayoutProps) {
+  const { pathname } = useLocation();
+
   return (
     <div className="min-h-svh bg-void pb-24 text-ink md:pb-0">
       <a href="#main" className="skip-link">
@@ -46,38 +48,16 @@ export function SeoPageLayout({ eyebrow, title, lead, children }: SeoPageLayoutP
           <div className="mt-6 hidden justify-center md:flex">
             <OpenNotaLink
               variant="primary"
+              utmContent="seo_page_bottom"
               className="rounded-full bg-accent px-8 py-4 text-sm text-on-accent transition hover:bg-accent-deep"
             />
           </div>
         </div>
 
-        <nav
+        <SeoFooterNav
+          currentPath={pathname}
           className="mt-12 flex flex-wrap gap-x-5 gap-y-2 text-sm text-mute"
-          aria-label="Autres pages"
-        >
-          <Link to="/" className="min-h-11 inline-flex items-center transition hover:text-ink">
-            Accueil
-          </Link>
-          <Link
-            to="/crm-sans-inscription"
-            className="min-h-11 inline-flex items-center transition hover:text-ink"
-          >
-            CRM sans inscription
-          </Link>
-          <Link
-            to="/alternative-excel-commercial"
-            className="min-h-11 inline-flex items-center transition hover:text-ink"
-          >
-            Alternative Excel
-          </Link>
-          <a
-            href={APP_URL}
-            rel="noopener noreferrer"
-            className="min-h-11 inline-flex items-center transition hover:text-ink"
-          >
-            Ouvrir Nota
-          </a>
-        </nav>
+        />
       </main>
 
       <StickyCta />

@@ -21,8 +21,14 @@ export function AlternativeExcelPage() {
       <section>
         <h2 className="font-display text-xl tracking-tight text-ink">Nota à la place</h2>
         <p className="mt-3">
-          Clients, notes et étapes d’affaire au même endroit. Vous voyez où ça en est — sans tableur
-          à maintenir.
+          Interventions sur carte, dossiers partagés et hub technicien — sans tableur à maintenir.{" "}
+          <Link
+            to="/logiciel-interventions-terrain"
+            className="text-accent underline-offset-2 hover:underline"
+          >
+            Interventions terrain
+          </Link>
+          .
         </p>
       </section>
 

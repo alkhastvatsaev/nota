@@ -26,6 +26,12 @@ npm run domains:check      # exit 1 si mal assigné (CI)
 
 - `VITE_SITE_URL=https://heynota.app`
 - `VITE_APP_URL=https://app.heynota.app`
+- `VITE_GOOGLE_SITE_VERIFICATION` — Search Console (méthode balise meta). **Alternative** : fichier `public/googleXXXXXXXX.html` (méthode fichier HTML, sans variable d’env).
+- `VITE_GA_MEASUREMENT_ID` — GA4 (`page_view`, `click_open_nota`)
+
+Checklist jour J : `docs/marketing/SEO-JOUR-1.md`  
+Audit & stratégie complète : `docs/marketing/SEO-STRATEGIE-AUDIT.md`  
+**Exécution étape par étape** : `docs/marketing/SEO-EXECUTION-ETAPES.md` · `npm run seo:steps`
 
 ## Commands (dev)
 

@@ -20,10 +20,10 @@ export function CrmSansInscriptionPage() {
       <section>
         <h2 className="font-display text-xl tracking-tight text-ink">Ce que Nota fait</h2>
         <ul className="mt-3 list-disc space-y-2 pl-5">
-          <li>Garder notes et échanges avec chaque client</li>
-          <li>Voir où en est chaque affaire, étape par étape</li>
-          <li>Savoir qui relancer, et quand</li>
-          <li>Accès immédiat, sans inscription sur ce site</li>
+          <li>Planifier et suivre les interventions (carte, statuts, dossiers)</li>
+          <li>Hub technicien mobile : missions, photos, signature</li>
+          <li>Notes clients et relances commerciales</li>
+          <li>Accès immédiat à l’app, sans inscription sur ce site</li>
         </ul>
       </section>
 
