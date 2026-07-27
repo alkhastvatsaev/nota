@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { timingSafeEqual } from "crypto";
 import * as admin from "firebase-admin";
 import "@/core/config/firebase-admin";
+import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
 
 /** Comparaison de secrets résistante au timing (les chaînes de tailles différentes => false). */
 function safeEqual(a: string | null | undefined, b: string | null | undefined): boolean {
@@ -126,7 +127,7 @@ export function rejectAnonymousInProduction(
 ): NextResponse | null {
   if (!isProductionNodeEnv() || !isAnonymousFirebaseUser(decoded)) return null;
   // Mode découverte : comptes anonymes staff autorisés (join-default + claims).
-  if (process.env.NEXT_PUBLIC_FRICTIONLESS_AUTH?.trim() === "true") return null;
+  if (isFrictionlessAuthEnabled()) return null;
   const tenants = (decoded as { bmTenants?: unknown }).bmTenants;
   if (Array.isArray(tenants) && tenants.length > 0) return null;
   return NextResponse.json({ ok: false, error: "Non autorisé." }, { status: 403 });

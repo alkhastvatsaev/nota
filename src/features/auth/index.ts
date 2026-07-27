@@ -33,5 +33,9 @@ export {
   isCrmTenantAuthUser,
   recoverMainAuthFromClientPortalLeak,
 } from "@/features/auth/recoverMainAuthFromClientPortalLeak";
-export { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
+export {
+  isFrictionlessAuthEnabled,
+  isOpenAccessCompanyConfigured,
+  isOpenStaffJoinAllowed,
+} from "@/features/auth/frictionlessAuth";
 export { ensureSilentStaffAuth } from "@/features/auth/ensureSilentStaffAuth";

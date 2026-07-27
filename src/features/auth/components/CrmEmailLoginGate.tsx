@@ -13,6 +13,7 @@ import {
 } from "@/features/auth/crmEmailLoginVariant";
 import { ensureSilentStaffAuth } from "@/features/auth/ensureSilentStaffAuth";
 import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
+import { requestDefaultCompanyMembership } from "@/features/auth/requestDefaultCompanyMembership";
 
 type GatePhase = "checking" | "login" | "ready";
 
@@ -60,6 +61,9 @@ export default function CrmEmailLoginGate({ variant, children }: Props) {
       if (isFrictionlessAuthEnabled() && !auth.currentUser) {
         const user = await ensureSilentStaffAuth(auth);
         if (!user) silentFailedRef.current = true;
+        else {
+          void requestDefaultCompanyMembership(user, { staffKind: "admin" });
+        }
       }
       if (!cancelled) {
         setPhase(

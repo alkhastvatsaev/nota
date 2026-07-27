@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
+import { isFrictionlessAuthEnabled } from "@/features/auth/frictionlessAuth";
 import type { CompanyWorkspaceApi } from "@/context/companyWorkspaceContextTypes";
 import { useCompanyWorkspaceAuth } from "@/context/useCompanyWorkspaceAuth";
 import { useCompanyWorkspaceMemberships } from "@/context/useCompanyWorkspaceMemberships";
@@ -43,7 +44,8 @@ export function useCompanyWorkspaceState(initialActiveCompanyId?: string): Compa
     setClaimsInitialSyncDone,
   });
 
-  const joinBlocksWorkspace = false;
+  const joinBlocksWorkspace =
+    isFrictionlessAuthEnabled() && (membershipJoinPending || Boolean(membershipJoinError));
 
   const effectiveActiveCompanyId = useMemo(() => {
     if (authLoading) {

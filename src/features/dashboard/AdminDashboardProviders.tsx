@@ -11,6 +11,7 @@ import { GalaxyLayerBridgeProvider } from "@/features/map/GalaxyLayerBridgeConte
 import { MobileGalaxyComposerOpenProvider } from "@/context/MobileGalaxyComposerOpenContext";
 import { DateProvider } from "@/context/DateContext";
 import { CompanyWorkspaceProvider } from "@/context/CompanyWorkspaceContext";
+import CompanyWorkspaceBootstrapOverlay from "@/context/CompanyWorkspaceBootstrapOverlay";
 import { FeatureFlagsProvider } from "@/core/FeatureFlagsProvider";
 import { BackofficeInboxIntentProvider } from "@/context/BackofficeInboxIntentContext";
 import { CompanyStockIntentProvider } from "@/context/CompanyStockIntentContext";
@@ -48,6 +49,7 @@ export default function AdminDashboardProviders({ pageCount, children }: Props) 
       <LoginOverlay>
         <DevServiceWorkerCleanup />
         <CompanyWorkspaceProvider>
+          <CompanyWorkspaceBootstrapOverlay />
           <FeatureFlagsProvider>
             <GalaxyLayerBridgeProvider>
               <MobileGalaxyComposerOpenProvider>
