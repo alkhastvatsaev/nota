@@ -62,9 +62,17 @@ describe("appendEnvDefaultMembershipFallback", () => {
 
   it("propose AntwerpenSlot quand aucune membership", () => {
     process.env.NEXT_PUBLIC_CLIENT_PORTAL_DEFAULT_COMPANY_ID = "co-antwerp";
-    delete process.env.NEXT_PUBLIC_FRICTIONLESS_AUTH;
+    process.env.NEXT_PUBLIC_FRICTIONLESS_AUTH = "false";
     expect(appendEnvDefaultMembershipFallback([])).toEqual([
       { companyId: "co-antwerp", role: "collaborateur", companyName: "AntwerpenSlot" },
+    ]);
+  });
+
+  it("propose admin si société démo sans flag explicite (défaut marketing)", () => {
+    process.env.NEXT_PUBLIC_CLIENT_PORTAL_DEFAULT_COMPANY_ID = "co-antwerp";
+    delete process.env.NEXT_PUBLIC_FRICTIONLESS_AUTH;
+    expect(appendEnvDefaultMembershipFallback([])).toEqual([
+      { companyId: "co-antwerp", role: "admin", companyName: "AntwerpenSlot" },
     ]);
   });
 
