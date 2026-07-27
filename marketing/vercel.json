@@ -29,10 +29,29 @@
       ]
     }
   ],
-  "rewrites": [
-    { "source": "/crm-sans-inscription", "destination": "/index.html" },
-    { "source": "/alternative-excel-commercial", "destination": "/index.html" }
+  "redirects": [
+    {
+      "source": "/logiciel-serrurier",
+      "destination": "/logiciel-interventions-terrain",
+      "permanent": true
+    },
+    {
+      "source": "/depannage-interventions",
+      "destination": "/interventions-terrain",
+      "permanent": true
+    },
+    {
+      "source": "/facturation-depannage",
+      "destination": "/facturation-interventions",
+      "permanent": true
+    }
   ],
-  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/((?!assets/|google985da6a6498bd3a5\\.html|robots\\.txt|sitemap\\.xml|favicon|og-image|product/|.*\\.(png|svg|ico|webp|webmanifest|html|txt|xml)).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "cleanUrls": false,
   "trailingSlash": false
 }
