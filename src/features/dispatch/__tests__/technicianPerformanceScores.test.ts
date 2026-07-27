@@ -20,6 +20,14 @@ function iv(overrides: Partial<Intervention> & Pick<Intervention, "id" | "status
 }
 
 describe("computeTechnicianPerformanceScores", () => {
+  // Horloge figée sur NOW : sans ça, RECENT sort de la fenêtre 30j avec le temps réel.
+  beforeEach(() => {
+    jest.useFakeTimers().setSystemTime(NOW);
+  });
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   it("returns empty map for empty uid list", () => {
     const result = computeTechnicianPerformanceScores([], []);
     expect(result.size).toBe(0);

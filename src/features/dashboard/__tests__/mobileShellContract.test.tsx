@@ -5,6 +5,7 @@ import { render, screen, fireEvent } from "@/test-utils/render";
 import { renderMobileShell } from "@/test-utils/renderMobileShell";
 import MobileScreenHost from "@/features/dashboard/components/MobileScreenHost";
 import { DashboardPagerProvider } from "@/features/dashboard/dashboardPagerContext";
+import type { MobilePageTransitionState } from "@/features/dashboard/hooks/useMobilePageTransition";
 import { MOBILE_SHELL_CONTRACT } from "@/features/dashboard/mobileShellContract";
 import * as mobileFooterGalaxyVisible from "@/features/dashboard/hooks/useMobileFooterGalaxyVisible";
 import {
@@ -124,12 +125,20 @@ describe("mobileShellContract — navigation profil", () => {
   });
 });
 
+const pageTransitionStub: MobilePageTransitionState = {
+  mountedIndices: new Set([0]),
+  outgoingIndex: null,
+  direction: null,
+  isTransitioning: false,
+  getPanelPhase: () => "active",
+};
+
 describe("mobileShellContract — MobileScreenHost", () => {
   it("exige DashboardPageSelectorProvider", () => {
     expect(() =>
       render(
         <DashboardPagerProvider pageCount={1}>
-          <MobileScreenHost pages={[<div key="0">Map</div>]} />
+          <MobileScreenHost pages={[<div key="0">Map</div>]} pageTransition={pageTransitionStub} />
         </DashboardPagerProvider>
       )
     ).toThrow(/DashboardPageSelectorProvider/);

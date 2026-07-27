@@ -1,0 +1,10 @@
+*.local
+.DS_Store
+.cursor/mcp.json
+.env
+.env*
+.env.local
+.vercel
+.vercel/
+dist/
+node_modules/

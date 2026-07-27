@@ -1,0 +1,130 @@
+rank,company,hits,bucket
+1,"collectivite",22,product/autre
+2,"Inetum",11,esn/cabinet
+3,"Atos",10,esn/cabinet
+4,"Celad",10,esn/cabinet
+5,"AURLOM",10,esn/cabinet
+6,"Team.is",9,esn/cabinet
+7,"Adsearch",7,esn/cabinet
+8,"Externatic",6,esn/cabinet
+9,"MOBISKILL",6,esn/cabinet
+10,"Cabinet EKINOX",6,product/autre
+11,"Amiltone",5,esn/cabinet
+12,"Epsyl",5,esn/cabinet
+13,"Consort Group",5,esn/cabinet
+14,"Capgemini",4,esn/cabinet
+15,"Open",4,esn/cabinet
+16,"Klanik",4,product/autre
+17,"Onepoint",4,esn/cabinet
+18,"Hardis Group",4,esn/cabinet
+19,"Size Up Consulting",4,esn/cabinet
+20,"Groupe alternance Strasbourg",4,esn/cabinet
+21,"Prisma Academy",4,esn/cabinet
+22,"Job Staging",3,esn/cabinet
+23,"MATAWAN SERVICES",3,esn/cabinet
+24,"Astek",3,esn/cabinet
+25,"Step Up",3,esn/cabinet
+26,"Viveris.",3,esn/cabinet
+27,"Seyos",3,esn/cabinet
+28,"Meritis",3,esn/cabinet
+29,"Effektiv",3,esn/cabinet
+30,"Société Française de Garantie",3,product/autre
+31,"Skaelia",3,esn/cabinet
+32,"Randstad Digital",3,esn/cabinet
+33,"Groupe Créative",3,product/autre
+34,"Approach People Recruitment",2,esn/cabinet
+35,"Proxiad",2,product/autre
+36,"Peaks",2,product/autre
+37,"CGI",2,esn/cabinet
+38,"Sopra Steria",2,esn/cabinet
+39,"Infotel",2,esn/cabinet
+40,"DMF",2,esn/cabinet
+41,"Logwire Consulting",2,esn/cabinet
+42,"Groupe SII",2,esn/cabinet
+43,"Havana IT & Apps",2,product/autre
+44,"Ippon Technologies",2,esn/cabinet
+45,"Hellowork group",2,esn/cabinet
+46,"Conserto",2,esn/cabinet
+47,"Steeple",2,product/autre
+48,"agap2 IT",2,esn/cabinet
+49,"STORK Groupe",2,esn/cabinet
+50,"GutiLab",2,esn/cabinet
+51,"L'Industrie recrute",2,esn/cabinet
+52,"Innova Solutions",2,esn/cabinet
+53,"DSI.",2,product/autre
+54,"UPTOO",2,esn/cabinet
+55,"MANY",2,esn/cabinet
+56,"Key Points Recrutement",2,esn/cabinet
+57,"Anaveo",2,esn/cabinet
+58,"ROCKET SCHOOL",2,esn/cabinet
+59,"Studency",2,esn/cabinet
+60,"Immersia",2,esn/cabinet
+61,"WIN SPORT SCHOOL - Paris Ouest",2,product/autre
+62,"OpSales",2,esn/cabinet
+63,"ORT Lyon",2,esn/cabinet
+64,"IRIS",2,product/autre
+65,"Work With Island",2,product/autre
+66,"ATHENA BUSINESS SCHOOL",2,product/autre
+67,"Papernest",2,product/autre
+68,"Qim info",2,product/autre
+69,"CN Amirault",2,product/autre
+70,"Groupe Martin Belaysoud",2,product/autre
+71,"WelcomR",2,product/autre
+72,"Vusion",2,product/autre
+73,"Hymaïa",2,product/autre
+74,"Geser Best",2,product/autre
+75,"ISCOD",2,product/autre
+76,"Mistertemp'",2,product/autre
+77,"Harry Hope",2,product/autre
+78,"AVISTO",1,product/autre
+79,"Solutec",1,product/autre
+80,"BNP Paribas",1,product/autre
+81,"Amaris Consulting",1,product/autre
+82,"WINSIDE TECHNOLOGY",1,product/autre
+83,"Aubay",1,esn/cabinet
+84,"GINGERMINDS",1,product/autre
+85,"Groupe ADSN",1,product/autre
+86,"Vinci Energies France Industrie Normandie IDF",1,product/autre
+87,"Madic Group",1,product/autre
+88,"Consulting Technical Support",1,product/autre
+89,"Liberlo",1,product/autre
+90,"Groupe Adenes",1,product/autre
+91,"In Extenso",1,product/autre
+92,"ADROMA CONSEIL",1,product/autre
+93,"OCSI Group",1,product/autre
+94,"Innoval",1,product/autre
+95,"Abylsen",1,product/autre
+96,"Bureau des Talents",1,product/autre
+97,"Canal Plus",1,product/autre
+98,"Celsius Online",1,product/autre
+99,"mon-marché.fr",1,product/autre
+100,"Chausson Matériaux",1,product/autre
+101,"Groupe GPA",1,product/autre
+102,"Randstad",1,esn/cabinet
+103,"Lasecurecrute.fr",1,product/autre
+104,"Berger Levrault",1,product/autre
+105,"Socadek Solutions",1,product/autre
+106,"Cdiscount",1,product/autre
+107,"HELPLINE",1,product/autre
+108,"MYTTRA",1,product/autre
+109,"AXA en France",1,product/autre
+110,"ALTEN",1,esn/cabinet
+111,"Renée Costes Viager",1,product/autre
+112,"Emil Frey France",1,product/autre
+113,"MyDigitalSchool Angers",1,product/autre
+114,"Nexton",1,product/autre
+115,"GI Informatique",1,product/autre
+116,"Umake",1,product/autre
+117,"EPSI Nantes",1,product/autre
+118,"Coexya",1,product/autre
+119,"AquisIT",1,product/autre
+120,"Vaduo Consulting",1,product/autre
+121,"Groupe Antares",1,product/autre
+122,"Guarani",1,product/autre
+123,"SEEKVIEW RH",1,product/autre
+124,"Avanista",1,product/autre
+125,"Scalian",1,product/autre
+126,"Isagri",1,product/autre
+127,"Libheros",1,product/autre
+128,"Niji",1,product/autre
+129,"Tamgroupe",1,product/autre

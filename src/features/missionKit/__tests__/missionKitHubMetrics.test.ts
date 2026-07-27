@@ -5,7 +5,6 @@ const now = new Date("2026-07-02T12:00:00.000Z");
 
 function iv(partial: Partial<Intervention> & Pick<Intervention, "id">): Intervention {
   return {
-    id: partial.id,
     title: partial.title ?? "Intervention",
     address: "Bruxelles",
     time: "10:00",

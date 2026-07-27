@@ -43,6 +43,11 @@ npm run test:ci          # typecheck + test:coverage (à lancer avant tout merge
 npx jest <path-or-pattern> --no-coverage  # Un seul fichier / pattern
 npm run test:e2e         # Playwright (tests/e2e/)
 npm run ci               # lint:ci + test:ci + build (pipeline complet)
+npm run marketing:dev    # site marketing Vite (marketing/)
+npm run marketing:build  # build production heynota.app
+npm run domains:ensure   # verrouille heynota.app ≠ app.heynota.app après un deploy
+npm run deploy:app       # vercel --prod CRM + domains:ensure
+npm run deploy:marketing # vercel --prod marketing/ + domains:ensure
 ```
 
 ## Architecture
@@ -55,6 +60,15 @@ npm run ci               # lint:ci + test:ci + build (pipeline complet)
 - `src/context/` — React Contexts (CompanyWorkspace, Date, OfflineSync, TechnicianIntent…)
 - `src/test-utils/` — `render.tsx` (renderWithProviders), `mockState.ts`, `renderWithPager.tsx`
 - `tests/e2e/` — Playwright
+- `marketing/` — site marketing Vite + React (**heynota.app**), package isolé — voir `marketing/CLAUDE.md`
+- App CRM prod : **https://app.heynota.app** (projet Vercel `nota`)
+- Marketing prod : **https://heynota.app** (projet Vercel `heynota`)
+
+### Domaines (garde-fou)
+
+Après tout deploy prod CRM ou marketing : `npm run domains:ensure`  
+(re-assigne `heynota.app`/`www` → projet `heynota`, `app.heynota.app` → `nota`, puis health-check HTTP).  
+Préférer `npm run deploy:app` / `npm run deploy:marketing` plutôt qu’un `vercel --prod` nu.
 
 ### Carrousel de pages (DashboardPager)
 
