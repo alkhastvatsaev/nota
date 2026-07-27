@@ -16,6 +16,16 @@ function appUrlFromEnv(mode: string) {
   return (env.VITE_APP_URL || "https://app.heynota.app").replace(/\/$/, "");
 }
 
+function gaSnippetFromEnv(mode: string) {
+  const id = loadEnv(mode, process.cwd(), "").VITE_GA_MEASUREMENT_ID?.trim();
+  if (!id) return "";
+  return (
+    `<script async src="https://www.googletagmanager.com/gtag/js?id=${id}"></script>` +
+    `<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}` +
+    `gtag("js",new Date());gtag("config","${id}",{send_page_view:false});</script>`
+  );
+}
+
 function locFor(siteUrl: string, path: string) {
   return path === "/" ? `${siteUrl}/` : `${siteUrl}${path}`;
 }
@@ -106,6 +116,7 @@ function buildStaticJsonLd(siteUrl: string, appUrl: string) {
 function seoFilesPlugin(mode: string) {
   const siteUrl = siteUrlFromEnv(mode);
   const appUrl = appUrlFromEnv(mode);
+  const gaSnippet = gaSnippetFromEnv(mode);
   const today = new Date().toISOString().slice(0, 10);
 
   const writeSeoFiles = () => {
@@ -154,7 +165,8 @@ function seoFilesPlugin(mode: string) {
           .replaceAll("%SITE_URL%", siteUrl)
           .replaceAll("%APP_URL%", appUrl)
           .replaceAll("%SITE_TITLE%", HOME_SEO.title)
-          .replaceAll("%SITE_DESCRIPTION%", HOME_SEO.description);
+          .replaceAll("%SITE_DESCRIPTION%", HOME_SEO.description)
+          .replaceAll("%GA_SNIPPET%", gaSnippet);
         const jsonLd = JSON.stringify(buildStaticJsonLd(siteUrl, appUrl));
         return withUrls.replace(
           /<script type="application\/ld\+json" id="nota-jsonld">[\s\S]*?<\/script>/,

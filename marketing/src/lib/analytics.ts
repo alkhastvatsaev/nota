@@ -8,30 +8,65 @@ declare global {
 }
 
 let loaded = false;
+let loading = false;
+const queue: Array<() => void> = [];
+
+function flushQueue() {
+  while (queue.length > 0) {
+    const fn = queue.shift();
+    fn?.();
+  }
+}
+
+function whenReady(run: () => void) {
+  if (loaded && window.gtag) {
+    run();
+    return;
+  }
+  queue.push(run);
+}
 
 export function initAnalytics() {
   if (typeof window === "undefined" || !GA_MEASUREMENT_ID || loaded) return;
-  loaded = true;
+
+  if (window.gtag) {
+    loaded = true;
+    flushQueue();
+    return;
+  }
+
+  if (loading) return;
+  loading = true;
 
   const script = document.createElement("script");
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-  document.head.appendChild(script);
-
-  window.dataLayer = window.dataLayer ?? [];
-  window.gtag = function gtag(...args: unknown[]) {
-    window.dataLayer?.push(args);
+  script.onload = () => {
+    window.dataLayer = window.dataLayer ?? [];
+    window.gtag = function gtag(...args: unknown[]) {
+      window.dataLayer?.push(args);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
+    loaded = true;
+    loading = false;
+    flushQueue();
   };
-  window.gtag("js", new Date());
-  window.gtag("config", GA_MEASUREMENT_ID, { send_page_view: false });
+  script.onerror = () => {
+    loading = false;
+    queue.length = 0;
+  };
+  document.head.appendChild(script);
 }
 
 export function trackPageView(path: string, title: string) {
-  if (!GA_MEASUREMENT_ID || !window.gtag) return;
-  window.gtag("event", "page_view", {
-    page_path: path,
-    page_title: title,
-    page_location: `${window.location.origin}${path}`,
+  if (!GA_MEASUREMENT_ID) return;
+  whenReady(() => {
+    window.gtag?.("event", "page_view", {
+      page_path: path,
+      page_title: title,
+      page_location: `${window.location.origin}${path}`,
+    });
   });
 }
 
@@ -41,9 +76,11 @@ export type CtaEvent = {
 };
 
 export function trackOpenNotaClick({ variant, pagePath }: CtaEvent) {
-  if (!GA_MEASUREMENT_ID || !window.gtag) return;
-  window.gtag("event", "click_open_nota", {
-    cta_variant: variant,
-    page_path: pagePath,
+  if (!GA_MEASUREMENT_ID) return;
+  whenReady(() => {
+    window.gtag?.("event", "click_open_nota", {
+      cta_variant: variant,
+      page_path: pagePath,
+    });
   });
 }
