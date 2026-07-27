@@ -5,8 +5,8 @@ import type { Intervention } from "@/features/interventions";
 const mockTransitionAdmin = jest.fn(async () => ({ id: "evt-1" }));
 const mockUpdate = jest.fn(async () => undefined);
 
-const mockNotifyAssignment = jest.fn(async () => ({ sent: 1 }));
-const mockNotifyUnassignment = jest.fn(async () => ({ sent: 1 }));
+const mockNotifyAssignment = jest.fn(async (..._args: unknown[]) => ({ sent: 1 }));
+const mockNotifyUnassignment = jest.fn(async (..._args: unknown[]) => ({ sent: 1 }));
 
 jest.mock("@/features/interventions/server/notifyTechnicianAssignmentAdmin", () => ({
   notifyTechnicianAssignmentAdmin: (...args: unknown[]) => mockNotifyAssignment(...args),

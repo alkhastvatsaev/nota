@@ -1,0 +1,3 @@
+Contact: mailto:hello@heynota.app
+Preferred-Languages: fr, en
+Canonical: https://heynota.app/

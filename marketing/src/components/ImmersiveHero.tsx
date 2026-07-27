@@ -52,7 +52,7 @@ export function ImmersiveHero() {
           initial={reduce ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...spring, delay: 0.08 }}
-          className="nota-title-stroke font-display text-[clamp(3.25rem,13vw,9rem)] leading-[0.95] tracking-tight text-ink"
+          className="font-display text-[clamp(3.25rem,13vw,9rem)] leading-[0.95] tracking-tight text-ink"
         >
           NOTA
           <span className="sr-only"> — Vos clients, notes et rappels au même endroit</span>

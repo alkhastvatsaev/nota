@@ -1,0 +1,24 @@
+import { APP_URL, SITE_NAME, SITE_URL } from "./site";
+import {
+  ALL_PAGES,
+  ALTERNATIVE_EXCEL_SEO,
+  CRM_SANS_INSCRIPTION_SEO,
+  HOME_SEO,
+  type PageSeo,
+} from "./pages-data";
+
+export type { PageSeo };
+export {
+  ALL_PAGES,
+  ALTERNATIVE_EXCEL_SEO,
+  CRM_SANS_INSCRIPTION_SEO,
+  HOME_SEO,
+  APP_URL,
+  SITE_NAME,
+  SITE_URL,
+};
+
+export function absoluteUrl(path: string) {
+  if (path === "/") return `${SITE_URL}/`;
+  return `${SITE_URL}${path}`;
+}

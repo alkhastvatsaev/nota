@@ -88,14 +88,6 @@
     font-family: var(--font-display);
   }
 
-  /* Contour bleu autour de chaque glyphe du titre hero */
-  .nota-title-stroke {
-    color: var(--color-ink);
-    -webkit-text-fill-color: var(--color-ink);
-    -webkit-text-stroke: 3px var(--color-accent);
-    paint-order: stroke fill;
-  }
-
   .skip-link {
     position: absolute;
     left: 1rem;

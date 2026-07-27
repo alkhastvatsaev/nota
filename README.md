@@ -25,6 +25,19 @@
 3. Copier `.env.example` vers `.env.local` et renseigner les variables.
 4. Lancer le dev : `npm run dev` (PWA en dev : `npm run dev:pwa`)
 
+### Site marketing (`marketing/`)
+
+Landing Vite + React pour https://heynota.app. L’app CRM tourne sur https://app.heynota.app.
+
+```bash
+cd marketing && npm install   # une fois
+npm run marketing:dev         # depuis la racine
+npm run marketing:build
+npm run deploy:marketing      # prod marketing + garde-fou domaines
+npm run deploy:app            # prod CRM + garde-fou domaines
+npm run domains:ensure        # répare si heynota.app a été repris par le CRM
+```
+
 ## Tests
 
 ```bash
