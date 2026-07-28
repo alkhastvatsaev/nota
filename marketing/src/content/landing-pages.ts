@@ -329,6 +329,7 @@ export const LANDING_BY_PATH = new Map(LANDING_PAGES.map((p) => [p.path, p]));
 
 /** Anciennes URLs (ciblage serrurerie) → nouvelles URLs génériques. */
 export const LEGACY_PATH_REDIRECTS: Record<string, string> = {
+  "/al-khast-vatsaev": "/alkhast-vatsaev",
   "/logiciel-serrurier": "/logiciel-interventions-terrain",
   "/depannage-interventions": "/interventions-terrain",
   "/facturation-depannage": "/facturation-interventions",
