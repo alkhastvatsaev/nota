@@ -8,27 +8,29 @@ type FounderCreditProps = {
   size?: "header" | "footer";
 };
 
+/** Mobile = courte (`</> Alkhast Vatsaev`). Desktop = phrase complète. */
 export function FounderCredit({ className, size = "header" }: FounderCreditProps) {
   const { t } = useLocale();
   const compact = size === "header";
 
   return (
-    <p
+    <Link
+      to={FOUNDER_PROFILE_PATH}
+      title={`${t.builtBy} ${FOUNDER_FULL_NAME}`}
+      aria-label={`${t.builtBy} ${FOUNDER_FULL_NAME}`}
       className={cn(
-        compact ? "text-[11px] leading-tight text-mute sm:text-xs" : "text-sm text-mute",
+        "inline-flex items-center gap-1.5 text-mute underline-offset-2 transition hover:text-ink hover:underline",
+        compact ? "text-[11px] sm:text-xs" : "text-xs sm:text-sm",
         className
       )}
     >
       <span className="font-mono text-accent" aria-hidden>
         {"</>"}
-      </span>{" "}
-      <Link
-        to={FOUNDER_PROFILE_PATH}
-        className="text-mute underline-offset-2 transition hover:text-ink hover:underline"
-        title={FOUNDER_FULL_NAME}
-      >
+      </span>
+      <span className="sm:hidden">{FOUNDER_FULL_NAME}</span>
+      <span className="hidden sm:inline">
         {t.builtBy} {FOUNDER_FULL_NAME}
-      </Link>
-    </p>
+      </span>
+    </Link>
   );
 }

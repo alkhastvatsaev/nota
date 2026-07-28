@@ -13,9 +13,9 @@ export function Footer() {
     <footer className="border-t border-line bg-mist px-6 py-10 sm:px-10">
       <div className="mx-auto max-w-3xl">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-          <div>
-            <p className="font-display tracking-[0.22em] text-ink">NOTA</p>
-            <FounderCredit size="footer" className="mt-2" />
+          <div className="flex min-w-0 flex-wrap items-center gap-2 sm:gap-3">
+            <p className="font-display shrink-0 tracking-[0.22em] text-ink">NOTA</p>
+            <FounderCredit size="footer" className="min-w-0" />
           </div>
           <SeoFooterNav
             className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-mute"
