@@ -1,4 +1,5 @@
 import type { FaqItem } from "./faq";
+import { FOUNDER_FULL_NAME, FOUNDER_PROFILE_PATH } from "../config/founder";
 
 export type LandingSection = {
   h2: string;
@@ -206,11 +207,46 @@ export const LANDING_PAGES: LandingPageContent[] = [
     faq: [],
   },
   {
+    path: FOUNDER_PROFILE_PATH,
+    eyebrow: "Fondateur",
+    title: FOUNDER_FULL_NAME,
+    lead: `${FOUNDER_FULL_NAME} conçoit et développe Nota, le CRM interventions terrain publié sur heynota.app — carte, mobile technicien et facturation pour les équipes sur site.`,
+    sections: [
+      {
+        h2: "Nota & heynota.app",
+        paragraphs: [
+          "Nota est un CRM pensé pour les entreprises qui envoient des techniciens chez le client : maintenance, installation, dépannage, services récurrents. Le site heynota.app présente le produit ; l’application est sur app.heynota.app.",
+          `${FOUNDER_FULL_NAME} porte la vision produit, le développement et l’expérience utilisateur du parcours carte → terrain → facturation.`,
+        ],
+      },
+      {
+        h2: "Pourquoi ce site mentionne mon nom",
+        paragraphs: [
+          "Ce profil permet de relier clairement Nota à son auteur pour la transparence (E-E-A-T) et pour retrouver le projet en recherchant « Alkhast Vatsaev » sur Google.",
+          "Pour essayer Nota, ouvrez l’application — aucune inscription n’est demandée sur ce site marketing.",
+        ],
+      },
+      {
+        h2: "Contact",
+        paragraphs: [
+          "Pas d’email collecté sur heynota.app. Pour le produit, utilisez l’accès direct à l’app Nota.",
+        ],
+      },
+    ],
+    faq: [],
+  },
+  {
     path: "/a-propos",
     eyebrow: "À propos",
     title: "À propos de Nota",
     lead: "Nota (heynota.app) présente le CRM interventions. L’application est sur app.heynota.app.",
     sections: [
+      {
+        h2: "Fondateur",
+        paragraphs: [
+          "Nota est initié par Alkhast Vatsaev. Profil fondateur et parcours : page Alkhast Vatsaev sur ce site.",
+        ],
+      },
       {
         h2: "Notre objectif",
         paragraphs: [

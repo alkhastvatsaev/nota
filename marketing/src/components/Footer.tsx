@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FAQ_ITEMS } from "../content/faq";
+import { FOUNDER_FULL_NAME, FOUNDER_PROFILE_PATH } from "../config/founder";
 import { SeoFooterNav } from "./SeoFooterNav";
 
 export function Footer() {
@@ -41,7 +42,11 @@ export function Footer() {
             <Link to="/a-propos" className="underline-offset-2 hover:underline">
               À propos
             </Link>
-            . Accès direct à l’app. © {year} Nota.
+            . Accès direct à l’app. © {year} Nota —{" "}
+            <Link to={FOUNDER_PROFILE_PATH} className="underline-offset-2 hover:underline">
+              {FOUNDER_FULL_NAME}
+            </Link>
+            .
           </span>
         </p>
       </div>

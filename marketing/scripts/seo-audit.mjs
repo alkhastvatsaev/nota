@@ -60,6 +60,7 @@ if (sitemap) {
     "sitemap alternative-excel",
     /alternative-excel-commercial/.test(sitemap),
   );
+  check("sitemap profil fondateur", /alkhast-vatsaev/.test(sitemap));
 }
 
 if (html) {
@@ -100,6 +101,13 @@ if (html) {
   check("JSON-LD", /application\/ld\+json/i.test(html));
   check("FAQPage schema", /"@type"\s*:\s*"FAQPage"/i.test(html));
   check("SoftwareApplication", /"@type"\s*:\s*"SoftwareApplication"/i.test(html));
+  check("Person schema (fondateur)", /"@type"\s*:\s*"Person"/i.test(html));
+  check(
+    "meta author Alkhast",
+    /name=["']author["'][^>]+content=["'][^"']*Alkhast Vatsaev/i.test(html)
+      || /content=["'][^"']*Alkhast Vatsaev/i.test(html),
+  );
+  check("link rel=author", /rel=["']author["']/i.test(html));
   check("h1 crawlable", /<h1[\s>]/i.test(html));
   check("contenu #root", /id=["']root["'][\s\S]*<h1/i.test(html));
 

@@ -1,0 +1,5 @@
+/* TEAM */
+Founder: Alkhast Vatsaev
+Product: Nota — CRM interventions terrain
+Site: https://heynota.app
+App: https://app.heynota.app

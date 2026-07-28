@@ -5,6 +5,8 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { FAQ_ITEMS } from "./src/content/faq";
 import { ALL_PAGES, HOME_SEO } from "./src/config/pages-data";
+import { FOUNDER_PROFILE_PATH } from "./src/config/founder";
+import { buildFounderPersonNode, organizationFounderFields } from "./src/config/jsonLdFounder";
 
 function siteUrlFromEnv(mode: string) {
   const env = loadEnv(mode, process.cwd(), "");
@@ -50,7 +52,9 @@ function buildStaticJsonLd(siteUrl: string, appUrl: string) {
           height: 180,
         },
         image: `${siteUrl}/og-image.png`,
+        ...organizationFounderFields(siteUrl),
       },
+      buildFounderPersonNode(siteUrl),
       {
         "@type": "WebSite",
         "@id": `${siteUrl}/#website`,
@@ -67,6 +71,7 @@ function buildStaticJsonLd(siteUrl: string, appUrl: string) {
         name: HOME_SEO.title,
         isPartOf: { "@id": `${siteUrl}/#website` },
         about: { "@id": `${siteUrl}/#software` },
+        author: { "@id": `${siteUrl}${FOUNDER_PROFILE_PATH}#person` },
         description,
         inLanguage: "fr-FR",
         dateModified,

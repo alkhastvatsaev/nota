@@ -13,6 +13,8 @@ import {
   type PageSeo,
 } from "../config/pages";
 import { GOOGLE_SITE_VERIFICATION } from "../config/site";
+import { FOUNDER_FULL_NAME, FOUNDER_PERSON_ID, FOUNDER_PROFILE_PATH } from "../config/founder";
+import { buildFounderPersonNode, organizationFounderFields } from "../config/jsonLdFounder";
 
 const GRAPH_SCRIPT_ID = "nota-jsonld";
 
@@ -58,6 +60,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
   const dateModified = new Date().toISOString().slice(0, 10);
   const url = absoluteUrl(page.path);
   const isHome = page.path === "/";
+  const isFounderProfile = page.path === FOUNDER_PROFILE_PATH;
 
   const graph: Record<string, unknown>[] = [
     {
@@ -73,7 +76,9 @@ function buildJsonLd(page: PageSeo, known: boolean) {
         height: 180,
       },
       image: `${SITE_URL}/og-image.png`,
+      ...organizationFounderFields(SITE_URL),
     },
+    buildFounderPersonNode(SITE_URL),
     {
       "@type": "WebSite",
       "@id": `${SITE_URL}/#website`,
@@ -92,6 +97,13 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       description: page.description,
       inLanguage: "fr-FR",
       dateModified,
+      ...(isFounderProfile
+        ? {
+            about: { "@id": FOUNDER_PERSON_ID },
+            mainEntity: { "@id": FOUNDER_PERSON_ID },
+          }
+        : {}),
+      ...(isHome ? { author: { "@id": FOUNDER_PERSON_ID } } : {}),
       primaryImageOfPage: {
         "@type": "ImageObject",
         url: `${SITE_URL}/og-image.png`,
@@ -177,6 +189,7 @@ export function SeoHead() {
     document.title = page.title;
 
     setMeta("description", page.description);
+    setMeta("author", `${FOUNDER_FULL_NAME} · ${SITE_NAME}`);
     setMeta(
       "robots",
       known

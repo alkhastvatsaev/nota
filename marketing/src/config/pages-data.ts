@@ -1,5 +1,6 @@
 import { GUIDE_PAGES } from "../content/guides";
 import { LANDING_PAGES } from "../content/landing-pages";
+import { FOUNDER_PROFILE_PATH } from "./founder";
 
 export type PageSeo = {
   path: string;
@@ -12,8 +13,16 @@ export const HOME_SEO: PageSeo = {
   path: "/",
   title: "Nota — CRM interventions terrain (carte, mobile, facturation)",
   description:
-    "Carte, mobile technicien, dossiers et facturation pour les entreprises en intervention chez le client. Accès direct à l’app, sans inscription ici.",
+    "Carte, mobile technicien, dossiers et facturation pour entreprises en intervention. Accès direct à l’app Nota. Par Alkhast Vatsaev.",
   priority: 1,
+};
+
+export const FOUNDER_PROFILE_SEO: PageSeo = {
+  path: FOUNDER_PROFILE_PATH,
+  title: "Alkhast Vatsaev — Fondateur de Nota (CRM interventions)",
+  description:
+    "Alkhast Vatsaev conçoit Nota, CRM carte et mobile pour interventions terrain. Profil fondateur, produit heynota.app et app Nota.",
+  priority: 0.92,
 };
 
 export const CRM_SANS_INSCRIPTION_SEO: PageSeo = {
@@ -43,7 +52,9 @@ function seoFromContent(path: string, title: string, lead: string, priority: num
   };
 }
 
-const LANDING_SEO: PageSeo[] = LANDING_PAGES.map((page) =>
+const LANDING_SEO: PageSeo[] = LANDING_PAGES.filter(
+  (page) => page.path !== FOUNDER_PROFILE_PATH
+).map((page) =>
   seoFromContent(
     page.path,
     page.title,
@@ -58,6 +69,7 @@ const GUIDE_SEO: PageSeo[] = GUIDE_PAGES.map((page) =>
 
 export const ALL_PAGES: PageSeo[] = [
   HOME_SEO,
+  FOUNDER_PROFILE_SEO,
   ...LANDING_SEO,
   ...GUIDE_SEO,
   CRM_SANS_INSCRIPTION_SEO,

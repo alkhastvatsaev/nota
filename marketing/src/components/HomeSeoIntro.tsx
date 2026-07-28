@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { OpenNotaLink } from "./OpenNotaLink";
 import { ProductProofGallery } from "./ProductProofGallery";
+import { FOUNDER_FULL_NAME, FOUNDER_PROFILE_PATH } from "../config/founder";
 
 /** Bloc texte indexable : métier + maillage interne sans casser le hero visuel. */
 export function HomeSeoIntro() {
@@ -21,6 +22,16 @@ export function HomeSeoIntro() {
           clients, <strong className="font-normal text-ink">hub technicien mobile</strong> (photos,
           signature) et facturation — maintenance, installation, services, dépannage : toute équipe
           qui intervient chez le client.
+        </p>
+        <p className="mt-3 text-sm text-mute">
+          <Link
+            to={FOUNDER_PROFILE_PATH}
+            className="text-accent underline-offset-2 hover:underline"
+          >
+            {FOUNDER_FULL_NAME}
+          </Link>
+          {" · "}
+          fondateur de Nota.
         </p>
         <p className="mt-3 text-sm text-mute">
           <Link

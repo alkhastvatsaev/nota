@@ -15,4 +15,5 @@ export const SEO_NAV_LINKS = [
   { to: "/alternative-excel-commercial", label: "Alternative Excel" },
   { to: "/installer-nota", label: "Installer l’app" },
   { to: "/a-propos", label: "À propos" },
+  { to: "/alkhast-vatsaev", label: "Alkhast Vatsaev" },
 ] as const;
