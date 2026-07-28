@@ -19,9 +19,9 @@ export const HOME_SEO: PageSeo = {
 
 export const FOUNDER_PROFILE_SEO: PageSeo = {
   path: FOUNDER_PROFILE_PATH,
-  title: "Alkhast Vatsaev — Fondateur de Nota (CRM interventions)",
+  title: "Alkhast Vatsaev — Fondateur de Nota",
   description:
-    "Alkhast Vatsaev conçoit Nota, CRM carte et mobile pour interventions terrain. Profil fondateur, produit heynota.app et app Nota.",
+    "Alkhast Vatsaev, fondateur de Nota. CRM interventions terrain : carte, mobile technicien et facturation.",
   priority: 0.92,
 };
 

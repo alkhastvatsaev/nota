@@ -210,26 +210,25 @@ export const LANDING_PAGES: LandingPageContent[] = [
     path: FOUNDER_PROFILE_PATH,
     eyebrow: "Fondateur",
     title: FOUNDER_FULL_NAME,
-    lead: `${FOUNDER_FULL_NAME} conçoit et développe Nota, le CRM interventions terrain publié sur heynota.app — carte, mobile technicien et facturation pour les équipes sur site.`,
+    lead: "Fondateur de Nota. Je construis un CRM pour les entreprises qui envoient des techniciens chez leurs clients.",
     sections: [
       {
-        h2: "Nota & heynota.app",
+        h2: "Qui je suis",
         paragraphs: [
-          "Nota est un CRM pensé pour les entreprises qui envoient des techniciens chez le client : maintenance, installation, dépannage, services récurrents. Le site heynota.app présente le produit ; l’application est sur app.heynota.app.",
-          `${FOUNDER_FULL_NAME} porte la vision produit, le développement et l’expérience utilisateur du parcours carte → terrain → facturation.`,
+          "Je m’appelle Alkhast Vatsaev. J’ai créé Nota pour remplacer le bricolage Excel / WhatsApp par un outil clair : missions sur carte, suivi d’équipe, facturation.",
         ],
       },
       {
-        h2: "Pourquoi ce site mentionne mon nom",
+        h2: "Ce que je construis",
         paragraphs: [
-          "Ce profil permet de relier clairement Nota à son auteur pour la transparence (E-E-A-T) et pour retrouver le projet en recherchant « Alkhast Vatsaev » sur Google.",
-          "Pour essayer Nota, ouvrez l’application — aucune inscription n’est demandée sur ce site marketing.",
+          "Nota sert les équipes terrain — maintenance, installation, dépannage, services récurrents. L’application regroupe la carte des interventions, le hub technicien mobile et la facturation.",
+          "heynota.app présente le produit. L’app se trouve sur app.heynota.app.",
         ],
       },
       {
-        h2: "Contact",
+        h2: "Essayer Nota",
         paragraphs: [
-          "Pas d’email collecté sur heynota.app. Pour le produit, utilisez l’accès direct à l’app Nota.",
+          "Ouvrez l’application directement depuis ce site. Aucun formulaire d’inscription n’est demandé ici.",
         ],
       },
     ],
@@ -239,32 +238,30 @@ export const LANDING_PAGES: LandingPageContent[] = [
     path: "/a-propos",
     eyebrow: "À propos",
     title: "À propos de Nota",
-    lead: "Nota (heynota.app) présente le CRM interventions. L’application est sur app.heynota.app.",
+    lead: "Nota aide les entreprises à interventions à suivre missions, techniciens et facturation au même endroit.",
     sections: [
       {
         h2: "Fondateur",
         paragraphs: [
-          "Nota est initié par Alkhast Vatsaev. Profil fondateur et parcours : page Alkhast Vatsaev sur ce site.",
+          "Nota est créé par Alkhast Vatsaev — produit, développement et expérience utilisateur.",
         ],
       },
       {
         h2: "Notre objectif",
         paragraphs: [
-          "Offrir aux entreprises à interventions un outil lisible : missions sur carte, équipe alignée, moins de friction qu’un SaaS générique mal adapté au terrain.",
+          "Offrir un outil lisible pour le terrain : carte des missions, équipe alignée, moins de friction qu’un SaaS générique mal adapté aux interventions chez le client.",
         ],
       },
       {
-        h2: "Ils testent Nota sur le terrain",
+        h2: "Sur le terrain",
         paragraphs: [
           "« On voulait arrêter de courir après les infos dans WhatsApp. La carte et le mobile technicien, c’est ce qu’on utilisait le plus dès la première semaine. » — Responsable exploitation, PME maintenance (beta, France).",
-          "Remplacez ce témoignage par un client réel nommé dès que possible : impact fort sur conversion et confiance SEO (E-E-A-T).",
         ],
       },
       {
-        h2: "Contact & confiance",
+        h2: "Accès & hébergement",
         paragraphs: [
-          "Pas d’email collecté sur ce site marketing. Pour essayer le produit, ouvrez l’application directement.",
-          "Hébergement cloud (Vercel, Firebase). Données métier dans votre espace société une fois dans l’app.",
+          "Ce site ne collecte pas d’email. Pour utiliser Nota, ouvrez l’application. Hébergement cloud (Vercel, Firebase) ; les données métier restent dans votre espace société.",
         ],
       },
     ],
