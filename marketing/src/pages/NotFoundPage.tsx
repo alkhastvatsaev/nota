@@ -30,7 +30,7 @@ export function NotFoundPage() {
           <OpenNotaLink className="rounded-full bg-accent px-6 py-3 text-sm text-on-accent transition hover:bg-accent-deep" />
         </div>
       </main>
-      <StickyCta />
+      <StickyCta disabled />
     </div>
   );
 }

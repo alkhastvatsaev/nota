@@ -1,14 +1,22 @@
 import { useEffect, useState } from "react";
 import { OpenNotaLink } from "./OpenNotaLink";
 
+type StickyCtaProps = {
+  /** Désactive totalement (ex. page Contact = le formulaire est l’action). */
+  disabled?: boolean;
+};
+
 /**
- * Mobile only: barre CTA après le hero, masquée quand un CTA principal
- * (ou le bas de page) est déjà visible — évite le double bouton gênant.
+ * Mobile only: barre CTA après le hero, masquée près d’un CTA principal / footer.
  */
-export function StickyCta() {
+export function StickyCta({ disabled = false }: StickyCtaProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    if (disabled) {
+      setVisible(false);
+      return;
+    }
     if (typeof window === "undefined") return;
     if (window.matchMedia("(min-width: 768px)").matches) return;
 
@@ -26,11 +34,10 @@ export function StickyCta() {
     const heroObs = hero
       ? new IntersectionObserver(
           ([entry]) => {
-            // Sticky dès que le hero n’occupe plus ~40% du viewport
-            heroPast = !entry.isIntersecting || entry.intersectionRatio < 0.4;
+            heroPast = !entry.isIntersecting || entry.intersectionRatio < 0.35;
             update();
           },
-          { threshold: [0, 0.4, 1] }
+          { threshold: [0, 0.35, 1] }
         )
       : null;
 
@@ -38,23 +45,22 @@ export function StickyCta() {
 
     const coverObs = new IntersectionObserver(
       (entries) => {
-        coverVisible = entries.some((e) => e.isIntersecting && e.intersectionRatio > 0.15);
+        coverVisible = entries.some((e) => e.isIntersecting && e.intersectionRatio > 0.1);
         update();
       },
-      { threshold: [0, 0.15, 0.5], rootMargin: "0px 0px -12% 0px" }
+      { threshold: [0, 0.1, 0.4], rootMargin: "0px 0px -8% 0px" }
     );
 
     primaryCtAs.forEach((el) => {
-      // Ignore le sticky lui-même
       if (el.closest("[data-sticky-cta]")) return;
       coverObs.observe(el);
     });
     if (footer) coverObs.observe(footer);
 
-    // Accueil sans #top sur certaines pages SEO : montrer après scroll
     if (!hero) {
       const onScroll = () => {
-        heroPast = window.scrollY > 280;
+        // Plus patient hors home : évite le sticky trop tôt sur pages SEO
+        heroPast = window.scrollY > 420;
         update();
       };
       onScroll();
@@ -70,7 +76,9 @@ export function StickyCta() {
       coverObs.disconnect();
       heroObs?.disconnect();
     };
-  }, []);
+  }, [disabled]);
+
+  if (disabled) return null;
 
   return (
     <div
