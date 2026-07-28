@@ -6,7 +6,7 @@ export const FOUNDER_FULL_NAME = "Alkhast Vatsaev";
 export const FOUNDER_GIVEN_NAME = "Alkhast";
 export const FOUNDER_FAMILY_NAME = "Vatsaev";
 
-export const FOUNDER_JOB_TITLE = "Fondateur & développeur";
+export const FOUNDER_JOB_TITLE = "Fondateur & développeur de Nota CRM";
 
 /** Page canonique profil fondateur (Person schema + H1). */
 export const FOUNDER_PROFILE_PATH = "/alkhast-vatsaev";

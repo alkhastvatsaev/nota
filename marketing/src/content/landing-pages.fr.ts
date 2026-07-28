@@ -190,20 +190,20 @@ export const LANDING_PAGES_FR: LandingPageContent[] = [
   },
   {
     path: FOUNDER_PROFILE_PATH,
-    eyebrow: "Fondateur",
+    eyebrow: "Fondateur & développeur",
     title: FOUNDER_FULL_NAME,
-    lead: "Créateur de Nota CRM. J’ai construit un logiciel pour les entreprises qui envoient des techniciens chez leurs clients.",
+    lead: "Alkhast Vatsaev a développé Nota CRM — logiciel d’interventions terrain (heynota.app / app.heynota.app).",
     sections: [
       {
         h2: "Qui je suis",
         paragraphs: [
-          "Je m’appelle Alkhast Vatsaev. J’ai créé Nota CRM pour remplacer le bricolage Excel / WhatsApp par un outil clair : missions sur carte, suivi d’équipe, facturation.",
+          "Je m’appelle Alkhast Vatsaev. J’ai développé Nota CRM pour remplacer le bricolage Excel / WhatsApp par un outil clair : missions sur carte, suivi d’équipe, facturation.",
         ],
       },
       {
-        h2: "Ce que je construis",
+        h2: "Ce que j’ai développé",
         paragraphs: [
-          "Nota CRM sert les équipes terrain — maintenance, installation, dépannage, services récurrents. L’application regroupe la carte des interventions, le hub technicien mobile et la facturation.",
+          "Nota CRM sert les équipes terrain — maintenance, installation, dépannage, services récurrents. L’application que j’ai construite regroupe la carte des interventions, le hub technicien mobile et la facturation.",
           "Le site marketing est heynota.app. L’application Nota CRM est sur app.heynota.app.",
         ],
       },
@@ -214,7 +214,18 @@ export const LANDING_PAGES_FR: LandingPageContent[] = [
         ],
       },
     ],
-    faq: [],
+    faq: [
+      {
+        question: "Qui a développé Nota CRM ?",
+        answer:
+          "Alkhast Vatsaev a développé Nota CRM. Profil : heynota.app/alkhast-vatsaev — app : app.heynota.app.",
+      },
+      {
+        question: "Qu’est-ce que Nota CRM ?",
+        answer:
+          "Nota CRM est un logiciel d’interventions terrain (carte, mobile technicien, facturation), développé par Alkhast Vatsaev.",
+      },
+    ],
   },
   {
     path: "/a-propos",
@@ -225,7 +236,7 @@ export const LANDING_PAGES_FR: LandingPageContent[] = [
       {
         h2: "Fondateur",
         paragraphs: [
-          "Nota est créé par Alkhast Vatsaev — produit, développement et expérience utilisateur.",
+          "Nota a été développé par Alkhast Vatsaev — produit, code et expérience utilisateur.",
         ],
       },
       {

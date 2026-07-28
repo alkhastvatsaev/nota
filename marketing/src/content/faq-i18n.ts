@@ -10,9 +10,8 @@ export const FAQ_ITEMS_FR: FaqItem[] = [
       "Nota CRM (heynota.app) est un CRM pour entreprises à interventions sur site : carte des missions, dossiers clients, hub technicien mobile et facturation. L’app est sur app.heynota.app.",
   },
   {
-    question: "Qui a créé Nota ?",
-    answer:
-      "Nota CRM a été créé par Alkhast Vatsaev. Plus d’infos sur heynota.app/alkhast-vatsaev.",
+    question: "Qui a développé Nota ?",
+    answer: "Alkhast Vatsaev a développé Nota CRM. Plus d’infos sur heynota.app/alkhast-vatsaev.",
   },
   {
     question: "Pour quels types d’entreprises ?",
@@ -46,8 +45,8 @@ export const FAQ_ITEMS_EN: FaqItem[] = [
       "Nota CRM (heynota.app) is a CRM for companies with on-site work: job map, client files, mobile technician hub and billing. The app is at app.heynota.app.",
   },
   {
-    question: "Who created Nota?",
-    answer: "Nota CRM was created by Alkhast Vatsaev. More at heynota.app/alkhast-vatsaev.",
+    question: "Who built Nota?",
+    answer: "Alkhast Vatsaev built Nota CRM. More at heynota.app/alkhast-vatsaev.",
   },
   {
     question: "Which companies is it for?",

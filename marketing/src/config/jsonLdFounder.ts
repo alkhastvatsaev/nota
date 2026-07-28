@@ -27,7 +27,7 @@ export function buildFounderPersonNode(siteUrl: string): Record<string, unknown>
       "gestion d'équipes terrain",
     ],
     description:
-      "Alkhast Vatsaev est le créateur de Nota CRM, logiciel d’interventions terrain publié sur heynota.app.",
+      "Alkhast Vatsaev a développé Nota CRM, logiciel d’interventions terrain publié sur heynota.app.",
   };
   if (FOUNDER_SAME_AS.length > 0) {
     node.sameAs = FOUNDER_SAME_AS;

@@ -189,20 +189,20 @@ export const LANDING_PAGES_EN: LandingPageContent[] = [
   },
   {
     path: FOUNDER_PROFILE_PATH,
-    eyebrow: "Founder",
+    eyebrow: "Founder & developer",
     title: FOUNDER_FULL_NAME,
-    lead: "Creator of Nota CRM. I built software for companies that send technicians to their customers.",
+    lead: "Alkhast Vatsaev built Nota CRM — field service software (heynota.app / app.heynota.app).",
     sections: [
       {
         h2: "Who I am",
         paragraphs: [
-          "My name is Alkhast Vatsaev. I created Nota CRM to replace Excel / WhatsApp chaos with a clear tool: jobs on a map, team tracking, billing.",
+          "My name is Alkhast Vatsaev. I built Nota CRM to replace Excel / WhatsApp chaos with a clear tool: jobs on a map, team tracking, billing.",
         ],
       },
       {
-        h2: "What I build",
+        h2: "What I built",
         paragraphs: [
-          "Nota CRM serves field teams — maintenance, install, repair, recurring services. The app combines a job map, a mobile technician hub and billing.",
+          "Nota CRM serves field teams — maintenance, install, repair, recurring services. The app I built combines a job map, a mobile technician hub and billing.",
           "The marketing site is heynota.app. The Nota CRM app is at app.heynota.app.",
         ],
       },
@@ -213,7 +213,18 @@ export const LANDING_PAGES_EN: LandingPageContent[] = [
         ],
       },
     ],
-    faq: [],
+    faq: [
+      {
+        question: "Who built Nota CRM?",
+        answer:
+          "Alkhast Vatsaev built Nota CRM. Profile: heynota.app/alkhast-vatsaev — app: app.heynota.app.",
+      },
+      {
+        question: "What is Nota CRM?",
+        answer:
+          "Nota CRM is field service software (map, mobile technician hub, billing), built by Alkhast Vatsaev.",
+      },
+    ],
   },
   {
     path: "/a-propos",
@@ -224,7 +235,7 @@ export const LANDING_PAGES_EN: LandingPageContent[] = [
       {
         h2: "Founder",
         paragraphs: [
-          "Nota is created by Alkhast Vatsaev — product, engineering and user experience.",
+          "Nota was built by Alkhast Vatsaev — product, engineering and user experience.",
         ],
       },
       {

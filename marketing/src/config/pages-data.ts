@@ -26,7 +26,7 @@ const HOME_FR: PageSeo = {
   path: "/",
   title: "Nota CRM — interventions terrain (carte, mobile, facturation)",
   description:
-    "Nota CRM : carte des missions, mobile technicien et facturation. App sur app.heynota.app. Créé par Alkhast Vatsaev.",
+    "Nota CRM : carte des missions, mobile technicien et facturation. App sur app.heynota.app. Développé par Alkhast Vatsaev.",
   priority: 1,
 };
 
@@ -34,23 +34,23 @@ const HOME_EN: PageSeo = {
   path: "/",
   title: "Nota CRM — field service (map, mobile, billing)",
   description:
-    "Nota CRM: live job map, technician mobile and billing. App at app.heynota.app. Created by Alkhast Vatsaev.",
+    "Nota CRM: live job map, technician mobile and billing. App at app.heynota.app. Built by Alkhast Vatsaev.",
   priority: 1,
 };
 
 const FOUNDER_FR: PageSeo = {
   path: FOUNDER_PROFILE_PATH,
-  title: "Alkhast Vatsaev — créateur de Nota CRM",
+  title: "Alkhast Vatsaev — a développé Nota CRM",
   description:
-    "Alkhast Vatsaev, créateur de Nota CRM (heynota.app). CRM interventions terrain : carte, mobile et facturation.",
+    "Alkhast Vatsaev a développé Nota CRM (heynota.app) : carte des missions, hub technicien mobile et facturation pour les interventions terrain.",
   priority: 0.95,
 };
 
 const FOUNDER_EN: PageSeo = {
   path: FOUNDER_PROFILE_PATH,
-  title: "Alkhast Vatsaev — creator of Nota CRM",
+  title: "Alkhast Vatsaev — built Nota CRM",
   description:
-    "Alkhast Vatsaev, creator of Nota CRM (heynota.app). Field CRM: map, mobile technician hub and billing.",
+    "Alkhast Vatsaev built Nota CRM (heynota.app): job map, mobile technician hub and billing for field service teams.",
   priority: 0.95,
 };
 
