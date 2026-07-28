@@ -13,10 +13,13 @@ export const FOUNDER_PROFILE_PATH = "/alkhast-vatsaev";
 
 export const FOUNDER_PROFILE_URL = `${SITE_URL}${FOUNDER_PROFILE_PATH}`;
 
-/** Profils externes (sameAs) — renseigner dans Vercel pour renforcer le graphe Knowledge. */
+/** Wikidata item (créé 2026-07) — ancre Knowledge Graph. */
+export const FOUNDER_WIKIDATA_URL = "https://www.wikidata.org/wiki/Q140742680";
+
+/** Profils externes (sameAs) — LinkedIn/GitHub via env Vercel si dispo. */
 const linkedIn = (import.meta.env?.VITE_FOUNDER_LINKEDIN ?? "").trim();
 const github = (import.meta.env?.VITE_FOUNDER_GITHUB ?? "").trim();
 
-export const FOUNDER_SAME_AS: string[] = [linkedIn, github].filter(Boolean);
+export const FOUNDER_SAME_AS: string[] = [FOUNDER_WIKIDATA_URL, linkedIn, github].filter(Boolean);
 
 export const FOUNDER_PERSON_ID = `${FOUNDER_PROFILE_URL}#person`;
