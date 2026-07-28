@@ -87,3 +87,10 @@ Ensuite B4, B5, B2, puis C4 quand un client accepte.
 ---
 
 _Dernière mise à jour code : étapes A6, C1–C3 cochées._
+
+## Fait 2026-07-28 (agent)
+
+- ☑ Wikidata Person Q140742680 + Software Q140743042
+- ☑ sameAs schema + llms/humans
+- ☑ Fix prerender JSON-LD par page
+- Voir `SEO-AUDIT-LIVE-2026-07-28.md`

@@ -5,7 +5,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { FAQ_ITEMS } from "./src/content/faq";
 import { ALL_PAGES, HOME_SEO } from "./src/config/pages-data";
-import { FOUNDER_PROFILE_PATH } from "./src/config/founder";
+import { FOUNDER_PERSON_ID, FOUNDER_PROFILE_PATH, NOTA_SAME_AS } from "./src/config/founder";
 import { buildFounderPersonNode, organizationFounderFields } from "./src/config/jsonLdFounder";
 import { LANDING_PAGES_FR } from "./src/content/landing-pages.fr";
 import { GUIDE_PAGES_FR } from "./src/content/guides-i18n";
@@ -42,6 +42,9 @@ function locFor(siteUrl: string, path: string) {
 function buildStaticJsonLd(siteUrl: string, appUrl: string) {
   const dateModified = new Date().toISOString().slice(0, 10);
   const description = HOME_SEO.description;
+  const personId = FOUNDER_PERSON_ID.startsWith("http")
+    ? FOUNDER_PERSON_ID
+    : `${siteUrl}${FOUNDER_PROFILE_PATH}#person`;
 
   return {
     "@context": "https://schema.org",
@@ -50,7 +53,10 @@ function buildStaticJsonLd(siteUrl: string, appUrl: string) {
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
         name: "Nota",
+        alternateName: ["Nota CRM", "HeyNota", "heynota"],
+        url: `${siteUrl}/`,
         description: "Nota CRM — interventions terrain : carte, techniciens, facturation.",
+        sameAs: NOTA_SAME_AS,
         logo: {
           "@type": "ImageObject",
           url: `${siteUrl}/apple-touch-icon.png`,
@@ -78,7 +84,7 @@ function buildStaticJsonLd(siteUrl: string, appUrl: string) {
         name: HOME_SEO.title,
         isPartOf: { "@id": `${siteUrl}/#website` },
         about: { "@id": `${siteUrl}/#software` },
-        author: { "@id": `${siteUrl}${FOUNDER_PROFILE_PATH}#person` },
+        author: { "@id": personId },
         description,
         inLanguage: "fr-FR",
         dateModified,
@@ -93,7 +99,7 @@ function buildStaticJsonLd(siteUrl: string, appUrl: string) {
         "@type": "SoftwareApplication",
         "@id": `${siteUrl}/#software`,
         name: "Nota",
-        alternateName: "Nota CRM",
+        alternateName: ["Nota CRM", "HeyNota", "heynota"],
         applicationCategory: "BusinessApplication",
         applicationSubCategory: "Customer Relationship Management",
         operatingSystem: "Web",
@@ -101,6 +107,10 @@ function buildStaticJsonLd(siteUrl: string, appUrl: string) {
         description:
           "Nota CRM : carte des interventions, hub technicien mobile, dossiers et facturation. Accès direct.",
         inLanguage: "fr-FR",
+        sameAs: NOTA_SAME_AS,
+        author: { "@id": personId },
+        creator: { "@id": personId },
+        provider: { "@id": `${siteUrl}/#organization` },
         offers: {
           "@type": "Offer",
           price: "0",

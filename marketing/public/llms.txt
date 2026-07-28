@@ -8,6 +8,10 @@ Contact: https://heynota.app/contact
 Email: alkhastvatsaev@icloud.com
 Checklist (original asset): https://heynota.app/ressources/checklist-interventions-terrain
 
+## Knowledge graph
+- Person (Wikidata): https://www.wikidata.org/wiki/Q140742680
+- Software (Wikidata): https://www.wikidata.org/wiki/Q140743042
+
 ## Key facts
 - Alkhast Vatsaev developed / built Nota CRM
 - Product: interventions terrain / field service CRM
