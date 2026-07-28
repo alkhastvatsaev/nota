@@ -36,3 +36,9 @@ export default function middleware(request) {
   response.headers.set("x-nota-lang", lang);
   return response;
 }
+
+/** Ne pas toucher sitemap/robots/assets (évite cookies/HTML côté crawlers). */
+export const config = {
+  matcher: ["/((?!api/|.*\\.[\\w]+$).*)"],
+};
+
