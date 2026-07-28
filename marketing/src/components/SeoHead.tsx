@@ -13,7 +13,12 @@ import {
   type PageSeo,
 } from "../config/pages";
 import { GOOGLE_SITE_VERIFICATION } from "../config/site";
-import { FOUNDER_FULL_NAME, FOUNDER_PERSON_ID, FOUNDER_PROFILE_PATH } from "../config/founder";
+import {
+  FOUNDER_FULL_NAME,
+  FOUNDER_PERSON_ID,
+  FOUNDER_PROFILE_PATH,
+  NOTA_SAME_AS,
+} from "../config/founder";
 import { buildFounderPersonNode, organizationFounderFields } from "../config/jsonLdFounder";
 import { useLocale } from "../i18n/LocaleContext";
 import type { Locale } from "../i18n/types";
@@ -103,6 +108,7 @@ function buildJsonLd(page: PageSeo, known: boolean, locale: Locale) {
       alternateName: ["Nota CRM", "HeyNota"],
       url: `${SITE_URL}/`,
       description: t.orgDescription,
+      sameAs: NOTA_SAME_AS,
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/apple-touch-icon.png`,
@@ -150,13 +156,17 @@ function buildJsonLd(page: PageSeo, known: boolean, locale: Locale) {
       "@type": "SoftwareApplication",
       "@id": `${SITE_URL}/#software`,
       name: SITE_NAME,
-      alternateName: "Nota CRM",
+      alternateName: ["Nota CRM", "HeyNota", "heynota"],
       applicationCategory: "BusinessApplication",
       applicationSubCategory: "Customer Relationship Management",
       operatingSystem: "Web",
       url: APP_URL,
       description: t.softwareDescription,
       inLanguage,
+      sameAs: NOTA_SAME_AS,
+      author: { "@id": FOUNDER_PERSON_ID },
+      creator: { "@id": FOUNDER_PERSON_ID },
+      provider: { "@id": `${SITE_URL}/#organization` },
       offers: {
         "@type": "Offer",
         price: "0",
