@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { OpenNotaLink } from "./OpenNotaLink";
+import { LanguageSwitch } from "./LanguageSwitch";
 
 type SiteHeaderProps = {
   homeHref?: string;
-  /** Accueil marketing = ancre #top ; pages = Link / */
   brandIsLink?: boolean;
 };
 
@@ -16,7 +16,7 @@ export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderPro
       {brandIsLink ? (
         <Link
           to={homeHref}
-          className="font-display min-h-11 min-w-11 inline-flex items-center text-sm tracking-[0.12em] text-ink"
+          className="font-display inline-flex min-h-11 min-w-11 items-center text-sm tracking-[0.12em] text-ink"
         >
           NOTA
         </Link>
@@ -28,10 +28,13 @@ export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderPro
           NOTA
         </a>
       )}
-      <OpenNotaLink
-        variant="nav"
-        className="rounded-full bg-accent px-5 py-2.5 text-sm text-on-accent transition hover:bg-accent-deep"
-      />
+      <div className="flex items-center gap-3 sm:gap-4">
+        <LanguageSwitch />
+        <OpenNotaLink
+          variant="nav"
+          className="rounded-full bg-accent px-5 py-2.5 text-sm text-on-accent transition hover:bg-accent-deep"
+        />
+      </div>
     </header>
   );
 }

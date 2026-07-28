@@ -1,7 +1,8 @@
 import { useLocation } from "react-router-dom";
-import { LANDING_BY_PATH } from "../content/landing-pages";
+import { getLandingByPath } from "../content/landing-pages";
 import { ProductProofGallery } from "../components/ProductProofGallery";
 import { SeoPageLayout } from "../components/SeoPageLayout";
+import { useLocale } from "../i18n/LocaleContext";
 import { NotFoundPage } from "./NotFoundPage";
 
 function renderSection(section: {
@@ -38,8 +39,9 @@ function renderSection(section: {
 
 export function MarketingLandingPage() {
   const { pathname } = useLocation();
+  const { locale, t } = useLocale();
   const clean = pathname.replace(/\/$/, "") || "/";
-  const content = LANDING_BY_PATH.get(clean);
+  const content = getLandingByPath(locale).get(clean);
 
   if (!content) {
     return <NotFoundPage />;
@@ -52,7 +54,7 @@ export function MarketingLandingPage() {
       {content.faq.length > 0 ? (
         <section aria-labelledby="landing-faq">
           <h2 id="landing-faq" className="font-display text-xl tracking-tight text-ink">
-            Questions fréquentes
+            {t.faqHeading}
           </h2>
           <div className="mt-4 space-y-4">
             {content.faq.map((item) => (

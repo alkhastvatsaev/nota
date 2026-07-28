@@ -5,6 +5,7 @@ import { LANDING_PAGES, LEGACY_PATH_REDIRECTS } from "./content/landing-pages";
 import { SeoHead } from "./components/SeoHead";
 import { SiteAnalytics } from "./components/SiteAnalytics";
 import { ScrollToTop } from "./components/ScrollToTop";
+import { useLocale } from "./i18n/LocaleContext";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 
@@ -30,13 +31,14 @@ const GuidePage = lazy(() =>
 );
 
 function PageFallback() {
+  const { t } = useLocale();
   return (
     <div
       className="grid min-h-svh place-items-center bg-void text-sm text-mute"
       role="status"
       aria-live="polite"
     >
-      Chargement…
+      {t.loading}
     </div>
   );
 }

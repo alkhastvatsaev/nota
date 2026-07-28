@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { useLocation } from "react-router-dom";
+import { useLocale } from "../i18n/LocaleContext";
 import { OpenNotaLink } from "./OpenNotaLink";
 import { SeoFooterNav } from "./SeoFooterNav";
 import { SiteHeader } from "./SiteHeader";
@@ -14,11 +15,12 @@ type SeoPageLayoutProps = {
 
 export function SeoPageLayout({ eyebrow, title, lead, children }: SeoPageLayoutProps) {
   const { pathname } = useLocation();
+  const { t } = useLocale();
 
   return (
     <div className="min-h-svh bg-void pb-24 text-ink md:pb-0">
       <a href="#main" className="skip-link">
-        Aller au contenu
+        {t.skipToContent}
       </a>
 
       <SiteHeader />
@@ -35,7 +37,7 @@ export function SeoPageLayout({ eyebrow, title, lead, children }: SeoPageLayoutP
             variant="primary"
             className="rounded-full bg-ink px-8 py-4 text-sm text-void transition hover:bg-accent"
           />
-          <p className="mt-3 text-xs text-mute">Sans compte · Accès immédiat</p>
+          <p className="mt-3 text-xs text-mute">{t.noAccountAccess}</p>
         </div>
 
         <div className="mt-12 space-y-8 text-base leading-relaxed text-mute sm:mt-14">
@@ -43,8 +45,8 @@ export function SeoPageLayout({ eyebrow, title, lead, children }: SeoPageLayoutP
         </div>
 
         <div className="mt-14 rounded-3xl bg-mist px-6 py-8 text-center sm:px-10">
-          <p className="font-display text-xl tracking-tight text-ink">Ouvrez Nota maintenant</p>
-          <p className="mt-2 text-sm text-mute">Sans inscription. Sans attente.</p>
+          <p className="font-display text-xl tracking-tight text-ink">{t.openNotaNow}</p>
+          <p className="mt-2 text-sm text-mute">{t.noSignupNoWait}</p>
           <div className="mt-6 hidden justify-center md:flex">
             <OpenNotaLink
               variant="primary"

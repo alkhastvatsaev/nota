@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { OpenNotaLink } from "./OpenNotaLink";
 import { ProductProofGallery } from "./ProductProofGallery";
 import { FOUNDER_FULL_NAME, FOUNDER_PROFILE_PATH } from "../config/founder";
+import { useLocale } from "../i18n/LocaleContext";
 
 /** Bloc texte indexable : métier + maillage interne sans casser le hero visuel. */
 export function HomeSeoIntro() {
+  const { t } = useLocale();
+
   return (
     <section
       className="border-t border-line bg-void px-6 py-16 sm:px-10"
@@ -15,17 +18,14 @@ export function HomeSeoIntro() {
           id="seo-intro-heading"
           className="font-display text-[clamp(1.5rem,4vw,2rem)] tracking-tight text-ink"
         >
-          CRM pour entreprises à interventions sur site
+          {t.seoIntroHeading}
         </h2>
         <p className="mt-4 text-base leading-relaxed text-mute">
-          <strong className="font-normal text-ink">Nota CRM</strong> réunit{" "}
-          <strong className="font-normal text-ink">carte des missions</strong>, dossiers clients,{" "}
-          <strong className="font-normal text-ink">hub technicien mobile</strong> (photos,
-          signature) et facturation — maintenance, installation, services, dépannage : toute équipe
-          qui intervient chez le client.
+          <strong className="font-normal text-ink">{t.seoIntroBodyBefore}</strong>
+          {t.seoIntroBodyAfter}
         </p>
         <p className="mt-3 text-sm text-mute">
-          Site : heynota.app · App : app.heynota.app · Créateur :{" "}
+          {t.siteLabel} : heynota.app · {t.appLabel} : app.heynota.app · {t.founderLabel} :{" "}
           <Link
             to={FOUNDER_PROFILE_PATH}
             className="text-accent underline-offset-2 hover:underline"
@@ -39,28 +39,28 @@ export function HomeSeoIntro() {
             to="/logiciel-interventions-terrain"
             className="text-accent underline-offset-2 hover:underline"
           >
-            Logiciel interventions terrain
+            {t.linkFieldSoftware}
           </Link>
           {" · "}
           <Link
             to="/gestion-interventions"
             className="text-accent underline-offset-2 hover:underline"
           >
-            Gestion d’interventions
+            {t.linkJobMgmt}
           </Link>
           {" · "}
           <Link to="/pour-qui" className="text-accent underline-offset-2 hover:underline">
-            Secteurs concernés
+            {t.linkSectors}
           </Link>
           {" · "}
           <Link
             to="/guides/excel-vers-logiciel-interventions"
             className="text-accent underline-offset-2 hover:underline"
           >
-            Guide Excel → logiciel
+            {t.linkExcelGuide}
           </Link>
         </p>
-        <ProductProofGallery id="apercu-accueil" title="L’application en images" />
+        <ProductProofGallery id="apercu-accueil" title={t.galleryTitle} />
         <div className="mt-8 flex justify-center">
           <OpenNotaLink
             variant="primary"

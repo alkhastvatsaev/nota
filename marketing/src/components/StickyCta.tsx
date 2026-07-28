@@ -1,6 +1,5 @@
 import { OpenNotaLink } from "./OpenNotaLink";
 
-/** CTA fixe mobile — toujours à portée de pouce. */
 export function StickyCta() {
   return (
     <div

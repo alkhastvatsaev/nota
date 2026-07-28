@@ -3,7 +3,10 @@ import {
   ALL_PAGES,
   ALTERNATIVE_EXCEL_SEO,
   CRM_SANS_INSCRIPTION_SEO,
+  FOUNDER_PROFILE_SEO,
   HOME_SEO,
+  getAllPages,
+  getHomeSeo,
   type PageSeo,
 } from "./pages-data";
 
@@ -12,7 +15,10 @@ export {
   ALL_PAGES,
   ALTERNATIVE_EXCEL_SEO,
   CRM_SANS_INSCRIPTION_SEO,
+  FOUNDER_PROFILE_SEO,
   HOME_SEO,
+  getAllPages,
+  getHomeSeo,
   APP_URL,
   SITE_NAME,
   SITE_URL,

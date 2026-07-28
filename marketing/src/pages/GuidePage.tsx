@@ -1,8 +1,8 @@
-import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { GUIDE_BY_PATH } from "../content/guides";
+import { Link, useLocation } from "react-router-dom";
+import { getGuideByPath } from "../content/guides";
 import { ProductProofGallery } from "../components/ProductProofGallery";
 import { SeoPageLayout } from "../components/SeoPageLayout";
+import { useLocale } from "../i18n/LocaleContext";
 import { NotFoundPage } from "./NotFoundPage";
 
 function renderSection(section: {
@@ -39,8 +39,9 @@ function renderSection(section: {
 
 export function GuidePage() {
   const { pathname } = useLocation();
+  const { locale, t } = useLocale();
   const clean = pathname.replace(/\/$/, "") || "/";
-  const content = GUIDE_BY_PATH.get(clean);
+  const content = getGuideByPath(locale).get(clean);
 
   if (!content) {
     return <NotFoundPage />;
@@ -49,21 +50,21 @@ export function GuidePage() {
   return (
     <SeoPageLayout eyebrow={content.eyebrow} title={content.title} lead={content.lead}>
       {content.sections.map((section) => renderSection(section))}
-      <ProductProofGallery title="À quoi ressemble Nota" />
+      <ProductProofGallery title={t.galleryTitle} />
       <p className="text-sm">
-        Aller plus loin :{" "}
+        {t.goFurther}{" "}
         <Link
           to="/logiciel-interventions-terrain"
           className="text-accent underline-offset-2 hover:underline"
         >
-          logiciel interventions terrain
+          {t.linkFieldSoftware.toLowerCase()}
         </Link>
         .
       </p>
       {content.faq.length > 0 ? (
         <section aria-labelledby="guide-faq">
           <h2 id="guide-faq" className="font-display text-xl tracking-tight text-ink">
-            Questions fréquentes
+            {t.faqHeading}
           </h2>
           <div className="mt-4 space-y-4">
             {content.faq.map((item) => (

@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { FAQ_ITEMS } from "../content/faq";
-import { GUIDE_BY_PATH } from "../content/guides";
-import { LANDING_BY_PATH } from "../content/landing-pages";
+import { getFaqItems } from "../content/faq";
+import { getGuideByPath } from "../content/guides";
+import { getLandingByPath } from "../content/landing-pages";
 import {
   absoluteUrl,
-  ALL_PAGES,
+  getAllPages,
+  getHomeSeo,
   APP_URL,
-  HOME_SEO,
   SITE_NAME,
   SITE_URL,
   type PageSeo,
@@ -15,21 +15,29 @@ import {
 import { GOOGLE_SITE_VERIFICATION } from "../config/site";
 import { FOUNDER_FULL_NAME, FOUNDER_PERSON_ID, FOUNDER_PROFILE_PATH } from "../config/founder";
 import { buildFounderPersonNode, organizationFounderFields } from "../config/jsonLdFounder";
+import { useLocale } from "../i18n/LocaleContext";
+import type { Locale } from "../i18n/types";
+import { UI } from "../i18n/ui";
 
 const GRAPH_SCRIPT_ID = "nota-jsonld";
+const HREFLANG_SELECTOR = "link[data-nota-hreflang]";
 
-const NOT_FOUND_SEO: PageSeo = {
-  path: "/404",
-  title: "Page introuvable — Nota",
-  description: "Cette page n’existe pas. Revenez à l’accueil Nota ou ouvrez l’application.",
-  priority: 0,
-};
-
-function resolvePage(pathname: string): { page: PageSeo; known: boolean } {
+function resolvePage(pathname: string, locale: Locale): { page: PageSeo; known: boolean } {
   const clean = pathname.replace(/\/$/, "") || "/";
-  const found = ALL_PAGES.find((p) => (p.path === "/" ? clean === "/" : p.path === clean));
+  const found = getAllPages(locale).find((p) =>
+    p.path === "/" ? clean === "/" : p.path === clean
+  );
   if (found) return { page: found, known: true };
-  return { page: NOT_FOUND_SEO, known: false };
+  const t = UI[locale];
+  return {
+    page: {
+      path: "/404",
+      title: t.notFoundSeoTitle,
+      description: t.notFoundSeoDesc,
+      priority: 0,
+    },
+    known: false,
+  };
 }
 
 function setMeta(property: string, content: string, attr: "name" | "property" = "name") {
@@ -42,7 +50,32 @@ function setMeta(property: string, content: string, attr: "name" | "property" = 
   el.content = content;
 }
 
-function buildJsonLd(page: PageSeo, known: boolean) {
+function upsertHreflang(known: boolean, path: string) {
+  document.querySelectorAll(HREFLANG_SELECTOR).forEach((el) => el.remove());
+  if (!known) return;
+
+  const href = absoluteUrl(path);
+  const tags: { hreflang: string; href: string }[] = [
+    { hreflang: "fr", href: `${href}${href.includes("?") ? "&" : "?"}lang=fr` },
+    { hreflang: "en", href: `${href}${href.includes("?") ? "&" : "?"}lang=en` },
+    { hreflang: "x-default", href },
+  ];
+
+  for (const tag of tags) {
+    const link = document.createElement("link");
+    link.rel = "alternate";
+    link.hreflang = tag.hreflang;
+    link.href = tag.href;
+    link.setAttribute("data-nota-hreflang", tag.hreflang);
+    document.head.appendChild(link);
+  }
+}
+
+function buildJsonLd(page: PageSeo, known: boolean, locale: Locale) {
+  const t = UI[locale];
+  const inLanguage = locale === "en" ? "en" : "fr-FR";
+  const homeSeo = getHomeSeo(locale);
+
   if (!known) {
     return {
       "@context": "https://schema.org",
@@ -69,7 +102,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       name: SITE_NAME,
       alternateName: ["Nota CRM", "HeyNota"],
       url: `${SITE_URL}/`,
-      description: "Nota CRM — interventions terrain : carte, techniciens mobile, facturation.",
+      description: t.orgDescription,
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/apple-touch-icon.png`,
@@ -86,9 +119,9 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       url: `${SITE_URL}/`,
       name: SITE_NAME,
       alternateName: "Nota CRM",
-      description: HOME_SEO.description,
+      description: homeSeo.description,
       publisher: { "@id": `${SITE_URL}/#organization` },
-      inLanguage: "fr-FR",
+      inLanguage,
     },
     {
       "@type": "WebPage",
@@ -97,7 +130,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       name: page.title,
       isPartOf: { "@id": `${SITE_URL}/#website` },
       description: page.description,
-      inLanguage: "fr-FR",
+      inLanguage,
       dateModified,
       ...(isFounderProfile
         ? {
@@ -122,16 +155,15 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       applicationSubCategory: "Customer Relationship Management",
       operatingSystem: "Web",
       url: APP_URL,
-      description:
-        "Nota CRM : carte des interventions, hub technicien, dossiers et facturation pour les entreprises à missions sur site. Accès direct sur heynota.app / app.heynota.app.",
-      inLanguage: "fr-FR",
+      description: t.softwareDescription,
+      inLanguage,
       offers: {
         "@type": "Offer",
         price: "0",
         priceCurrency: "EUR",
         availability: "https://schema.org/InStock",
         url: APP_URL,
-        description: "Accès direct à Nota, sans inscription",
+        description: t.offerDescription,
       },
     },
     {
@@ -142,7 +174,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
             {
               "@type": "ListItem",
               position: 1,
-              name: "Accueil",
+              name: t.homeBreadcrumb,
               item: `${SITE_URL}/`,
             },
           ]
@@ -150,7 +182,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
             {
               "@type": "ListItem",
               position: 1,
-              name: "Accueil",
+              name: t.homeBreadcrumb,
               item: `${SITE_URL}/`,
             },
             {
@@ -164,9 +196,13 @@ function buildJsonLd(page: PageSeo, known: boolean) {
   ];
 
   const cleanPath = page.path === "/" ? "/" : page.path;
-  const landingFaq = LANDING_BY_PATH.get(cleanPath)?.faq ?? GUIDE_BY_PATH.get(cleanPath)?.faq ?? [];
+  const faqItems = getFaqItems(locale);
+  const landingFaq =
+    getLandingByPath(locale).get(cleanPath)?.faq ??
+    getGuideByPath(locale).get(cleanPath)?.faq ??
+    [];
   const faqEntities =
-    isHome && FAQ_ITEMS.length > 0 ? FAQ_ITEMS : landingFaq.length > 0 ? landingFaq : null;
+    isHome && faqItems.length > 0 ? faqItems : landingFaq.length > 0 ? landingFaq : null;
 
   if (faqEntities) {
     graph.push({
@@ -185,10 +221,12 @@ function buildJsonLd(page: PageSeo, known: boolean) {
 
 export function SeoHead() {
   const { pathname } = useLocation();
-  const { page, known } = resolvePage(pathname);
+  const { locale } = useLocale();
+  const { page, known } = resolvePage(pathname, locale);
 
   useEffect(() => {
-    document.documentElement.lang = "fr";
+    document.documentElement.lang = locale;
+    document.documentElement.dataset.locale = locale;
     document.title = page.title;
 
     setMeta("description", page.description);
@@ -202,6 +240,7 @@ export function SeoHead() {
     setMeta("og:title", page.title, "property");
     setMeta("og:description", page.description, "property");
     setMeta("og:url", known ? absoluteUrl(page.path) : `${SITE_URL}/`, "property");
+    setMeta("og:locale", locale === "en" ? "en_US" : "fr_FR", "property");
     setMeta("twitter:title", page.title);
     setMeta("twitter:description", page.description);
 
@@ -217,6 +256,8 @@ export function SeoHead() {
     }
     canonical.href = known ? absoluteUrl(page.path) : `${SITE_URL}/`;
 
+    upsertHreflang(known, page.path);
+
     let script = document.getElementById(GRAPH_SCRIPT_ID) as HTMLScriptElement | null;
     if (!script) {
       script = document.createElement("script");
@@ -224,8 +265,8 @@ export function SeoHead() {
       script.type = "application/ld+json";
       document.head.appendChild(script);
     }
-    script.textContent = JSON.stringify(buildJsonLd(page, known));
-  }, [page, known]);
+    script.textContent = JSON.stringify(buildJsonLd(page, known, locale));
+  }, [page, known, locale]);
 
   return null;
 }

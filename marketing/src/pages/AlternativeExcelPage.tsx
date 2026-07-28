@@ -1,58 +1,60 @@
 import { Link } from "react-router-dom";
 import { SeoPageLayout } from "../components/SeoPageLayout";
+import { getAlternativeExcelContent } from "../content/special-pages";
+import { useLocale } from "../i18n/LocaleContext";
 
 export function AlternativeExcelPage() {
+  const { locale, t } = useLocale();
+  const content = getAlternativeExcelContent(locale);
+
   return (
-    <SeoPageLayout
-      eyebrow="Alternative Excel commercial"
-      title="Remplacez le tableur pour suivre vos clients"
-      lead="Excel marche… jusqu’à la mauvaise version, la colonne oubliée, ou le rappel raté."
-    >
-      <section>
-        <h2 className="font-display text-xl tracking-tight text-ink">Le frein Excel</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5">
-          <li>Plusieurs fichiers, plusieurs vérités</li>
-          <li>Rappels difficiles à tenir</li>
-          <li>Partage d’équipe fragile</li>
-          <li>Vue d’ensemble qui se perd</li>
-        </ul>
-      </section>
+    <SeoPageLayout eyebrow={content.eyebrow} title={content.title} lead={content.lead}>
+      {content.sections.map((section) => {
+        const isNotaInstead = section.h2 === content.sections[1]?.h2;
+        const isLowFriction = section.h2 === content.sections[3]?.h2;
 
-      <section>
-        <h2 className="font-display text-xl tracking-tight text-ink">Nota à la place</h2>
-        <p className="mt-3">
-          Interventions sur carte, dossiers partagés et hub technicien — sans tableur à maintenir.{" "}
-          <Link
-            to="/logiciel-interventions-terrain"
-            className="text-accent underline-offset-2 hover:underline"
-          >
-            Interventions terrain
-          </Link>
-          .
-        </p>
-      </section>
-
-      <section>
-        <h2 className="font-display text-xl tracking-tight text-ink">Pour qui</h2>
-        <p className="mt-3">
-          Freelances, TPE et petites équipes qui vendent en relationnel et en ont assez des
-          pastilles de couleur dans une feuille.
-        </p>
-      </section>
-
-      <section>
-        <h2 className="font-display text-xl tracking-tight text-ink">Sans friction</h2>
-        <p className="mt-3">
-          Pas besoin de tout migrer le jour 1. Ouvrez Nota, ajoutez vos affaires en cours, avancez.{" "}
-          <Link
-            to="/crm-sans-inscription"
-            className="text-accent underline-offset-2 hover:underline"
-          >
-            CRM sans inscription
-          </Link>
-          .
-        </p>
-      </section>
+        return (
+          <section key={section.h2}>
+            <h2 className="font-display text-xl tracking-tight text-ink">{section.h2}</h2>
+            {section.bullets ? (
+              <ul className="mt-3 list-disc space-y-2 pl-5">
+                {section.bullets.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            ) : null}
+            {section.paragraphs?.map((p, i) => (
+              <p key={p.slice(0, 40)} className="mt-3">
+                {p}
+                {isNotaInstead && i === 0 ? (
+                  <>
+                    {" "}
+                    <Link
+                      to="/logiciel-interventions-terrain"
+                      className="text-accent underline-offset-2 hover:underline"
+                    >
+                      {t.linkFieldJobs}
+                    </Link>
+                    .
+                  </>
+                ) : null}
+                {isLowFriction && i === 0 ? (
+                  <>
+                    {" "}
+                    <Link
+                      to="/crm-sans-inscription"
+                      className="text-accent underline-offset-2 hover:underline"
+                    >
+                      {t.linkCrmNoSignup}
+                    </Link>
+                    .
+                  </>
+                ) : null}
+              </p>
+            ))}
+          </section>
+        );
+      })}
     </SeoPageLayout>
   );
 }

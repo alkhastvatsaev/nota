@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
-import { FAQ_ITEMS } from "../content/faq";
+import { getFaqItems } from "../content/faq";
 import { FOUNDER_FULL_NAME, FOUNDER_PROFILE_PATH } from "../config/founder";
+import { useLocale } from "../i18n/LocaleContext";
 import { SeoFooterNav } from "./SeoFooterNav";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const { locale, t } = useLocale();
+  const faq = getFaqItems(locale);
 
   return (
     <footer className="border-t border-line bg-mist px-6 py-10 sm:px-10">
@@ -20,14 +23,14 @@ export function Footer() {
         <details id="faq" className="group mt-8 border-t border-line pt-6">
           <summary className="cursor-pointer list-none text-sm text-ink marker:content-none focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
             <span className="flex min-h-11 items-center justify-between gap-3">
-              Une question ?
+              {t.faqTitle}
               <span aria-hidden className="text-accent transition group-open:rotate-45">
                 +
               </span>
             </span>
           </summary>
           <div className="mt-4 space-y-4">
-            {FAQ_ITEMS.map((item) => (
+            {faq.map((item) => (
               <div key={item.question}>
                 <p className="text-sm text-ink">{item.question}</p>
                 <p className="mt-1 text-xs leading-relaxed text-mute">{item.answer}</p>
@@ -38,11 +41,11 @@ export function Footer() {
 
         <p id="confidentialite" className="mt-8 text-[11px] leading-relaxed text-mute">
           <span id="mentions">
-            Pas d’email collecté sur ce site.{" "}
+            {t.footerNoEmail}{" "}
             <Link to="/a-propos" className="underline-offset-2 hover:underline">
-              À propos
+              {t.about}
             </Link>
-            . Accès direct à l’app. © {year} Nota —{" "}
+            . {t.footerAccess} © {year} Nota —{" "}
             <Link to={FOUNDER_PROFILE_PATH} className="underline-offset-2 hover:underline">
               {FOUNDER_FULL_NAME}
             </Link>

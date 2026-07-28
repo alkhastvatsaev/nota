@@ -1,13 +1,14 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { useLocale } from "../i18n/LocaleContext";
 
-/** Une seule phrase de tension — zéro lecture longue. */
 export function HookLine() {
   const reduce = useReducedMotion();
+  const { t } = useLocale();
 
   return (
     <section
       className="relative flex min-h-[42svh] items-center justify-center bg-mist px-6 py-16 text-center"
-      aria-label="Promesse Nota"
+      aria-label={t.hookAria}
     >
       <div>
         <motion.p
@@ -17,7 +18,7 @@ export function HookLine() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="font-display text-[clamp(1.75rem,6vw,3.5rem)] leading-[1.15] tracking-tight text-mute"
         >
-          Excel, WhatsApp, post-its…
+          {t.hookLine1}
         </motion.p>
         <motion.p
           initial={reduce ? false : { opacity: 0, y: 18 }}
@@ -26,7 +27,7 @@ export function HookLine() {
           transition={{ delay: 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           className="mt-2 font-display text-[clamp(1.75rem,6vw,3.5rem)] leading-[1.15] tracking-tight text-ink"
         >
-          Nota rassemble tout ça pour vous.
+          {t.hookLine2}
         </motion.p>
       </div>
     </section>

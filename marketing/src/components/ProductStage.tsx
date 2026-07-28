@@ -1,14 +1,15 @@
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useLocale } from "../i18n/LocaleContext";
 
-const columns = [
-  { stage: "Prospect", items: ["Northwind", "Helio"] },
-  { stage: "Échange", items: ["Cedar", "Atlas"] },
-  { stage: "Offre", items: ["Orbit"] },
-  { stage: "Signé", items: ["Lumen"] },
-];
+const DEMO_ITEMS = [["Northwind", "Helio"], ["Cedar", "Atlas"], ["Orbit"], ["Lumen"]];
 
 export function ProductStage() {
+  const { t } = useLocale();
+  const columns = t.productStages.map((stage, i) => ({
+    stage,
+    items: DEMO_ITEMS[i] ?? [],
+  }));
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
   const { scrollYProgress } = useScroll({
@@ -32,7 +33,7 @@ export function ProductStage() {
         id="produit-heading"
         className="mb-8 text-center font-display text-[clamp(1.5rem,4vw,2.25rem)] tracking-tight text-ink sm:mb-10"
       >
-        Vos affaires, étape par étape.
+        {t.productHeading}
       </h2>
 
       <div

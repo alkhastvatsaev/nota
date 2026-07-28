@@ -1,13 +1,11 @@
+import { useLocale } from "../i18n/LocaleContext";
 import { OpenNotaLink } from "./OpenNotaLink";
 
-/** Rappel CTA après le produit. */
 export function MidCta() {
+  const { t } = useLocale();
   return (
-    <section
-      className="bg-void px-6 py-12 text-center sm:px-10 sm:py-14"
-      aria-label="Accéder à Nota"
-    >
-      <p className="font-display text-xl tracking-tight text-ink sm:text-2xl">C’est à vous.</p>
+    <section className="bg-void px-6 py-12 text-center sm:px-10 sm:py-14" aria-label={t.midCtaAria}>
+      <p className="font-display text-xl tracking-tight text-ink sm:text-2xl">{t.midCta}</p>
       <div className="mt-6 flex justify-center">
         <OpenNotaLink
           variant="primary"

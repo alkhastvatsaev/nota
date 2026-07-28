@@ -11,13 +11,16 @@ import { Footer } from "../components/Footer";
 import { StickyCta } from "../components/StickyCta";
 import { HomeSeoIntro } from "../components/HomeSeoIntro";
 import { OpenNotaLink } from "../components/OpenNotaLink";
+import { useLocale } from "../i18n/LocaleContext";
 
 export function HomePage() {
+  const { t } = useLocale();
+
   return (
     <SmoothScroll>
       <div className="relative bg-void pb-20 text-ink md:pb-0">
         <a href="#main" className="skip-link">
-          Aller au contenu
+          {t.skipToContent}
         </a>
         <OpenNotaLink
           variant="nav"

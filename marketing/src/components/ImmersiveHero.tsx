@@ -1,5 +1,6 @@
 import { lazy, Suspense, useRef } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
+import { useLocale } from "../i18n/LocaleContext";
 import { OpenNotaLink } from "./OpenNotaLink";
 
 const ParticleField = lazy(() =>
@@ -9,6 +10,7 @@ const ParticleField = lazy(() =>
 const spring = { type: "spring" as const, stiffness: 80, damping: 18, mass: 0.85 };
 
 export function ImmersiveHero() {
+  const { t } = useLocale();
   const reduce = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -55,10 +57,7 @@ export function ImmersiveHero() {
           className="font-display text-[clamp(3.25rem,13vw,9rem)] leading-[0.95] tracking-tight text-ink"
         >
           NOTA
-          <span className="sr-only">
-            {" "}
-            CRM — logiciel d’interventions terrain pour entreprises à équipes mobiles
-          </span>
+          <span className="sr-only"> {t.heroSr}</span>
         </motion.h1>
 
         <motion.p
@@ -67,7 +66,7 @@ export function ImmersiveHero() {
           transition={{ ...spring, delay: 0.2 }}
           className="mt-5 max-w-lg text-lg text-mute sm:text-xl"
         >
-          Carte, techniciens, dossiers — pour vos missions sur site.
+          {t.heroSub}
         </motion.p>
 
         <motion.div
@@ -81,16 +80,15 @@ export function ImmersiveHero() {
             className="rounded-full bg-ink px-8 py-4 text-sm text-void transition hover:bg-accent"
           />
         </motion.div>
-        <p className="mt-3 text-xs text-mute">Sans compte · Accès immédiat</p>
+        <p className="mt-3 text-xs text-mute">{t.noAccountAccess}</p>
       </motion.div>
 
       {!reduce && (
         <motion.div
           aria-hidden
           className="absolute bottom-24 left-1/2 z-10 h-8 w-px -translate-x-1/2 bg-accent/50 md:bottom-8"
-          animate={{ scaleY: [0.4, 1, 0.4], opacity: [0.3, 0.9, 0.3] }}
+          animate={{ opacity: [0.2, 0.85, 0.2], scaleY: [0.7, 1, 0.7] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-          style={{ originY: 0 }}
         />
       )}
     </section>

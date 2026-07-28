@@ -1,46 +1,22 @@
-type Shot = {
-  src: string;
-  alt: string;
-  caption: string;
-};
-
-const SHOTS: Shot[] = [
-  {
-    src: "/product/carte.png",
-    alt: "Carte des interventions Nota — vue des missions sur le terrain",
-    caption: "Carte des missions",
-  },
-  {
-    src: "/product/interventions.png",
-    alt: "Liste et dossiers d’interventions Nota",
-    caption: "Dossiers interventions",
-  },
-  {
-    src: "/product/facturation.png",
-    alt: "Hub facturation Nota lié aux interventions",
-    caption: "Facturation",
-  },
-];
+import { useLocale } from "../i18n/LocaleContext";
 
 type ProductProofGalleryProps = {
   id?: string;
   title?: string;
 };
 
-export function ProductProofGallery({
-  id = "apercu-produit",
-  title = "Aperçu du produit",
-}: ProductProofGalleryProps) {
+export function ProductProofGallery({ id = "apercu-produit", title }: ProductProofGalleryProps) {
+  const { t } = useLocale();
+  const heading = title ?? t.galleryTitle;
+
   return (
     <section id={id} aria-labelledby={`${id}-heading`} className="mt-10">
       <h2 id={`${id}-heading`} className="font-display text-xl tracking-tight text-ink">
-        {title}
+        {heading}
       </h2>
-      <p className="mt-2 text-sm text-mute">
-        Captures réelles de l’application Nota — carte, dossiers et facturation.
-      </p>
+      <p className="mt-2 text-sm text-mute">{t.galleryLead}</p>
       <ul className="mt-6 grid gap-6 sm:grid-cols-3">
-        {SHOTS.map((shot) => (
+        {t.galleryShots.map((shot) => (
           <li key={shot.src} className="overflow-hidden rounded-2xl border border-line bg-mist">
             <img
               src={shot.src}

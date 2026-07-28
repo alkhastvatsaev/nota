@@ -1,23 +1,15 @@
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
-
-/** Clair + Carnegie : parlons de *vous*, sans jargon. */
-const chapters = [
-  { title: "Noter", line: "Ce qu’ils vous disent, gardé." },
-  { title: "Suivre", line: "Vous voyez où en est chaque affaire." },
-  { title: "Rappeler", line: "Vous savez qui relancer, et quand." },
-] as const;
+import { useLocale } from "../i18n/LocaleContext";
 
 export function HorizontalJourney() {
   const reduce = useReducedMotion();
+  const { t } = useLocale();
+  const chapters = t.journey;
 
   if (reduce) {
     return (
-      <section
-        id="voyage"
-        className="bg-void px-6 py-16 sm:px-10"
-        aria-label="Comment Nota fonctionne"
-      >
+      <section id="voyage" className="bg-void px-6 py-16 sm:px-10" aria-label={t.journeyAria}>
         <div className="mx-auto flex max-w-md flex-col gap-10">
           {chapters.map((chapter, i) => (
             <div key={chapter.title} className="text-center">
@@ -35,11 +27,16 @@ export function HorizontalJourney() {
     );
   }
 
-  return <ScrollJourney />;
+  return <ScrollJourney chapters={chapters} ariaLabel={t.journeyAria} />;
 }
 
-/** Même parcours sticky horizontal sur mobile et desktop. */
-function ScrollJourney() {
+function ScrollJourney({
+  chapters,
+  ariaLabel,
+}: {
+  chapters: { title: string; line: string }[];
+  ariaLabel: string;
+}) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -49,12 +46,7 @@ function ScrollJourney() {
   const x = useTransform(smooth, [0, 1], ["0%", "-66.666%"]);
 
   return (
-    <section
-      id="voyage"
-      ref={ref}
-      className="relative bg-void"
-      aria-label="Comment Nota fonctionne"
-    >
+    <section id="voyage" ref={ref} className="relative bg-void" aria-label={ariaLabel}>
       <div className="h-[180vh]">
         <div className="sticky top-0 flex h-svh items-center overflow-hidden">
           <motion.div style={{ x }} className="flex w-[300vw]">

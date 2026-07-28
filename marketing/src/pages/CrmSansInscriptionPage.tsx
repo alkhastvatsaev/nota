@@ -1,40 +1,37 @@
 import { SeoPageLayout } from "../components/SeoPageLayout";
+import { getCrmSansInscriptionContent } from "../content/special-pages";
+import { useLocale } from "../i18n/LocaleContext";
 
 export function CrmSansInscriptionPage() {
+  const { locale } = useLocale();
+  const content = getCrmSansInscriptionContent(locale);
+
   return (
-    <SeoPageLayout
-      eyebrow="CRM sans inscription"
-      title="Suivez vos clients sans créer de compte"
-      lead="Ouvrez Nota et commencez. Pas d’email. Pas de formulaire."
-    >
-      <section>
-        <h2 className="font-display text-xl tracking-tight text-ink">
-          Pourquoi sans inscription ?
-        </h2>
-        <p className="mt-3">
-          Les outils habituels commencent par un compte et un plan. Vous voulez juste noter un
-          client et savoir qui rappeler.
-        </p>
-      </section>
-
-      <section>
-        <h2 className="font-display text-xl tracking-tight text-ink">Ce que Nota fait</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-5">
-          <li>Planifier et suivre les interventions (carte, statuts, dossiers)</li>
-          <li>Hub technicien mobile : missions, photos, signature</li>
-          <li>Notes clients et relances commerciales</li>
-          <li>Accès immédiat à l’app, sans inscription sur ce site</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2 className="font-display text-xl tracking-tight text-ink">En 3 gestes</h2>
-        <ol className="mt-3 list-decimal space-y-2 pl-5">
-          <li>Ouvrir Nota</li>
-          <li>Ajouter un client ou une affaire</li>
-          <li>Noter la prochaine relance</li>
-        </ol>
-      </section>
+    <SeoPageLayout eyebrow={content.eyebrow} title={content.title} lead={content.lead}>
+      {content.sections.map((section) => (
+        <section key={section.h2}>
+          <h2 className="font-display text-xl tracking-tight text-ink">{section.h2}</h2>
+          {section.paragraphs?.map((p) => (
+            <p key={p.slice(0, 40)} className="mt-3">
+              {p}
+            </p>
+          ))}
+          {section.bullets ? (
+            <ul className="mt-3 list-disc space-y-2 pl-5">
+              {section.bullets.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          ) : null}
+          {section.ordered ? (
+            <ol className="mt-3 list-decimal space-y-2 pl-5">
+              {section.ordered.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ol>
+          ) : null}
+        </section>
+      ))}
     </SeoPageLayout>
   );
 }
