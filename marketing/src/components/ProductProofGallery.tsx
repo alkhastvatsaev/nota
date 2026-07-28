@@ -14,7 +14,7 @@ export function ProductProofGallery({ id = "apercu-produit", title }: ProductPro
       <h2 id={`${id}-heading`} className="font-display text-xl tracking-tight text-ink">
         {heading}
       </h2>
-      <p className="mt-2 text-sm text-mute">{t.galleryLead}</p>
+      <p className="mt-2 text-sm font-normal text-mute">{t.galleryLead}</p>
       <ul className="mt-6 grid gap-6 sm:grid-cols-3">
         {t.galleryShots.map((shot) => (
           <li key={shot.src} className="overflow-hidden rounded-2xl border border-line bg-mist">
@@ -27,7 +27,7 @@ export function ProductProofGallery({ id = "apercu-produit", title }: ProductPro
               decoding="async"
               className="h-auto w-full border-b border-line"
             />
-            <p className="px-3 py-2 text-center text-xs text-mute">{shot.caption}</p>
+            <p className="px-3 py-2 text-center text-xs font-medium text-mute">{shot.caption}</p>
           </li>
         ))}
       </ul>

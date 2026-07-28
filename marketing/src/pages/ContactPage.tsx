@@ -53,7 +53,7 @@ export function ContactPage() {
   }
 
   return (
-    <div className="min-h-svh bg-void pb-24 text-ink md:pb-0">
+    <div className="min-h-svh bg-void pb-28 text-ink md:pb-0">
       <a href="#main" className="skip-link">
         {t.skipToContent}
       </a>

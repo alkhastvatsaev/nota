@@ -18,7 +18,7 @@ export function HomePage() {
 
   return (
     <SmoothScroll>
-      <div className="relative bg-void pb-20 text-ink md:pb-0">
+      <div className="relative bg-void pb-28 text-ink md:pb-0">
         <a href="#main" className="skip-link">
           {t.skipToContent}
         </a>

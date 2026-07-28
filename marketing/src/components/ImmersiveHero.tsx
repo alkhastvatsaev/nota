@@ -47,7 +47,7 @@ export function ImmersiveHero() {
 
       <motion.div
         style={{ opacity: opacityHero }}
-        className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-28 text-center md:pb-24"
+        className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-24 text-center md:pb-20"
       >
         <motion.h1
           style={{ y: yTitle }}
@@ -64,7 +64,7 @@ export function ImmersiveHero() {
           initial={reduce ? false : { opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...spring, delay: 0.2 }}
-          className="mt-5 max-w-lg text-lg text-mute sm:text-xl"
+          className="mt-5 max-w-lg text-lg font-normal text-mute sm:text-xl"
         >
           {t.heroSub}
         </motion.p>
@@ -80,13 +80,13 @@ export function ImmersiveHero() {
             className="rounded-full bg-ink px-8 py-4 text-sm text-void transition hover:bg-accent"
           />
         </motion.div>
-        <p className="mt-3 text-xs text-mute">{t.noAccountAccess}</p>
+        <p className="mt-3 text-xs font-normal text-mute">{t.noAccountAccess}</p>
       </motion.div>
 
       {!reduce && (
         <motion.div
           aria-hidden
-          className="absolute bottom-24 left-1/2 z-10 h-8 w-px -translate-x-1/2 bg-accent/50 md:bottom-8"
+          className="absolute bottom-10 left-1/2 z-10 h-8 w-px -translate-x-1/2 bg-accent/50 md:bottom-8"
           animate={{ opacity: [0.2, 0.85, 0.2], scaleY: [0.7, 1, 0.7] }}
           transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
         />

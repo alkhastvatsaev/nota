@@ -46,9 +46,9 @@
   body {
     margin: 0;
     font-family: var(--font-sans);
-    font-weight: 700;
+    font-weight: 400;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
     background: var(--color-void);
     color: var(--color-ink);
     -webkit-font-smoothing: antialiased;
@@ -57,9 +57,13 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  body,
-  body * {
-    font-weight: 700 !important;
+  h1,
+  h2,
+  h3,
+  .font-display,
+  button,
+  [data-cta] {
+    font-weight: 700;
   }
 
   input,

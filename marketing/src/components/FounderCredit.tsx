@@ -19,7 +19,7 @@ export function FounderCredit({ className, size = "header" }: FounderCreditProps
       title={`${t.builtBy} ${FOUNDER_FULL_NAME}`}
       aria-label={`${t.builtBy} ${FOUNDER_FULL_NAME}`}
       className={cn(
-        "inline-flex items-center gap-1.5 text-mute underline-offset-2 transition hover:text-ink hover:underline",
+        "inline-flex items-center gap-1.5 font-normal text-mute underline-offset-2 transition hover:text-ink hover:underline",
         compact ? "text-[11px] sm:text-xs" : "text-xs sm:text-sm",
         className
       )}

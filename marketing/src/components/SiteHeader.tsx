@@ -15,7 +15,7 @@ export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderPro
 
   return (
     <header
-      className="sticky top-0 z-40 flex items-center justify-between gap-3 border-b border-line/50 bg-void/90 px-6 py-3 backdrop-blur-md sm:px-10 sm:py-4"
+      className="sticky top-0 z-40 flex items-center justify-between gap-2 border-b border-line/50 bg-void/90 px-4 py-3 backdrop-blur-md sm:gap-3 sm:px-10 sm:py-4"
       style={{ paddingTop: "max(0.75rem, env(safe-area-inset-top))" }}
     >
       <div className="flex min-w-0 items-center gap-2 sm:gap-3">
@@ -36,14 +36,17 @@ export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderPro
         )}
         <FounderCredit size="header" className="min-w-0 truncate" />
       </div>
-      <div className="flex shrink-0 items-center gap-2 sm:gap-4">
-        <Link to={CONTACT_PATH} className="text-xs text-mute transition hover:text-ink sm:text-sm">
+      <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+        <Link
+          to={CONTACT_PATH}
+          className="hidden px-1 text-sm font-normal text-mute transition hover:text-ink min-[400px]:inline"
+        >
           {t.contact}
         </Link>
         <LanguageSwitch />
         <OpenNotaLink
           variant="nav"
-          className="rounded-full bg-accent px-5 py-2.5 text-sm text-on-accent transition hover:bg-accent-deep"
+          className="rounded-full bg-accent px-3.5 py-2 text-xs text-on-accent transition hover:bg-accent-deep sm:px-5 sm:py-2.5 sm:text-sm"
         />
       </div>
     </header>
