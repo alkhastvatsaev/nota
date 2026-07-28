@@ -86,6 +86,22 @@ const EXCEL_EN: PageSeo = {
   priority: 0.85,
 };
 
+const CONTACT_FR: PageSeo = {
+  path: "/contact",
+  title: "Contact Alkhast Vatsaev — fondateur de Nota CRM",
+  description:
+    "Contactez Alkhast Vatsaev, qui a développé Nota CRM. Formulaire ou email : alkhastvatsaev@icloud.com.",
+  priority: 0.9,
+};
+
+const CONTACT_EN: PageSeo = {
+  path: "/contact",
+  title: "Contact Alkhast Vatsaev — Nota CRM founder",
+  description:
+    "Contact Alkhast Vatsaev, who built Nota CRM. Form or email: alkhastvatsaev@icloud.com.",
+  priority: 0.9,
+};
+
 function buildAllPages(locale: Locale): PageSeo[] {
   const landings = (locale === "en" ? LANDING_PAGES_EN : LANDING_PAGES_FR).filter(
     (page) => page.path !== FOUNDER_PROFILE_PATH
@@ -107,6 +123,7 @@ function buildAllPages(locale: Locale): PageSeo[] {
     ...guideSeo,
     locale === "en" ? CRM_EN : CRM_FR,
     locale === "en" ? EXCEL_EN : EXCEL_FR,
+    locale === "en" ? CONTACT_EN : CONTACT_FR,
   ];
 }
 

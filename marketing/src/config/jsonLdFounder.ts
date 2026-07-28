@@ -7,6 +7,7 @@ import {
   FOUNDER_PROFILE_URL,
   FOUNDER_SAME_AS,
 } from "./founder";
+import { CONTACT_EMAIL } from "./contact";
 
 /** Entité Person schema.org — réutilisée au build statique et en SPA. */
 export function buildFounderPersonNode(siteUrl: string): Record<string, unknown> {
@@ -18,6 +19,7 @@ export function buildFounderPersonNode(siteUrl: string): Record<string, unknown>
     familyName: FOUNDER_FAMILY_NAME,
     jobTitle: FOUNDER_JOB_TITLE,
     url: FOUNDER_PROFILE_URL,
+    email: CONTACT_EMAIL,
     worksFor: { "@id": `${siteUrl}/#organization` },
     knowsAbout: [
       "Nota CRM",
@@ -28,6 +30,13 @@ export function buildFounderPersonNode(siteUrl: string): Record<string, unknown>
     ],
     description:
       "Alkhast Vatsaev a développé Nota CRM, logiciel d’interventions terrain publié sur heynota.app.",
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: CONTACT_EMAIL,
+      url: `${siteUrl}/contact`,
+      availableLanguage: ["French", "English"],
+    },
   };
   if (FOUNDER_SAME_AS.length > 0) {
     node.sameAs = FOUNDER_SAME_AS;

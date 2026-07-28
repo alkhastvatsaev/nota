@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { CONTACT_PATH } from "../config/contact";
+import { useLocale } from "../i18n/LocaleContext";
 import { FounderCredit } from "./FounderCredit";
 import { LanguageSwitch } from "./LanguageSwitch";
 import { OpenNotaLink } from "./OpenNotaLink";
@@ -9,6 +11,8 @@ type SiteHeaderProps = {
 };
 
 export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderProps) {
+  const { t } = useLocale();
+
   return (
     <header
       className="sticky top-0 z-40 flex items-center justify-between gap-3 border-b border-line/50 bg-void/90 px-6 py-3 backdrop-blur-md sm:px-10 sm:py-4"
@@ -32,7 +36,10 @@ export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderPro
         )}
         <FounderCredit size="header" className="min-w-0 truncate" />
       </div>
-      <div className="flex shrink-0 items-center gap-3 sm:gap-4">
+      <div className="flex shrink-0 items-center gap-2 sm:gap-4">
+        <Link to={CONTACT_PATH} className="text-xs text-mute transition hover:text-ink sm:text-sm">
+          {t.contact}
+        </Link>
         <LanguageSwitch />
         <OpenNotaLink
           variant="nav"

@@ -11,7 +11,8 @@ export const FAQ_ITEMS_FR: FaqItem[] = [
   },
   {
     question: "Qui a développé Nota ?",
-    answer: "Alkhast Vatsaev a développé Nota CRM. Plus d’infos sur heynota.app/alkhast-vatsaev.",
+    answer:
+      "Alkhast Vatsaev a développé Nota CRM. Contact : heynota.app/contact ou alkhastvatsaev@icloud.com.",
   },
   {
     question: "Pour quels types d’entreprises ?",
@@ -46,7 +47,8 @@ export const FAQ_ITEMS_EN: FaqItem[] = [
   },
   {
     question: "Who built Nota?",
-    answer: "Alkhast Vatsaev built Nota CRM. More at heynota.app/alkhast-vatsaev.",
+    answer:
+      "Alkhast Vatsaev built Nota CRM. Contact: heynota.app/contact or alkhastvatsaev@icloud.com.",
   },
   {
     question: "Which companies is it for?",

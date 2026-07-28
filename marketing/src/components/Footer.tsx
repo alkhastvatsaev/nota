@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { getFaqItems } from "../content/faq";
+import { CONTACT_EMAIL, CONTACT_MAILTO, CONTACT_PATH } from "../config/contact";
 import { useLocale } from "../i18n/LocaleContext";
 import { FounderCredit } from "./FounderCredit";
 import { SeoFooterNav } from "./SeoFooterNav";
@@ -22,6 +23,16 @@ export function Footer() {
             linkClassName="transition hover:text-ink"
           />
         </div>
+
+        <p className="mt-6 text-sm text-mute">
+          <Link to={CONTACT_PATH} className="text-ink underline-offset-2 hover:underline">
+            {t.contact}
+          </Link>
+          {" · "}
+          <a href={CONTACT_MAILTO} className="underline-offset-2 hover:underline">
+            {CONTACT_EMAIL}
+          </a>
+        </p>
 
         <details id="faq" className="group mt-8 border-t border-line pt-6">
           <summary className="cursor-pointer list-none text-sm text-ink marker:content-none focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">

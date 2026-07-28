@@ -15,6 +15,7 @@ const SEO_NAV_FR: NavLink[] = [
   { to: "/alternative-excel-commercial", label: "Alternative Excel" },
   { to: "/installer-nota", label: "Installer l’app" },
   { to: "/a-propos", label: "À propos" },
+  { to: "/contact", label: "Contact" },
   { to: "/alkhast-vatsaev", label: "Alkhast Vatsaev" },
 ];
 
@@ -31,6 +32,7 @@ const SEO_NAV_EN: NavLink[] = [
   { to: "/alternative-excel-commercial", label: "Spreadsheet alternative" },
   { to: "/installer-nota", label: "Install the app" },
   { to: "/a-propos", label: "About" },
+  { to: "/contact", label: "Contact" },
   { to: "/alkhast-vatsaev", label: "Alkhast Vatsaev" },
 ];
 

@@ -57,6 +57,21 @@ type UiDict = {
   orgDescription: string;
   softwareDescription: string;
   offerDescription: string;
+  contact: string;
+  contactEyebrow: string;
+  contactTitle: string;
+  contactLead: string;
+  contactName: string;
+  contactEmail: string;
+  contactMessage: string;
+  contactSend: string;
+  contactSending: string;
+  contactSuccess: string;
+  contactError: string;
+  contactErrorConfig: string;
+  contactOrMail: string;
+  contactDirect: string;
+  footerPrivacy: string;
 };
 
 export const UI: Record<Locale, UiDict> = {
@@ -71,7 +86,7 @@ export const UI: Record<Locale, UiDict> = {
     home: "Accueil",
     about: "À propos",
     faqTitle: "Une question ?",
-    footerNoEmail: "Pas d’email collecté sur ce site.",
+    footerNoEmail: "Contact via le formulaire ou l’email affiché. Pas de newsletter.",
     footerAccess: "Accès direct à l’app.",
     langFr: "FR",
     langEn: "EN",
@@ -139,6 +154,22 @@ export const UI: Record<Locale, UiDict> = {
     softwareDescription:
       "Nota CRM : carte des interventions, hub technicien, dossiers et facturation pour les entreprises à missions sur site. Accès direct sur heynota.app / app.heynota.app.",
     offerDescription: "Accès direct à Nota, sans inscription",
+    contact: "Contact",
+    contactEyebrow: "Contact",
+    contactTitle: "Écrire à Alkhast Vatsaev",
+    contactLead:
+      "Une question sur Nota CRM ? Envoyez un message — réponse directe du fondateur & développeur.",
+    contactName: "Nom",
+    contactEmail: "Email",
+    contactMessage: "Message",
+    contactSend: "Envoyer",
+    contactSending: "Envoi…",
+    contactSuccess: "Message envoyé. Merci — je vous réponds dès que possible.",
+    contactError: "Envoi impossible. Réessayez ou écrivez directement par email.",
+    contactErrorConfig: "Formulaire temporairement indisponible. Utilisez l’email ci-dessous.",
+    contactOrMail: "Ou écrivez directement :",
+    contactDirect: "Email direct",
+    footerPrivacy: "Contact via le formulaire ou l’email affiché. Pas de newsletter.",
   },
   en: {
     openNota: "Open Nota",
@@ -151,7 +182,7 @@ export const UI: Record<Locale, UiDict> = {
     home: "Home",
     about: "About",
     faqTitle: "Questions?",
-    footerNoEmail: "No email is collected on this site.",
+    footerNoEmail: "Contact via the form or the email shown. No newsletter.",
     footerAccess: "Direct access to the app.",
     langFr: "FR",
     langEn: "EN",
@@ -219,5 +250,21 @@ export const UI: Record<Locale, UiDict> = {
     softwareDescription:
       "Nota CRM: job map, technician hub, case files and billing for companies with on-site work. Direct access on heynota.app / app.heynota.app.",
     offerDescription: "Direct access to Nota, no sign-up",
+    contact: "Contact",
+    contactEyebrow: "Contact",
+    contactTitle: "Write to Alkhast Vatsaev",
+    contactLead:
+      "A question about Nota CRM? Send a message — answered directly by the founder & developer.",
+    contactName: "Name",
+    contactEmail: "Email",
+    contactMessage: "Message",
+    contactSend: "Send",
+    contactSending: "Sending…",
+    contactSuccess: "Message sent. Thanks — I’ll reply as soon as I can.",
+    contactError: "Could not send. Try again or email me directly.",
+    contactErrorConfig: "Form temporarily unavailable. Use the email below.",
+    contactOrMail: "Or email directly:",
+    contactDirect: "Direct email",
+    footerPrivacy: "Contact via the form or the email shown. No newsletter.",
   },
 };

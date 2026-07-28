@@ -29,6 +29,11 @@ const GuidePage = lazy(() =>
     default: m.GuidePage,
   }))
 );
+const ContactPage = lazy(() =>
+  import("./pages/ContactPage").then((m) => ({
+    default: m.ContactPage,
+  }))
+);
 
 function PageFallback() {
   const { t } = useLocale();
@@ -73,6 +78,7 @@ export default function App() {
           ))}
           <Route path="/crm-sans-inscription" element={<CrmSansInscriptionPage />} />
           <Route path="/alternative-excel-commercial" element={<AlternativeExcelPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
