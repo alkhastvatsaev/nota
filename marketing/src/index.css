@@ -113,3 +113,22 @@
     right: 1rem;
   }
 }
+
+@media print {
+  header,
+  [data-sticky-cta],
+  .skip-link,
+  nav[aria-label="Nota"] {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}

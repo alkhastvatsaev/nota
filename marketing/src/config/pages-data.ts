@@ -102,6 +102,22 @@ const CONTACT_EN: PageSeo = {
   priority: 0.9,
 };
 
+const CHECKLIST_FR: PageSeo = {
+  path: "/ressources/checklist-interventions-terrain",
+  title: "Checklist interventions terrain 2026 — Excel vs Nota CRM",
+  description:
+    "Grille originale Alkhast Vatsaev / Nota CRM : avant, pendant, après mission + signaux qu’Excel ne suffit plus. Imprimable / PDF.",
+  priority: 0.92,
+};
+
+const CHECKLIST_EN: PageSeo = {
+  path: "/ressources/checklist-interventions-terrain",
+  title: "2026 field-job checklist — Spreadsheet vs Nota CRM",
+  description:
+    "Original Alkhast Vatsaev / Nota CRM grid: before, during, after jobs + signs a spreadsheet is not enough. Printable / PDF.",
+  priority: 0.92,
+};
+
 function buildAllPages(locale: Locale): PageSeo[] {
   const landings = (locale === "en" ? LANDING_PAGES_EN : LANDING_PAGES_FR).filter(
     (page) => page.path !== FOUNDER_PROFILE_PATH
@@ -124,6 +140,7 @@ function buildAllPages(locale: Locale): PageSeo[] {
     locale === "en" ? CRM_EN : CRM_FR,
     locale === "en" ? EXCEL_EN : EXCEL_FR,
     locale === "en" ? CONTACT_EN : CONTACT_FR,
+    locale === "en" ? CHECKLIST_EN : CHECKLIST_FR,
   ];
 }
 

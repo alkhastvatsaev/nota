@@ -16,6 +16,7 @@ const SEO_NAV_FR: NavLink[] = [
   { to: "/installer-nota", label: "Installer l’app" },
   { to: "/a-propos", label: "À propos" },
   { to: "/contact", label: "Contact" },
+  { to: "/ressources/checklist-interventions-terrain", label: "Checklist terrain" },
   { to: "/alkhast-vatsaev", label: "Alkhast Vatsaev" },
 ];
 
@@ -33,6 +34,7 @@ const SEO_NAV_EN: NavLink[] = [
   { to: "/installer-nota", label: "Install the app" },
   { to: "/a-propos", label: "About" },
   { to: "/contact", label: "Contact" },
+  { to: "/ressources/checklist-interventions-terrain", label: "Field checklist" },
   { to: "/alkhast-vatsaev", label: "Alkhast Vatsaev" },
 ];
 

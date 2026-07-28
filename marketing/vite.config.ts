@@ -7,6 +7,13 @@ import { FAQ_ITEMS } from "./src/content/faq";
 import { ALL_PAGES, HOME_SEO } from "./src/config/pages-data";
 import { FOUNDER_PROFILE_PATH } from "./src/config/founder";
 import { buildFounderPersonNode, organizationFounderFields } from "./src/config/jsonLdFounder";
+import { LANDING_PAGES_FR } from "./src/content/landing-pages.fr";
+import { GUIDE_PAGES_FR } from "./src/content/guides-i18n";
+import {
+  getCrmSansInscriptionContent,
+  getAlternativeExcelContent,
+} from "./src/content/special-pages";
+import { getChecklistContent } from "./src/content/asset-checklist";
 
 function siteUrlFromEnv(mode: string) {
   const env = loadEnv(mode, process.cwd(), "");
@@ -119,6 +126,76 @@ function buildStaticJsonLd(siteUrl: string, appUrl: string) {
   };
 }
 
+function blocksFromSections(
+  sections: { h2: string; paragraphs?: string[]; bullets?: string[]; ordered?: string[] }[]
+) {
+  return sections.flatMap((s) => [
+    s.h2,
+    ...(s.paragraphs ?? []),
+    ...(s.bullets ?? []),
+    ...(s.ordered ?? []),
+  ]);
+}
+
+function buildPrerenderSnapshot() {
+  return ALL_PAGES.map((page) => {
+    let h1 = page.title.split(" — ")[0] ?? page.title;
+    let lead = page.description;
+    let blocks: string[] = [];
+
+    if (page.path === "/") {
+      h1 = "Nota CRM — interventions terrain";
+      lead =
+        "Nota CRM : carte des missions, hub technicien mobile et facturation. Développé par Alkhast Vatsaev.";
+      blocks = [
+        "Ouvrez l’app sur app.heynota.app — sans inscription sur heynota.app.",
+        "Alkhast Vatsaev a développé Nota CRM.",
+      ];
+    } else {
+      const landing = LANDING_PAGES_FR.find((p) => p.path === page.path);
+      const guide = GUIDE_PAGES_FR.find((p) => p.path === page.path);
+      if (landing) {
+        h1 = landing.title;
+        lead = landing.lead;
+        blocks = blocksFromSections(landing.sections);
+      } else if (guide) {
+        h1 = guide.title;
+        lead = guide.lead;
+        blocks = blocksFromSections(guide.sections);
+      } else if (page.path === "/crm-sans-inscription") {
+        const c = getCrmSansInscriptionContent("fr");
+        h1 = c.title;
+        lead = c.lead;
+        blocks = blocksFromSections(c.sections);
+      } else if (page.path === "/alternative-excel-commercial") {
+        const c = getAlternativeExcelContent("fr");
+        h1 = c.title;
+        lead = c.lead;
+        blocks = blocksFromSections(c.sections);
+      } else if (page.path === "/contact") {
+        h1 = "Contact Alkhast Vatsaev — fondateur de Nota CRM";
+        lead =
+          "Contactez Alkhast Vatsaev, qui a développé Nota CRM. Email : alkhastvatsaev@icloud.com";
+        blocks = ["Formulaire sur heynota.app/contact", "Nota CRM — app.heynota.app"];
+      } else if (page.path === "/ressources/checklist-interventions-terrain") {
+        const c = getChecklistContent("fr");
+        h1 = c.title;
+        lead = c.lead;
+        blocks = c.sections.flatMap((s) => [s.h2, ...s.items]);
+      }
+    }
+
+    return {
+      path: page.path,
+      title: page.title,
+      description: page.description,
+      h1,
+      lead,
+      blocks,
+    };
+  });
+}
+
 function seoFilesPlugin(mode: string) {
   const siteUrl = siteUrlFromEnv(mode);
   const appUrl = appUrlFromEnv(mode);
@@ -157,12 +234,17 @@ function seoFilesPlugin(mode: string) {
       writeSeoFiles();
     },
     closeBundle() {
-      const src = resolve("public/404.html");
-      if (!existsSync(src)) return;
       const outDir = resolve("dist");
       mkdirSync(outDir, { recursive: true });
-      const raw = readFileSync(src, "utf8").replaceAll("%SITE_URL%", siteUrl);
-      writeFileSync(resolve(outDir, "404.html"), raw);
+      writeFileSync(
+        resolve(outDir, "prerender-pages.json"),
+        JSON.stringify(buildPrerenderSnapshot(), null, 2)
+      );
+      const src = resolve("public/404.html");
+      if (existsSync(src)) {
+        const raw = readFileSync(src, "utf8").replaceAll("%SITE_URL%", siteUrl);
+        writeFileSync(resolve(outDir, "404.html"), raw);
+      }
     },
     transformIndexHtml: {
       order: "pre",

@@ -47,6 +47,7 @@ type UiDict = {
   linkExcelGuide: string;
   linkCrmNoSignup: string;
   linkFieldJobs: string;
+  linkChecklist: string;
   homeBreadcrumb: string;
   notFoundEyebrow: string;
   notFoundTitle: string;
@@ -143,6 +144,7 @@ export const UI: Record<Locale, UiDict> = {
     linkExcelGuide: "Guide Excel → logiciel",
     linkCrmNoSignup: "CRM sans inscription",
     linkFieldJobs: "Interventions terrain",
+    linkChecklist: "Checklist terrain 2026",
     homeBreadcrumb: "Accueil",
     notFoundEyebrow: "404",
     notFoundTitle: "Page introuvable",
@@ -239,6 +241,7 @@ export const UI: Record<Locale, UiDict> = {
     linkExcelGuide: "Excel → software guide",
     linkCrmNoSignup: "CRM without sign-up",
     linkFieldJobs: "Field jobs",
+    linkChecklist: "2026 field checklist",
     homeBreadcrumb: "Home",
     notFoundEyebrow: "404",
     notFoundTitle: "Page not found",

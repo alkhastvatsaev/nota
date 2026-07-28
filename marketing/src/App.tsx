@@ -34,6 +34,11 @@ const ContactPage = lazy(() =>
     default: m.ContactPage,
   }))
 );
+const ChecklistAssetPage = lazy(() =>
+  import("./pages/ChecklistAssetPage").then((m) => ({
+    default: m.ChecklistAssetPage,
+  }))
+);
 
 function PageFallback() {
   const { t } = useLocale();
@@ -79,6 +84,10 @@ export default function App() {
           <Route path="/crm-sans-inscription" element={<CrmSansInscriptionPage />} />
           <Route path="/alternative-excel-commercial" element={<AlternativeExcelPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route
+            path="/ressources/checklist-interventions-terrain"
+            element={<ChecklistAssetPage />}
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

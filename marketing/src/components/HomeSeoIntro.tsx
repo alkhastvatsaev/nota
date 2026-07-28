@@ -13,6 +13,7 @@ export function HomeSeoIntro() {
     { to: "/gestion-interventions", label: t.linkJobMgmt },
     { to: "/pour-qui", label: t.linkSectors },
     { to: "/guides/excel-vers-logiciel-interventions", label: t.linkExcelGuide },
+    { to: "/ressources/checklist-interventions-terrain", label: t.linkChecklist },
   ];
 
   return (
