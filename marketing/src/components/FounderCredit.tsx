@@ -5,18 +5,17 @@ import { cn } from "../lib/utils";
 
 type FounderCreditProps = {
   className?: string;
-  /** Plus visible dans le hero ; plus discret en footer. */
-  size?: "hero" | "footer";
+  size?: "header" | "footer";
 };
 
-export function FounderCredit({ className, size = "hero" }: FounderCreditProps) {
+export function FounderCredit({ className, size = "header" }: FounderCreditProps) {
   const { t } = useLocale();
-  const isHero = size === "hero";
+  const compact = size === "header";
 
   return (
     <p
       className={cn(
-        isHero ? "mt-4 text-sm text-mute sm:text-base" : "text-sm text-mute",
+        compact ? "text-[11px] leading-tight text-mute sm:text-xs" : "text-sm text-mute",
         className
       )}
     >
@@ -25,10 +24,7 @@ export function FounderCredit({ className, size = "hero" }: FounderCreditProps) 
       </span>{" "}
       <Link
         to={FOUNDER_PROFILE_PATH}
-        className={cn(
-          "underline-offset-2 transition hover:text-ink hover:underline",
-          isHero ? "text-ink" : "text-mute"
-        )}
+        className="text-mute underline-offset-2 transition hover:text-ink hover:underline"
         title={FOUNDER_FULL_NAME}
       >
         {t.builtBy} {FOUNDER_FULL_NAME}

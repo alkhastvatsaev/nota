@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { OpenNotaLink } from "./OpenNotaLink";
+import { FounderCredit } from "./FounderCredit";
 import { LanguageSwitch } from "./LanguageSwitch";
+import { OpenNotaLink } from "./OpenNotaLink";
 
 type SiteHeaderProps = {
   homeHref?: string;
@@ -10,25 +11,28 @@ type SiteHeaderProps = {
 export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderProps) {
   return (
     <header
-      className="sticky top-0 z-40 flex items-center justify-between border-b border-line/50 bg-void/90 px-6 py-4 backdrop-blur-md sm:px-10"
-      style={{ paddingTop: "max(1rem, env(safe-area-inset-top))" }}
+      className="sticky top-0 z-40 flex items-center justify-between border-b border-line/50 bg-void/90 px-6 py-3 backdrop-blur-md sm:px-10 sm:py-4"
+      style={{ paddingTop: "max(0.75rem, env(safe-area-inset-top))" }}
     >
-      {brandIsLink ? (
-        <Link
-          to={homeHref}
-          className="font-display inline-flex min-h-11 min-w-11 items-center text-sm tracking-[0.12em] text-ink"
-        >
-          NOTA
-        </Link>
-      ) : (
-        <a
-          href="#top"
-          className="font-display inline-flex min-h-11 min-w-11 items-center text-sm tracking-[0.12em] text-ink"
-        >
-          NOTA
-        </a>
-      )}
-      <div className="flex items-center gap-3 sm:gap-4">
+      <div className="min-w-0">
+        {brandIsLink ? (
+          <Link
+            to={homeHref}
+            className="font-display inline-flex min-h-8 items-center text-sm tracking-[0.12em] text-ink"
+          >
+            NOTA
+          </Link>
+        ) : (
+          <a
+            href="#top"
+            className="font-display inline-flex min-h-8 items-center text-sm tracking-[0.12em] text-ink"
+          >
+            NOTA
+          </a>
+        )}
+        <FounderCredit size="header" className="mt-0.5 max-w-[11rem] truncate sm:max-w-none" />
+      </div>
+      <div className="flex shrink-0 items-center gap-3 sm:gap-4">
         <LanguageSwitch />
         <OpenNotaLink
           variant="nav"
