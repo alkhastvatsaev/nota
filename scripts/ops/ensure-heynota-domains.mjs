@@ -218,20 +218,22 @@ async function main() {
     }
     await setWwwRedirect();
     if (appMissingOnNota) await addDomain(NOTA_PROJECT_ID, APP_DOMAIN);
+  }
 
-    const marketingDep = await latestProdDeployment(HEYNOTA_PROJECT_ID);
-    const appDep = await latestProdDeployment(NOTA_PROJECT_ID);
-    if (marketingDep) {
-      await aliasDeployment(marketingDep, "heynota.app");
-      await aliasDeployment(marketingDep, "www.heynota.app");
-    } else {
-      console.warn("  ⚠ pas de déploiement READY heynota — alias marketing skip");
-    }
-    if (appDep) {
-      await aliasDeployment(appDep, APP_DOMAIN);
-    } else {
-      console.warn("  ⚠ pas de déploiement READY nota — alias app skip");
-    }
+  // Toujours ré-aliaser le dernier READY prod (sinon heynota.app reste sur un vieux dpl)
+  console.log("\n🔗 Alias derniers déploiements prod…");
+  const marketingDep = await latestProdDeployment(HEYNOTA_PROJECT_ID);
+  const appDep = await latestProdDeployment(NOTA_PROJECT_ID);
+  if (marketingDep) {
+    await aliasDeployment(marketingDep, "heynota.app");
+    await aliasDeployment(marketingDep, "www.heynota.app");
+  } else {
+    console.warn("  ⚠ pas de déploiement READY heynota — alias marketing skip");
+  }
+  if (appDep) {
+    await aliasDeployment(appDep, APP_DOMAIN);
+  } else {
+    console.warn("  ⚠ pas de déploiement READY nota — alias app skip");
   }
 
   // Health check HTTP
