@@ -5,9 +5,14 @@ export type FaqItem = {
 
 export const FAQ_ITEMS: FaqItem[] = [
   {
-    question: "C’est quoi Nota ?",
+    question: "C’est quoi Nota CRM ?",
     answer:
-      "Un CRM pour entreprises à interventions sur site : carte des missions, dossiers clients, hub technicien (mobile, photos, signature) et facturation.",
+      "Nota CRM (heynota.app) est un CRM pour entreprises à interventions sur site : carte des missions, dossiers clients, hub technicien mobile et facturation. L’app est sur app.heynota.app.",
+  },
+  {
+    question: "Qui a créé Nota ?",
+    answer:
+      "Nota CRM a été créé par Alkhast Vatsaev. Plus d’infos sur heynota.app/alkhast-vatsaev.",
   },
   {
     question: "Pour quels types d’entreprises ?",
@@ -29,7 +34,7 @@ export const FAQ_ITEMS: FaqItem[] = [
       "Oui. PWA installable sur l’écran d’accueil, avec mode hors-ligne pour les techniciens (synchro au retour réseau).",
   },
   {
-    question: "Où est l’application ?",
-    answer: "Sur app.heynota.app — lien « Ouvrir Nota » sur toutes les pages de ce site.",
+    question: "Où est l’application Nota CRM ?",
+    answer: "Sur app.heynota.app — bouton « Ouvrir Nota » sur heynota.app.",
   },
 ];

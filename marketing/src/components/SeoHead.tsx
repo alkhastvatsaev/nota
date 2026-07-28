@@ -67,8 +67,9 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
+      alternateName: ["Nota CRM", "HeyNota"],
       url: `${SITE_URL}/`,
-      description: "CRM interventions : carte, techniciens mobile, facturation.",
+      description: "Nota CRM — interventions terrain : carte, techniciens mobile, facturation.",
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/apple-touch-icon.png`,
@@ -84,6 +85,7 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       "@id": `${SITE_URL}/#website`,
       url: `${SITE_URL}/`,
       name: SITE_NAME,
+      alternateName: "Nota CRM",
       description: HOME_SEO.description,
       publisher: { "@id": `${SITE_URL}/#organization` },
       inLanguage: "fr-FR",
@@ -115,12 +117,13 @@ function buildJsonLd(page: PageSeo, known: boolean) {
       "@type": "SoftwareApplication",
       "@id": `${SITE_URL}/#software`,
       name: SITE_NAME,
+      alternateName: "Nota CRM",
       applicationCategory: "BusinessApplication",
       applicationSubCategory: "Customer Relationship Management",
       operatingSystem: "Web",
       url: APP_URL,
       description:
-        "Nota : carte des interventions, hub technicien, dossiers et facturation pour les entreprises à missions sur site. Accès direct sans inscription sur heynota.app.",
+        "Nota CRM : carte des interventions, hub technicien, dossiers et facturation pour les entreprises à missions sur site. Accès direct sur heynota.app / app.heynota.app.",
       inLanguage: "fr-FR",
       offers: {
         "@type": "Offer",

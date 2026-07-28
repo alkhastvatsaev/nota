@@ -57,7 +57,7 @@ export function ImmersiveHero() {
           NOTA
           <span className="sr-only">
             {" "}
-            — CRM interventions terrain pour entreprises à équipes mobiles
+            CRM — logiciel d’interventions terrain pour entreprises à équipes mobiles
           </span>
         </motion.h1>
 

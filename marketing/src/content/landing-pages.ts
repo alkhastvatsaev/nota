@@ -210,25 +210,25 @@ export const LANDING_PAGES: LandingPageContent[] = [
     path: FOUNDER_PROFILE_PATH,
     eyebrow: "Fondateur",
     title: FOUNDER_FULL_NAME,
-    lead: "Fondateur de Nota. Je construis un CRM pour les entreprises qui envoient des techniciens chez leurs clients.",
+    lead: "Créateur de Nota CRM. J’ai construit un logiciel pour les entreprises qui envoient des techniciens chez leurs clients.",
     sections: [
       {
         h2: "Qui je suis",
         paragraphs: [
-          "Je m’appelle Alkhast Vatsaev. J’ai créé Nota pour remplacer le bricolage Excel / WhatsApp par un outil clair : missions sur carte, suivi d’équipe, facturation.",
+          "Je m’appelle Alkhast Vatsaev. J’ai créé Nota CRM pour remplacer le bricolage Excel / WhatsApp par un outil clair : missions sur carte, suivi d’équipe, facturation.",
         ],
       },
       {
         h2: "Ce que je construis",
         paragraphs: [
-          "Nota sert les équipes terrain — maintenance, installation, dépannage, services récurrents. L’application regroupe la carte des interventions, le hub technicien mobile et la facturation.",
-          "heynota.app présente le produit. L’app se trouve sur app.heynota.app.",
+          "Nota CRM sert les équipes terrain — maintenance, installation, dépannage, services récurrents. L’application regroupe la carte des interventions, le hub technicien mobile et la facturation.",
+          "Le site marketing est heynota.app. L’application Nota CRM est sur app.heynota.app.",
         ],
       },
       {
-        h2: "Essayer Nota",
+        h2: "Essayer Nota CRM",
         paragraphs: [
-          "Ouvrez l’application directement depuis ce site. Aucun formulaire d’inscription n’est demandé ici.",
+          "Ouvrez l’application directement depuis heynota.app. Aucun formulaire d’inscription n’est demandé sur ce site.",
         ],
       },
     ],

@@ -18,20 +18,21 @@ export function HomeSeoIntro() {
           CRM pour entreprises à interventions sur site
         </h2>
         <p className="mt-4 text-base leading-relaxed text-mute">
-          Nota réunit <strong className="font-normal text-ink">carte des missions</strong>, dossiers
-          clients, <strong className="font-normal text-ink">hub technicien mobile</strong> (photos,
+          <strong className="font-normal text-ink">Nota CRM</strong> réunit{" "}
+          <strong className="font-normal text-ink">carte des missions</strong>, dossiers clients,{" "}
+          <strong className="font-normal text-ink">hub technicien mobile</strong> (photos,
           signature) et facturation — maintenance, installation, services, dépannage : toute équipe
           qui intervient chez le client.
         </p>
         <p className="mt-3 text-sm text-mute">
+          Site : heynota.app · App : app.heynota.app · Créateur :{" "}
           <Link
             to={FOUNDER_PROFILE_PATH}
             className="text-accent underline-offset-2 hover:underline"
           >
             {FOUNDER_FULL_NAME}
           </Link>
-          {" · "}
-          fondateur de Nota.
+          .
         </p>
         <p className="mt-3 text-sm text-mute">
           <Link

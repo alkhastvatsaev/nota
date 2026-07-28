@@ -11,18 +11,18 @@ export type PageSeo = {
 
 export const HOME_SEO: PageSeo = {
   path: "/",
-  title: "Nota — CRM interventions terrain (carte, mobile, facturation)",
+  title: "Nota CRM — interventions terrain (carte, mobile, facturation)",
   description:
-    "Carte, mobile technicien, dossiers et facturation pour entreprises en intervention. Accès direct à l’app Nota. Par Alkhast Vatsaev.",
+    "Nota CRM : carte des missions, mobile technicien et facturation. App sur app.heynota.app. Créé par Alkhast Vatsaev.",
   priority: 1,
 };
 
 export const FOUNDER_PROFILE_SEO: PageSeo = {
   path: FOUNDER_PROFILE_PATH,
-  title: "Alkhast Vatsaev — Fondateur de Nota",
+  title: "Alkhast Vatsaev — créateur de Nota CRM",
   description:
-    "Alkhast Vatsaev, fondateur de Nota. CRM interventions terrain : carte, mobile technicien et facturation.",
-  priority: 0.92,
+    "Alkhast Vatsaev, créateur de Nota CRM (heynota.app). CRM interventions terrain : carte, mobile et facturation.",
+  priority: 0.95,
 };
 
 export const CRM_SANS_INSCRIPTION_SEO: PageSeo = {

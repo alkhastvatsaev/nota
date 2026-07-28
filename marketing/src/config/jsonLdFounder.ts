@@ -20,11 +20,14 @@ export function buildFounderPersonNode(siteUrl: string): Record<string, unknown>
     url: FOUNDER_PROFILE_URL,
     worksFor: { "@id": `${siteUrl}/#organization` },
     knowsAbout: [
+      "Nota CRM",
       "CRM",
       "logiciel interventions terrain",
       "applications web",
       "gestion d'équipes terrain",
     ],
+    description:
+      "Alkhast Vatsaev est le créateur de Nota CRM, logiciel d’interventions terrain publié sur heynota.app.",
   };
   if (FOUNDER_SAME_AS.length > 0) {
     node.sameAs = FOUNDER_SAME_AS;
@@ -32,10 +35,11 @@ export function buildFounderPersonNode(siteUrl: string): Record<string, unknown>
   return node;
 }
 
-/** Liens Organization ↔ fondateur (E-E-A-T). */
-export function organizationFounderFields(siteUrl: string): Record<string, unknown> {
+/** Liens Organization ↔ fondateur + noms de marque. */
+export function organizationFounderFields(_siteUrl: string): Record<string, unknown> {
   return {
     founder: { "@id": FOUNDER_PERSON_ID },
     employee: { "@id": FOUNDER_PERSON_ID },
+    alternateName: ["Nota CRM", "HeyNota", "heynota"],
   };
 }
