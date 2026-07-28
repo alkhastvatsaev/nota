@@ -28,8 +28,8 @@ Wikidata **fait** (personne + logiciel) — à propager en prod via deploy marke
 1. ☑ sameAs Wikidata Person + Software + Org (schema SPA + static)
 2. ☑ Prerender JSON-LD **par page** (WebPage URL + fondateur mainEntity ; FAQ home only)
 3. ☑ `llms.txt` / `humans.txt` + Wikidata
-4. ☐ `npm run deploy:marketing` + IndexNow (cette session)
-5. ☐ Vérif post-deploy : curl fondateur contient `Q140742680`
+4. ☑ `npm run deploy:marketing` + IndexNow (cette session)
+5. ☑ Vérif post-deploy : curl fondateur contient `Q140742680`
 
 ### P1 — Toi (comptes) — max impact
 

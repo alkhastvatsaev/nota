@@ -250,7 +250,7 @@ async function main() {
   const marketingOk =
     marketing.status === 200 &&
     marketing.hasRoot &&
-    /CRM simple|Nota —/i.test(marketing.title) &&
+    /Nota CRM|CRM simple|Nota —/i.test(marketing.title) &&
     !/NOTA Admin/i.test(marketing.title);
   const appOk =
     app.status === 200 &&
