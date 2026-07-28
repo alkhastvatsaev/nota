@@ -34,6 +34,7 @@ type UiDict = {
   siteLabel: string;
   appLabel: string;
   founderLabel: string;
+  builtBy: string;
   galleryTitle: string;
   galleryLead: string;
   galleryShots: { src: string; alt: string; caption: string }[];
@@ -98,6 +99,7 @@ export const UI: Record<Locale, UiDict> = {
     siteLabel: "Site",
     appLabel: "App",
     founderLabel: "Créateur",
+    builtBy: "Développé par",
     galleryTitle: "L’application en images",
     galleryLead: "Captures réelles de l’application Nota — carte, dossiers et facturation.",
     galleryShots: [
@@ -177,6 +179,7 @@ export const UI: Record<Locale, UiDict> = {
     siteLabel: "Site",
     appLabel: "App",
     founderLabel: "Founder",
+    builtBy: "Built by",
     galleryTitle: "The app in pictures",
     galleryLead: "Real screenshots of the Nota app — map, cases and billing.",
     galleryShots: [

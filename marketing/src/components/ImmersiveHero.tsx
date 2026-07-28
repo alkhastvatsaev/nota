@@ -1,6 +1,7 @@
 import { lazy, Suspense, useRef } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useLocale } from "../i18n/LocaleContext";
+import { FounderCredit } from "./FounderCredit";
 import { OpenNotaLink } from "./OpenNotaLink";
 
 const ParticleField = lazy(() =>
@@ -59,6 +60,14 @@ export function ImmersiveHero() {
           NOTA
           <span className="sr-only"> {t.heroSr}</span>
         </motion.h1>
+
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...spring, delay: 0.14 }}
+        >
+          <FounderCredit size="hero" />
+        </motion.div>
 
         <motion.p
           initial={reduce ? false : { opacity: 0, y: 14 }}

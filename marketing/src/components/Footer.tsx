@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { getFaqItems } from "../content/faq";
-import { FOUNDER_FULL_NAME, FOUNDER_PROFILE_PATH } from "../config/founder";
 import { useLocale } from "../i18n/LocaleContext";
+import { FounderCredit } from "./FounderCredit";
 import { SeoFooterNav } from "./SeoFooterNav";
 
 export function Footer() {
@@ -13,7 +13,10 @@ export function Footer() {
     <footer className="border-t border-line bg-mist px-6 py-10 sm:px-10">
       <div className="mx-auto max-w-3xl">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
-          <p className="font-display tracking-[0.22em] text-ink">NOTA</p>
+          <div>
+            <p className="font-display tracking-[0.22em] text-ink">NOTA</p>
+            <FounderCredit size="footer" className="mt-2" />
+          </div>
           <SeoFooterNav
             className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-mute"
             linkClassName="transition hover:text-ink"
@@ -45,11 +48,7 @@ export function Footer() {
             <Link to="/a-propos" className="underline-offset-2 hover:underline">
               {t.about}
             </Link>
-            . {t.footerAccess} © {year} Nota —{" "}
-            <Link to={FOUNDER_PROFILE_PATH} className="underline-offset-2 hover:underline">
-              {FOUNDER_FULL_NAME}
-            </Link>
-            .
+            . {t.footerAccess} © {year} Nota.
           </span>
         </p>
       </div>
