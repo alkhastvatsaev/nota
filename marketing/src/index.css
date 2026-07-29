@@ -92,26 +92,15 @@
     font-family: var(--font-display);
   }
 
-  /* Hero NOTA — SVG avoids background-clip:text glyph clipping (Safari A) */
+  /* Hero NOTA — SVG wordmark; height matches former h1 font-size */
   .hero-nota-svg {
     display: block;
-    width: clamp(3.25rem, 13vw, 9rem);
-    height: auto;
-    aspect-ratio: 520 / 112;
+    margin-inline: auto;
+    height: clamp(3.25rem, 13vw, 9rem);
+    width: auto;
+    max-width: min(92vw, 42rem);
+    aspect-ratio: 320 / 128;
     overflow: visible;
-  }
-
-  .hero-nota-svg-text {
-    font-family: var(--font-display);
-    font-size: 76px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-nota-svg-text {
-      fill: #0b1f3a;
-    }
   }
 
   .skip-link {

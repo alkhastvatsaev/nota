@@ -58,7 +58,7 @@ export function ImmersiveHero() {
           transition={{ ...spring, delay: 0.08 }}
           className="overflow-visible"
         >
-          <h1 className="font-display overflow-visible leading-none">
+          <h1 className="flex w-full justify-center overflow-visible leading-none">
             <HeroNotaTitle reduceMotion={!!reduce} />
             <span className="sr-only">NOTA {t.heroSr}</span>
           </h1>

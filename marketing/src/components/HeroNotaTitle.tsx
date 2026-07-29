@@ -2,13 +2,14 @@ type HeroNotaTitleProps = {
   reduceMotion: boolean;
 };
 
+/** Wordmark sized like former clamp(3.25rem,13vw,9rem) text — height drives scale. */
 export function HeroNotaTitle({ reduceMotion }: HeroNotaTitleProps) {
   const fill = reduceMotion ? "#0b1f3a" : "url(#hero-nota-grad)";
 
   return (
     <svg
       className="hero-nota-svg"
-      viewBox="0 0 520 112"
+      viewBox="0 0 320 128"
       overflow="visible"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden
@@ -18,9 +19,9 @@ export function HeroNotaTitle({ reduceMotion }: HeroNotaTitleProps) {
           id="hero-nota-grad"
           gradientUnits="userSpaceOnUse"
           x1="0"
-          y1="48"
-          x2="520"
-          y2="48"
+          y1="60"
+          x2="320"
+          y2="60"
         >
           <stop offset="0%" stopColor="#0b1f3a" />
           <stop offset="32%" stopColor="#0b1f3a" />
@@ -37,7 +38,7 @@ export function HeroNotaTitle({ reduceMotion }: HeroNotaTitleProps) {
                 attributeName="x1"
                 dur="10s"
                 repeatCount="indefinite"
-                values="-120;0;120"
+                values="-80;0;80"
                 calcMode="spline"
                 keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
                 keyTimes="0;0.5;1"
@@ -46,7 +47,7 @@ export function HeroNotaTitle({ reduceMotion }: HeroNotaTitleProps) {
                 attributeName="x2"
                 dur="10s"
                 repeatCount="indefinite"
-                values="320;520;720"
+                values="240;320;400"
                 calcMode="spline"
                 keySplines="0.45 0 0.55 1;0.45 0 0.55 1"
                 keyTimes="0;0.5;1"
@@ -55,7 +56,17 @@ export function HeroNotaTitle({ reduceMotion }: HeroNotaTitleProps) {
           )}
         </linearGradient>
       </defs>
-      <text x="12" y="86" fill={fill} className="hero-nota-svg-text">
+      <text
+        x="160"
+        y="98"
+        textAnchor="middle"
+        dominantBaseline="alphabetic"
+        fill={fill}
+        fontFamily="Open Sans, Arial, Helvetica, sans-serif"
+        fontSize="82"
+        fontWeight="700"
+        letterSpacing="-1.2"
+      >
         NOTA
       </text>
     </svg>
