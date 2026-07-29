@@ -93,70 +93,17 @@
   }
 
   /*
-   * Strategy A — solid ink glyphs + soft halo behind only.
-   * No background-clip / SVG fill / mix-blend / text-stroke on the letters.
+   * Strategy B — solid SVG ink + soft beam masked to letter shapes.
+   * Glyphs never use animated gradient fill.
    */
-  .hero-nota {
-    position: relative;
-    display: inline-block;
-    font-family: var(--font-display);
-    font-size: clamp(3.25rem, 13vw, 9rem);
-    font-weight: 700;
-    line-height: 1.12;
-    letter-spacing: -0.02em;
-    padding: 0.08em 0.12em;
-    overflow: visible;
-  }
-
-  .hero-nota__ink {
-    position: relative;
-    z-index: 1;
+  .hero-nota-svg {
     display: block;
-    color: var(--color-ink);
-  }
-
-  .hero-nota__halo {
-    position: absolute;
-    z-index: 0;
-    top: 5%;
-    bottom: 5%;
-    width: 55%;
-    left: -45%;
-    border-radius: 999px;
-    pointer-events: none;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(96, 165, 250, 0.55) 0%,
-      rgba(37, 99, 235, 0.28) 45%,
-      transparent 72%
-    );
-    filter: blur(28px);
-    opacity: 0;
-    animation: hero-nota-halo-sweep 7s ease-in-out infinite;
-  }
-
-  @keyframes hero-nota-halo-sweep {
-    0% {
-      left: -50%;
-      opacity: 0;
-    }
-    14% {
-      opacity: 1;
-    }
-    86% {
-      opacity: 1;
-    }
-    100% {
-      left: 95%;
-      opacity: 0;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .hero-nota__halo {
-      animation: none;
-      opacity: 0;
-    }
+    margin-inline: auto;
+    height: clamp(3.25rem, 13vw, 9rem);
+    width: auto;
+    max-width: min(92vw, 42rem);
+    aspect-ratio: 320 / 128;
+    overflow: visible;
   }
 
   .skip-link {
