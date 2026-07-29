@@ -6,12 +6,15 @@ import {
   FOUNDER_PERSON_ID,
   FOUNDER_PROFILE_URL,
   FOUNDER_SAME_AS,
+  PORTFOLIO_URL,
 } from "./founder";
-import { CONTACT_EMAIL } from "./contact";
 
-/** Entité Person schema.org — réutilisée au build statique et en SPA. */
-export function buildFounderPersonNode(siteUrl: string): Record<string, unknown> {
-  const node: Record<string, unknown> = {
+/**
+ * Référence légère vers l’entité Person du portfolio.
+ * Ne pas inventer un second @id sur heynota.app.
+ */
+export function buildFounderPersonNode(_siteUrl: string): Record<string, unknown> {
+  return {
     "@type": "Person",
     "@id": FOUNDER_PERSON_ID,
     name: FOUNDER_FULL_NAME,
@@ -19,29 +22,8 @@ export function buildFounderPersonNode(siteUrl: string): Record<string, unknown>
     familyName: FOUNDER_FAMILY_NAME,
     jobTitle: FOUNDER_JOB_TITLE,
     url: FOUNDER_PROFILE_URL,
-    email: CONTACT_EMAIL,
-    worksFor: { "@id": `${siteUrl}/#organization` },
-    knowsAbout: [
-      "Nota CRM",
-      "CRM",
-      "logiciel interventions terrain",
-      "applications web",
-      "gestion d'équipes terrain",
-    ],
-    description:
-      "Alkhast Vatsaev a développé Nota CRM, logiciel d’interventions terrain publié sur heynota.app.",
-    contactPoint: {
-      "@type": "ContactPoint",
-      contactType: "customer support",
-      email: CONTACT_EMAIL,
-      url: `${siteUrl}/contact`,
-      availableLanguage: ["French", "English"],
-    },
+    sameAs: FOUNDER_SAME_AS.length > 0 ? FOUNDER_SAME_AS : [PORTFOLIO_URL],
   };
-  if (FOUNDER_SAME_AS.length > 0) {
-    node.sameAs = FOUNDER_SAME_AS;
-  }
-  return node;
 }
 
 /** Liens Organization ↔ fondateur + noms de marque. */

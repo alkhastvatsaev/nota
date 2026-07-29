@@ -60,7 +60,8 @@ if (sitemap) {
     "sitemap alternative-excel",
     /alternative-excel-commercial/.test(sitemap),
   );
-  check("sitemap profil fondateur", /alkhast-vatsaev/.test(sitemap));
+  check("sitemap sans page satellite nom", !/alkhast-vatsaev/.test(sitemap));
+  check("sitemap home", /heynota\.app\/?</.test(sitemap) || /heynota\.app\/<\/loc>/.test(sitemap) || /<loc>https:\/\/heynota\.app\/<\/loc>/.test(sitemap));
 }
 
 if (html) {
@@ -103,9 +104,12 @@ if (html) {
   check("SoftwareApplication", /"@type"\s*:\s*"SoftwareApplication"/i.test(html));
   check("Person schema (fondateur)", /"@type"\s*:\s*"Person"/i.test(html));
   check(
-    "meta author Alkhast",
-    /name=["']author["'][^>]+content=["'][^"']*Alkhast Vatsaev/i.test(html)
-      || /content=["'][^"']*Alkhast Vatsaev/i.test(html),
+    "Person @id portfolio",
+    /alkhastvatsaev\.dev\/#person/.test(html),
+  );
+  check(
+    "pas de page satellite dans HTML",
+    !/heynota\.app\/alkhast-vatsaev/.test(html),
   );
   check("link rel=author", /rel=["']author["']/i.test(html));
   check("h1 crawlable", /<h1[\s>]/i.test(html));

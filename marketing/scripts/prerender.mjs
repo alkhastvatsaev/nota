@@ -11,8 +11,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, "..");
 const dist = join(root, "dist");
 const siteUrl = (process.env.VITE_SITE_URL || "https://heynota.app").replace(/\/$/, "");
+const portfolioUrl = "https://alkhastvatsaev.dev";
+const personId = `${portfolioUrl}/#person`;
 const snapshotPath = join(dist, "prerender-pages.json");
-const FOUNDER_PATH = "/alkhast-vatsaev";
 
 function escapeHtml(s) {
   return String(s)
@@ -28,7 +29,6 @@ function pageUrl(path) {
 
 function patchJsonLd(html, page) {
   const url = pageUrl(page.path);
-  const personId = `${siteUrl}${FOUNDER_PATH}#person`;
   return html.replace(
     /<script type="application\/ld\+json" id="nota-jsonld">([\s\S]*?)<\/script>/,
     (_m, raw) => {
@@ -45,17 +45,11 @@ function patchJsonLd(html, page) {
         webpage["@id"] = `${url}#webpage`;
         webpage.name = page.title;
         webpage.description = page.description;
-        if (page.path === FOUNDER_PATH) {
-          webpage.about = { "@id": personId };
-          webpage.mainEntity = { "@id": personId };
-        } else if (page.path === "/") {
-          webpage.about = { "@id": `${siteUrl}/#software` };
+        webpage.about = { "@id": `${siteUrl}/#software` };
+        if (page.path === "/") {
           webpage.author = { "@id": personId };
-          delete webpage.mainEntity;
-        } else {
-          webpage.about = { "@id": `${siteUrl}/#software` };
-          delete webpage.mainEntity;
         }
+        delete webpage.mainEntity;
       }
       data["@graph"] =
         page.path === "/" ? graph : graph.filter((g) => g["@type"] !== "FAQPage");
@@ -67,12 +61,16 @@ function patchJsonLd(html, page) {
 function injectPage(html, page) {
   const url = pageUrl(page.path);
   const blocks = (page.blocks || []).slice(0, 28);
+  const founderLine =
+    page.path === "/"
+      ? `<p><a href="${portfolioUrl}">Développé par Alkhast Vatsaev</a></p>`
+      : "";
   const crawlable = `
   <main id="prerender">
     <h1>${escapeHtml(page.h1 || page.title)}</h1>
     <p>${escapeHtml(page.lead || page.description)}</p>
     ${blocks.map((b) => `<p>${escapeHtml(b)}</p>`).join("\n    ")}
-    <p><a href="${siteUrl}${FOUNDER_PATH}">Alkhast Vatsaev a développé Nota CRM</a></p>
+    ${founderLine}
     <p><a href="${siteUrl}/contact">Contact</a> · <a href="https://app.heynota.app">Ouvrir Nota</a></p>
   </main>`;
 
@@ -118,16 +116,12 @@ function writePage(page, template) {
 
 function main() {
   const templatePath = join(dist, "index.html");
-  if (!existsSync(templatePath)) {
-    console.error("prerender: dist/index.html missing");
+  if (!existsSync(templatePath) || !existsSync(snapshotPath)) {
+    console.error("prerender: missing dist/index.html or prerender-pages.json — run vite build first");
     process.exit(1);
   }
-  if (!existsSync(snapshotPath)) {
-    console.error("prerender: missing prerender-pages.json (vite plugin)");
-    process.exit(1);
-  }
-  const pages = JSON.parse(readFileSync(snapshotPath, "utf8"));
   const template = readFileSync(templatePath, "utf8");
+  const pages = JSON.parse(readFileSync(snapshotPath, "utf8"));
   for (const page of pages) writePage(page, template);
   console.log(`prerender: ${pages.length} pages`);
 }

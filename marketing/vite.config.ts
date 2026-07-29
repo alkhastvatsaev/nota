@@ -5,7 +5,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { FAQ_ITEMS } from "./src/content/faq";
 import { ALL_PAGES, HOME_SEO } from "./src/config/pages-data";
-import { FOUNDER_PERSON_ID, FOUNDER_PROFILE_PATH, NOTA_SAME_AS } from "./src/config/founder";
+import { FOUNDER_PERSON_ID, NOTA_SAME_AS } from "./src/config/founder";
 import { buildFounderPersonNode, organizationFounderFields } from "./src/config/jsonLdFounder";
 import { LANDING_PAGES_FR } from "./src/content/landing-pages.fr";
 import { GUIDE_PAGES_FR } from "./src/content/guides-i18n";
@@ -42,9 +42,7 @@ function locFor(siteUrl: string, path: string) {
 function buildStaticJsonLd(siteUrl: string, appUrl: string) {
   const dateModified = new Date().toISOString().slice(0, 10);
   const description = HOME_SEO.description;
-  const personId = FOUNDER_PERSON_ID.startsWith("http")
-    ? FOUNDER_PERSON_ID
-    : `${siteUrl}${FOUNDER_PROFILE_PATH}#person`;
+  const personId = FOUNDER_PERSON_ID;
 
   return {
     "@context": "https://schema.org",
@@ -103,7 +101,8 @@ function buildStaticJsonLd(siteUrl: string, appUrl: string) {
         applicationCategory: "BusinessApplication",
         applicationSubCategory: "Customer Relationship Management",
         operatingSystem: "Web",
-        url: appUrl,
+        url: siteUrl,
+        downloadUrl: appUrl,
         description:
           "Nota CRM : carte des interventions, hub technicien mobile, dossiers et facturation. Accès direct.",
         inLanguage: "fr-FR",
@@ -156,10 +155,11 @@ function buildPrerenderSnapshot() {
     if (page.path === "/") {
       h1 = "Nota CRM — interventions terrain";
       lead =
-        "Nota CRM : carte des missions, hub technicien mobile et facturation. Développé par Alkhast Vatsaev.";
+        "Nota CRM : carte des missions, hub technicien mobile et facturation pour les entreprises qui interviennent chez leurs clients.";
       blocks = [
         "Ouvrez l’app sur app.heynota.app — sans inscription sur heynota.app.",
-        "Alkhast Vatsaev a développé Nota CRM.",
+        "Carte des missions, hub technicien mobile, facturation liée aux interventions.",
+        "Pour la maintenance, l’installation, le dépannage et les services récurrents.",
       ];
     } else {
       const landing = LANDING_PAGES_FR.find((p) => p.path === page.path);
@@ -183,9 +183,8 @@ function buildPrerenderSnapshot() {
         lead = c.lead;
         blocks = blocksFromSections(c.sections);
       } else if (page.path === "/contact") {
-        h1 = "Contact Alkhast Vatsaev — fondateur de Nota CRM";
-        lead =
-          "Contactez Alkhast Vatsaev, qui a développé Nota CRM. Email : alkhastvatsaev@icloud.com";
+        h1 = "Contact Nota CRM";
+        lead = "Contactez l’équipe Nota CRM. Email : alkhastvatsaev@icloud.com";
         blocks = ["Formulaire sur heynota.app/contact", "Nota CRM — app.heynota.app"];
       } else if (page.path === "/ressources/checklist-interventions-terrain") {
         const c = getChecklistContent("fr");

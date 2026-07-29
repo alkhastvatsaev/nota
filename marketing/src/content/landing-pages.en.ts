@@ -1,4 +1,3 @@
-import { FOUNDER_FULL_NAME, FOUNDER_PROFILE_PATH } from "../config/founder";
 import type { LandingPageContent } from "./landing-types";
 
 export const LANDING_PAGES_EN: LandingPageContent[] = [
@@ -188,54 +187,15 @@ export const LANDING_PAGES_EN: LandingPageContent[] = [
     faq: [],
   },
   {
-    path: FOUNDER_PROFILE_PATH,
-    eyebrow: "Founder & developer",
-    title: FOUNDER_FULL_NAME,
-    lead: "Alkhast Vatsaev built Nota CRM — field service software (heynota.app / app.heynota.app).",
-    sections: [
-      {
-        h2: "Who I am",
-        paragraphs: [
-          "My name is Alkhast Vatsaev. I built Nota CRM to replace Excel / WhatsApp chaos with a clear tool: jobs on a map, team tracking, billing.",
-        ],
-      },
-      {
-        h2: "What I built",
-        paragraphs: [
-          "Nota CRM serves field teams — maintenance, install, repair, recurring services. The app I built combines a job map, a mobile technician hub and billing.",
-          "The marketing site is heynota.app. The Nota CRM app is at app.heynota.app.",
-        ],
-      },
-      {
-        h2: "Try Nota CRM",
-        paragraphs: [
-          "Open the app directly from heynota.app. No sign-up form is required on this marketing site.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: "Who built Nota CRM?",
-        answer:
-          "Alkhast Vatsaev built Nota CRM. Profile: heynota.app/alkhast-vatsaev — app: app.heynota.app.",
-      },
-      {
-        question: "What is Nota CRM?",
-        answer:
-          "Nota CRM is field service software (map, mobile technician hub, billing), built by Alkhast Vatsaev.",
-      },
-    ],
-  },
-  {
     path: "/a-propos",
     eyebrow: "About",
     title: "About Nota",
     lead: "Nota helps field-service companies track jobs, technicians and billing in one place.",
     sections: [
       {
-        h2: "Founder",
+        h2: "Product",
         paragraphs: [
-          "Nota was built by Alkhast Vatsaev — product, engineering and user experience.",
+          "Nota CRM is field service software: live job map, mobile technician hub and billing — built for teams that work at the customer site.",
         ],
       },
       {
@@ -253,7 +213,7 @@ export const LANDING_PAGES_EN: LandingPageContent[] = [
       {
         h2: "Access & hosting",
         paragraphs: [
-          "This site collects no email. To use Nota, open the app. Cloud hosting (Vercel, Firebase); business data stays in your company workspace.",
+          "This site collects no marketing email. To use Nota, open the app. Cloud hosting (Vercel, Firebase); business data stays in your company workspace.",
         ],
       },
     ],

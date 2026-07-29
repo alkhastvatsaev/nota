@@ -1,4 +1,3 @@
-import { FOUNDER_PROFILE_PATH } from "./founder";
 import type { Locale } from "../i18n/types";
 import { GUIDE_PAGES_EN, GUIDE_PAGES_FR } from "../content/guides-i18n";
 import { LANDING_PAGES_EN } from "../content/landing-pages.en";
@@ -26,7 +25,7 @@ const HOME_FR: PageSeo = {
   path: "/",
   title: "Nota CRM — interventions terrain (carte, mobile, facturation)",
   description:
-    "Nota CRM : carte des missions, mobile technicien et facturation. App sur app.heynota.app. Développé par Alkhast Vatsaev.",
+    "Nota CRM : carte des missions, hub technicien mobile et facturation pour les entreprises qui interviennent chez leurs clients. App sur app.heynota.app.",
   priority: 1,
 };
 
@@ -34,24 +33,8 @@ const HOME_EN: PageSeo = {
   path: "/",
   title: "Nota CRM — field service (map, mobile, billing)",
   description:
-    "Nota CRM: live job map, technician mobile and billing. App at app.heynota.app. Built by Alkhast Vatsaev.",
+    "Nota CRM: live job map, mobile technician hub and billing for companies with on-site work. App at app.heynota.app.",
   priority: 1,
-};
-
-const FOUNDER_FR: PageSeo = {
-  path: FOUNDER_PROFILE_PATH,
-  title: "Alkhast Vatsaev — a développé Nota CRM",
-  description:
-    "Alkhast Vatsaev a développé Nota CRM (heynota.app) : carte des missions, hub technicien mobile et facturation pour les interventions terrain.",
-  priority: 0.95,
-};
-
-const FOUNDER_EN: PageSeo = {
-  path: FOUNDER_PROFILE_PATH,
-  title: "Alkhast Vatsaev — built Nota CRM",
-  description:
-    "Alkhast Vatsaev built Nota CRM (heynota.app): job map, mobile technician hub and billing for field service teams.",
-  priority: 0.95,
 };
 
 const CRM_FR: PageSeo = {
@@ -88,17 +71,15 @@ const EXCEL_EN: PageSeo = {
 
 const CONTACT_FR: PageSeo = {
   path: "/contact",
-  title: "Contact Alkhast Vatsaev — fondateur de Nota CRM",
-  description:
-    "Contactez Alkhast Vatsaev, qui a développé Nota CRM. Formulaire ou email : alkhastvatsaev@icloud.com.",
+  title: "Contact Nota CRM",
+  description: "Contactez l’équipe Nota CRM. Formulaire ou email : alkhastvatsaev@icloud.com.",
   priority: 0.9,
 };
 
 const CONTACT_EN: PageSeo = {
   path: "/contact",
-  title: "Contact Alkhast Vatsaev — Nota CRM founder",
-  description:
-    "Contact Alkhast Vatsaev, who built Nota CRM. Form or email: alkhastvatsaev@icloud.com.",
+  title: "Contact Nota CRM",
+  description: "Contact the Nota CRM team. Form or email: alkhastvatsaev@icloud.com.",
   priority: 0.9,
 };
 
@@ -106,7 +87,7 @@ const CHECKLIST_FR: PageSeo = {
   path: "/ressources/checklist-interventions-terrain",
   title: "Checklist interventions terrain 2026 — Excel vs Nota CRM",
   description:
-    "Grille originale Alkhast Vatsaev / Nota CRM : avant, pendant, après mission + signaux qu’Excel ne suffit plus. Imprimable / PDF.",
+    "Grille pour décider si un tableur suffit encore : avant, pendant, après mission + signaux qu’Excel ne suffit plus. Imprimable / PDF.",
   priority: 0.92,
 };
 
@@ -114,14 +95,12 @@ const CHECKLIST_EN: PageSeo = {
   path: "/ressources/checklist-interventions-terrain",
   title: "2026 field-job checklist — Spreadsheet vs Nota CRM",
   description:
-    "Original Alkhast Vatsaev / Nota CRM grid: before, during, after jobs + signs a spreadsheet is not enough. Printable / PDF.",
+    "Grid to decide if a spreadsheet still works: before, during, after jobs + signs you need field software. Printable / PDF.",
   priority: 0.92,
 };
 
 function buildAllPages(locale: Locale): PageSeo[] {
-  const landings = (locale === "en" ? LANDING_PAGES_EN : LANDING_PAGES_FR).filter(
-    (page) => page.path !== FOUNDER_PROFILE_PATH
-  );
+  const landings = locale === "en" ? LANDING_PAGES_EN : LANDING_PAGES_FR;
   const guides = locale === "en" ? GUIDE_PAGES_EN : GUIDE_PAGES_FR;
   const landingSeo = landings.map((page) =>
     seoFromContent(
@@ -134,7 +113,6 @@ function buildAllPages(locale: Locale): PageSeo[] {
   const guideSeo = guides.map((page) => seoFromContent(page.path, page.title, page.lead, 0.75));
   return [
     locale === "en" ? HOME_EN : HOME_FR,
-    locale === "en" ? FOUNDER_EN : FOUNDER_FR,
     ...landingSeo,
     ...guideSeo,
     locale === "en" ? CRM_EN : CRM_FR,
@@ -154,7 +132,6 @@ export function getAllPages(locale: Locale): PageSeo[] {
 
 /** Build / sitemap — FR canonique pour crawl Google FR. */
 export const HOME_SEO = HOME_FR;
-export const FOUNDER_PROFILE_SEO = FOUNDER_FR;
 export const CRM_SANS_INSCRIPTION_SEO = CRM_FR;
 export const ALTERNATIVE_EXCEL_SEO = EXCEL_FR;
 export const ALL_PAGES = buildAllPages("fr");

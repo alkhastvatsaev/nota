@@ -17,7 +17,7 @@ const FR: ChecklistContent = {
   path: PATH,
   eyebrow: "Ressource gratuite",
   title: "Checklist interventions terrain 2026 — Excel vs Nota CRM",
-  lead: "Grille originale (Alkhast Vatsaev / Nota CRM) pour décider si un tableur suffit encore, ou s’il faut un logiciel d’interventions terrain.",
+  lead: "Grille pour décider si un tableur suffit encore, ou s’il faut un logiciel d’interventions terrain (Nota CRM).",
   whyUnique:
     "Document créé pour heynota.app — pas une reprise de blog générique. À imprimer, partager en équipe, ou joindre à un devis interne.",
   sections: [
@@ -67,14 +67,14 @@ const FR: ChecklistContent = {
     "Cochez en réunion d’équipe — 15 minutes suffisent.",
     "Si 3+ signaux Excel sont cochés : testez Nota CRM sur app.heynota.app.",
   ],
-  ctaNote: "Checklist publiée par Alkhast Vatsaev, développeur de Nota CRM (heynota.app).",
+  ctaNote: "Checklist publiée par Nota CRM (heynota.app).",
 };
 
 const EN: ChecklistContent = {
   path: PATH,
   eyebrow: "Free resource",
   title: "2026 field-job checklist — Spreadsheet vs Nota CRM",
-  lead: "Original grid (Alkhast Vatsaev / Nota CRM) to decide if a spreadsheet still works — or you need field service software.",
+  lead: "Grid to decide if a spreadsheet still works — or you need field service software (Nota CRM).",
   whyUnique:
     "Created for heynota.app — not recycled blog filler. Print it, share with the team, or attach to an internal brief.",
   sections: [
@@ -124,7 +124,7 @@ const EN: ChecklistContent = {
     "Run it in a 15-minute team meeting.",
     "If 3+ spreadsheet signals are checked: try Nota CRM at app.heynota.app.",
   ],
-  ctaNote: "Checklist published by Alkhast Vatsaev, who built Nota CRM (heynota.app).",
+  ctaNote: "Checklist published by Nota CRM (heynota.app).",
 };
 
 export function getChecklistContent(locale: Locale): ChecklistContent {

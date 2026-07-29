@@ -13,12 +13,7 @@ import {
   type PageSeo,
 } from "../config/pages";
 import { GOOGLE_SITE_VERIFICATION } from "../config/site";
-import {
-  FOUNDER_FULL_NAME,
-  FOUNDER_PERSON_ID,
-  FOUNDER_PROFILE_PATH,
-  NOTA_SAME_AS,
-} from "../config/founder";
+import { FOUNDER_FULL_NAME, FOUNDER_PERSON_ID, NOTA_SAME_AS } from "../config/founder";
 import { buildFounderPersonNode, organizationFounderFields } from "../config/jsonLdFounder";
 import { useLocale } from "../i18n/LocaleContext";
 import type { Locale } from "../i18n/types";
@@ -98,7 +93,6 @@ function buildJsonLd(page: PageSeo, known: boolean, locale: Locale) {
   const dateModified = new Date().toISOString().slice(0, 10);
   const url = absoluteUrl(page.path);
   const isHome = page.path === "/";
-  const isFounderProfile = page.path === FOUNDER_PROFILE_PATH;
 
   const graph: Record<string, unknown>[] = [
     {
@@ -138,13 +132,12 @@ function buildJsonLd(page: PageSeo, known: boolean, locale: Locale) {
       description: page.description,
       inLanguage,
       dateModified,
-      ...(isFounderProfile
+      ...(isHome
         ? {
-            about: { "@id": FOUNDER_PERSON_ID },
-            mainEntity: { "@id": FOUNDER_PERSON_ID },
+            author: { "@id": FOUNDER_PERSON_ID },
+            about: { "@id": `${SITE_URL}/#software` },
           }
         : {}),
-      ...(isHome ? { author: { "@id": FOUNDER_PERSON_ID } } : {}),
       primaryImageOfPage: {
         "@type": "ImageObject",
         url: `${SITE_URL}/og-image.png`,
@@ -155,12 +148,13 @@ function buildJsonLd(page: PageSeo, known: boolean, locale: Locale) {
     {
       "@type": "SoftwareApplication",
       "@id": `${SITE_URL}/#software`,
-      name: SITE_NAME,
+      name: "Nota",
       alternateName: ["Nota CRM", "HeyNota", "heynota"],
       applicationCategory: "BusinessApplication",
       applicationSubCategory: "Customer Relationship Management",
       operatingSystem: "Web",
-      url: APP_URL,
+      url: SITE_URL,
+      downloadUrl: APP_URL,
       description: t.softwareDescription,
       inLanguage,
       sameAs: NOTA_SAME_AS,

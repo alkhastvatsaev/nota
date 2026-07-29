@@ -1,11 +1,9 @@
 /* TEAM */
 Founder & developer: Alkhast Vatsaev
+Portfolio: https://alkhastvatsaev.dev
+Site: https://heynota.app
+App: https://app.heynota.app
 Contact: alkhastvatsaev@icloud.com
-Site: https://heynota.app/alkhast-vatsaev
-Wikidata: https://www.wikidata.org/wiki/Q140742680
-
 /* SITE */
-Name: Nota CRM
-Wikidata: https://www.wikidata.org/wiki/Q140743042
 Standards: HTML5, CSS, JavaScript
 Software: Vite, React

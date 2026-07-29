@@ -72,7 +72,12 @@
     },
     {
       "source": "/al-khast-vatsaev",
-      "destination": "/alkhast-vatsaev",
+      "destination": "https://alkhastvatsaev.dev",
+      "permanent": true
+    },
+    {
+      "source": "/alkhast-vatsaev",
+      "destination": "https://alkhastvatsaev.dev",
       "permanent": true
     },
     {

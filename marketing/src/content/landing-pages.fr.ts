@@ -1,4 +1,3 @@
-import { FOUNDER_FULL_NAME, FOUNDER_PROFILE_PATH } from "../config/founder";
 import type { LandingPageContent } from "./landing-types";
 
 export const LANDING_PAGES_FR: LandingPageContent[] = [
@@ -189,54 +188,15 @@ export const LANDING_PAGES_FR: LandingPageContent[] = [
     faq: [],
   },
   {
-    path: FOUNDER_PROFILE_PATH,
-    eyebrow: "Fondateur & développeur",
-    title: FOUNDER_FULL_NAME,
-    lead: "Alkhast Vatsaev a développé Nota CRM — logiciel d’interventions terrain (heynota.app / app.heynota.app).",
-    sections: [
-      {
-        h2: "Qui je suis",
-        paragraphs: [
-          "Je m’appelle Alkhast Vatsaev. J’ai développé Nota CRM pour remplacer le bricolage Excel / WhatsApp par un outil clair : missions sur carte, suivi d’équipe, facturation.",
-        ],
-      },
-      {
-        h2: "Ce que j’ai développé",
-        paragraphs: [
-          "Nota CRM sert les équipes terrain — maintenance, installation, dépannage, services récurrents. L’application que j’ai construite regroupe la carte des interventions, le hub technicien mobile et la facturation.",
-          "Le site marketing est heynota.app. L’application Nota CRM est sur app.heynota.app.",
-        ],
-      },
-      {
-        h2: "Essayer Nota CRM",
-        paragraphs: [
-          "Ouvrez l’application directement depuis heynota.app. Aucun formulaire d’inscription n’est demandé sur ce site.",
-        ],
-      },
-    ],
-    faq: [
-      {
-        question: "Qui a développé Nota CRM ?",
-        answer:
-          "Alkhast Vatsaev a développé Nota CRM. Profil : heynota.app/alkhast-vatsaev — app : app.heynota.app.",
-      },
-      {
-        question: "Qu’est-ce que Nota CRM ?",
-        answer:
-          "Nota CRM est un logiciel d’interventions terrain (carte, mobile technicien, facturation), développé par Alkhast Vatsaev.",
-      },
-    ],
-  },
-  {
     path: "/a-propos",
     eyebrow: "À propos",
     title: "À propos de Nota",
     lead: "Nota aide les entreprises à interventions à suivre missions, techniciens et facturation au même endroit.",
     sections: [
       {
-        h2: "Fondateur",
+        h2: "Produit",
         paragraphs: [
-          "Nota a été développé par Alkhast Vatsaev — produit, code et expérience utilisateur.",
+          "Nota CRM est un logiciel d’interventions terrain : carte des missions, hub technicien mobile et facturation — pensé pour les équipes qui travaillent chez le client.",
         ],
       },
       {
@@ -254,7 +214,7 @@ export const LANDING_PAGES_FR: LandingPageContent[] = [
       {
         h2: "Accès & hébergement",
         paragraphs: [
-          "Ce site ne collecte pas d’email. Pour utiliser Nota, ouvrez l’application. Hébergement cloud (Vercel, Firebase) ; les données métier restent dans votre espace société.",
+          "Ce site ne collecte pas d’email marketing. Pour utiliser Nota, ouvrez l’application. Hébergement cloud (Vercel, Firebase) ; les données métier restent dans votre espace société.",
         ],
       },
     ],

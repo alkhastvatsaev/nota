@@ -18,7 +18,6 @@ export const LANDING_PAGES = LANDING_PAGES_FR;
 export const LANDING_BY_PATH = new Map(LANDING_PAGES_FR.map((p) => [p.path, p]));
 
 export const LEGACY_PATH_REDIRECTS: Record<string, string> = {
-  "/al-khast-vatsaev": "/alkhast-vatsaev",
   "/logiciel-serrurier": "/logiciel-interventions-terrain",
   "/depannage-interventions": "/interventions-terrain",
   "/facturation-depannage": "/facturation-interventions",

@@ -2,7 +2,7 @@ import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "fr
 import { useRef } from "react";
 import { useLocale } from "../i18n/LocaleContext";
 
-const DEMO_ITEMS = [["Northwind", "Helio"], ["Cedar", "Atlas"], ["Orbit"], ["Lumen"]];
+const DEMO_ITEMS = [["Northwind", "Helio"], ["Cedar", "Atlas"], ["Orbit", "Lumen"], ["Invoice"]];
 
 export function ProductStage() {
   const { t } = useLocale();

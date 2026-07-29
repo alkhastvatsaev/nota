@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { getChecklistContent } from "../content/asset-checklist";
 import { CONTACT_PATH } from "../config/contact";
-import { FOUNDER_FULL_NAME, FOUNDER_PROFILE_PATH } from "../config/founder";
 import { useLocale } from "../i18n/LocaleContext";
 import { OpenNotaLink } from "../components/OpenNotaLink";
 import { SeoFooterNav } from "../components/SeoFooterNav";
@@ -78,13 +77,6 @@ export function ChecklistAssetPage() {
 
         <p className="mt-8 text-sm font-normal text-mute">
           {content.ctaNote}{" "}
-          <Link
-            to={FOUNDER_PROFILE_PATH}
-            className="text-accent underline-offset-2 hover:underline"
-          >
-            {FOUNDER_FULL_NAME}
-          </Link>
-          {" · "}
           <Link to={CONTACT_PATH} className="text-accent underline-offset-2 hover:underline">
             {t.contact}
           </Link>

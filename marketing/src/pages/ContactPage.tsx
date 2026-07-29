@@ -1,7 +1,5 @@
 import { type FormEvent, useState } from "react";
-import { Link } from "react-router-dom";
 import { CONTACT_EMAIL, CONTACT_MAILTO } from "../config/contact";
-import { FOUNDER_FULL_NAME, FOUNDER_PROFILE_PATH } from "../config/founder";
 import { useLocale } from "../i18n/LocaleContext";
 import { OpenNotaLink } from "../components/OpenNotaLink";
 import { SeoFooterNav } from "../components/SeoFooterNav";
@@ -81,16 +79,7 @@ export function ContactPage() {
           >
             {CONTACT_EMAIL}
           </a>
-          <p className="mt-2 text-sm font-normal text-mute">
-            <Link
-              to={FOUNDER_PROFILE_PATH}
-              className="text-accent underline-offset-2 hover:underline"
-            >
-              {FOUNDER_FULL_NAME}
-            </Link>
-            {" · "}
-            Nota CRM
-          </p>
+          <p className="mt-2 text-sm font-normal text-mute">Nota CRM · heynota.app</p>
         </div>
 
         <form onSubmit={onSubmit} className="mt-10 space-y-5" noValidate>
