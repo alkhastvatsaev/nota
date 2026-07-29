@@ -124,7 +124,7 @@ export const UI: Record<Locale, UiDict> = {
       },
     ],
     productHeading: "Ce que vous voyez, concrètement",
-    productLead: "Pas un schéma abstrait : les trois endroits où vous gagnez du temps chaque jour.",
+    productLead: "Pas un schéma abstrait : le fil réel de vos missions, de la carte à la facture.",
     productStages: ["Carte", "Terrain", "Bureau", "Facture"],
     productDemoLines: [
       ["Mission Dupont — en route", "Chaudière — sur place"],
@@ -265,7 +265,7 @@ export const UI: Record<Locale, UiDict> = {
       },
     ],
     productHeading: "What you’ll actually see",
-    productLead: "Not an abstract diagram: three places you save time every day.",
+    productLead: "Not an abstract diagram: the real thread of your jobs, from map to invoice.",
     productStages: ["Map", "Field", "Office", "Invoice"],
     productDemoLines: [
       ["Dupont job — en route", "Boiler — on site"],
