@@ -86,8 +86,8 @@ type UiDict = {
 
 export const UI: Record<Locale, UiDict> = {
   fr: {
-    openNota: "Ouvrir Nota",
-    heroCta: "Voir mes missions sur la carte",
+    heroCta: "Voir mes missions",
+    openNota: "Voir mes missions",
     openNotaTitle: "Ouvrir l’application Nota — sans inscription sur ce site",
     openNotaAria: "Ouvrir Nota — accéder à l’application",
     skipToContent: "Aller au contenu",
@@ -201,7 +201,8 @@ export const UI: Record<Locale, UiDict> = {
     contactDirect: "Email direct",
     footerPrivacy: "Contact via le formulaire ou l’email affiché. Pas de newsletter.",
     featuresHeading: "Trois endroits où vous gagnez du temps",
-    featuresLead: "Une idée simple : moins de courses après l’info, plus de missions terminées.",
+    featuresLead:
+      "Une idée simple : moins de courses après l’info, plus de missions terminées. Trois vues réelles de l’app.",
     audienceHeading: "Si vous vous reconnaissez ici",
     audienceBody:
       "Maintenance, installation, dépannage, services récurrents, IT sur site, property management — toute équipe qui envoie des techniciens chez le client et en a assez d’Excel + messagerie.",
@@ -227,8 +228,8 @@ export const UI: Record<Locale, UiDict> = {
     ],
   },
   en: {
-    openNota: "Open Nota",
-    heroCta: "See my jobs on the map",
+    heroCta: "See my jobs",
+    openNota: "See my jobs",
     openNotaTitle: "Open the Nota app — no sign-up on this site",
     openNotaAria: "Open Nota — go to the application",
     skipToContent: "Skip to content",
@@ -342,7 +343,8 @@ export const UI: Record<Locale, UiDict> = {
     contactDirect: "Direct email",
     footerPrivacy: "Contact via the form or the email shown. No newsletter.",
     featuresHeading: "Three places you save time",
-    featuresLead: "One simple idea: less chasing information, more jobs finished.",
+    featuresLead:
+      "One simple idea: less chasing information, more jobs finished. Three real views of the app.",
     audienceHeading: "If this sounds like you",
     audienceBody:
       "Maintenance, install, repair, recurring services, on-site IT, property management — any team that sends technicians to customers and is tired of spreadsheets + messaging.",

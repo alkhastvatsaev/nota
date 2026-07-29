@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { getFaqItems } from "../content/faq";
 import { CONTACT_EMAIL, CONTACT_MAILTO, CONTACT_PATH } from "../config/contact";
+import { getHomeFooterLinks } from "../config/seo-nav";
 import { useLocale } from "../i18n/LocaleContext";
 import { FounderCredit } from "./FounderCredit";
 import { SeoFooterNav } from "./SeoFooterNav";
@@ -8,12 +9,15 @@ import { SeoFooterNav } from "./SeoFooterNav";
 type FooterProps = {
   /** Sur la home, la FAQ est déjà dans le corps — évite le doublon. */
   hideFaq?: boolean;
+  /** Nav courte (home) pour ne pas saturer l’attention en bas de page. */
+  compactNav?: boolean;
 };
 
-export function Footer({ hideFaq = false }: FooterProps) {
+export function Footer({ hideFaq = false, compactNav = false }: FooterProps) {
   const year = new Date().getFullYear();
   const { locale, t } = useLocale();
   const faq = getFaqItems(locale);
+  const compactLinks = getHomeFooterLinks(locale);
 
   return (
     <footer className="border-t border-line bg-mist px-6 py-10 sm:px-10">
@@ -23,10 +27,20 @@ export function Footer({ hideFaq = false }: FooterProps) {
             <p className="font-display shrink-0 tracking-[0.22em] text-ink">NOTA</p>
             <FounderCredit size="footer" className="min-w-0" />
           </div>
-          <SeoFooterNav
-            className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-mute"
-            linkClassName="transition hover:text-ink"
-          />
+          {compactNav ? (
+            <nav className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-mute" aria-label="Nota">
+              {compactLinks.map((link) => (
+                <Link key={link.to} to={link.to} className="transition hover:text-ink">
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+          ) : (
+            <SeoFooterNav
+              className="flex flex-wrap gap-x-5 gap-y-2 text-xs text-mute"
+              linkClassName="transition hover:text-ink"
+            />
+          )}
         </div>
 
         <p className="mt-6 text-sm text-mute">

@@ -40,5 +40,12 @@ export function getSeoNavLinks(locale: Locale): NavLink[] {
   return locale === "en" ? SEO_NAV_EN : SEO_NAV_FR;
 }
 
+/** Liens footer home — 4 max, pour ne pas saturer l’attention. */
+export function getHomeFooterLinks(locale: Locale): NavLink[] {
+  const all = getSeoNavLinks(locale);
+  const keep = new Set(["/pour-qui", "/a-propos", "/contact", "/logiciel-interventions-terrain"]);
+  return all.filter((l) => keep.has(l.to));
+}
+
 /** @deprecated Prefer getSeoNavLinks(locale). */
 export const SEO_NAV_LINKS = SEO_NAV_FR;

@@ -92,6 +92,7 @@ export function StickyCta({ disabled = false }: StickyCtaProps) {
     >
       <OpenNotaLink
         variant="primary"
+        utmContent="sticky"
         className="w-full rounded-full bg-accent py-3.5 text-sm text-on-accent shadow-[0_8px_24px_rgba(29,78,216,0.28)] transition active:bg-accent-deep"
       />
     </div>

@@ -26,7 +26,7 @@ export const FAQ_ITEMS_FR: FaqItem[] = [
   },
   {
     question: "Où est l’application ?",
-    answer: "Sur app.heynota.app — bouton « Voir mes missions sur la carte » ou « Ouvrir Nota ».",
+    answer: "Sur app.heynota.app — bouton « Voir mes missions ».",
   },
   {
     question: "Qui a conçu Nota ?",
@@ -56,7 +56,7 @@ export const FAQ_ITEMS_EN: FaqItem[] = [
   },
   {
     question: "Where is the app?",
-    answer: "At app.heynota.app — use “See my jobs on the map” or “Open Nota”.",
+    answer: "At app.heynota.app — use “See my jobs”.",
   },
   {
     question: "Who built Nota?",

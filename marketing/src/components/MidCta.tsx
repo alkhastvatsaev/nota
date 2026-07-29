@@ -15,9 +15,7 @@ export function MidCta() {
           variant="primary"
           utmContent="mid_cta"
           className="rounded-full bg-accent px-8 py-4 text-sm text-on-accent transition hover:bg-accent-deep"
-        >
-          {t.heroCta}
-        </OpenNotaLink>
+        />
       </div>
     </section>
   );

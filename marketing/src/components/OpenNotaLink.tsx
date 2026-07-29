@@ -14,6 +14,7 @@ type OpenNotaLinkProps = {
   utmContent?: string;
 };
 
+/** CTA unifié : libellé bénéfice par défaut (heroCta), partout. */
 export function OpenNotaLink({
   className,
   children,
@@ -23,8 +24,8 @@ export function OpenNotaLink({
 }: OpenNotaLinkProps) {
   const { t } = useLocale();
   const { pathname } = useLocation();
-  const label = children ?? t.openNota;
-  const isDefaultLabel = children == null || children === t.openNota;
+  const label = children ?? t.heroCta;
+  const isDefaultLabel = children == null || children === t.heroCta || children === t.openNota;
   const href = buildAppUrl({
     content: utmContent ?? (pathname.replace(/^\//, "") || "home"),
   });

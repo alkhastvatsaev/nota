@@ -1,60 +1,45 @@
 import { Link } from "react-router-dom";
-import { ProductProofGallery } from "./ProductProofGallery";
 import { FOUNDER_FULL_NAME, PORTFOLIO_URL } from "../config/founder";
 import { useLocale } from "../i18n/LocaleContext";
 import { getFaqItems } from "../content/faq";
 
-/** Contenu indexable de la home : empathie, features, pour qui, FAQ. */
+/**
+ * Home indexable content — one product proof, one audience, one FAQ.
+ * (No duplicate kanban / gallery / feature grids.)
+ */
 export function HomeSeoIntro() {
   const { locale, t } = useLocale();
   const faq = getFaqItems(locale);
 
   const links = [
     { to: "/logiciel-interventions-terrain", label: t.linkFieldSoftware },
-    { to: "/gestion-interventions", label: t.linkJobMgmt },
     { to: "/pour-qui", label: t.linkSectors },
     { to: "/guides/excel-vers-logiciel-interventions", label: t.linkExcelGuide },
-    { to: "/ressources/checklist-interventions-terrain", label: t.linkChecklist },
   ];
 
   return (
     <>
       <section
-        className="border-t border-line bg-void px-6 py-16 sm:px-10"
-        aria-labelledby="seo-intro-heading"
-      >
-        <div className="mx-auto max-w-2xl text-center">
-          <h2
-            id="seo-intro-heading"
-            className="font-display text-[clamp(1.5rem,4vw,2rem)] tracking-tight text-ink"
-          >
-            {t.seoIntroHeading}
-          </h2>
-          <p className="mt-4 text-base font-normal leading-relaxed text-mute">
-            <strong className="font-semibold text-ink">{t.seoIntroBodyBefore}</strong>
-            {t.seoIntroBodyAfter}
-          </p>
-          <p className="mt-3 text-sm font-normal text-mute">
-            {t.siteLabel} : heynota.app · {t.appLabel} : app.heynota.app
-          </p>
-        </div>
-      </section>
-
-      <section
-        className="border-t border-line bg-mist px-6 py-16 sm:px-10"
+        id="produit"
+        className="border-t border-line bg-mist px-6 py-16 sm:px-10 sm:py-20"
         aria-labelledby="features-heading"
       >
         <div className="mx-auto max-w-5xl">
-          <h2
-            id="features-heading"
-            className="text-center font-display text-[clamp(1.5rem,4vw,2rem)] tracking-tight text-ink"
-          >
-            {t.featuresHeading}
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-mute">
-            {t.featuresLead}
-          </p>
-          <div className="mt-10 grid gap-10 md:grid-cols-3">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2
+              id="features-heading"
+              className="font-display text-[clamp(1.5rem,4vw,2rem)] tracking-tight text-ink"
+            >
+              {t.featuresHeading}
+            </h2>
+            <p className="mt-3 text-base leading-relaxed text-mute">{t.featuresLead}</p>
+            <p className="mt-4 text-sm leading-relaxed text-mute">
+              <strong className="font-semibold text-ink">{t.seoIntroBodyBefore}</strong>
+              {t.seoIntroBodyAfter}
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-10 md:grid-cols-3">
             {t.featureCards.map((feature) => (
               <article key={feature.title} className="text-left">
                 <img
@@ -75,7 +60,7 @@ export function HomeSeoIntro() {
       </section>
 
       <section
-        className="border-t border-line bg-void px-6 py-16 sm:px-10"
+        className="border-t border-line bg-void px-6 py-14 sm:px-10 sm:py-16"
         aria-labelledby="audience-heading"
       >
         <div className="mx-auto max-w-2xl text-center">
@@ -98,7 +83,6 @@ export function HomeSeoIntro() {
               </li>
             ))}
           </ul>
-          <ProductProofGallery id="apercu-accueil" title={t.galleryTitle} />
         </div>
       </section>
 
