@@ -1,12 +1,8 @@
-import { lazy, Suspense, useRef } from "react";
+import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useLocale } from "../i18n/LocaleContext";
 import { OpenNotaLink } from "./OpenNotaLink";
 import { HeroNotaTitle } from "./HeroNotaTitle";
-
-const ParticleField = lazy(() =>
-  import("./ui/ParticleField").then((m) => ({ default: m.ParticleField }))
-);
 
 const spring = { type: "spring" as const, stiffness: 80, damping: 18, mass: 0.85 };
 
@@ -38,19 +34,10 @@ export function ImmersiveHero() {
         }}
       />
 
-      {!reduce && (
-        <Suspense fallback={null}>
-          <div className="pointer-events-none absolute inset-0">
-            <ParticleField />
-          </div>
-        </Suspense>
-      )}
-
       <motion.div
         style={{ opacity: opacityHero }}
         className="relative z-10 flex flex-1 flex-col items-center justify-center overflow-visible px-6 pb-24 text-center md:pb-20"
       >
-        {/* Motion only on wrapper — gradient styles live on the inner span so Framer doesn't wipe them */}
         <motion.div
           style={{ y: yTitle }}
           initial={reduce ? false : { opacity: 0, y: 24 }}
@@ -81,8 +68,11 @@ export function ImmersiveHero() {
         >
           <OpenNotaLink
             variant="primary"
+            utmContent="hero"
             className="rounded-full bg-ink px-8 py-4 text-sm text-void transition hover:bg-accent"
-          />
+          >
+            {t.heroCta}
+          </OpenNotaLink>
         </motion.div>
         <p className="mt-3 text-xs font-normal text-mute">{t.noAccountAccess}</p>
       </motion.div>

@@ -5,7 +5,12 @@ import { useLocale } from "../i18n/LocaleContext";
 import { FounderCredit } from "./FounderCredit";
 import { SeoFooterNav } from "./SeoFooterNav";
 
-export function Footer() {
+type FooterProps = {
+  /** Sur la home, la FAQ est déjà dans le corps — évite le doublon. */
+  hideFaq?: boolean;
+};
+
+export function Footer({ hideFaq = false }: FooterProps) {
   const year = new Date().getFullYear();
   const { locale, t } = useLocale();
   const faq = getFaqItems(locale);
@@ -34,24 +39,26 @@ export function Footer() {
           </a>
         </p>
 
-        <details id="faq" className="group mt-8 border-t border-line pt-6">
-          <summary className="cursor-pointer list-none text-sm text-ink marker:content-none focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
-            <span className="flex min-h-11 items-center justify-between gap-3">
-              {t.faqTitle}
-              <span aria-hidden className="text-accent transition group-open:rotate-45">
-                +
+        {!hideFaq ? (
+          <details id="faq" className="group mt-8 border-t border-line pt-6">
+            <summary className="cursor-pointer list-none text-sm text-ink marker:content-none focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-accent [&::-webkit-details-marker]:hidden">
+              <span className="flex min-h-11 items-center justify-between gap-3">
+                {t.faqTitle}
+                <span aria-hidden className="text-accent transition group-open:rotate-45">
+                  +
+                </span>
               </span>
-            </span>
-          </summary>
-          <div className="mt-4 space-y-4">
-            {faq.map((item) => (
-              <div key={item.question}>
-                <p className="text-sm text-ink">{item.question}</p>
-                <p className="mt-1 text-xs leading-relaxed text-mute">{item.answer}</p>
-              </div>
-            ))}
-          </div>
-        </details>
+            </summary>
+            <div className="mt-4 space-y-4">
+              {faq.map((item) => (
+                <div key={item.question}>
+                  <p className="text-sm text-ink">{item.question}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-mute">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </details>
+        ) : null}
 
         <p id="confidentialite" className="mt-8 text-[11px] leading-relaxed text-mute">
           <span id="mentions">

@@ -5,72 +5,61 @@ export type FaqItem = {
 
 export const FAQ_ITEMS_FR: FaqItem[] = [
   {
-    question: "C’est quoi Nota CRM ?",
+    question: "Est-ce que Nota peut m’aider avec mon chaos Excel + WhatsApp ?",
     answer:
-      "Nota CRM (heynota.app) est un CRM pour entreprises à interventions sur site : carte des missions, dossiers clients, hub technicien mobile et facturation. L’app est sur app.heynota.app.",
+      "Oui. Nota centralise vos missions sur une carte partagée, le téléphone du technicien et la facturation — pour que toute l’équipe voie la même chose, sans versions de fichiers.",
   },
   {
-    question: "Pour quels types d’entreprises ?",
+    question: "Mon activité est-elle concernée ?",
     answer:
-      "Maintenance, installation, dépannage, services récurrents, IT sur site, property management… Toute structure qui envoie des techniciens chez ses clients.",
+      "Si vous envoyez des techniciens chez vos clients (maintenance, installation, dépannage, services récurrents, IT sur site, property management…), oui — c’est exactement pour vous.",
   },
   {
-    question: "Faut-il s’inscrire sur ce site ?",
-    answer: "Non. heynota.app renvoie vers l’app : ouverture directe, sans formulaire marketing.",
-  },
-  {
-    question: "Nota remplace Excel ?",
+    question: "Dois-je créer un compte sur ce site avant d’essayer ?",
     answer:
-      "Pour le suivi des interventions et clients, oui : vue partagée, mobile terrain et moins de versions de fichiers.",
+      "Non. Vous ouvrez l’app directement depuis heynota.app — pas de formulaire marketing ici.",
   },
   {
-    question: "Ça marche sur téléphone ?",
+    question: "Mes techniciens pourront-ils l’utiliser sur téléphone ?",
     answer:
-      "Oui. PWA installable sur l’écran d’accueil, avec mode hors-ligne pour les techniciens (synchro au retour réseau).",
+      "Oui. PWA installable sur l’écran d’accueil, avec mode hors-ligne (synchro au retour réseau).",
   },
   {
-    question: "Où est l’application Nota CRM ?",
-    answer: "Sur app.heynota.app — bouton « Ouvrir Nota » sur heynota.app.",
+    question: "Où est l’application ?",
+    answer: "Sur app.heynota.app — bouton « Voir mes missions sur la carte » ou « Ouvrir Nota ».",
   },
   {
     question: "Qui a conçu Nota ?",
     answer:
-      "Nota CRM a été conçu et développé par Alkhast Vatsaev. Portfolio : https://alkhastvatsaev.dev",
+      "Nota a été conçu et développé par Alkhast Vatsaev. Portfolio : https://alkhastvatsaev.dev",
   },
 ];
 
 export const FAQ_ITEMS_EN: FaqItem[] = [
   {
-    question: "What is Nota CRM?",
+    question: "Can Nota help with my Excel + WhatsApp chaos?",
     answer:
-      "Nota CRM (heynota.app) is a CRM for companies with on-site work: job map, client files, mobile technician hub and billing. The app is at app.heynota.app.",
+      "Yes. Nota centralises your jobs on a shared map, the technician’s phone and billing — so the whole team sees the same truth, without file versions.",
   },
   {
-    question: "Which companies is it for?",
+    question: "Is my business a fit?",
     answer:
-      "Maintenance, install, repair, recurring services, on-site IT, property management… Any organisation that sends technicians to customers.",
+      "If you send technicians to customers (maintenance, install, repair, recurring services, on-site IT, property management…), yes — it’s built for you.",
   },
   {
-    question: "Do I need to sign up on this site?",
-    answer: "No. heynota.app sends you to the app: open directly, no marketing form.",
+    question: "Do I need an account on this site before trying?",
+    answer: "No. You open the app directly from heynota.app — no marketing form here.",
   },
   {
-    question: "Does Nota replace Excel?",
-    answer:
-      "For tracking jobs and clients, yes: a shared view, field mobile and fewer file versions.",
+    question: "Can my technicians use it on their phone?",
+    answer: "Yes. Installable PWA on the home screen, with offline mode (sync when back online).",
   },
   {
-    question: "Does it work on phones?",
-    answer:
-      "Yes. Installable PWA on the home screen, with offline mode for technicians (sync when back online).",
-  },
-  {
-    question: "Where is the Nota CRM app?",
-    answer: "At app.heynota.app — use “Open Nota” on heynota.app.",
+    question: "Where is the app?",
+    answer: "At app.heynota.app — use “See my jobs on the map” or “Open Nota”.",
   },
   {
     question: "Who built Nota?",
-    answer:
-      "Nota CRM was designed and built by Alkhast Vatsaev. Portfolio: https://alkhastvatsaev.dev",
+    answer: "Nota was designed and built by Alkhast Vatsaev. Portfolio: https://alkhastvatsaev.dev",
   },
 ];

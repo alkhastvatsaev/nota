@@ -1,56 +1,40 @@
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { useLocale } from "../i18n/LocaleContext";
 
-const DEMO_ITEMS = [["Northwind", "Helio"], ["Cedar", "Atlas"], ["Orbit", "Lumen"], ["Invoice"]];
-
+/** Aperçu kanban avec libellés métiers réalistes (pas de noms fictifs absurdes). */
 export function ProductStage() {
   const { t } = useLocale();
+  const reduce = useReducedMotion();
   const columns = t.productStages.map((stage, i) => ({
     stage,
-    items: DEMO_ITEMS[i] ?? [],
+    items: t.productDemoLines[i] ?? [],
   }));
-  const ref = useRef<HTMLElement>(null);
-  const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const smooth = useSpring(scrollYProgress, { stiffness: 90, damping: 28 });
-  const rotateX = useTransform(smooth, [0.1, 0.45, 0.75], reduce ? [0, 0, 0] : [14, 0, -4]);
-  const scale = useTransform(smooth, [0.1, 0.45, 0.8], reduce ? [1, 1, 1] : [0.88, 1.02, 0.98]);
-  const y = useTransform(smooth, [0.1, 0.5], reduce ? [0, 0] : [60, 0]);
-  const glow = useTransform(smooth, [0.2, 0.5], [0.35, 1]);
 
   return (
     <section
-      ref={ref}
       id="produit"
-      className="relative bg-mist py-20 sm:py-28"
+      className="relative border-t border-line bg-mist py-16 sm:py-20"
       aria-labelledby="produit-heading"
     >
-      <h2
-        id="produit-heading"
-        className="mb-8 text-center font-display text-[clamp(1.5rem,4vw,2.25rem)] tracking-tight text-ink sm:mb-10"
-      >
-        {t.productHeading}
-      </h2>
-
-      <div
-        className="mx-auto flex max-w-5xl justify-center px-6 sm:px-10"
-        style={{ perspective: "1200px" }}
-      >
-        <motion.div
-          style={{
-            rotateX,
-            scale,
-            y,
-            opacity: glow,
-            transformStyle: "preserve-3d",
-          }}
-          className="w-full max-w-3xl origin-center will-change-transform"
+      <div className="mx-auto max-w-3xl px-6 text-center sm:px-10">
+        <h2
+          id="produit-heading"
+          className="font-display text-[clamp(1.5rem,4vw,2.25rem)] tracking-tight text-ink"
         >
-          <div className="overflow-hidden rounded-[1.75rem] border border-line bg-gradient-to-br from-sky-soft via-mist to-void shadow-[0_40px_100px_rgba(37,99,235,0.18)]">
+          {t.productHeading}
+        </h2>
+        <p className="mt-3 text-sm leading-relaxed text-mute sm:text-base">{t.productLead}</p>
+      </div>
+
+      <div className="mx-auto mt-10 flex max-w-5xl justify-center px-6 sm:px-10">
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full max-w-3xl"
+        >
+          <div className="overflow-hidden rounded-[1.75rem] border border-line bg-gradient-to-br from-sky-soft via-mist to-void shadow-[0_24px_60px_rgba(37,99,235,0.12)]">
             <div className="flex items-center gap-2 border-b border-line/80 bg-void/70 px-4 py-3">
               <span className="h-2.5 w-2.5 rounded-full bg-line" />
               <span className="h-2.5 w-2.5 rounded-full bg-line" />
@@ -61,15 +45,10 @@ export function ProductStage() {
               {columns.map((col, i) => (
                 <motion.div
                   key={col.stage}
-                  initial={reduce ? false : { opacity: 0, y: 20 }}
+                  initial={reduce ? false : { opacity: 0, y: 12 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{
-                    delay: 0.08 + i * 0.07,
-                    type: "spring",
-                    stiffness: 120,
-                    damping: 18,
-                  }}
+                  transition={{ delay: 0.06 + i * 0.05, duration: 0.35 }}
                   className="rounded-2xl border border-line/80 bg-void/90 p-3"
                 >
                   <p className="mb-3 text-[10px] uppercase tracking-[0.14em] text-mute">

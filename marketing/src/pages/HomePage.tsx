@@ -1,6 +1,4 @@
 import { SmoothScroll } from "../components/SmoothScroll";
-import { ProgressRail } from "../components/ProgressRail";
-import { HypnoticField } from "../components/HypnoticField";
 import { SiteHeader } from "../components/SiteHeader";
 import { ImmersiveHero } from "../components/ImmersiveHero";
 import { HookLine } from "../components/HookLine";
@@ -10,7 +8,6 @@ import { MidCta } from "../components/MidCta";
 import { Footer } from "../components/Footer";
 import { StickyCta } from "../components/StickyCta";
 import { HomeSeoIntro } from "../components/HomeSeoIntro";
-import { OpenNotaLink } from "../components/OpenNotaLink";
 import { useLocale } from "../i18n/LocaleContext";
 
 export function HomePage() {
@@ -22,16 +19,8 @@ export function HomePage() {
         <a href="#main" className="skip-link">
           {t.skipToContent}
         </a>
-        <OpenNotaLink
-          variant="nav"
-          utmContent="skip_link"
-          className="skip-link skip-link-cta"
-          showIcon={false}
-        />
-        <HypnoticField />
-        <ProgressRail />
         {/* Header hors du hero : sticky réel (overflow du hero cassait le sticky). */}
-        <SiteHeader brandIsLink={false} />
+        <SiteHeader brandIsLink={false} showFounder={false} />
         <main id="main" className="relative z-10">
           <ImmersiveHero />
           <HookLine />
@@ -40,7 +29,7 @@ export function HomePage() {
           <HomeSeoIntro />
           <MidCta />
         </main>
-        <Footer />
+        <Footer hideFaq />
         <StickyCta />
       </div>
     </SmoothScroll>

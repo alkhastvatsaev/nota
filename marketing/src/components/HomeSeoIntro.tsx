@@ -1,67 +1,13 @@
 import { Link } from "react-router-dom";
-import { OpenNotaLink } from "./OpenNotaLink";
 import { ProductProofGallery } from "./ProductProofGallery";
 import { FOUNDER_FULL_NAME, PORTFOLIO_URL } from "../config/founder";
 import { useLocale } from "../i18n/LocaleContext";
 import { getFaqItems } from "../content/faq";
 
-/** Contenu indexable de la home : valeur, features, pour qui, FAQ, CTA. */
+/** Contenu indexable de la home : empathie, features, pour qui, FAQ. */
 export function HomeSeoIntro() {
   const { locale, t } = useLocale();
   const faq = getFaqItems(locale);
-  const isEn = locale === "en";
-
-  const features = isEn
-    ? [
-        {
-          title: "Live job map",
-          body: "See every intervention on a map: who is assigned, where the job is, and what status it has — without chasing WhatsApp threads.",
-          img: "/product/carte.png",
-          alt: "Nota job map — live field missions",
-        },
-        {
-          title: "Mobile technician hub",
-          body: "Technicians open missions on their phone, add before/after photos, capture signatures and keep working offline until the network returns.",
-          img: "/product/interventions.png",
-          alt: "Nota intervention list and case files",
-        },
-        {
-          title: "Billing tied to jobs",
-          body: "Quotes and invoices follow closed interventions — less re-typing, fewer forgotten invoices, one thread from site visit to payment.",
-          img: "/product/facturation.png",
-          alt: "Nota billing hub linked to jobs",
-        },
-      ]
-    : [
-        {
-          title: "Carte des missions",
-          body: "Visualisez chaque intervention sur une carte : qui est assigné, où se trouve le chantier, quel est le statut — sans chasser les fils WhatsApp.",
-          img: "/product/carte.png",
-          alt: "Carte des interventions Nota — vue des missions sur le terrain",
-        },
-        {
-          title: "Hub technicien mobile",
-          body: "Les techniciens ouvrent leurs missions sur téléphone, ajoutent photos avant/après, capturent la signature et continuent hors-ligne jusqu’au retour réseau.",
-          img: "/product/interventions.png",
-          alt: "Liste et dossiers d’interventions Nota",
-        },
-        {
-          title: "Facturation liée aux missions",
-          body: "Devis et factures suivent les interventions closes — moins de ressaisie, moins d’oublis, un fil continu de la visite au paiement.",
-          img: "/product/facturation.png",
-          alt: "Hub facturation Nota lié aux interventions",
-        },
-      ];
-
-  const audience = isEn
-    ? {
-        heading: "Who Nota is for",
-        body: "Maintenance, install, repair, recurring services, on-site IT, property management — any TPE/PME that sends technicians to customers and is tired of Excel + messaging chaos.",
-      }
-    : {
-        heading: "Pour qui c’est fait",
-        body: "Maintenance, installation, dépannage, services récurrents, IT sur site, property management — toute TPE/PME qui envoie des techniciens chez ses clients et en a assez d’Excel + messagerie.",
-      };
 
   const links = [
     { to: "/logiciel-interventions-terrain", label: t.linkFieldSoftware },
@@ -103,15 +49,13 @@ export function HomeSeoIntro() {
             id="features-heading"
             className="text-center font-display text-[clamp(1.5rem,4vw,2rem)] tracking-tight text-ink"
           >
-            {isEn ? "Three pillars of Nota CRM" : "Trois piliers de Nota CRM"}
+            {t.featuresHeading}
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-center text-sm leading-relaxed text-mute">
-            {isEn
-              ? "Real product surfaces — not stock illustrations."
-              : "Surfaces produit réelles — pas des illustrations génériques."}
+            {t.featuresLead}
           </p>
           <div className="mt-10 grid gap-10 md:grid-cols-3">
-            {features.map((feature) => (
+            {t.featureCards.map((feature) => (
               <article key={feature.title} className="text-left">
                 <img
                   src={feature.img}
@@ -139,9 +83,9 @@ export function HomeSeoIntro() {
             id="audience-heading"
             className="font-display text-[clamp(1.5rem,4vw,2rem)] tracking-tight text-ink"
           >
-            {audience.heading}
+            {t.audienceHeading}
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-mute">{audience.body}</p>
+          <p className="mt-4 text-base leading-relaxed text-mute">{t.audienceBody}</p>
           <ul className="mt-6 flex flex-wrap justify-center gap-2">
             {links.map((link) => (
               <li key={link.to}>
@@ -161,7 +105,7 @@ export function HomeSeoIntro() {
       <section
         className="border-t border-line bg-mist px-6 py-16 sm:px-10"
         aria-labelledby="home-faq-heading"
-        id="faq-accueil"
+        id="faq"
       >
         <div className="mx-auto max-w-2xl">
           <h2
@@ -189,13 +133,6 @@ export function HomeSeoIntro() {
             </a>
             .
           </p>
-          <div className="mt-6 flex justify-center">
-            <OpenNotaLink
-              variant="primary"
-              utmContent="home_seo_intro"
-              className="rounded-full bg-accent px-8 py-4 text-sm text-on-accent transition hover:bg-accent-deep"
-            />
-          </div>
         </div>
       </section>
     </>

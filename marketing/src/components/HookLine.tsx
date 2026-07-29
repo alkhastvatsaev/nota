@@ -7,7 +7,7 @@ export function HookLine() {
 
   return (
     <section
-      className="relative flex min-h-[42svh] items-center justify-center bg-mist px-6 py-16 text-center"
+      className="relative flex min-h-[28svh] items-center justify-center border-t border-line bg-mist px-6 py-14 text-center sm:py-16"
       aria-label={t.hookAria}
     >
       <div>

@@ -7,9 +7,15 @@ import { OpenNotaLink } from "./OpenNotaLink";
 type SiteHeaderProps = {
   homeHref?: string;
   brandIsLink?: boolean;
+  /** Sur la home, on garde le crédit fondateur en footer seulement (attention). */
+  showFounder?: boolean;
 };
 
-export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderProps) {
+export function SiteHeader({
+  homeHref = "/",
+  brandIsLink = true,
+  showFounder = true,
+}: SiteHeaderProps) {
   const { t } = useLocale();
 
   return (
@@ -33,7 +39,7 @@ export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderPro
             NOTA
           </a>
         )}
-        <FounderCredit size="header" className="min-w-0 truncate" />
+        {showFounder ? <FounderCredit size="header" className="min-w-0 truncate" /> : null}
       </div>
       <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
         <Link
@@ -44,6 +50,7 @@ export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderPro
         </Link>
         <OpenNotaLink
           variant="nav"
+          utmContent="header"
           className="rounded-full bg-accent px-3.5 py-2 text-xs text-on-accent transition hover:bg-accent-deep sm:px-5 sm:py-2.5 sm:text-sm"
         />
       </div>
