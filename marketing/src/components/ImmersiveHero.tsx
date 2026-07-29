@@ -54,7 +54,7 @@ export function ImmersiveHero() {
           initial={reduce ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...spring, delay: 0.08 }}
-          className="font-display text-[clamp(3.25rem,13vw,9rem)] leading-[0.95] tracking-tight text-ink"
+          className="font-display text-[clamp(3.25rem,13vw,9rem)] leading-[0.95] tracking-tight hero-title-glow"
         >
           NOTA
           <span className="sr-only"> {t.heroSr}</span>

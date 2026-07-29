@@ -92,6 +92,34 @@
     font-family: var(--font-display);
   }
 
+  .hero-title-glow {
+    background: linear-gradient(
+      135deg,
+      #0b1f3a 0%,
+      #1d4ed8 20%,
+      #6366f1 35%,
+      #a78bfa 50%,
+      #6366f1 65%,
+      #1d4ed8 80%,
+      #0b1f3a 100%
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hero-shimmer 6s ease-in-out infinite;
+  }
+
+  @keyframes hero-shimmer {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
   .skip-link {
     position: absolute;
     left: 1rem;
