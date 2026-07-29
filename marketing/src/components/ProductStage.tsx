@@ -34,11 +34,11 @@ export function ProductStage() {
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
           className="w-full max-w-3xl"
         >
-          <div className="overflow-hidden rounded-[1.75rem] border border-line bg-gradient-to-br from-sky-soft via-mist to-void shadow-[0_24px_60px_rgba(37,99,235,0.12)]">
-            <div className="flex items-center gap-2 border-b border-line/80 bg-void/70 px-4 py-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-line" />
-              <span className="h-2.5 w-2.5 rounded-full bg-line" />
-              <span className="h-2.5 w-2.5 rounded-full bg-line" />
+          <div className="overflow-hidden rounded-[1.75rem] border border-line bg-void shadow-[0_24px_60px_rgba(37,99,235,0.12)]">
+            <div className="flex items-center gap-2 border-b border-line bg-mist px-4 py-3">
+              <span className="h-2.5 w-2.5 rounded-full bg-mute/40" />
+              <span className="h-2.5 w-2.5 rounded-full bg-mute/40" />
+              <span className="h-2.5 w-2.5 rounded-full bg-mute/40" />
             </div>
 
             <div className="grid gap-3 p-5 sm:grid-cols-4 sm:p-6">
@@ -49,16 +49,16 @@ export function ProductStage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.06 + i * 0.05, duration: 0.35 }}
-                  className="rounded-2xl border border-line/80 bg-void/90 p-3"
+                  className="rounded-2xl border border-line bg-mist p-3"
                 >
-                  <p className="mb-3 text-[10px] uppercase tracking-[0.14em] text-mute">
+                  <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink/70">
                     {col.stage}
                   </p>
                   <div className="space-y-2">
                     {col.items.map((item) => (
                       <div
                         key={item}
-                        className="rounded-xl border border-line bg-mist px-3 py-2.5 text-xs text-ink"
+                        className="rounded-xl border border-line bg-void px-3 py-2.5 text-xs font-medium text-ink"
                       >
                         {item}
                       </div>
