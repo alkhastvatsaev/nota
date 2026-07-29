@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { CONTACT_PATH } from "../config/contact";
 import { useLocale } from "../i18n/LocaleContext";
 import { FounderCredit } from "./FounderCredit";
-import { LanguageSwitch } from "./LanguageSwitch";
 import { OpenNotaLink } from "./OpenNotaLink";
 
 type SiteHeaderProps = {
@@ -43,7 +42,6 @@ export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderPro
         >
           {t.contact}
         </Link>
-        <LanguageSwitch />
         <OpenNotaLink
           variant="nav"
           className="rounded-full bg-accent px-3.5 py-2 text-xs text-on-accent transition hover:bg-accent-deep sm:px-5 sm:py-2.5 sm:text-sm"
