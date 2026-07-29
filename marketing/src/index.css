@@ -92,39 +92,26 @@
     font-family: var(--font-display);
   }
 
-  /* Premium specular shimmer — lives outside Framer Motion; padding avoids glyph clip */
-  .hero-title-ai-shell {
-    position: relative;
-    display: inline-block;
+  /* Hero NOTA — SVG avoids background-clip:text glyph clipping (Safari A) */
+  .hero-nota-svg {
+    display: block;
+    width: clamp(3.25rem, 13vw, 9rem);
+    height: auto;
+    aspect-ratio: 520 / 112;
     overflow: visible;
-    padding: 0.08em 0.2em 0.12em 0.1em;
-    line-height: 1.08;
-    filter: drop-shadow(0 8px 28px rgba(29, 78, 216, 0.14));
   }
 
-  .hero-title-ai {
-    display: block;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-repeat: no-repeat;
-    background-size: 320% 100%;
-    background-position: 18% 50%;
-    background-image: linear-gradient(
-      100deg,
-      #0b1f3a 0%,
-      #0b1f3a 30%,
-      #132d52 40%,
-      #1e40af 47%,
-      #2563eb 49.5%,
-      #60a5fa 50%,
-      #2563eb 50.5%,
-      #1e40af 53%,
-      #0b1f3a 62%,
-      #0b1f3a 100%
-    );
-    animation: hero-title-ai-shimmer 10s ease-in-out infinite alternate;
+  .hero-nota-svg-text {
+    font-family: var(--font-display);
+    font-size: 76px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-nota-svg-text {
+      fill: #0b1f3a;
+    }
   }
 
   .skip-link {
@@ -146,22 +133,6 @@
   .skip-link-cta:focus {
     left: auto;
     right: 1rem;
-  }
-}
-
-@keyframes hero-title-ai-shimmer {
-  0% {
-    background-position: 8% 50%;
-  }
-  100% {
-    background-position: 92% 50%;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-title-ai-static .hero-title-ai {
-    animation: none;
-    background-position: 34% 50%;
   }
 }
 

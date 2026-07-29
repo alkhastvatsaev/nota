@@ -21,14 +21,14 @@ export function SiteHeader({ homeHref = "/", brandIsLink = true }: SiteHeaderPro
         {brandIsLink ? (
           <Link
             to={homeHref}
-            className="font-display inline-flex shrink-0 items-center text-sm tracking-[0.12em] text-ink"
+            className="font-display inline-flex shrink-0 items-center overflow-visible pr-[0.12em] text-sm tracking-[0.12em] text-ink"
           >
             NOTA
           </Link>
         ) : (
           <a
             href="#top"
-            className="font-display inline-flex shrink-0 items-center text-sm tracking-[0.12em] text-ink"
+            className="font-display inline-flex shrink-0 items-center overflow-visible pr-[0.12em] text-sm tracking-[0.12em] text-ink"
           >
             NOTA
           </a>

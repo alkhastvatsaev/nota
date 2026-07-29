@@ -2,6 +2,7 @@ import { lazy, Suspense, useRef } from "react";
 import { motion, useReducedMotion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useLocale } from "../i18n/LocaleContext";
 import { OpenNotaLink } from "./OpenNotaLink";
+import { HeroNotaTitle } from "./HeroNotaTitle";
 
 const ParticleField = lazy(() =>
   import("./ui/ParticleField").then((m) => ({ default: m.ParticleField }))
@@ -50,21 +51,18 @@ export function ImmersiveHero() {
         className="relative z-10 flex flex-1 flex-col items-center justify-center overflow-visible px-6 pb-24 text-center md:pb-20"
       >
         {/* Motion only on wrapper — gradient styles live on the inner span so Framer doesn't wipe them */}
-        <motion.h1
+        <motion.div
           style={{ y: yTitle }}
           initial={reduce ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...spring, delay: 0.08 }}
-          className="font-display overflow-visible text-[clamp(3.25rem,13vw,9rem)] leading-none tracking-[-0.02em]"
+          className="overflow-visible"
         >
-          <span
-            className={reduce ? "hero-title-ai-shell hero-title-ai-static" : "hero-title-ai-shell"}
-            aria-hidden
-          >
-            <span className="hero-title-ai">NOTA</span>
-          </span>
-          <span className="sr-only">NOTA {t.heroSr}</span>
-        </motion.h1>
+          <h1 className="font-display overflow-visible leading-none">
+            <HeroNotaTitle reduceMotion={!!reduce} />
+            <span className="sr-only">NOTA {t.heroSr}</span>
+          </h1>
+        </motion.div>
 
         <motion.p
           initial={reduce ? false : { opacity: 0, y: 14 }}
