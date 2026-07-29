@@ -104,9 +104,13 @@
     font-weight: 700;
     line-height: 1.18;
     letter-spacing: -0.02em;
-    padding: 0.14em 0.28em 0.18em 0.12em;
+    padding: 0.16em 0.36em 0.2em 0.14em;
     overflow: visible;
     color: #0b1f3a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: geometricPrecision;
+    transform: translateZ(0);
     background-color: #0b1f3a;
     background-image: linear-gradient(
       100deg,
