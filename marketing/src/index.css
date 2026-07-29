@@ -102,22 +102,12 @@
       #6366f1 65%,
       #1d4ed8 80%,
       #0b1f3a 100%
-    );
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    ) !important;
+    background-size: 300% 300% !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
     animation: hero-shimmer 6s ease-in-out infinite;
-  }
-
-  @keyframes hero-shimmer {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
   }
 
   .skip-link {
@@ -139,6 +129,16 @@
   .skip-link-cta:focus {
     left: auto;
     right: 1rem;
+  }
+}
+
+@keyframes hero-shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
 }
 
