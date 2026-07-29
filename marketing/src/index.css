@@ -93,67 +93,69 @@
   }
 
   /*
-   * HTML wordmark — solid-ink-majority gradient + Safari stroke seal.
-   * Never SVG gradient-on-<text> (tears letter joins on WebKit).
+   * Solid ink only — never background-clip/SVG gradient on glyphs (Safari tears joins).
+   * Soft blurred glow sweeps behind, fading in/out outside the word.
    */
   .hero-nota {
+    position: relative;
     display: inline-block;
     font-family: var(--font-display);
     font-size: clamp(3.25rem, 13vw, 9rem);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.12;
     letter-spacing: -0.02em;
-    padding: 0.1em 0.2em 0.14em;
+    padding: 0.12em 0.22em 0.14em;
     overflow: visible;
-    color: #0b1f3a;
-    background-image: linear-gradient(
-      100deg,
-      #0b1f3a 0%,
-      #0b1f3a 34%,
-      #152a4d 42%,
-      #1e40af 47%,
-      #3b82f6 50%,
-      #1e40af 53%,
-      #152a4d 58%,
-      #0b1f3a 66%,
-      #0b1f3a 100%
+  }
+
+  .hero-nota__ink {
+    position: relative;
+    z-index: 1;
+    display: block;
+    color: var(--color-ink);
+  }
+
+  .hero-nota__glow {
+    position: absolute;
+    z-index: 0;
+    top: 8%;
+    bottom: 8%;
+    width: 42%;
+    left: -35%;
+    border-radius: 999px;
+    pointer-events: none;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(147, 197, 253, 0.7) 0%,
+      rgba(59, 130, 246, 0.35) 42%,
+      transparent 72%
     );
-    background-size: 240% 100%;
-    background-repeat: no-repeat;
-    background-position: 130% 50%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    /* Seals WebKit hairline gaps inside glyph joins when using background-clip */
-    -webkit-text-stroke: 0.55px #0b1f3a;
-    paint-order: stroke fill;
-    animation: hero-nota-sweep 7s ease-in-out infinite;
+    filter: blur(22px);
+    opacity: 0;
+    animation: hero-nota-glow-sweep 7s ease-in-out infinite;
   }
 
-  .hero-nota--static {
-    animation: none;
-    background: none;
-    -webkit-text-fill-color: #0b1f3a;
-    -webkit-text-stroke: 0;
-    color: #0b1f3a;
-  }
-
-  @keyframes hero-nota-sweep {
+  @keyframes hero-nota-glow-sweep {
     0% {
-      background-position: 130% 50%;
+      left: -40%;
+      opacity: 0;
+    }
+    12% {
+      opacity: 0.95;
+    }
+    88% {
+      opacity: 0.95;
     }
     100% {
-      background-position: -30% 50%;
+      left: 95%;
+      opacity: 0;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-nota {
+    .hero-nota__glow {
       animation: none;
-      background: none;
-      -webkit-text-fill-color: #0b1f3a;
-      -webkit-text-stroke: 0;
-      color: #0b1f3a;
+      opacity: 0;
     }
   }
 
