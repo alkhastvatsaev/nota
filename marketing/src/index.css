@@ -92,47 +92,50 @@
     font-family: var(--font-display);
   }
 
-  /* Solid ink only — no background-clip / SVG fill on glyphs (breaks Safari strokes) */
+  /*
+   * HTML wordmark — solid-ink-majority gradient + Safari stroke seal.
+   * Never SVG gradient-on-<text> (tears letter joins on WebKit).
+   */
   .hero-nota {
-    position: relative;
     display: inline-block;
-    isolation: isolate;
     font-family: var(--font-display);
     font-size: clamp(3.25rem, 13vw, 9rem);
     font-weight: 700;
-    line-height: 1.12;
+    line-height: 1.15;
     letter-spacing: -0.02em;
-    padding: 0.12em 0.2em 0.16em;
+    padding: 0.1em 0.2em 0.14em;
     overflow: visible;
-  }
-
-  .hero-nota__ink {
-    position: relative;
-    z-index: 1;
-    display: block;
-    color: var(--color-ink);
-  }
-
-  .hero-nota__beam {
-    position: absolute;
-    z-index: 2;
-    inset: 0;
-    pointer-events: none;
+    color: #0b1f3a;
     background-image: linear-gradient(
       100deg,
-      transparent 0%,
-      transparent 32%,
-      rgba(37, 99, 235, 0.15) 42%,
-      rgba(96, 165, 250, 0.55) 50%,
-      rgba(37, 99, 235, 0.15) 58%,
-      transparent 68%,
-      transparent 100%
+      #0b1f3a 0%,
+      #0b1f3a 34%,
+      #152a4d 42%,
+      #1e40af 47%,
+      #3b82f6 50%,
+      #1e40af 53%,
+      #152a4d 58%,
+      #0b1f3a 66%,
+      #0b1f3a 100%
     );
-    background-size: 220% 100%;
+    background-size: 240% 100%;
     background-repeat: no-repeat;
     background-position: 130% 50%;
-    mix-blend-mode: soft-light;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* Seals WebKit hairline gaps inside glyph joins when using background-clip */
+    -webkit-text-stroke: 0.55px #0b1f3a;
+    paint-order: stroke fill;
     animation: hero-nota-sweep 7s ease-in-out infinite;
+  }
+
+  .hero-nota--static {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: #0b1f3a;
+    -webkit-text-stroke: 0;
+    color: #0b1f3a;
   }
 
   @keyframes hero-nota-sweep {
@@ -145,9 +148,12 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-nota__beam {
+    .hero-nota {
       animation: none;
-      opacity: 0;
+      background: none;
+      -webkit-text-fill-color: #0b1f3a;
+      -webkit-text-stroke: 0;
+      color: #0b1f3a;
     }
   }
 
