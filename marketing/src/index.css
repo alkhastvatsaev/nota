@@ -92,22 +92,26 @@
     font-family: var(--font-display);
   }
 
-  .hero-title-glow {
-    background: linear-gradient(
-      135deg,
+  /* Futuristic AI shimmer — on a non-motion span so Framer Motion cannot wipe styles */
+  .hero-title-ai {
+    display: inline-block;
+    color: transparent;
+    background-image: linear-gradient(
+      90deg,
       #0b1f3a 0%,
-      #1d4ed8 20%,
-      #6366f1 35%,
-      #a78bfa 50%,
-      #6366f1 65%,
-      #1d4ed8 80%,
+      #1d4ed8 18%,
+      #38bdf8 36%,
+      #818cf8 50%,
+      #38bdf8 64%,
+      #1d4ed8 82%,
       #0b1f3a 100%
-    ) !important;
-    background-size: 300% 300% !important;
-    -webkit-background-clip: text !important;
-    background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    animation: hero-shimmer 6s ease-in-out infinite;
+    );
+    background-size: 220% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hero-title-ai-shimmer 4s linear infinite;
   }
 
   .skip-link {
@@ -132,13 +136,21 @@
   }
 }
 
-@keyframes hero-shimmer {
-  0%,
-  100% {
+@keyframes hero-title-ai-shimmer {
+  0% {
     background-position: 0% 50%;
   }
-  50% {
-    background-position: 100% 50%;
+  100% {
+    background-position: 220% 50%;
+  }
+}
+
+/* Keep the title shimmer even when OS "reduce motion" is on (still short loop) */
+@media (prefers-reduced-motion: reduce) {
+  .hero-title-ai {
+    animation: none;
+    background-position: 40% 50%;
+    /* still show a visible multi-stop gradient when motion is off */
   }
 }
 
