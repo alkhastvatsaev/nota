@@ -93,12 +93,14 @@
   }
 
   /*
-   * Solid ink only — never background-clip/SVG gradient on glyphs (Safari tears joins).
-   * Soft blurred glow sweeps behind, fading in/out outside the word.
+   * Hero NOTA animation
+   * - Ink layer: solid glyphs (never gradient-filled)
+   * - Shine layer: same text, background-clip:text → light only inside letters
+   * - No blur blob (that painted over the word despite z-index)
    */
   .hero-nota {
     position: relative;
-    display: inline-block;
+    display: inline-grid;
     font-family: var(--font-display);
     font-size: clamp(3.25rem, 13vw, 9rem);
     font-weight: 700;
@@ -106,56 +108,71 @@
     letter-spacing: -0.02em;
     padding: 0.12em 0.22em 0.14em;
     overflow: visible;
+    isolation: isolate;
+  }
+
+  .hero-nota__ink,
+  .hero-nota__shine {
+    grid-area: 1 / 1;
+    display: block;
   }
 
   .hero-nota__ink {
-    position: relative;
     z-index: 1;
-    display: block;
     color: var(--color-ink);
   }
 
-  .hero-nota__glow {
-    position: absolute;
-    z-index: 0;
-    top: 8%;
-    bottom: 8%;
-    width: 42%;
-    left: -35%;
-    border-radius: 999px;
+  .hero-nota__shine {
+    z-index: 2;
     pointer-events: none;
-    background: radial-gradient(
-      ellipse at center,
-      rgba(147, 197, 253, 0.7) 0%,
-      rgba(59, 130, 246, 0.35) 42%,
-      transparent 72%
+    color: transparent;
+    background-image: linear-gradient(
+      100deg,
+      transparent 0%,
+      transparent 22%,
+      #1e40af 38%,
+      #3b82f6 46%,
+      #93c5fd 50%,
+      #3b82f6 54%,
+      #1e40af 62%,
+      transparent 78%,
+      transparent 100%
     );
-    filter: blur(22px);
-    opacity: 0;
-    animation: hero-nota-glow-sweep 7s ease-in-out infinite;
+    background-size: 260% 100%;
+    background-repeat: no-repeat;
+    background-position: 125% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    mix-blend-mode: screen;
+    animation: hero-nota-shine-sweep 7s ease-in-out infinite;
   }
 
-  @keyframes hero-nota-glow-sweep {
+  @keyframes hero-nota-shine-sweep {
     0% {
-      left: -40%;
+      background-position: 125% 50%;
       opacity: 0;
     }
-    12% {
-      opacity: 0.95;
+    8% {
+      opacity: 1;
     }
-    88% {
-      opacity: 0.95;
+    92% {
+      opacity: 1;
     }
     100% {
-      left: 95%;
+      background-position: -25% 50%;
       opacity: 0;
     }
+  }
+
+  .hero-nota--static .hero-nota__shine {
+    display: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-nota__glow {
+    .hero-nota__shine {
       animation: none;
-      opacity: 0;
+      display: none;
     }
   }
 
