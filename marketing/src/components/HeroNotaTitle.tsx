@@ -43,20 +43,20 @@ export function HeroNotaTitle({ reduceMotion }: HeroNotaTitleProps) {
               {/* One-way sweep: start left of N, end right of A → both ends = solid ink */}
               <animate
                 attributeName="x1"
-                dur="12s"
+                dur="7s"
                 repeatCount="indefinite"
                 values="-480;320"
                 calcMode="spline"
-                keySplines="0.42 0 0.58 1"
+                keySplines="0.37 0 0.63 1"
                 keyTimes="0;1"
               />
               <animate
                 attributeName="x2"
-                dur="12s"
+                dur="7s"
                 repeatCount="indefinite"
                 values="0;800"
                 calcMode="spline"
-                keySplines="0.42 0 0.58 1"
+                keySplines="0.37 0 0.63 1"
                 keyTimes="0;1"
               />
             </>
