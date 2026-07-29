@@ -81,6 +81,16 @@
       "permanent": true
     },
     {
+      "source": "/pilier",
+      "destination": "/logiciel-interventions-terrain",
+      "permanent": true
+    },
+    {
+      "source": "/pillar",
+      "destination": "/logiciel-interventions-terrain",
+      "permanent": true
+    },
+    {
       "source": "/depannage-interventions",
       "destination": "/interventions-terrain",
       "permanent": true
