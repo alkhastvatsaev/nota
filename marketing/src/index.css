@@ -92,26 +92,39 @@
     font-family: var(--font-display);
   }
 
-  /* Futuristic AI shimmer — on a non-motion span so Framer Motion cannot wipe styles */
-  .hero-title-ai {
+  /* Premium specular shimmer — lives outside Framer Motion; padding avoids glyph clip */
+  .hero-title-ai-shell {
+    position: relative;
     display: inline-block;
+    overflow: visible;
+    padding: 0.08em 0.2em 0.12em 0.1em;
+    line-height: 1.08;
+    filter: drop-shadow(0 8px 28px rgba(29, 78, 216, 0.14));
+  }
+
+  .hero-title-ai {
+    display: block;
     color: transparent;
-    background-image: linear-gradient(
-      90deg,
-      #0b1f3a 0%,
-      #1d4ed8 18%,
-      #38bdf8 36%,
-      #818cf8 50%,
-      #38bdf8 64%,
-      #1d4ed8 82%,
-      #0b1f3a 100%
-    );
-    background-size: 220% 100%;
-    background-position: 0% 50%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: hero-title-ai-shimmer 4s linear infinite;
+    background-repeat: no-repeat;
+    background-size: 320% 100%;
+    background-position: 18% 50%;
+    background-image: linear-gradient(
+      100deg,
+      #0b1f3a 0%,
+      #0b1f3a 30%,
+      #132d52 40%,
+      #1e40af 47%,
+      #2563eb 49.5%,
+      #60a5fa 50%,
+      #2563eb 50.5%,
+      #1e40af 53%,
+      #0b1f3a 62%,
+      #0b1f3a 100%
+    );
+    animation: hero-title-ai-shimmer 10s ease-in-out infinite alternate;
   }
 
   .skip-link {
@@ -138,19 +151,17 @@
 
 @keyframes hero-title-ai-shimmer {
   0% {
-    background-position: 0% 50%;
+    background-position: 8% 50%;
   }
   100% {
-    background-position: 220% 50%;
+    background-position: 92% 50%;
   }
 }
 
-/* Keep the title shimmer even when OS "reduce motion" is on (still short loop) */
 @media (prefers-reduced-motion: reduce) {
-  .hero-title-ai {
+  .hero-title-ai-static .hero-title-ai {
     animation: none;
-    background-position: 40% 50%;
-    /* still show a visible multi-stop gradient when motion is off */
+    background-position: 34% 50%;
   }
 }
 

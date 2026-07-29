@@ -47,7 +47,7 @@ export function ImmersiveHero() {
 
       <motion.div
         style={{ opacity: opacityHero }}
-        className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pb-24 text-center md:pb-20"
+        className="relative z-10 flex flex-1 flex-col items-center justify-center overflow-visible px-6 pb-24 text-center md:pb-20"
       >
         {/* Motion only on wrapper — gradient styles live on the inner span so Framer doesn't wipe them */}
         <motion.h1
@@ -55,10 +55,13 @@ export function ImmersiveHero() {
           initial={reduce ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...spring, delay: 0.08 }}
-          className="font-display text-[clamp(3.25rem,13vw,9rem)] leading-[0.95] tracking-tight"
+          className="font-display overflow-visible text-[clamp(3.25rem,13vw,9rem)] leading-none tracking-[-0.02em]"
         >
-          <span className={reduce ? "text-ink" : "hero-title-ai"} aria-hidden>
-            NOTA
+          <span
+            className={reduce ? "hero-title-ai-shell hero-title-ai-static" : "hero-title-ai-shell"}
+            aria-hidden
+          >
+            <span className="hero-title-ai">NOTA</span>
           </span>
           <span className="sr-only">NOTA {t.heroSr}</span>
         </motion.h1>
