@@ -93,86 +93,73 @@
   }
 
   /*
-   * Hero NOTA animation
-   * - Ink layer: solid glyphs (never gradient-filled)
-   * - Shine layer: same text, background-clip:text → light only inside letters
-   * - No blur blob (that painted over the word despite z-index)
+   * Hero NOTA — single clipped gradient (ink → soft blue → ink).
+   * No stacked layers / mix-blend (Safari jagged edges + black A corner).
+   * All gradient stops stay opaque so glyphs never punch through to white.
    */
   .hero-nota {
-    position: relative;
-    display: inline-grid;
+    display: inline-block;
     font-family: var(--font-display);
     font-size: clamp(3.25rem, 13vw, 9rem);
     font-weight: 700;
-    line-height: 1.12;
+    line-height: 1.18;
     letter-spacing: -0.02em;
-    padding: 0.12em 0.22em 0.14em;
+    padding: 0.14em 0.28em 0.18em 0.12em;
     overflow: visible;
-    isolation: isolate;
-  }
-
-  .hero-nota__ink,
-  .hero-nota__shine {
-    grid-area: 1 / 1;
-    display: block;
-  }
-
-  .hero-nota__ink {
-    z-index: 1;
-    color: var(--color-ink);
-  }
-
-  .hero-nota__shine {
-    z-index: 2;
-    pointer-events: none;
-    color: transparent;
+    color: #0b1f3a;
+    background-color: #0b1f3a;
     background-image: linear-gradient(
       100deg,
-      transparent 0%,
-      transparent 22%,
-      #1e40af 38%,
-      #3b82f6 46%,
-      #93c5fd 50%,
-      #3b82f6 54%,
-      #1e40af 62%,
-      transparent 78%,
-      transparent 100%
+      #0b1f3a 0%,
+      #0b1f3a 28%,
+      #122a4d 38%,
+      #1e3a8a 44%,
+      #2563eb 48%,
+      #60a5fa 50%,
+      #2563eb 52%,
+      #1e3a8a 56%,
+      #122a4d 62%,
+      #0b1f3a 72%,
+      #0b1f3a 100%
     );
-    background-size: 260% 100%;
+    background-size: 280% 100%;
     background-repeat: no-repeat;
-    background-position: 125% 50%;
+    background-position: 120% 50%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    mix-blend-mode: screen;
+    /* Seals WebKit hairlines without a second text layer */
+    -webkit-text-stroke: 0.65px #0b1f3a;
+    paint-order: stroke fill;
     animation: hero-nota-shine-sweep 7s ease-in-out infinite;
+  }
+
+  .hero-nota--static {
+    animation: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-text-fill-color: #0b1f3a;
+    -webkit-text-stroke: 0;
+    color: #0b1f3a;
   }
 
   @keyframes hero-nota-shine-sweep {
     0% {
-      background-position: 125% 50%;
-      opacity: 0;
-    }
-    8% {
-      opacity: 1;
-    }
-    92% {
-      opacity: 1;
+      background-position: 120% 50%;
     }
     100% {
-      background-position: -25% 50%;
-      opacity: 0;
+      background-position: -20% 50%;
     }
-  }
-
-  .hero-nota--static .hero-nota__shine {
-    display: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-nota__shine {
+    .hero-nota {
       animation: none;
-      display: none;
+      background-image: none;
+      background-color: transparent;
+      -webkit-text-fill-color: #0b1f3a;
+      -webkit-text-stroke: 0;
+      color: #0b1f3a;
     }
   }
 

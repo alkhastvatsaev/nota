@@ -3,15 +3,13 @@ type HeroNotaTitleProps = {
 };
 
 /**
- * Two stacked text layers (CSS grid, same cell):
- * 1. Solid ink — always full glyphs
- * 2. Shine — gradient clipped to letter shapes only (not a blob on top)
+ * Single text layer — solid-ink gradient only (no double-layer blend).
+ * Transparent stops + mix-blend caused jagged edges and a black A corner on Safari.
  */
 export function HeroNotaTitle({ reduceMotion }: HeroNotaTitleProps) {
   return (
     <span className={reduceMotion ? "hero-nota hero-nota--static" : "hero-nota"} aria-hidden>
-      <span className="hero-nota__ink">NOTA</span>
-      {!reduceMotion && <span className="hero-nota__shine">NOTA</span>}
+      NOTA
     </span>
   );
 }
