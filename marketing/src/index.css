@@ -92,15 +92,63 @@
     font-family: var(--font-display);
   }
 
-  /* Hero NOTA — SVG wordmark; height matches former h1 font-size */
-  .hero-nota-svg {
-    display: block;
-    margin-inline: auto;
-    height: clamp(3.25rem, 13vw, 9rem);
-    width: auto;
-    max-width: min(92vw, 42rem);
-    aspect-ratio: 320 / 128;
+  /* Solid ink only — no background-clip / SVG fill on glyphs (breaks Safari strokes) */
+  .hero-nota {
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+    font-family: var(--font-display);
+    font-size: clamp(3.25rem, 13vw, 9rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    padding: 0.12em 0.2em 0.16em;
     overflow: visible;
+  }
+
+  .hero-nota__ink {
+    position: relative;
+    z-index: 1;
+    display: block;
+    color: var(--color-ink);
+  }
+
+  .hero-nota__beam {
+    position: absolute;
+    z-index: 2;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(
+      100deg,
+      transparent 0%,
+      transparent 32%,
+      rgba(37, 99, 235, 0.15) 42%,
+      rgba(96, 165, 250, 0.55) 50%,
+      rgba(37, 99, 235, 0.15) 58%,
+      transparent 68%,
+      transparent 100%
+    );
+    background-size: 220% 100%;
+    background-repeat: no-repeat;
+    background-position: 130% 50%;
+    mix-blend-mode: soft-light;
+    animation: hero-nota-sweep 7s ease-in-out infinite;
+  }
+
+  @keyframes hero-nota-sweep {
+    0% {
+      background-position: 130% 50%;
+    }
+    100% {
+      background-position: -30% 50%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-nota__beam {
+      animation: none;
+      opacity: 0;
+    }
   }
 
   .skip-link {
