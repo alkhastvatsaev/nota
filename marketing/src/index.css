@@ -93,9 +93,8 @@
   }
 
   /*
-   * Hero NOTA — single clipped gradient (ink → soft blue → ink).
-   * No stacked layers / mix-blend (Safari jagged edges + black A corner).
-   * All gradient stops stay opaque so glyphs never punch through to white.
+   * Hero NOTA — single opaque gradient clipped to text.
+   * No -webkit-text-stroke (creates black outline + junction pixel offsets).
    */
   .hero-nota {
     display: inline-block;
@@ -107,11 +106,7 @@
     padding: 0.16em 0.36em 0.2em 0.14em;
     overflow: visible;
     color: #0b1f3a;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: geometricPrecision;
-    transform: translateZ(0);
-    background-color: #0b1f3a;
+    -webkit-font-smoothing: subpixel-antialiased;
     background-image: linear-gradient(
       100deg,
       #0b1f3a 0%,
@@ -132,18 +127,13 @@
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* Seals WebKit hairlines without a second text layer */
-    -webkit-text-stroke: 0.65px #0b1f3a;
-    paint-order: stroke fill;
     animation: hero-nota-shine-sweep 7s ease-in-out infinite;
   }
 
   .hero-nota--static {
     animation: none;
     background-image: none;
-    background-color: transparent;
     -webkit-text-fill-color: #0b1f3a;
-    -webkit-text-stroke: 0;
     color: #0b1f3a;
   }
 
@@ -160,9 +150,7 @@
     .hero-nota {
       animation: none;
       background-image: none;
-      background-color: transparent;
       -webkit-text-fill-color: #0b1f3a;
-      -webkit-text-stroke: 0;
       color: #0b1f3a;
     }
   }
